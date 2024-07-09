@@ -7,6 +7,7 @@
 - [ ] Mỗi dòng nếu quá dài, cần xuống dòng (maximum: 80 kí tự mỗi dòng)
 - [ ] Xóa các file được tự động sinh ra khi dùng các câu lệnh rails generate ... tạo ra nhưng k dùng đến, không có dòng code nào được viết trong đó (hay gặp nhất là các file helper)
 - [ ] Khi tạo mảng, nên tích cực sử dụng %w( ), %i() . Thay vì STATES = ['draft', 'open', 'closed'] có thể dùng STATES = %w(draft open closed)
+- [ ] Xem các lỗi hay gặp khi triển khai Rails tutorial tại https://docs.google.com/document/d/104Csp4-vamVos5DEbi372nLBEfmqhj7h1ENYO8ebjCo/edit
 - [ ] Tham khảo coding convention https://github.com/framgia/coding-standards/blob/master/vn/README.md
 
 ## Related Tickets
