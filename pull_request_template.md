@@ -1,3 +1,14 @@
+## Checklist tự review pull trước khi ready nhờ trainer review
+- [ ] Kiểm tra mỗi pull request 1 commit, nếu nhiều commit thì hãy gộp commit thành 1 rồi đẩy lại lên git
+- [ ] Trong các file của rails (đuôi .erb, .rb, .yml): sử dụng nháy " thay vì nháy '
+- [ ] Trong file javascript: sử dụng nháy ' thay vì "
+- [ ] Sử dụng thụt lề 2 space (setting lại vscode /sublime text nếu chưa cài đặt)
+- [ ] Cuối mỗi file kiểm tra có end line (khi đẩy lên git xem file change k bị lỗi tròn đỏ ở cuối file)
+- [ ] Mỗi dòng nếu quá dài, cần xuống dòng (maximum: 80 kí tự mỗi dòng)
+- [ ] Xóa các file được tự động sinh ra khi dùng các câu lệnh rails generate ... tạo ra nhưng k dùng đến, không có dòng code nào được viết trong đó (hay gặp nhất là các file helper)
+- [ ] Khi tạo mảng, nên tích cực sử dụng %w( ), %i() . Thay vì STATES = ['draft', 'open', 'closed'] có thể dùng STATES = %w(draft open closed)
+- [ ] Tham khảo coding convention https://github.com/framgia/coding-standards/blob/master/vn/README.md
+
 ## Related Tickets
 - ticket redmine
 
