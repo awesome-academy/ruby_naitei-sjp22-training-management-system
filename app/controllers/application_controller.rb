@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
   include Pagy::Backend
+  include UserLoadable
   protect_from_forgery with: :exception
 
   include SessionsHelper
@@ -29,13 +30,6 @@ class ApplicationController < ActionController::Base
     flash[:danger] = t("shared.login_required")
     store_location
     redirect_to login_url
-  end
-
-  def admin_user
-    return if current_user&.admin?
-
-    flash[:danger] = t("shared.admin_required")
-    redirect_to root_path
   end
 
   def correct_user

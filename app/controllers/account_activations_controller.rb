@@ -1,21 +1,13 @@
 class AccountActivationsController < ApplicationController
-  before_action :load_user
+  before_action :load_user_by_email
   before_action :check_authentication, only: %i(edit)
 
-  # GET /account_activations/:id/edit?email=email
+  # GET /account_activations/:id/edit?email=:email
   def edit
     activate_user
   end
 
   private
-
-  def load_user
-    @user = User.find_by(email: params[:email])
-    return if @user
-
-    flash[:danger] = t(".user_not_found")
-    redirect_to root_url
-  end
 
   def check_authentication
     return if !@user.activated && @user.authenticated?(:activation, params[:id])

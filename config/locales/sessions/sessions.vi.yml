@@ -5,6 +5,7 @@ vi:
       heading: "Đăng nhập"
       email_label: "Email"
       password_label: "Mật khẩu"
+      forgot_password_link: "(quên mật khẩu)"
       remember_me_label: "Ghi nhớ tôi trên máy tính này"
       submit_button: "Đăng nhập"
       new_user_text: "Người dùng mới? "

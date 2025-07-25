@@ -4,7 +4,6 @@ User.create!(name: "Example User",
              gender: "male",
              password: "foobar",
              password_confirmation: "foobar",
-             admin: true,
              activated: true,
              activated_at: Time.zone.now)
 

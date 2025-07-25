@@ -8,7 +8,6 @@
         <li><%= link_to t("navigation.contact"), static_pages_contact_path %></li>
         <li><%= link_to t("navigation.microposts"), microposts_path %></li>
         <% if logged_in? %>
-          <li><%= link_to t("navigation.users"), users_path %></li>
           <li class="dropdown">
             <%= link_to "#", class: "dropdown-toggle", data: {toggle: "dropdown"} do %>
               <%= t("navigation.account") %>

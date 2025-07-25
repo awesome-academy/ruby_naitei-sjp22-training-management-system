@@ -1,6 +1,6 @@
 class SessionsController < ApplicationController
   before_action :validate_session_params, only: :create
-  before_action :load_user, only: :create
+  before_action :load_user_by_session_email, only: :create
   before_action :check_authentication, only: :create
   before_action :check_activation, only: :create
 
@@ -31,14 +31,6 @@ class SessionsController < ApplicationController
 
     flash.now[:danger] = t(".missing_credentials")
     render :new, status: :unprocessable_entity
-  end
-
-  def load_user
-    email = params.dig(:session, :email)&.downcase&.strip
-    return handle_failed_login if email.blank?
-
-    @user = User.find_by(email: email)
-    return handle_failed_login unless @user
   end
 
   def check_authentication

@@ -5,6 +5,8 @@
 development:
   USER_EMAIL: "your-email@gmail.com"
   USER_PASSWORD: "your-app-password"
+  SMTP_ADDRESS: "smtp.gmail.com"
+  SMTP_PORT: 587
 
 test:
   USER_EMAIL: "test@example.com"

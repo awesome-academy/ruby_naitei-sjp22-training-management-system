@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-  attr_accessor :remember_token, :session_token, :activation_token
+  attr_accessor :remember_token, :session_token, :activation_token, :reset_token
 
   has_secure_password
 
@@ -7,6 +7,8 @@ class User < ApplicationRecord
 
   PERMITTED_ATTRIBUTES = %i(name email password password_confirmation birthday
 gender).freeze
+  PASSWORD_RESET_ATTRIBUTES = %i(password password_confirmation).freeze
+  PASSWORD_RESET_EXPIRATION = 2.hours.freeze
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
 
   scope :recent, -> {order(created_at: :desc)}
@@ -67,6 +69,28 @@ gender).freeze
   # Sends activation email.
   def send_activation_email
     UserMailer.account_activation(self).deliver_now
+  end
+
+  # Creates password reset attributes.
+  def create_reset_digest
+    self.reset_token = User.new_token
+    update_columns reset_digest: User.digest(reset_token),
+                   reset_sent_at: Time.zone.now
+  end
+
+  # Sends password reset email.
+  def send_password_reset_email
+    UserMailer.password_reset(self).deliver_now
+  end
+
+  # Sends password changed email.
+  def send_password_changed_email
+    UserMailer.password_changed(self).deliver_now
+  end
+
+  # Checks expiration of reset token.
+  def password_reset_expired?
+    reset_sent_at < PASSWORD_RESET_EXPIRATION.ago
   end
 
   class << self
