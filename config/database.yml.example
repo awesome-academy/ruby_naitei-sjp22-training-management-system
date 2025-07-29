@@ -13,6 +13,7 @@ default: &default
   adapter: mysql2
   encoding: utf8mb4
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  # host: db # if use docker
   username: root
   password:
   socket: /var/run/mysqld/mysqld.sock
