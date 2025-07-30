@@ -1,0 +1,39 @@
+vi:
+  activerecord:
+    models:
+      user: "Người dùng"
+    attributes:
+      user:
+        name: "Tên"
+        email: "Email"
+        password: "Mật khẩu"
+        password_confirmation: "Xác nhận mật khẩu"
+        birthday: "Ngày sinh"
+        gender: "Giới tính"
+        genders:
+          female: "Nữ"
+          male: "Nam"
+          other: "Khác"
+    errors:
+      models:
+        user:
+          attributes:
+            name:
+              blank: "không thể để trống"
+              too_long: "quá dài (tối đa %{count} ký tự)"
+            email:
+              blank: "không thể để trống"
+              too_long: "quá dài (tối đa %{count} ký tự)"
+              taken: "đã được sử dụng"
+              invalid: "không hợp lệ"
+            birthday:
+              blank: "không thể để trống"
+              birthday_invalid: "phải trong vòng %{years} năm qua"
+            gender:
+              blank: "không thể để trống"
+              inclusion: "không có trong danh sách"
+  error_messages:
+    the_form_contains: "Form chứa"
+    error:
+      one: "lỗi"
+      other: "lỗi"

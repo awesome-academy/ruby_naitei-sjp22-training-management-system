@@ -1,0 +1,8 @@
+en:
+  microposts:
+    title: "Microposts"
+    all_microposts: "All Microposts"
+    total_count: "Total microposts: %{count}"
+    no_microposts: "No microposts yet."
+    posted_ago: "Posted %{time} ago"
+    navigation_title: "Navigation" 

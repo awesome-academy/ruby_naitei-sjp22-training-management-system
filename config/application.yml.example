@@ -1,0 +1,15 @@
+# Copy this file to application.yml and fill in your credentials
+# This file should be committed to your repository as a template
+
+# Gmail SMTP settings for development
+development:
+  USER_EMAIL: "your-email@gmail.com"
+  USER_PASSWORD: "your-app-password"
+
+test:
+  USER_EMAIL: "test@example.com"
+  USER_PASSWORD: "test-password"
+
+production:
+  USER_EMAIL: <%= ENV["USER_EMAIL"] %>
+  USER_PASSWORD: <%= ENV["USER_PASSWORD"] %>

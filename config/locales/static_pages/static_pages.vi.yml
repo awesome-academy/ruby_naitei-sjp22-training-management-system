@@ -1,0 +1,31 @@
+vi:
+  static_pages:
+    home:
+      title: "Trang chủ"
+      welcome: "Chào mừng đến với ứng dụng mẫu"
+      description: "Đây là trang chủ cho ứng dụng mẫu %{link}."
+      link_text: "Ruby on Rails Tutorial"
+      sign_up: "Đăng ký ngay!"
+      version_label: "Phiên bản"
+    help:
+      title: "Trợ giúp"
+      heading: "Trợ giúp"
+      description: "Nhận trợ giúp về Ruby on Rails Tutorial tại %{help_link}. Để được trợ giúp về ứng dụng mẫu này, xem %{book_link}."
+      help_link_text: "phần trợ giúp Rails Tutorial"
+      book_link_text: "Ruby on Rails Tutorial"
+      book_emphasis: "sách"
+      contact_heading: "Liên hỗ trợ"
+      email_label: "Email liên hệ:"
+    contact:
+      title: "Liên hệ"
+      heading: "Liên hệ"
+      description: "Liên hệ với chúng tôi qua thông tin dưới đây hoặc gửi email trực tiếp."
+      email_label: "Email liên hệ:"
+      address_label: "Địa chỉ:"
+      phone_label: "Điện thoại:"
+      address: "132 Le Thanh Nghi, Hanoi, Vietnam"
+      phone: "+84 906 000 000"
+      hello_name: "Xin chào %{name}!"
+      contact_info: "Thông tin liên hệ"
+      app_information: "Thông tin ứng dụng"
+      app_label: "Ứng dụng:" 

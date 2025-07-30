@@ -1,0 +1,16 @@
+<% provide :title, @user.name %>
+<div class="row">
+  <aside class="col-md-4">
+    <section class="user_info">
+      <h1>
+        <%= gravatar_for @user %>
+        <%= @user.name %>
+      </h1>
+      <p><strong><%= t(".email") %>:</strong> <%= @user.email %></p>
+      <p><strong><%= t(".birthday") %>:</strong> <%= I18n.l(@user.birthday, format: :long) if @user.birthday %></p>
+      <p><strong><%= t(".gender") %>:</strong> <%= t("activerecord.attributes.user.genders.#{@user.gender}") if @user.gender %></p>
+      <p><strong><%= t(".member_since") %>:</strong> <%= I18n.l(@user.created_at, format: :long) %></p>
+      <p><strong><%= t(".last_updated") %>:</strong> <%= I18n.l(@user.updated_at, format: :long) %></p>
+    </section>
+  </aside>
+</div>

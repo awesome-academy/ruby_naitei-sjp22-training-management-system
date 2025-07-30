@@ -1,0 +1,27 @@
+<% provide(:title, t("microposts.title")) %>
+<div class="row">
+  <div class="col-md-8">
+    <h1><%= t("microposts.all_microposts") %></h1>
+    <p><%= t("microposts.total_count", count: @microposts.count) %></p>
+    
+    <% if @microposts.any? %>
+      <div class="microposts">
+        <%= render @microposts %>
+      </div>
+    <% else %>
+      <p><%= t("microposts.no_microposts") %></p>
+    <% end %>
+  </div>
+  
+  <div class="col-md-4">
+    <div class="well">
+      <h4><%= t("microposts.navigation_title") %></h4>
+      <ul class="list-unstyled">
+        <li><%= link_to t("navigation.home"), root_path %></li>
+        <li><%= link_to t("navigation.help"), static_pages_help_path %></li>
+        <li><%= link_to t("navigation.contact"), static_pages_contact_path %></li>
+        <li><%= link_to t("microposts.title"), microposts_path %></li>
+      </ul>
+    </div>
+  </div>
+</div>

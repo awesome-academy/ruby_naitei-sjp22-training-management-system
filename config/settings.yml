@@ -1,0 +1,54 @@
+app:
+  name: "Rails Tutorial Sample App"
+  version: "1.0.0"
+  description: "A sample Ruby on Rails tutorial application"
+  author: "Rails Tutorial"
+  default_user_name: "User"
+
+mailer:
+  default_from: "noreply@example.com"
+
+user:
+  max_name_length: 50
+  max_email_length: 255
+  birthday_valid_years: 100
+  min_password_length: 6
+
+session:
+  login_attempts_limit: 10
+  lockout_duration: 900
+  session_timeout: 7200
+
+i18n:
+  default_locale: "vi"
+  available_locales: ["vi", "en"]
+  fallback_locale: "vi"
+
+email:
+  from: "noreply@example.com"
+  support: "support@example.com"
+
+ui:
+  theme: "default"
+  items_per_page: 10
+  max_upload_size: 5242880  # 5MB
+  gravatar:
+    default_size: 80
+    list_size: 50
+
+features:
+  registration: true
+  email_verification: false
+  social_login: false
+
+external_services:
+  google_analytics: ""
+  facebook_app_id: ""
+  twitter_api_key: ""
+
+links:
+  help: "https://www.railstutorial.org/help"
+  book: "https://www.railstutorial.org/book"
+  railstutorial: "http://www.railstutorial.org/"
+  gravatar: "https://secure.gravatar.com"
+  gravatar_email: "http://gravatar.com/emails"

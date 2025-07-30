@@ -1,0 +1,19 @@
+en:
+  sessions:
+    new:
+      title: "Log in"
+      heading: "Log in"
+      email_label: "Email"
+      password_label: "Password"
+      remember_me_label: "Remember me on this computer"
+      submit_button: "Log in"
+      new_user_text: "New user? "
+      sign_up_link: "Sign up now!"
+    create:
+      login_success: "Welcome back!"
+      login_failed: "Invalid email/password combination"
+      account_not_activated: "Account not activated. Check your email for the activation link."
+      missing_credentials: "Please enter both email and password"
+      system_error: "An error occurred. Please try again later"
+    destroy:
+      logout_success: "You have successfully logged out"

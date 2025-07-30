@@ -1,0 +1,14 @@
+<% provide(:title, t(".title")) %>
+<div class="center jumbotron">
+  <h1><%= t(".welcome") %></h1>
+  <h2>
+    <%= t(".description", link: link_to(t(".link_text"), Settings.links.railstutorial)).html_safe %>
+  </h2>
+  <% if @registration_enabled %>
+    <%= link_to t(".sign_up"), signup_path, class: "btn btn-lg btn-primary" %>
+  <% end %>
+
+  <div class="app-info">
+    <p><small><%= @app_name %> - <%= t(".version_label") %> <%= @app_version %></small></p>
+  </div>
+</div>

@@ -1,0 +1,6 @@
+vi:
+  shared:
+    login_required: "Vui lòng đăng nhập để tiếp tục."
+    admin_required: "Chỉ quản trị viên mới có quyền thực hiện hành động này."
+    not_authorized: "Bạn không có quyền thực hiện hành động này."
+    user_not_found: "Người dùng không tồn tại."

@@ -1,0 +1,57 @@
+en:
+  users:
+    index:
+      title: "All users"
+      heading: "All users"
+    new:
+      sign_up: "Sign up"
+      create_my_account: "Create my account"
+      select_gender: "Select gender"
+    show:
+      email: "Email"
+      birthday: "Birthday"
+      gender: "Gender"
+      member_since: "Member since"
+      last_updated: "Last updated"
+      user_not_found: "User not found"
+      system_error: "An error occurred. Please try again later"
+    create:
+      signup_success: "Sign up successful! Welcome to the sample app."
+      activation_email_sent: "Please check your email to activate your account."
+      signup_failure: "There were errors in your sign up form. Please correct them and try again."
+      system_error: "An error occurred during registration. Please try again later"
+    edit:
+      edit_user: "Edit user"
+      save_change: "Save changes"
+      update_profile: "Update your profile"
+      change: "change"
+      title: "Edit user"
+      name_label: "Name"
+      email_label: "Email"
+      password_label: "Password"
+      password_confirmation_label: "Confirmation"
+      save_changes: "Save changes"
+      gravatar_change: "change"
+      user_not_found: "User not found!"
+      login_required: "Please log in to access this page."
+      not_authorized: "You are not authorized to edit this user."
+    update:
+      profile_updated: "Profile updated successfully"
+      update_failed: "Failed to update profile. Please try again."
+      login_required: "Please log in to access this page."
+      not_authorized: "You are not authorized to edit this user."
+    destroy:
+      user_deleted: "User deleted"
+      delete_failed: "Delete fail!"
+    user:
+      delete: "delete"
+      confirm_delete: "You sure?"
+    form:
+      name_label: "Name"
+      email_label: "Email"
+      birthday_label: "Birthday"
+      gender_label: "Gender"
+      password_label: "Password"
+      password_confirmation_label: "Confirmation"
+      select_gender: "Select gender"
+      save_changes: "Save changes"

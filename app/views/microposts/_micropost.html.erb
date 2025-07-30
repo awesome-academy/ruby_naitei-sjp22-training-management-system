@@ -1,0 +1,11 @@
+<div class="micropost">
+  <div class="content">
+    <%= simple_format(micropost.content) %>
+  </div>
+  <div class="timestamp">
+    <small class="text-muted">
+      <%= t("microposts.posted_ago", time: time_ago_in_words(micropost.created_at)) %>
+    </small>
+  </div>
+  <hr>
+</div> 

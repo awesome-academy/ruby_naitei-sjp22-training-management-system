@@ -1,0 +1,57 @@
+vi:
+  users:
+    index:
+      title: "Tất cả người dùng"
+      heading: "Tất cả người dùng"
+    new:
+      sign_up: "Đăng ký"
+      create_my_account: "Tạo tài khoản của tôi"
+      select_gender: "Chọn giới tính"
+    show:
+      email: "Email"
+      birthday: "Ngày sinh"
+      gender: "Giới tính"
+      member_since: "Thành viên từ"
+      last_updated: "Cập nhật lần cuối"
+      user_not_found: "Không tìm thấy người dùng"
+      system_error: "Có lỗi xảy ra. Vui lòng thử lại sau"
+    create:
+      signup_success: "Đăng ký thành công! Chào mừng bạn đến với ứng dụng mẫu."
+      activation_email_sent: "Vui lòng kiểm tra email để kích hoạt tài khoản của bạn."
+      signup_failure: "Có lỗi trong form đăng ký của bạn. Vui lòng sửa chúng và thử lại."
+      system_error: "Có lỗi xảy ra trong quá trình đăng ký. Vui lòng thử lại sau"
+    edit:
+      edit_user: "Chỉnh sửa người dùng"
+      save_change: "Lưu thay đổi"
+      update_profile: "Cập nhật hồ sơ của bạn"
+      change: "thay đổi"
+      title: "Chỉnh sửa người dùng"
+      name_label: "Tên"
+      email_label: "Email"
+      password_label: "Mật khẩu"
+      password_confirmation_label: "Xác nhận mật khẩu"
+      save_changes: "Lưu thay đổi"
+      gravatar_change: "thay đổi"
+      user_not_found: "Không tìm thấy người dùng!"
+      login_required: "Vui lòng đăng nhập để truy cập trang này."
+      not_authorized: "Bạn không có quyền chỉnh sửa người dùng này."
+    update:
+      profile_updated: "Hồ sơ đã được cập nhật thành công"
+      update_failed: "Cập nhật hồ sơ không thành công. Vui lòng thử lại"
+      login_required: "Vui lòng đăng nhập để truy cập trang này."
+      not_authorized: "Bạn không có quyền chỉnh sửa người dùng này."
+    destroy:
+      user_deleted: "Người dùng đã được xóa"
+      delete_failed: "Xóa thất bại!"
+    user:
+      delete: "xóa"
+      confirm_delete: "Bạn có chắc chắn?"
+    form:
+      name_label: "Tên"
+      email_label: "Email"
+      birthday_label: "Ngày sinh"
+      gender_label: "Giới tính"
+      password_label: "Mật khẩu"
+      password_confirmation_label: "Xác nhận mật khẩu"
+      select_gender: "Chọn giới tính"
+      save_changes: "Lưu thay đổi"

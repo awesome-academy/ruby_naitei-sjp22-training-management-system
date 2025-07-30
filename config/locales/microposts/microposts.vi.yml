@@ -1,0 +1,8 @@
+vi:
+  microposts:
+    title: "Microposts"
+    all_microposts: "Tất cả Microposts"
+    total_count: "Tổng số microposts: %{count}"
+    no_microposts: "Chưa có microposts nào."
+    posted_ago: "Đã đăng %{time} trước"
+    navigation_title: "Điều hướng" 

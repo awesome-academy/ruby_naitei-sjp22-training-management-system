@@ -1,0 +1,15 @@
+en:
+  base_title: "Ruby on Rails Tutorial Sample App"
+  navigation:
+    home: "Home"
+    help: "Help"
+    contact: "Contact"
+    microposts: "Microposts"
+    log_in: "Log in"
+    sample_app: "sample app"
+  app_information: "App Information"
+  app_label: "App:"
+  quick_links: "Quick Links"
+  locales:
+    vi: "Vietnamese"
+    en: "English"

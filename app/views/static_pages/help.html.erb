@@ -1,0 +1,13 @@
+<% provide(:title, t(".title")) %>
+<h1><%= t(".heading") %></h1>
+<p>
+  <%= t("static_pages.help.description",
+      help_link: link_to(t("static_pages.help.help_link_text"), @help_link),
+      book_link: link_to(content_tag(:em, t("static_pages.help.book_link_text")), @book_link)
+    ).html_safe %>
+</p>
+
+<div class="contact-info">
+  <h3><%= t(".contact_heading") %></h3>
+  <p><%= t(".email_label") %> <%= mail_to @support_email %></p>
+</div>

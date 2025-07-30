@@ -1,0 +1,6 @@
+en:
+  shared:
+    login_required: "Please log in to continue."
+    admin_required: "Only administrators can perform this action."
+    not_authorized: "You are not authorized to perform this action."
+    user_not_found: "User not found."
