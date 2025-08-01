@@ -3,13 +3,36 @@ class User < ApplicationRecord
 
   has_secure_password
 
-  enum gender: {female: 0, male: 1, other: 2}
-
+  # Constants
   PERMITTED_ATTRIBUTES = %i(name email password password_confirmation birthday
 gender).freeze
   PASSWORD_RESET_ATTRIBUTES = %i(password password_confirmation).freeze
   PASSWORD_RESET_EXPIRATION = 2.hours.freeze
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
+
+  # Enums
+  enum gender: {
+    female: Settings.user.genders.female,
+    male: Settings.user.genders.male,
+    other: Settings.user.genders.other
+  }
+  enum role: {
+    trainee: Settings.user.roles.trainee,
+    supervisor: Settings.user.roles.supervisor,
+    admin: Settings.user.roles.admin
+  }
+
+  # Associations
+  has_many :user_courses, dependent: :destroy
+  has_many :courses, through: :user_courses
+  has_many :user_subjects, dependent: :destroy
+  has_many :subjects, through: :user_subjects
+  has_many :user_tasks, dependent: :destroy
+  has_many :tasks, through: :user_tasks
+  has_many :daily_reports, dependent: :destroy
+  has_many :comments, dependent: :destroy
+  has_many :course_supervisors, dependent: :destroy
+  has_many :supervised_courses, through: :course_supervisors, source: :course
 
   scope :recent, -> {order(created_at: :desc)}
   scope :sort_by_name, -> {order(:name)}
@@ -25,6 +48,8 @@ gender).freeze
             uniqueness: {case_sensitive: false}
   validates :birthday, presence: true
   validates :gender, presence: true
+  validates :nick_name, length: {maximum: Settings.user.max_nick_name_length}
+  validates :role, presence: true
   validate :birthday_within_valid_years
   validates :password, presence: true,
             length: {minimum: Settings.user.min_password_length},
@@ -92,7 +117,6 @@ gender).freeze
   def password_reset_expired?
     reset_sent_at < PASSWORD_RESET_EXPIRATION.ago
   end
-
   class << self
     def new_token
       SecureRandom.urlsafe_base64
@@ -109,6 +133,15 @@ gender).freeze
     return if birthday.between?(min_date, Time.zone.today)
 
     errors.add(:birthday, :birthday_invalid, years:)
+  end
+
+  def member_to_after_member_from
+    return unless member_from && member_to
+
+    return unless member_to < member_from
+
+    errors.add(:member_to,
+               Settings.error_messages.member_to_after_member_from)
   end
 
   def downcase_email

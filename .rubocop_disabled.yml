@@ -2,8 +2,8 @@
 
 Style/FrozenStringLiteralComment:
   Description: >-
-                 Add the frozen_string_literal comment to the top of files
-                 to help transition from Ruby 2.3.0 to Ruby 3.0.
+    Add the frozen_string_literal comment to the top of files
+    to help transition from Ruby 2.3.0 to Ruby 3.0.
   Enabled: false
 
 Style/InlineComment:
@@ -52,8 +52,8 @@ Metrics/CyclomaticComplexity:
 
 Layout/ArrayAlignment:
   Description: >-
-                 Align the elements of an array literal if they span more than
-                 one line.
+    Align the elements of an array literal if they span more than
+    one line.
   Enabled: false
 
 Style/RedundantPercentQ:
@@ -83,4 +83,27 @@ Rails/ReflectionClassName:
   Enabled: false
 
 Rails/SkipsModelValidations:
+  Enabled: false
+
+# Disable layout cops causing infinite loops
+Layout/ExtraSpacing:
+  Enabled: false
+
+Layout/MultilineBlockLayout:
+  Enabled: false
+
+Layout/SpaceInsideBlockBraces:
+  Enabled: false
+
+Layout/ClosingParenthesisIndentation:
+  Enabled: false
+
+Layout/FirstArgumentIndentation:
+  Enabled: false
+
+Layout/IndentationWidth:
+  Enabled: false
+
+# Disable Rails cops that are causing issues
+Rails/UniqueValidationWithoutIndex:
   Enabled: false

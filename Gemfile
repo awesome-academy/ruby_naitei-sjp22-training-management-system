@@ -3,6 +3,8 @@ git_source(:github) {|repo| "https://github.com/#{repo}.git"}
 
 ruby "3.2.2"
 
+gem "active_storage_validations", "0.9.8"
+
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 7.0.5"
 
@@ -51,6 +53,10 @@ gem "pagy"
 
 # Figaro for environment variables management
 gem "figaro"
+
+gem "mini_magick"
+
+gem "image_processing", "1.12.2"
 
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html]
 # gem "image_processing", "~> 1.2"

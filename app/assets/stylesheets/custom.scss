@@ -100,29 +100,6 @@ textarea {
   }
 }
 
-/* microposts */
-.microposts {
-  margin-top: 20px;
-}
-
-.micropost {
-  background-color: #fff;
-  border: 1px solid #e1e8ed;
-  border-radius: 6px;
-  margin-bottom: 20px;
-  padding: 15px;
-
-  .content {
-    line-height: 1.6;
-    margin-bottom: 10px;
-  }
-
-  .timestamp {
-    color: #657786;
-    font-size: 0.9em;
-  }
-}
-
 /* sidebar */
 aside {
   section.user_info {
