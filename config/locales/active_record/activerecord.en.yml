@@ -32,8 +32,11 @@ en:
             gender:
               blank: "can't be blank"
               inclusion: "is not included in the list"
+
   error_messages:
     the_form_contains: "The form contains"
     error:
       one: "error"
       other: "errors"
+    image_size_exceeded: "must be less than %{size} MB"
+    document_size_exceeded: "must be less than %{size} MB"

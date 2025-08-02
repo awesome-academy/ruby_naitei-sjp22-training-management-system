@@ -1,10 +1,9 @@
 vi:
-  base_title: "Ứng dụng mẫu Ruby on Rails Tutorial"
+  site_title: "Ứng dụng mẫu Ruby on Rails Tutorial"
   navigation:
     home: "Trang chủ"
     help: "Trợ giúp"
     contact: "Liên hệ"
-    microposts: "Microposts"
     log_in: "Đăng nhập"
     sample_app: "ứng dụng mẫu"
   app_information: "Thông tin ứng dụng"

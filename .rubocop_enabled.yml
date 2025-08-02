@@ -10,14 +10,14 @@ Style/Alias:
 
 Layout/HashAlignment:
   Description: >-
-                 Align the elements of a hash literal if they span more than
-                 one line.
+    Align the elements of a hash literal if they span more than
+    one line.
   Enabled: true
 
-Layout/Layout/ParameterAlignment:
+Layout/ParameterAlignment:
   Description: >-
-                 Align the parameters of a method call if they span more
-                 than one line.
+    Align the parameters of a method call if they span more
+    than one line.
   Enabled: true
 
 Style/AndOr:
@@ -54,9 +54,9 @@ Metrics/BlockNesting:
 
 Style/BlockDelimiters:
   Description: >-
-                Avoid using {...} for multi-line blocks (multiline chaining is
-                always ugly).
-                Prefer {...} over do...end for single-line blocks.
+    Avoid using {...} for multi-line blocks (multiline chaining is
+    always ugly).
+    Prefer {...} over do...end for single-line blocks.
   Enabled: true
 
 Style/CaseEquality:
@@ -101,8 +101,8 @@ Style/ColonMethodCall:
 
 Style/CommentAnnotation:
   Description: >-
-                 Checks formatting of special comments
-                 (TODO, FIXME, OPTIMIZE, HACK, REVIEW).
+    Checks formatting of special comments
+    (TODO, FIXME, OPTIMIZE, HACK, REVIEW).
   Enabled: true
 
 Layout/CommentIndentation:
@@ -207,14 +207,14 @@ Style/GuardClause:
 
 Style/HashSyntax:
   Description: >-
-                 Prefer Ruby 1.9 hash syntax { a: 1, b: 2 } over 1.8 syntax
-                 { :a => 1, :b => 2 }.
+    Prefer Ruby 1.9 hash syntax { a: 1, b: 2 } over 1.8 syntax
+    { :a => 1, :b => 2 }.
   Enabled: true
 
 Style/IfUnlessModifier:
   Description: >-
-                 Favor modifier if/unless usage when you have a
-                 single-line body.
+    Favor modifier if/unless usage when you have a
+    single-line body.
   Enabled: true
 
 Style/IfWithSemicolon:
@@ -231,8 +231,8 @@ Layout/IndentationWidth:
 
 Layout/FirstArrayElementIndentation:
   Description: >-
-                 Checks the indentation of the first element in an array
-                 literal.
+    Checks the indentation of the first element in an array
+    literal.
   Enabled: true
 
 Layout/FirstHashElementIndentation:
@@ -253,11 +253,11 @@ Layout/LeadingCommentSpace:
 
 Style/LineEndConcatenation:
   Description: >-
-                 Use \ instead of + or << to concatenate two string literals at
-                 line end.
+    Use \ instead of + or << to concatenate two string literals at
+    line end.
   Enabled: true
 
-Metrics/LineLength:
+Layout/LineLength:
   Description: "Limit lines to 80 characters."
   Enabled: true
 
@@ -267,8 +267,8 @@ Style/MethodCallWithoutArgsParentheses:
 
 Style/MethodDefParentheses:
   Description: >-
-                 Checks if the method definitions have or don"t have
-                 parentheses.
+    Checks if the method definitions have or don"t have
+    parentheses.
   Enabled: true
 
 Naming/MethodName:
@@ -289,14 +289,14 @@ Style/MultilineIfThen:
 
 Style/MultilineTernaryOperator:
   Description: >-
-                 Avoid multi-line ?: (the ternary operator);
-                 use if/unless instead.
+    Avoid multi-line ?: (the ternary operator);
+    use if/unless instead.
   Enabled: true
 
 Style/NegatedIf:
   Description: >-
-                 Favor unless over if for negative conditions
-                 (or control flow or).
+    Favor unless over if for negative conditions
+    (or control flow or).
   Enabled: true
 
 Style/NegatedWhile:
@@ -325,14 +325,14 @@ Style/Not:
 
 Style/NumericLiterals:
   Description: >-
-                 Add underscores to large numeric literals to improve their
-                 readability.
+    Add underscores to large numeric literals to improve their
+    readability.
   Enabled: true
 
 Style/OneLineConditional:
   Description: >-
-                 Favor the ternary operator(?:) over
-                 if/then/else/end constructs.
+    Favor the ternary operator(?:) over
+    if/then/else/end constructs.
   Enabled: true
 
 Naming/BinaryOperatorParameterName:
@@ -341,8 +341,8 @@ Naming/BinaryOperatorParameterName:
 
 Style/ParenthesesAroundCondition:
   Description: >-
-                 Don't use parentheses around the condition of an
-                 if/unless/while.
+    Don't use parentheses around the condition of an
+    if/unless/while.
   Enabled: true
 
 Style/PercentLiteralDelimiters:
@@ -353,7 +353,7 @@ Style/PerlBackrefs:
   Description: "Avoid Perl-style regex back references."
   Enabled: true
 
-Naming/PredicateName:
+Naming/PredicatePrefix:
   Description: "Check the names of predicate methods."
   Enabled: true
 
@@ -383,10 +383,10 @@ Style/RedundantSelf:
 
 Style/RegexpLiteral:
   Description: >-
-                 Use %r for regular expressions matching more than
-                 `MaxSlashes` '/' characters.
-                 Use %r only for regular expressions matching more than
-                 `MaxSlashes` '/' character.
+    Use %r for regular expressions matching more than
+    `MaxSlashes` '/' characters.
+    Use %r only for regular expressions matching more than
+    `MaxSlashes` '/' character.
   Enabled: true
 
 Style/RescueModifier:
@@ -415,8 +415,8 @@ Style/SingleLineMethods:
 
 Layout/SpaceBeforeFirstArg:
   Description: >-
-                 Checks that exactly one space is used between a method name
-                 and the first argument for method calls without parentheses.
+    Checks that exactly one space is used between a method name
+    and the first argument for method calls without parentheses.
   Enabled: true
 
 Layout/SpaceAfterColon:
@@ -433,8 +433,8 @@ Layout/SpaceAroundKeyword:
 
 Layout/SpaceAfterMethodName:
   Description: >-
-                 Never put a space between a method name and the opening
-                 parenthesis in a method definition.
+    Never put a space between a method name and the opening
+    parenthesis in a method definition.
   Enabled: true
 
 Layout/SpaceAfterNot:
@@ -447,8 +447,8 @@ Layout/SpaceAfterSemicolon:
 
 Layout/SpaceBeforeBlockBraces:
   Description: >-
-                 Checks that the left block brace has or doesn't have space
-                 before it.
+    Checks that the left block brace have space
+    before it.
   Enabled: true
 
 Layout/SpaceBeforeComma:
@@ -457,8 +457,8 @@ Layout/SpaceBeforeComma:
 
 Layout/SpaceBeforeComment:
   Description: >-
-                 Checks for missing space between code and a comment on the
-                 same line.
+    Checks for missing space between code and a comment on the
+    same line.
   Enabled: true
 
 Layout/SpaceBeforeSemicolon:
@@ -467,16 +467,16 @@ Layout/SpaceBeforeSemicolon:
 
 Layout/SpaceInsideBlockBraces:
   Description: >-
-                 Checks that block braces have or don't have surrounding space.
-                 For blocks taking parameters, checks that the left brace has
-                 or doesn"t have trailing space.
+    Checks that block braces have or don't have surrounding space.
+    For blocks taking parameters, checks that the left brace has
+    or doesn"t have trailing space.
   Enabled: true
 
 Layout/SpaceAroundEqualsInParameterDefault:
   Description: >-
-                 Checks that the equals signs in parameter default assignments
-                 have or don't have surrounding space depending on
-                 configuration.
+    Checks that the equals signs in parameter default assignments
+    have or don't have surrounding space depending on
+    configuration.
   Enabled: true
 
 Layout/SpaceAroundOperators:
@@ -508,17 +508,17 @@ Layout/TrailingEmptyLines:
   Enabled: true
 
 Style/TrailingCommaInArguments:
-  Description: 'Checks for trailing comma in argument lists.'
-  StyleGuide: '#no-trailing-params-comma'
+  Description: "Checks for trailing comma in argument lists."
+  StyleGuide: "#no-trailing-params-comma"
   Enabled: true
 
 Style/TrailingCommaInArrayLiteral:
-  Description: 'Checks for trailing comma in array literals.'
-  StyleGuide: '#no-trailing-array-commas'
+  Description: "Checks for trailing comma in array literals."
+  StyleGuide: "#no-trailing-array-commas"
   Enabled: true
 
 Style/TrailingCommaInHashLiteral:
-  Description: 'Checks for trailing comma in hash literals.'
+  Description: "Checks for trailing comma in hash literals."
   Enabled: true
 
 Layout/TrailingWhitespace:
@@ -531,8 +531,8 @@ Style/TrivialAccessors:
 
 Style/UnlessElse:
   Description: >-
-                 Never use unless with else. Rewrite these with the positive
-                 case first.
+    Never use unless with else. Rewrite these with the positive
+    case first.
   Enabled: true
 
 Style/RedundantCapitalW:
@@ -545,8 +545,8 @@ Style/CommandLiteral:
 
 Style/VariableInterpolation:
   Description: >-
-                 Don't interpolate global, instance and class variables
-                 directly in strings.
+    Don't interpolate global, instance and class variables
+    directly in strings.
   Enabled: true
 
 Naming/VariableName:
@@ -563,8 +563,8 @@ Style/WhileUntilDo:
 
 Style/WhileUntilModifier:
   Description: >-
-                 Favor modifier while/until usage when you have a
-                 single-line body.
+    Favor modifier while/until usage when you have a
+    single-line body.
   Enabled: true
 
 Style/WordArray:
@@ -576,14 +576,14 @@ Style/WordArray:
 
 Lint/AmbiguousOperator:
   Description: >-
-                 Checks for ambiguous operators in the first argument of a
-                 method invocation without parentheses.
+    Checks for ambiguous operators in the first argument of a
+    method invocation without parentheses.
   Enabled: true
 
 Lint/AmbiguousRegexpLiteral:
   Description: >-
-                 Checks for ambiguous regexp literals in the first argument of
-                 a method invocation without parenthesis.
+    Checks for ambiguous regexp literals in the first argument of
+    a method invocation without parenthesis.
   Enabled: true
 
 Layout/BlockAlignment:
@@ -622,10 +622,6 @@ Layout/EndAlignment:
   Description: "Align ends correctly."
   Enabled: true
 
-Style/EndBlock:
-  Description: "END blocks should not be placed inside method definitions."
-  Enabled: true
-
 Lint/EnsureReturn:
   Description: "Never use return in an ensure block."
   Enabled: true
@@ -644,20 +640,20 @@ Lint/LiteralInInterpolation:
 
 Lint/Loop:
   Description: >-
-                 Use Kernel#loop with break rather than begin/end/until or
-                 begin/end/while for post-loop tests.
+    Use Kernel#loop with break rather than begin/end/until or
+    begin/end/while for post-loop tests.
   Enabled: true
 
 Lint/ParenthesesAsGroupedExpression:
   Description: >-
-                 Checks for method calls with a space before the opening
-                 parenthesis.
+    Checks for method calls with a space before the opening
+    parenthesis.
   Enabled: true
 
 Lint/RequireParentheses:
   Description: >-
-                 Use parentheses in the method call to avoid confusion
-                 about precedence.
+    Use parentheses in the method call to avoid confusion
+    about precedence.
   Enabled: true
 
 Lint/RescueException:
@@ -666,8 +662,8 @@ Lint/RescueException:
 
 Lint/ShadowingOuterLocalVariable:
   Description: >-
-                 Do not use the same name as outer local variable
-                 for block arguments or block local variables.
+    Do not use the same name as outer local variable
+    for block arguments or block local variables.
   Enabled: true
 
 Lint/RedundantStringCoercion:

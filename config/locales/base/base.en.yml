@@ -4,7 +4,6 @@ en:
     home: "Home"
     help: "Help"
     contact: "Contact"
-    microposts: "Microposts"
     log_in: "Log in"
     sample_app: "sample app"
   app_information: "App Information"
