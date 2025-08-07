@@ -1,0 +1,62 @@
+vi:
+  trainee:
+    subjects:
+      subject_not_found: "Không tìm thấy môn học."
+      course_not_found: "Không tìm thấy khóa học."
+      subject_in_progress_failed: "Không thể chuyển môn học sang trạng thái đang tiến hành."
+
+      task_details:
+        submit_task: "Nộp Nhiệm Vụ"
+        spent_time_placeholder: "Thời gian đã sử dụng (tính bằng giờ)"
+        submit: "Nộp"
+        delete: "Xóa"
+        close: "Đóng"
+        uploaded_files: "Tệp đã tải lên"
+        no_files: "Chưa có tệp nào được tải lên."
+        choose_file: "Chọn tệp"
+        files: "Tệp"
+
+      file_upload_details:
+        confirm_delete: "Bạn có chắc chắn muốn xóa tệp này không?"
+        total_files: "Tổng số tệp"
+        no_files: "Chưa có tệp nào được tải lên."
+        delete: "Xóa"
+
+      form_update_spent_time:
+        spent_time_placeholder: "Thời gian đã sử dụng (tính bằng giờ)"
+
+      form_finish_subject:
+        confirm_finish: "Xác Nhận Kết Thúc Môn Học"
+
+      form_upload_file:
+        submit: "Nộp"
+        close: "Đóng"
+        choose_file: "Chọn tệp"
+
+      show:
+        task_list_tile: "Danh Sách Nhiệm Vụ"
+        assessment_title: "Tiêu Đề Đánh Giá"
+        assessment_score: "Điểm Đánh Giá"
+        no_comments: "Chưa có bình luận nào."
+        duration: "Thời gian"
+        start: "Bắt đầu"
+        deadline: "Hạn chót"
+        actual_start_date: "Ngày Bắt Đầu Thực Tế"
+        actual_end_date: "Ngày Kết Thúc Thực Tế"
+        finish: "Kết thúc"
+        finished: "Đã Kết Thúc"
+        confirm_finish_title: "Xác Nhận Kết Thúc Môn Học"
+        unfinished_tasks: "Nhiệm Vụ Chưa Hoàn Thành %{count}"
+        all_tasks_completed: "Tất Cả Nhiệm Vụ Đã Hoàn Thành"
+        subject_status: "Trạng Thái Môn Học"
+        day: "ngày"
+        progress_title: "Tiến Trình Môn Học: "
+        course_details: "Chi Tiết Khóa Học: "
+        title: "Chi Tiết Môn Học"
+        task_list_title: "Danh Sách Nhiệm Vụ"
+        comments_title: "Bình Luận"
+        cancel: "Huỷ Bỏ"
+        status:
+          in_progress: "Đang Tiến Hành"
+          finished: "Đã Kết Thúc"
+          not_started: "Chưa Bắt Đầu"

@@ -1,0 +1,15 @@
+<li class="list-group-item px-0 py-1 d-flex align-items-center justify-content-between">
+  <div>
+    <i class="fas fa-file mr-2 text-primary"></i>
+    <%= link_to File.basename(file.filename.to_s), url_for(file), target: "_blank" %>
+  </div>
+  <%= button_to t(".delete"),
+        destroy_document_trainee_user_task_path(
+          task_id: task.id,
+          document_id: file.id,
+          user_subject_id: @user_subject.id
+        ),
+        method: :delete,
+        data: { confirm: t(".confirm_delete"), turbo: false },
+        class: "btn btn-sm btn-outline-danger ml-2" %>
+</li>

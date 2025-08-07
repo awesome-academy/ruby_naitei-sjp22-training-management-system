@@ -1,0 +1,26 @@
+<%= form_with url: update_spent_time_trainee_user_task_path,
+        method: :patch,
+        data: {turbo: true},
+        local: true do |f| %>
+  <%= f.hidden_field :task_id, value: task.id %>
+  <%= f.hidden_field :user_subject_id, value: @user_subject.id %>
+  <div class="input-group input-group-sm">
+  <% if @user_subject.status == Settings.user_subject.display_status.in_progress %>
+    <%= f.number_field :spent_time,
+      class: "form-control",
+      value: task.user_tasks.find_by(user_subject_id: @user_subject.id)&.spent_time,
+      placeholder: t(".spent_time_placeholder"),
+      step: Settings.user_task.spent_time_step,
+      min: Settings.user_task.spent_time_min,
+      onchange: "this.form.requestSubmit()" %>
+  <% else %>
+    <%= f.number_field :spent_time,
+      class: "form-control",
+      value: task.user_tasks.find_by(user_subject_id: @user_subject.id)&.spent_time,
+      placeholder: t(".spent_time_placeholder"),
+      step: Settings.user_task.spent_time_step,
+      min: Settings.user_task.spent_time_min,
+      disabled: true %>
+  <% end %>
+  </div>
+<% end %>

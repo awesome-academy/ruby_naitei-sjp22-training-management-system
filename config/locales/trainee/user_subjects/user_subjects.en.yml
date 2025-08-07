@@ -1,0 +1,8 @@
+en:
+  trainee:
+    user_subjects:
+      update:
+        update_success: "Successfully updated the subject"
+        update_failed: "Failed to update the subject. Please try again."
+
+      subject_not_found: "Subject not found."

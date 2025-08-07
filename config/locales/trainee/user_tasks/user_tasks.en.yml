@@ -1,0 +1,20 @@
+en:
+  trainee:
+    user_tasks:
+      update_document:
+        document_updated: "Document updated successfully"
+        document_update_failed: "Failed to update document. Please try again."
+
+      update_status:
+        status_updated: "Status updated successfully"
+        status_update_failed: "Failed to update status. Please try again."
+
+      update_spent_time:
+        spent_time_updated: "Spent time updated successfully"
+        spent_time_update_failed: "Failed to update spent time. Please try again."
+
+      destroy_document:
+        document_deleted: "Document deleted successfully"
+        document_not_found: "Document not found."
+
+      cannot_do_this_task: "You cannot do this task."

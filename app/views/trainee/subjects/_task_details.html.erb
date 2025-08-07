@@ -1,0 +1,52 @@
+<div class="list-group-item px-3 py-4 border-bottom">
+  <div class="row align-items-center">
+    <!-- Task Name -->
+    <div class="col-lg-4 mb-3 mb-lg-0">
+      <h6 class="mb-0 font-weight-bold text-dark"><%= task.name %></h6>
+    </div>
+    <!-- File Upload Toggle -->
+    <div class="col-sm-6 col-lg-3 mb-3 mb-lg-0">
+      <button type="button"
+              class="btn btn-outline-primary btn-sm rounded-pill px-3"
+              onclick="toggleUploadForm('<%= task.id %>')">
+        <i class="fas fa-upload mr-2"></i>
+        <%= t(".submit_task") %>
+      </button>
+    </div>
+    <!-- Hours Input -->
+    <div class="col-sm-6 col-lg-3 mb-3 mb-lg-0">
+        <%= render "trainee/subjects/form_update_spent_time", task: task, user_subject: @user_subject %>
+    </div>
+    <!-- Checkbox -->
+    <div class="col-lg-2 text-center text-lg-right mt-2 mt-lg-0">
+      <div class="custom-control custom-checkbox custom-checkbox-lg">
+          <%= render "trainee/subjects/form_check_task", task: task, user_subject: @user_subject %>
+      </div>
+    </div>
+  </div>
+  <!-- File Upload Form (expand/collapse) -->
+  <div id="uploadForm<%= task.id %>" class="collapse mt-3">
+    <div class="card card-body bg-light border-0 shadow-sm">
+      <% if @user_subject.status == Settings.user_subject.display_status.in_progress %>
+        <%= render "trainee/subjects/form_upload_file", task: task, user_subject: @user_subject %>
+      <% end %>
+        <!-- List uploaded files -->
+        <div class="mt-3">
+          <h6 class="font-weight-bold text-dark mb-2"><%= t(".uploaded_files") %>:</h6>
+          <% uploaded_files = task.user_tasks.find_by(user_subject_id: @user_subject.id)&.documents || [] %>
+          <% if uploaded_files.any? %>
+          <ul class="list-group list-group-flush">
+            <% uploaded_files.each do |file| %>
+              <%= render "trainee/subjects/file_upload_details", file: file, task: task, user_subject: @user_subject %>
+            <% end %>
+          </ul>
+          <div class="text-muted small mt-1">
+            <%= t(".total_files") %>: <%= uploaded_files.size %> <%= t(".files") %>
+          </div>
+        <% else %>
+          <div class="text-muted"><%= t(".no_files") %></div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
