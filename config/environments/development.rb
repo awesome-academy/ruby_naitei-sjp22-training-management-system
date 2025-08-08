@@ -38,7 +38,7 @@ Rails.application.configure do
   Bullet.alert = true
   Bullet.raise = true 
   Bullet.unused_eager_loading_enable = false
-  ullet.rails_logger = true
+  Bullet.rails_logger = true
 
   # Store uploaded files on the local file system (see config/storage.yml for options).
   config.active_storage.service = :local

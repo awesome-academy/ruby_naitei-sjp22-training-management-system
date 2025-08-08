@@ -1,0 +1,28 @@
+<% provide :title, t(".title") %>
+<div class="content-container">
+  <h1 class="page-title"><%= t(".title") %></h1>
+  
+  <div class="filter-actions-bar">
+    <%= form_with url: admin_courses_path, method: :get, class: "filter-form" do |f| %>
+      <%= text_field_tag :search, params[:search], class: "filter-control search-input", placeholder: t(".search") %>
+      <div class="filter-control status-select">
+        <%= f.select :status,
+                       options_for_select(
+                         [[t(".all_statuses"), ""]] +
+                         Course.statuses.keys.map {|s| [t("#{s}"), s]},
+                         params[:status]
+                       ),
+                       {},
+                       class: "form-control" %>
+      </div>
+      <%= submit_tag t(".apply_button"), class: "btn-submit" %>
+    <% end %>
+    <%= link_to t(".add_course_button"), new_admin_course_path, class: "btn-primary-action" %>
+  </div>
+  
+  <%= render "courses_table", courses: @courses %>
+
+  <div class="pagination-wrapper">
+    <%== pagy_bootstrap_nav(@pagy) %>
+  </div>
+</div>

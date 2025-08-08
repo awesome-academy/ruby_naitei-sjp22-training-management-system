@@ -1,0 +1,24 @@
+<div class="table-responsive">
+  <table class="table admin-table">
+    <thead>
+      <tr>
+        <th><%= t(".table_headers.course_name") %></th>
+        <th><%= t(".table_headers.supervisors") %></th>
+        <th><%= t(".table_headers.trainees") %></th>
+        <th><%= t(".table_headers.start_date") %></th>
+        <th><%= t(".table_headers.end_date") %></th>
+        <th><%= t(".table_headers.status") %></th>
+        <th><%= t(".table_headers.actions") %></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% if courses.any? %>
+        <%= render partial: "courses_row", collection: @courses %>
+      <% else %>
+        <tr>
+          <td colspan="7" class="text-center"><%= t(".no_courses_found") %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

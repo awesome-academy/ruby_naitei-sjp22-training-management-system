@@ -20,3 +20,22 @@ en:
           trainees: "Trainees"
           trainers: "Trainers"
           actions: "Actions"
+    courses:
+      index:
+        title: "All Courses"
+        search: "Search"
+        status: "Status:"
+        all_statuses: "All"
+        apply_button: "Apply"
+        add_course_button: "Add courses"
+      courses_table:
+        no_courses_found: "No courses were found."
+        table_headers:
+          course_name: "Course Name"
+          supervisors: "Supervisors"
+          trainees: "Trainees"
+          start_date: "Start Date"
+          end_date: "End Date"
+          status: "Status"
+          actions: "Action"
+

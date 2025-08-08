@@ -1,0 +1,13 @@
+<tr>
+    <td class="course-name"><%= courses_row.name %></td>
+    <td><%= courses_row.supervisors_count %></td>
+    <td><%= courses_row.trainees_count %></td>
+    <td><%= l(courses_row.start_date, format: :long) %></td>
+    <td><%= l(courses_row.finish_date, format: :long) %></td>
+    <td>
+        <span class="badge status-badge-"><%= t("#{courses_row.status}") %> </span>
+    </td>
+    <td>
+        <%= link_to "<i class=\"fas fa-cog\"></i>".html_safe, edit_admin_course_path(courses_row), class: "action-icon" %>
+    </td>
+</tr>

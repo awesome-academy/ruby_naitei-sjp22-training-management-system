@@ -20,3 +20,21 @@ vi:
           trainees: "Học viên"
           trainers: "Giảng viên"
           actions: "Hành động"
+    courses:
+      index:
+        title: "Tất cả Khóa học"
+        search: "Tìm kiếm"
+        status_label: "Trạng thái:"
+        all_statuses: "Tất cả"
+        apply_button: "Áp dụng"
+        add_course_button: "Thêm khóa học"
+      courses_table:
+        no_courses_found: "Không tìm thấy khóa học nào."
+        table_headers:
+          course_name: "Tên Khóa học"
+          supervisors: "Giảng viên"
+          trainees: "Học viên"
+          start_date: "Ngày Bắt đầu"
+          end_date: "Ngày Kết thúc"
+          status: "Trạng thái"
+          actions: "Hành động"
