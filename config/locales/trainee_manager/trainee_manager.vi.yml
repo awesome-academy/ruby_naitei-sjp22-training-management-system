@@ -1,0 +1,66 @@
+vi:
+  trainee_manager:
+    trainee_not_found: "Không tìm thấy thực học viên."
+    no_selection: "Không có thực học viên nào được chọn."
+    bulk_destroy_success: "Đã xóa thành công %{count} thực học viên."
+    bulk_destroy_failed: "Xóa thực học viên không thành công."
+    bulk_deactivate_success: "Đã hủy kích hoạt thành công %{count} thực học viên."
+    bulk_deactivate_failed: "Hủy kích hoạt thực học viên không thành công."
+
+    update_status:
+      update_success: "Cập nhật trạng thái thực học viên thành công."
+      update_failed: "Cập nhật trạng thái thực học viên không thành công."
+
+    destroy:
+      destroy_success: "Đã xóa thực học viên thành công."
+      destroy_failed: "Xóa thực học viên không thành công."
+
+    bulk_destroy:
+      trainee_no_selection: "Không có thực học viên nào được chọn để xóa hàng loạt."
+      bulk_destroy_success: "Đã xóa thành công %{count} thực học viên."
+      bulk_destroy_failed: "Xóa thực học viên không thành công."
+
+    bulk_deactivate:
+      trainee_no_selection: "Không có thực học viên nào được chọn để hủy kích hoạt hàng loạt."
+      bulk_deactivate_success: "Đã hủy kích hoạt thành công %{count} thực học viên."
+      bulk_deactivate_failed: "Hủy kích hoạt thực học viên không thành công."
+
+    filter_form:
+      search_label: "Tìm kiếm thực học viên"
+      search_placeholder: "Nhập tên thực học viên"
+      status_label: "Trạng thái"
+      status_all: "Tất cả"
+      status_active: "Đang hoạt động"
+      status_inactive: "Không hoạt động"
+      course_label: "Khóa học"
+      course_all: "Tất cả khóa học"
+      apply: "Áp dụng bộ lọc"
+      reset_filters: "Đặt lại bộ lọc"
+
+    trainee_infor_list:
+      active: "Đang hoạt động"
+      inactive: "Không hoạt động"
+      unknown: "Không xác định"
+      deactivate_confirm: "Bạn có chắc chắn muốn hủy kích hoạt các thực học viên đã chọn không?"
+      delete_confirm: "Bạn có chắc chắn muốn xóa các thực học viên đã chọn không?"
+      activate_confirm: "Bạn có chắc chắn muốn kích hoạt các thực học viên đã chọn không?"
+      gender:
+        male: "Nam"
+        female: "Nữ"
+        other: "Khác"
+    index:
+      title: "Quản lý Học viên"
+      filter_title: "Lọc Học viên"
+      items_selected: "Học viên đã chọn"
+      delete_selected: "Xóa đã chọn"
+      deactivate_selected: "Hủy kích hoạt đã chọn"
+      name: "Tên"
+      email: "Email"
+      status: "Trạng thái"
+      actions: "Hành động"
+      no_trainees_found: "Không tìm thấy học viên nào."
+      not_trainees_description: "Vui lòng chọn ít nhất một học viên để thực hiện hành động."
+      show_results: "Hiển thị kết quả"
+    
+    no_selection: "Không có thực học viên nào được chọn."
+    bulk_deactivate_confirm: "Bạn có chắc chắn muốn hủy kích hoạt các thực học viên đã chọn không?"

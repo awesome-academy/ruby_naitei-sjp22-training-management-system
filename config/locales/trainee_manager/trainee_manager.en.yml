@@ -1,0 +1,70 @@
+en:
+  trainee_manager:
+    trainee_not_found: "Trainee not found."
+    no_selection: "No trainees selected."
+    bulk_destroy_success: "%{count} trainees successfully deleted."
+    bulk_destroy_failed: "Failed to delete trainees."
+    bulk_deactivate_success: "%{count} trainees successfully deactivated."
+    bulk_deactivate_failed: "Failed to deactivate trainees."
+
+    update_status:
+      update_success: "Trainee status updated successfully."
+      update_failed: "Failed to update trainee status."
+
+    destroy:
+      destroy_success: "Trainee deleted successfully."
+      destroy_failed: "Failed to delete trainee."
+
+    bulk_destroy:
+      trainee_no_selection: "No trainees selected for bulk deletion."
+      bulk_destroy_success: "%{count} trainees successfully deleted."
+      bulk_destroy_failed: "Failed to delete trainees."
+
+    bulk_deactivate:
+      trainee_no_selection: "No trainees selected for bulk deactivation."
+      bulk_deactivate_success: "%{count} trainees successfully deactivated."
+      bulk_deactivate_failed: "Failed to deactivate trainees."
+
+    filter_form:
+      search_label: "Search Trainees"
+      search_placeholder: "Enter trainee name"
+      status_label: "Status"
+      status_all: "All"
+      status_active: "Active"
+      status_inactive: "Inactive"
+      course_label: "Course"
+      course_all: "All Courses"
+      apply: "Apply Filters"
+      reset_filters: "Reset Filters"
+
+    trainee_infor_list:
+      active: "Active"
+      inactive: "Inactive"
+      unknown: "Unknown"
+      deactivate_confirm: "Are you sure you want to deactivate the selected trainees?"
+      delete_confirm: "Are you sure you want to delete the selected trainees?"
+      activate_confirm: "Are you sure you want to activate the selected trainees?"
+      gender:
+        male: "Male"
+        female: "Female"
+        other: "Other"
+
+    index:
+      title: "Trainee Management"
+      filter_title: "Filter Trainees"
+      items_selected: "trainees selected"
+      delete_selected: "Delete Selected"
+      deactivate_selected: "Deactivate Selected"
+      name: "Name"
+      email: "Email"
+      gender: "Gender"
+      birthday: "Birthday"
+      status: "Status"
+      actions: "Actions"
+      no_trainees_found: "No trainees found."
+      not_trainees_description: "You can manage trainees here. Use the filter options to find specific trainees or perform bulk actions."
+      show_results: "Show Results"
+
+    no_selection: "No trainees selected."
+    bulk_deactivate_confirm: "Are you sure you want to deactivate the selected trainees?"
+    

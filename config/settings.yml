@@ -29,8 +29,9 @@ user:
     male: 1
     other: 2
   status:
-    active: 0
-    inactive: 1
+    active: 1
+    inactive: 0
+  birthday_format: "%d/%m/%Y"
 
 course:
   max_name_length: 200
@@ -123,7 +124,7 @@ email:
 ui:
   theme: "default"
   items_per_page: 10
-  max_upload_size: 5242880  # 5MB
+  max_upload_size: 5242880 # 5MB
   gravatar:
     default_size: 80
     list_size: 50
@@ -161,6 +162,12 @@ pagination:
 
 page_classes:
   courses: "courses_page"
+  trainee_manager: "trainee-manager-page"
 
 defaults:
   count: 0
+
+views:
+  trainee_manager:
+    index:
+      selected_count: "0"

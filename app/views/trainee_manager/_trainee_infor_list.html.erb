@@ -1,0 +1,85 @@
+<% @trainees.each do |trainee| %>
+  <tr class="trainee-row">
+    <!-- Checkbox for bulk actions -->
+    <td class="checkbox-col">
+      <input type="checkbox" class="form-check-input trainee-checkbox" value="<%= trainee.id %>">
+    </td>
+
+    <!-- Name (clickable link) -->
+    <td class="name-col">
+      <%= link_to trainee.name,
+                  trainee_manager_path(trainee),
+                  class: "text-decoration-none fw-bold text-primary trainee-name" %>
+    </td>
+
+    <!-- Email -->
+    <td class="email-col">
+      <span class="text-muted"><%= trainee.email %></span>
+    </td>
+
+    <!-- Gender -->
+    <td class="gender-col">
+      <span class="badge bg-light text-dark">
+        <%= t(".gender.#{trainee.gender&.to_sym || :other}") %>
+      </span>
+    </td>
+
+    <!-- Birthday -->
+    <td class="birthday-col">
+      <span class="text-muted">
+        <%= trainee.birthday&.strftime(Settings.user.birthday_format) %>
+      </span>
+    </td>
+
+    <!-- Status -->
+    <td class="status-col">
+      <% case trainee.activated&.to_sym %>
+      <% when :active %>
+        <span class="badge bg-success status-badge">
+          <i class="fas fa-check-circle me-1"></i>
+          <%= t(".active") %>
+        </span>
+      <% when :inactive %>
+        <span class="badge bg-secondary status-badge">
+          <i class="fas fa-times-circle me-1"></i>
+          <%= t(".inactive") %>
+        </span>
+      <% else %>
+        <span class="badge bg-light text-dark status-badge">
+          <i class="fas fa-question-circle me-1"></i>
+          <%= t(".unknown") %>
+        </span>
+      <% end %>
+    </td>
+
+    <!-- Actions -->
+    <td class="actions-col">
+      <div class="btn-group" role="group">
+        <!-- View Profile -->
+        <%= link_to trainee_manager_path(trainee),
+                    class: "btn btn-outline-info btn-sm action-btn",
+                    title: t(".view_profile") do %>
+          <i class="fas fa-eye"></i>
+        <% end %>
+
+        <!-- Deactivate/Activate -->
+        <% if trainee.activated&.to_sym == :active %>
+          <%= link_to update_status_trainee_manager_path(trainee, activated: :inactive),
+                      data: { turbo_method: :patch, turbo_confirm: t(".deactivate_confirm") },
+                      class: "btn btn-outline-warning btn-sm action-btn",
+                      title: t(".deactivate") do %>
+            <i class="fas fa-ban"></i>
+          <% end %>
+        <% else %>
+          <%= link_to update_status_trainee_manager_path(trainee, activated: :active),
+                      method: :patch,
+                      data: { turbo_method: :patch, turbo_confirm: t(".activate_confirm") },
+                      class: "btn btn-outline-success btn-sm action-btn",
+                      title: t(".activate") do %>
+            <i class="fas fa-check"></i>
+          <% end %>
+        <% end %>
+      </div>
+    </td>
+  </tr>
+<% end %>

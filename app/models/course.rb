@@ -43,6 +43,7 @@ class Course < ApplicationRecord
                                    "%#{sanitize_sql_like(query)}%")
                            end
                          }
+  scope :resent, -> {order(created_at: :desc).limit(Settings.course.limit_recent)}
 
   def trainee_count
     user_courses.trainees.count

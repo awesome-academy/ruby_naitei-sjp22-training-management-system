@@ -21,9 +21,10 @@ gender).freeze
     supervisor: Settings.user.roles.supervisor,
     admin: Settings.user.roles.admin
   }
-  enum status: {
-    active: Settings.user.status.active,
-    inactive: Settings.user.status.inactive
+
+  enum activated: {
+    inactive: false,
+    active: true
   }
 
   # Associations
@@ -40,6 +41,12 @@ gender).freeze
 
   scope :recent, -> {order(created_at: :desc)}
   scope :sort_by_name, -> {order(:name)}
+  scope :filter_by_role, ->(role) { where(role: role) }
+  scope :filter_by_status, ->(status) { where(activated: status) }
+  scope :filter_by_name, -> (name) {
+    where("LOWER(users.name) LIKE ?", "%#{name.downcase}%")
+  }
+  
 
   before_save :downcase_email
   before_create :create_activation_digest

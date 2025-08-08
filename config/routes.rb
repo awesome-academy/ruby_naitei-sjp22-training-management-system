@@ -40,5 +40,14 @@ Rails.application.routes.draw do
       resources :categories
       resources :daily_reports, only: %i(index show)
     end
+
+    resources :trainee_manager, only: %i(index show) do
+      member do
+        patch :update_status
+      end
+      collection do
+        patch :bulk_deactivate
+      end
+    end
   end
 end

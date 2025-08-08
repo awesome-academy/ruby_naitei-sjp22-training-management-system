@@ -1,0 +1,76 @@
+<%= form_with url: trainee_manager_index_path, method: :get, data: {turbo: true}, local: true, class: "filter-form" do |form| %>
+  <div class="row g-3">
+    <!-- Search Input -->
+    <div class="col-lg-4 col-md-6">
+      <div class="form-group">
+        <label class="form-label">
+          <i class="fas fa-search me-1"></i>
+          <%= t(".search_label") %>
+        </label>
+        <div class="input-group">
+          <%= form.text_field :search,
+              placeholder: t(".search_placeholder"),
+              value: params[:search],
+              class: "form-control search-input" %>
+          <% if params[:search].present? %>
+            <button type="button" class="btn btn-outline-secondary clear-search" title="Clear search">
+              <i class="fas fa-times"></i>
+            </button>
+          <% end %>
+        </div>
+      </div>
+    </div>
+
+    <!-- Status Filter -->
+    <div class="col-lg-3 col-md-6">
+      <div class="form-group">
+        <label class="form-label">
+          <i class="fas fa-toggle-on me-1"></i>
+          <%= t(".status_label") %>
+        </label>
+        <%= form.select :status,
+            options_for_select([
+              [t(".status_all"), nil],
+              [t(".status_active"), :active],
+              [t(".status_inactive"), :inactive]
+            ], params[:status]),
+            {},
+            { class: "form-select status-select" } %>
+      </div>
+    </div>
+
+    <!-- Course Filter -->
+    <div class="col-lg-3 col-md-6">
+      <div class="form-group">
+        <label class="form-label">
+          <i class="fas fa-graduation-cap me-1"></i>
+          <%= t(".course_label") %>
+        </label>
+        <%= form.select :course,
+            options_for_select([
+              [t(".course_all"), nil]
+            ] + @courses.map { |course| [course.name, course.id] }, params[:course]),
+            {},
+            { class: "form-select course-select" } %>
+      </div>
+    </div>
+
+    <!-- Action Buttons -->
+    <div class="col-lg-2 col-md-6">
+      <div class="form-group">
+        <label class="form-label d-block">&nbsp;</label>
+        <div class="btn-group w-100" role="group">
+          <%= form.submit t(".apply"),
+              class: "btn btn-primary apply-btn" %>
+          <% if params[:search].present? || params[:status].present? || params[:course].present? %>
+            <%= link_to trainee_manager_index_path,
+                class: "btn btn-outline-secondary reset-btn",
+                title: t(".reset_filters") do %>
+              <i class="fas fa-undo"></i>
+            <% end %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>
