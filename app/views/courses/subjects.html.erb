@@ -1,0 +1,9 @@
+<%= render "courses/course_layout" do %>
+  <div class="subject-list-section">
+    <% @subjects.group_by { |cs| subject_status(cs) }.each do |status, course_subjects| %>
+      <%= render "courses/subject_group", status: status, course_subjects: course_subjects, course: @course %>
+    <% end %>
+  </div>
+<% end %>
+
+

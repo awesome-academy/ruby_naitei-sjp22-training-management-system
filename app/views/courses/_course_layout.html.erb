@@ -1,0 +1,95 @@
+<div class="course-detail-page">
+  <!-- Course Overall Info (A) -->
+  <div class="course-info-header">
+    <div class="course-thumbnail">
+      <% if @course.image.attached? %>
+        <%= image_tag @course.image, alt: @course.name, class: "course-image" %>
+      <% else %>
+        <div class="default-thumbnail">
+          <i class="fas fa-graduation-cap"></i>
+        </div>
+      <% end %>
+    </div>
+
+    <div class="course-details">
+      <div class="course-header">
+        <h1 class="course-title"><%= @course.name %></h1>
+      </div>
+
+      <div class="course-status">
+        <span class="status-badge status-<%= @course.status %>">
+          <%= t("enums.course.status.#{@course.status}") %>
+        </span>
+      </div>
+
+      <div class="course-info-grid">
+        <div class="info-item">
+          <span class="info-label"><%= t("courses.show.course_name", default: t("courses.show.title")) %>:</span>
+          <span class="info-value"><%= @course.name %></span>
+        </div>
+
+        <div class="info-item">
+          <span class="info-label"><%= t("courses.show.link_to_course", default: t("courses.show.title")) %>:</span>
+          <span class="info-value"><%= course_link_url_for(@course) %></span>
+        </div>
+
+        <div class="info-item">
+          <span class="info-label"><%= t("courses.show.time_period", default: t("courses.show.last_updated")) %>:</span>
+          <span class="info-value">
+            <%= @course.start_date.strftime(Settings.formats.date) %> →
+            <%= @course.finish_date.strftime(Settings.formats.date) %>
+          </span>
+        </div>
+
+        <div class="info-item">
+          <span class="info-label"><%= t("courses.show.trainers", default: t("courses.members.trainer_list")) %>:</span>
+          <span class="info-value">
+            <%= @course.supervisors.count %> <%= t("courses.show.trainer_count", default: "trainers") %>
+          </span>
+        </div>
+
+        <div class="info-item">
+          <span class="info-label"><%= t("courses.show.last_updated") %>:</span>
+          <span class="info-value">
+            <%= @course.updated_at.strftime(Settings.formats.datetime) %>
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <div class="course-actions">
+      <% if can_leave_course?(@course) %>
+        <%= button_to t("supervisor.courses.members.leave_course"),
+            leave_course_path_for(@course),
+            method: :delete,
+            data: { confirm: t("supervisor.courses.members.confirm_leave") },
+            class: "btn btn-outline-danger" %>
+      <% end %>
+    </div>
+  </div>
+
+  <!-- Tabs (B) -->
+  <div class="course-tabs">
+    <ul class="nav nav-tabs">
+      <li class="nav-item">
+        <%= link_to course_subjects_path_for(@course),
+            class: "nav-link #{"active" if action_name == "subjects"}" do %>
+          <%= t("courses.show.tabs.subjects") %> (<%= @subject_count %>)
+        <% end %>
+      </li>
+      <li class="nav-item">
+        <%= link_to course_members_path_for(@course),
+            class: "nav-link #{"active" if action_name == "members"}" do %>
+          <%= t("courses.show.tabs.members") %> (<%= @trainee_count + (@trainer_count || Settings.defaults.count) %>)
+        <% end %>
+      </li>
+    </ul>
+  </div>
+
+  <!-- Tab Content -->
+  <div class="tab-content">
+    <%= yield %>
+  </div>
+</div>
+
+

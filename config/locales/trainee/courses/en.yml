@@ -1,0 +1,11 @@
+en:
+  trainee:
+    courses:
+      access_denied: "You don't have permission to access this course"
+      course_not_found: "Course not found"
+      members:
+        access_denied: "You don't have permission to access this course"
+        course_not_found: "Course not found"
+      subjects:
+        access_denied: "You don't have permission to access this course"
+        course_not_found: "Course not found"

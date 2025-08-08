@@ -1,0 +1,68 @@
+<div class="subject-card">
+  <div class="subject-info">
+    <div class="subject-dates">
+      <%= course_subject.start_date&.strftime(Settings.formats.date) %> → 
+      <%= course_subject.finish_date&.strftime(Settings.formats.date) %>
+    </div>
+    <div class="subject-name">
+      <%= course_subject.subject.name %>: 
+      <%= t("courses.subjects.time_to_finish", days: course_subject.subject.estimated_time_days || 0) %>
+    </div>
+
+    <div class="tasks-preview">
+      <h6><%= t("courses.subjects.tasks_preview", default: t("courses.subjects.task_overview")) %></h6>
+      <div class="tasks-list">
+        <% course_subject.tasks.first(Settings.ui_limits.subject_tasks_preview_count).each do |task| %>
+          <div class="task-item">• <%= task.name %></div>
+        <% end %>
+        <% if course_subject.tasks.size > Settings.ui_limits.subject_tasks_preview_count %>
+          <div class="task-item">• <%= t("courses.subjects.and_more", count: course_subject.tasks.size - Settings.ui_limits.subject_tasks_preview_count, default: t("courses.subjects.task_overview")) %></div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+  <div class="subject-actions">
+    <% is_admin = current_user&.admin? %>
+    <% is_supervisor = current_user&.supervisor? %>
+    <% if is_admin || is_supervisor %>
+      <div class="dropdown">
+        <button class="btn btn-outline-primary dropdown-toggle" type="button" data-bs-toggle="dropdown">
+          <%= t("courses.subjects.actions", default: t("courses.members.actions", default: "Actions")) %>
+        </button>
+        <ul class="dropdown-menu">
+          <% if is_admin %>
+            <li>
+              <%= link_to t("courses.subjects.edit", default: "Edit"), 
+                  edit_admin_subject_path(course_subject.subject), 
+                  class: "dropdown-item" %>
+            </li>
+          <% end %>
+          <% if (is_admin || is_supervisor) && subject_status(course_subject) == 'in_progress' %>
+            <li>
+              <%= button_to t("courses.subjects.finish", default: "Finish Subject"), 
+                  finish_course_subject_path_for(course, course_subject_id: course_subject.id), 
+                  method: :post,
+                  data: { confirm: t("courses.subjects.confirm_finish", default: "Are you sure?") },
+                  form: { style: 'display:inline' },
+                  class: "dropdown-item text-success" %>
+            </li>
+          <% end %>
+          <% unless subject_status(course_subject).in?(['in_progress', 'finished']) %>
+            <li>
+              <%= button_to t("courses.subjects.delete", default: "Delete"), 
+                  destroy_course_subject_path_for(course, course_subject_id: course_subject.id), 
+                  method: :delete,
+                  data: { confirm: t("courses.subjects.confirm_delete", default: "Are you sure?") },
+                  form: { style: 'display:inline' },
+                  class: "dropdown-item text-danger" %>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+
+

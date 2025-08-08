@@ -6,10 +6,22 @@ vi:
       last_updated: "Lần cuối cập nhật là"
       expected: "dự kiến"
       access_denied: "Bạn không có quyền truy cập khóa học này"
+      course_name: "Tên khóa học"
+      link_to_course: "Liên kết khóa học"
+      time_period: "Thời gian"
+      trainers: "Giảng viên"
+      trainer_count: "giảng viên"
       tabs:
         subjects: "Môn học"
         members: "Thành viên"
+        supervisors: "Giám sát viên"
       course_not_found: "Không tìm thấy khóa học"
+    detail:
+      edit: "Chỉnh sửa"
+      members_content: "Thành viên"
+      members_placeholder: "Nội dung thành viên sẽ hiển thị tại đây."
+      supervisors_content: "Giám sát viên"
+      supervisors_placeholder: "Nội dung giám sát viên sẽ hiển thị tại đây."
     check_course_access:
       access_denied: "Bạn không có quyền truy cập khóa học này"
     members:
@@ -24,18 +36,23 @@ vi:
       access_denied: "Bạn không có quyền truy cập khóa học này"
       course_not_found: "Không tìm thấy khóa học"
       subjects_list: "Danh sách môn học"
-      access_denied: "Bạn không có quyền truy cập khóa học này"
       subject_status:
-        not_started: "Bắt đầu"
-        in_progress: "Đang thực hiện"
+        not_started: "Chưa bắt đầu"
+        in_progress: "Đang diễn ra"
         finished_early: "Hoàn thành sớm"
         finished_ontime: "Hoàn thành đúng hạn"
         finished_but_overdue: "Hoàn thành nhưng quá hạn"
         overdue_and_not_finished: "Quá hạn và chưa hoàn thành"
-        finished: "Hoàn thành"
-      time_label: "Thời gian: %{days} ngày"
-      time_label_plural: "Thời gian: %{days} ngày"
-      task_overview: "Xem nhanh nhiệm vụ"
+        finished: "Đã hoàn thành"
+      time_to_finish: "%{days} ngày"
+      tasks_preview: "Xem trước bài tập"
+      and_more: "và %{count} bài tập khác"
+      actions: "Hành động"
+      edit: "Chỉnh sửa"
+      delete: "Xóa"
+      confirm_delete: "Bạn có chắc chắn muốn xóa môn học này không?"
+      finish: "Kết thúc môn học"
+      confirm_finish: "Bạn có chắc chắn muốn đánh dấu đã kết thúc môn học này cho tất cả học viên không?"
       no_tasks: "Không có nhiệm vụ nào"
       assessments: "Nhận xét (%{count})"
       assessments_popup:
@@ -46,3 +63,19 @@ vi:
       no_comments: "Chưa có nhận xét"
     errors:
       access_denied: "Bạn không có quyền truy cập khóa học này"
+      course_not_found: "Không tìm thấy khóa học"
+    destroy_user_course:
+      success: "Đã xóa học viên khỏi khóa học thành công!"
+      failed: "Xóa học viên khỏi khóa học thất bại!"
+    destroy_supervisor:
+      success: "Đã xóa giám sát viên khỏi khóa học thành công!"
+      failed: "Xóa giám sát viên khỏi khóa học thất bại!"
+    destroy_course_subject:
+      success: "Đã xóa môn học khỏi khóa học thành công!"
+      failed: "Xóa môn học khỏi khóa học thất bại!"
+    finish_course_subject:
+      success: "Tất cả học viên đã được cập nhật trạng thái hoàn thành môn học!"
+      failed: "Cập nhật trạng thái hoàn thành môn học thất bại!"
+    leave:
+      must_have_another_supervisor: "Bạn không thể rời khóa học vì bạn là giám sát viên duy nhất."
+      success: "Rời khóa học thành công."

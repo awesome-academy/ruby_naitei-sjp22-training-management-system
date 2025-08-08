@@ -1,0 +1,56 @@
+<!-- Trainer List -->
+<div class="trainer-section">
+  <h3 class="section-title">
+    <%= t("courses.members.trainer_list") %> (<%= trainer_count %>)
+  </h3>
+
+  <div class="trainer-list">
+    <% trainers.each do |trainer| %>
+      <div class="trainer-item">
+        <div class="trainer-avatar">
+          <%= gravatar_for trainer %>
+        </div>
+        <div class="trainer-name">
+          <%= link_to trainer.name, user_path(trainer), class: "trainer-link" %>
+        </div>
+        <div class="trainer-actions">
+          <div class="dropdown">
+            <button class="btn btn-sm btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown">
+              <%= t("courses.members.actions", default: t("shared.action", default: "Actions")) %>
+            </button>
+            <ul class="dropdown-menu">
+              <li>
+                <%= link_to t("courses.members.view_profile", default: t("users.show.title", default: "View Profile")), 
+                    user_path(trainer), 
+                    class: "dropdown-item" %>
+              </li>
+              <% if admin_role? %>
+                <li>
+                  <%= button_to t("courses.members.remove_from_course", default: "Remove from Course"), 
+                      destroy_supervisor_path_for(@course, supervisor_id: trainer.id), 
+                      method: :delete,
+                      data: { confirm: t("courses.members.confirm_remove_trainer", default: "Are you sure?") },
+                      form: { style: 'display:inline' },
+                      class: "dropdown-item text-danger" %>
+                </li>
+              <% else %>
+                <% if trainer == current_user && can_leave_course?(@course) %>
+                  <li>
+                    <%= button_to t("courses.leave.leave_course", default: t("courses.members.leave_course", default: "Leave course")), 
+                        leave_course_path_for(@course), 
+                        method: :delete,
+                        data: { confirm: t("courses.leave.confirm_leave", default: t("courses.members.confirm_leave", default: "Are you sure?")) },
+                        form: { style: 'display:inline' },
+                        class: "dropdown-item text-danger" %>
+                  </li>
+                <% end %>
+              <% end %>
+            </ul>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+

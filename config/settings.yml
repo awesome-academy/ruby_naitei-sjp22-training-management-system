@@ -168,9 +168,27 @@ pagination:
 
 page_classes:
   courses: "courses_page"
+  admin_courses: "admin_courses_page"
+
+scope:
+  admin: "admin"
+  supervisor: "supervisor"
+
+templates:
+  courses:
+    members: "courses/members"
+    subjects: "courses/subjects"
+
+ui_limits:
+  subject_tasks_preview_count: 3
 
 defaults:
   count: 0
+
+subject_status:
+  not_started: "not_started"
+  in_progress: "in_progress"
+  finished: "finished"
   min_estimated_time_days: 1
   subject_status_not_started: "not_started"
   zero: 0

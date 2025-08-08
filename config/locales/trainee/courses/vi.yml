@@ -1,0 +1,11 @@
+vi:
+  trainee:
+    courses:
+      access_denied: "Bạn không có quyền truy cập khóa học này"
+      course_not_found: "Không tìm thấy khóa học"
+      members:
+        access_denied: "Bạn không có quyền truy cập khóa học này"
+        course_not_found: "Không tìm thấy khóa học"
+      subjects:
+        access_denied: "Bạn không có quyền truy cập khóa học này"
+        course_not_found: "Không tìm thấy khóa học"

@@ -1,0 +1,9 @@
+<%= render "courses/course_layout" do %>
+  <!-- Member list (C) -->
+  <div class="member-list-section">
+    <%= render "courses/trainer_list", trainers: @trainers, trainer_count: @trainer_count %>
+    <%= render "courses/trainee_list", trainees: @trainees, trainee_count: @trainee_count, pagy: @pagy %>
+  </div>
+<% end %>
+
+

@@ -1,0 +1,77 @@
+<!-- Trainee List -->
+<div class="trainee-section">
+  <h3 class="section-title">
+    <%= t("courses.members.trainee_list") %> (<%= trainee_count %>)
+  </h3>
+
+  <div class="trainee-table-container">
+    <table class="table trainee-table">
+      <thead>
+        <tr>
+          <th><%= t("courses.members.name") %></th>
+          <th><%= t("courses.members.current_status") %></th>
+          <th><%= t("courses.members.joined_at") %></th>
+          <th><%= t("courses.members.actions", default: t("shared.action", default: "Actions")) %></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% trainees.each do |user_course| %>
+          <tr>
+            <td class="trainee-name">
+              <div class="trainee-info">
+                <div class="trainee-avatar-small">
+                  <%= gravatar_for user_course.user, size: Settings.ui.gravatar.small_size %>
+                </div>
+                <%= link_to user_course.user.name, user_path(user_course.user), class: "trainee-link" %>
+              </div>
+            </td>
+            <td class="trainee-status">
+              <span class="status-badge status-<%= user_course.status %>">
+                <%= t("enums.user_course.status.#{user_course.status}") %>
+              </span>
+            </td>
+            <td class="trainee-joined-date">
+              <%= user_course.joined_at&.strftime(Settings.formats.date) || user_course.created_at.strftime(Settings.formats.date) %>
+            </td>
+            <td class="trainee-actions">
+              <div class="dropdown">  
+                <button class="btn btn-sm btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown">
+                  <%= t("courses.members.actions", default: t("shared.action", default: "Actions")) %>
+                </button>
+                <ul class="dropdown-menu">
+                  <li>
+                    <%= link_to t("courses.members.view_profile", default: t("users.show.title", default: "View Profile")), 
+                        user_path(user_course.user), 
+                        class: "dropdown-item" %>
+                  </li>
+                  <li>
+                    <%= link_to t("courses.members.view_reports", default: "View Reports"), 
+                        trainee_daily_reports_path(user_course.user),   
+                        class: "dropdown-item" %>
+                  </li>
+                  <% unless user_course.status.in?([Settings.user_course.status.in_progress, Settings.user_course.status.finished]) %>
+                  <li>
+                    <%= button_to t("courses.members.remove_from_course", default: "Remove from Course"), 
+                        destroy_user_course_path_for(@course, user_course_id: user_course.id), 
+                        method: :delete,
+                        data: { confirm: t("courses.members.confirm_remove_trainee", default: "Are you sure?") },
+                        form: { style: 'display:inline' },
+                        class: "dropdown-item text-danger" %>
+                  </li>
+                  <% end %>
+                </ul>
+              </div>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Pagination -->
+  <div class="pagination-container">
+    <%== pagy_bootstrap_nav(pagy) if pagy.pages > Settings.pagination.min_pages_to_show %>
+  </div>
+</div>
+
+

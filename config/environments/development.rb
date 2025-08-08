@@ -33,12 +33,12 @@ Rails.application.configure do
     config.cache_store = :null_store
   end
 
-  # Bullet.enable = true
-  # Bullet.bullet_logger = true
-  # Bullet.alert = true
-  # Bullet.raise = true
-  # Bullet.unused_eager_loading_enable = false
-  # Bullet.rails_logger = true
+  Bullet.enable = true
+  Bullet.bullet_logger = true
+  Bullet.alert = true
+  Bullet.raise = true 
+  Bullet.unused_eager_loading_enable = false
+  Bullet.rails_logger = true
 
   # Store uploaded files on the local file system (see config/storage.yml for options).
   config.active_storage.service = :local

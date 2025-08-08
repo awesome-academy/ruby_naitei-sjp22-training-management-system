@@ -6,10 +6,22 @@ en:
       last_updated: "Last updated"
       expected: "expected"
       access_denied: "You don't have permission to access this course"
+      course_name: "Course name"
+      link_to_course: "Link to Course"
+      time_period: "Time period"
+      trainers: "Trainers"
+      trainer_count: "trainers"
       tabs:
         subjects: "Subjects"
         members: "Members"
+        supervisors: "Supervisors"
       course_not_found: "Course not found"
+    detail:
+      edit: "Edit"
+      members_content: "Members"
+      members_placeholder: "Members content will be displayed here."
+      supervisors_content: "Supervisors"
+      supervisors_placeholder: "Supervisors content will be displayed here."
     check_course_access:
       access_denied: "You don't have permission to access this course"
     members:
@@ -26,16 +38,22 @@ en:
       subjects_list: "Subjects list"
       access_denied: "You don't have permission to access this course"
       subject_status:
-        not_started: "Start"
-        in_progress: "In progress"
+        not_started: "Not Started"
+        in_progress: "In Progress"
         finished_early: "Finished early"
         finished_ontime: "Finished on time"
         finished_but_overdue: "Finished but overdue"
         overdue_and_not_finished: "Overdue and not finished"
         finished: "Finished"
-      time_label: "Time: %{days} day"
-      time_label_plural: "Time: %{days} days"
-      task_overview: "Task overview"
+      time_to_finish: "%{days} days"
+      tasks_preview: "Tasks Preview"
+      and_more: "and %{count} more tasks"
+      actions: "Actions"
+      edit: "Edit"
+      delete: "Delete"
+      confirm_delete: "Are you sure you want to delete this subject?"
+      finish: "Finish Subject"
+      confirm_finish: "Are you sure you want to mark this subject as finished for all trainees?"
       no_tasks: "No tasks available"
       assessments: "Assessments (%{count})"
       assessments_popup:
@@ -46,3 +64,19 @@ en:
       no_comments: "No assessments yet"
     errors:
       access_denied: "You don't have permission to access this course"
+      course_not_found: "Course not found"
+    destroy_user_course:
+      success: "Trainee has been successfully removed from the course!"
+      failed: "Failed to remove trainee from the course!"
+    destroy_supervisor:
+      success: "Supervisor has been successfully removed from the course!"
+      failed: "Failed to remove supervisor from the course!"
+    destroy_course_subject:
+      success: "Subject was successfully removed from the course!"
+      failed: "Failed to remove subject from the course!"
+    finish_course_subject:
+      success: "All trainees have been updated to completed status!"
+      failed: "Failed to update trainees to completed status!"
+    leave:
+      must_have_another_supervisor: "You cannot leave this course because you are the only supervisor."
+      success: "You left the course successfully."

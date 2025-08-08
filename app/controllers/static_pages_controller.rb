@@ -7,7 +7,9 @@ class StaticPagesController < ApplicationController
     @pagy, @courses = pagy(
       current_user.courses
                   .by_status(params[:status])
-                  .ordered_by_start_date,
+                  .ordered_by_start_date
+                  .includes(:user)
+                  .with_attached_image,
       items: Settings.ui.items_per_page
     )
   end
@@ -15,7 +17,11 @@ class StaticPagesController < ApplicationController
   private
   def trainee_dashboard
     @pagy, @courses = pagy(
-      current_user.courses.by_status(params[:status]).ordered_by_start_date,
+      current_user.courses
+                  .by_status(params[:status])
+                  .ordered_by_start_date
+                  .includes(:user)
+                  .with_attached_image,
       items: Settings.ui.items_per_page
     )
   end

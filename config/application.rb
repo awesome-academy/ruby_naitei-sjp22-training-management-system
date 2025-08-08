@@ -13,5 +13,6 @@ module RailsTutorial
     config.i18n.default_locale = Settings.i18n.default_locale.to_sym
     config.i18n.available_locales = Settings.i18n.available_locales.map(&:to_sym)
     config.i18n.fallbacks = [Settings.i18n.fallback_locale.to_sym]
+    config.i18n.load_path += Dir[Rails.root.join("config", "locales", "**", "*.{rb,yml}")]
   end
 end

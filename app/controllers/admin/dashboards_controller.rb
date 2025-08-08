@@ -8,7 +8,7 @@ class Admin::DashboardsController < ApplicationController
       completion_rate: calculate_completion_rate
     }
 
-    active_courses_query = get_active_courses
+    active_courses_query = active_courses?
 
     @pagy, @courses = pagy(active_courses_query,
                            limit: Settings.ui.items_per_page)
@@ -25,7 +25,7 @@ class Admin::DashboardsController < ApplicationController
     "#{rate}%"
   end
 
-  def get_active_courses
+  def active_courses?
     Course.in_progress
           .includes(:user)
           .with_counts

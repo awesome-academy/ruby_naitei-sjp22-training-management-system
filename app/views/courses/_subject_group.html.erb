@@ -1,0 +1,12 @@
+<div class="subject-group">
+  <h4 class="subject-status-title">
+    <span class="status-indicator status-<%= status %>"></span>
+    <%= t("courses.subjects.status.#{status}", default: t("courses.subjects.subject_status.#{status}", default: status.humanize)) %>
+  </h4>
+
+  <% course_subjects.each do |course_subject| %>
+    <%= render "courses/subject_card", course_subject: course_subject, course: course %>
+  <% end %>
+</div>
+
+
