@@ -1,0 +1,13 @@
+<ul class="comment-list">
+  <% comments.each do |comment| %>
+    <li class="comment-item">
+      <div class="comment-header">
+        <strong><%= comment.user.name %></strong>
+        <span class="comment-date"><%= l(comment.created_at, format: :short) %></span>
+      </div>
+      <div class="comment-body">
+        <%= simple_format(comment.content) %>
+      </div>
+    </li>
+  <% end %>
+</ul>

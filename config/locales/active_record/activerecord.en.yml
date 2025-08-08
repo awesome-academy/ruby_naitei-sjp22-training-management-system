@@ -46,11 +46,20 @@ en:
             gender:
               blank: "can't be blank"
               inclusion: "is not included in the list"
+        user_task:
+          attributes:
+            spent_time:
+              greater_than_or_equal_to: "must be greater than or equal to %{count}"
+              less_than_or_equal_to: "must be less than or equal to %{count}"
+            status:
+              inclusion: "is not included in the list"
+            documents:
+              invalid_document_type: "is not a valid document type. Allowed types: %{types}"
+              document_size_exceeded: "exceeds the maximum size of %{size} MB"
       messages:
         member_to_after_member_from: "must be after member from date"
         finish_date_after_start_date: "must be after start date"
         image_size_exceeded: "must be less than %{size} MB"
-        document_size_exceeded: "must be less than %{size} MB"
         invalid_document_type: "is not a valid document type"
         invalid_image_type: "is not a valid image type"
         one_report_per_day: "You have already submitted a report for this course today."

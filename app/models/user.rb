@@ -37,6 +37,7 @@ gender).freeze
   has_many :comments, dependent: :destroy
   has_many :course_supervisors, dependent: :destroy
   has_many :supervised_courses, through: :course_supervisors, source: :course
+  has_one_attached :image
 
   scope :recent, -> {order(created_at: :desc)}
   scope :sort_by_name, -> {order(:name)}

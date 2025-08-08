@@ -18,19 +18,17 @@ class UserTask < ApplicationRecord
             allow_nil: true
   validates :documents,
             content_type: {
-              in: Settings.user_task.allowed_document_types,
-              message: :invalid_document_type
+              in: Settings.user_task.allowed_document_types
             },
             size: {
-              less_than: Settings.user_task.max_document_size.megabytes,
-              message: :document_size_exceeded,
-              size:
-                              Settings.user_task.max_document_size.megabytes
+              less_than: Settings.user_task.max_document_size.megabytes
             }
 
   # Scopes
   scope :by_user, ->(user) {where(user:)}
   scope :by_task, ->(task) {where(task:)}
+  scope :tasks_done, -> {where(status: :done)}
   scope :by_user_subject, ->(user_subject) {where(user_subject:)}
   scope :recent, -> {order(created_at: :desc)}
+  scope :not_done, -> {where(status: :not_done)}
 end

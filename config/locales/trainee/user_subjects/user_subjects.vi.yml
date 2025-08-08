@@ -1,0 +1,8 @@
+vi:
+  trainee:
+    user_subjects:
+      update:
+        update_success: "Đã cập nhật môn học"
+        update_failed: "Không thể cập nhật môn học. Vui lòng thử lại."
+
+      subject_not_found: "Không tìm thấy môn học."

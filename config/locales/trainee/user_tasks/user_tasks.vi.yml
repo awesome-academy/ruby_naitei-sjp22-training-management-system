@@ -1,0 +1,20 @@
+vi:
+  trainee:
+    user_tasks:
+      update_document:
+        document_updated: "Đã cập nhật tài liệu thành công"
+        document_update_failed: "Không thể cập nhật tài liệu. Vui lòng thử lại."
+
+      update_status:
+        status_updated: "Đã cập nhật trạng thái thành công"
+        status_update_failed: "Không thể cập nhật trạng thái. Vui lòng thử lại."
+
+      update_spent_time:
+        spent_time_updated: "Đã cập nhật thời gian đã sử dụng thành công"
+        spent_time_update_failed: "Không thể cập nhật thời gian đã sử dụng. Vui lòng thử lại."
+
+      destroy_document:
+        document_deleted: "Đã xóa tài liệu thành công"
+        document_not_found: "Không tìm thấy tài liệu."
+
+      cannot_do_this_task: "Bạn không thể thực hiện nhiệm vụ này."

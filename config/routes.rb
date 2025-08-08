@@ -23,7 +23,18 @@ Rails.application.routes.draw do
           get :members
           get :subjects
         end
+        resources :subjects, only: %i(show)
       end
+      resources :user_subjects, only: %i(update)
+      resources :user_tasks, only: [] do
+        member do
+          patch :update_document, path: "document"
+          patch :update_status, path: "status"
+          patch :update_spent_time, path: "spent_time"
+          delete :destroy_document, path: "document"
+        end
+      end
+      resources :daily_reports 
     end
 
     namespace :supervisor do

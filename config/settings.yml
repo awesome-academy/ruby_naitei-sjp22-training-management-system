@@ -65,7 +65,7 @@ daily_report:
   status:
     draft: 0
     submitted: 1
-
+percentage: 100
 user_task:
   min_spent_time: 0
   status:
@@ -73,6 +73,8 @@ user_task:
     done: 1
   allowed_document_types: ["application/pdf", "image/jpeg", "image/png"]
   max_document_size: 50 # in MB
+  spent_time_step: 0.1
+  spent_time_min: 0
 
 course_subject:
   min_position: 1
@@ -82,7 +84,7 @@ subject_category:
 
 user_subject:
   min_score: 0
-  max_score: 10
+  max_score: 30
   status:
     not_started: 0
     in_progress: 1
@@ -130,7 +132,7 @@ email:
 ui:
   theme: "default"
   items_per_page: 10
-  max_upload_size: 5242880  # 5MB
+  max_upload_size: 5242880 # 5MB
   gravatar:
     default_size: 80
     list_size: 50
@@ -179,3 +181,9 @@ cron:
   delete_drafts_interval_in_minutes: 1
   delete_drafts_interval_in_day: 1
   delete_time: "12:00 am"
+image_user_default: "default_user_image.png"
+
+trainee:
+  subjects:
+    min_tasks: 0
+    default_progress: 0

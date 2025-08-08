@@ -50,6 +50,16 @@ vi:
             gender:
               blank: "không thể để trống"
               inclusion: "không có trong danh sách"
+        user_task:
+          attributes:
+            spent_time:
+              greater_than_or_equal_to: "phải lớn hơn hoặc bằng %{count}"
+              less_than_or_equal_to: "phải nhỏ hơn hoặc bằng %{count}"
+            status:
+              inclusion: "không có trong danh sách"
+            documents:
+              invalid_document_type: "không phải là loại tài liệu hợp lệ. Các loại được phép: %{types}"
+              document_size_exceeded: "vượt quá kích thước tối đa %{size} MB"
       messages:
         member_to_after_member_from: "Ngày kết thúc thành viên phải sau ngày bắt đầu thành viên"
         finish_date_after_start_date: "Ngày kết thúc phải sau ngày bắt đầu"

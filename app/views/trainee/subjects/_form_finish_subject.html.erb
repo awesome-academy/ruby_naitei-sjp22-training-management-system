@@ -1,0 +1,14 @@
+<%= form_with model: @user_subject,
+        url: trainee_user_subject_path(@user_subject),
+        method: :patch,
+        local: true,
+        class: "d-inline",
+        id: "finish_subject_form" do |f| %>
+  <%= f.hidden_field :status,
+           value: get_status_user_subject(@user_subject.completed_at, @course_subject.finish_date) %>
+  <%= f.hidden_field :started_at, id: "form_started_at" %>
+  <%= f.hidden_field :completed_at, id: "form_completed_at" %>
+  <%= f.submit t(".confirm_finish"),
+         class: "btn btn-warning btn-sm",
+         onclick: "updateFormDates()" %>
+<% end %>
