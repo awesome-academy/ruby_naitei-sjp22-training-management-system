@@ -3,6 +3,9 @@ en:
     active: "Active"
     inactive: "Inactive"
     activate: "Activate"
+    add: "Add"
+    cancel: "Cancel"
+    not_available: "N/A"
   time:
     formats:
       short: "%d-%m-%Y"
@@ -29,6 +32,30 @@ en:
         confirm_delete: "Are you sure?"
         no_admins_found: "No admins found."
         all_statuses: "All Statuses"
+      new:
+        title: "Add New Admin"
+      create:
+        admin_created_successfully: "New admin was successfully created."
+        creation_failed: "Failed to create admin. Please check the errors below."
+      show:
+        actions: "Actions"
+        edit_profile: "Edit Profile"
+        email: "Email"
+        phone: "Phone"
+        address: "Address"
+        birthday: "Date of birth"
+        gender: "Gender"
+        id: "ID"
+        course_name: "Course"
+        start_date: "Start Date"
+        end_date: "End Date"
+        trainees_count: "Trainees"
+        status: "Status"
+        no_courses_found: "This admin is not supervising any courses yet."
+      helpers:
+        submit:
+          user:
+            create: "Add"
       filter_form:
         apply_button: "Apply"
         search_placeholder: "Search by name..."

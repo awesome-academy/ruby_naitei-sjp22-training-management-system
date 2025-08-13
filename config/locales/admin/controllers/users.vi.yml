@@ -3,6 +3,9 @@ vi:
     active: "Đang hoạt động"
     inactive: "Vô hiệu hóa"
     activate: "Kích hoạt"
+    add: "Thêm"
+    cancel: "Hủy"
+    not_available: "Chưa có"
   time:
     formats:
       short: "%d-%m-%Y"
@@ -29,6 +32,30 @@ vi:
         confirm_delete: "Bạn có chắc không?"
         no_admins_found: "Không tìm thấy quản trị viên nào."
         all_statuses: "Tất cả trạng thái"  
+      new:
+        title: "Thêm admin Mới"
+      create:
+        admin_created_successfully: "Đã tạo admin mới thành công."
+        creation_failed: "Tạo admin thất bại. Vui lòng kiểm tra lại các lỗi bên dưới."
+      show:
+        actions: "Hành động"
+        edit_profile: "Chỉnh sửa hồ sơ"
+        email: "Email"
+        phone: "Điện thoại"
+        address: "Địa chỉ"
+        birthday: "Ngày sinh"
+        gender: "Giới tính"
+        id: "ID"
+        course_name: "Khóa học"
+        start_date: "Ngày bắt đầu"
+        end_date: "Ngày kết thúc"
+        trainees_count: "Học viên"
+        status: "Trạng thái"
+        no_courses_found: "Admin này chưa quản lý khóa học nào."
+      helpers:
+        submit:
+          user:
+            create: "Thêm" 
       filter_form:
         apply_button: "Áp dụng"       
         search_placeholder: "Tìm kiếm theo tên..."      

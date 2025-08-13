@@ -1,0 +1,15 @@
+<% provide :title, t(".title") %>
+
+<div class="content-container">
+  <h1 class="page-title"><%= t(".title") %></h1>
+
+  <div class="panel panel-default">
+    <div class="panel-body">
+      <%= render "form",
+                 model_object: @supervisor,
+                 submit_url: admin_users_path,
+                 method: :post,
+                 submit_text: t("common.add") %>
+    </div>
+  </div>
+</div>

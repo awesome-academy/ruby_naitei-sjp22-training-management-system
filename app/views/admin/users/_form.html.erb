@@ -1,0 +1,63 @@
+<%#
+  Partial này nhận các biến cục bộ sau:
+  - model_object: Đối tượng để form_with xây dựng (VD: @supervisor)
+  - submit_url: URL mà form sẽ gửi đến (VD: admin_supervisors_path)
+  - submit_text: Văn bản cho nút submit (VD: "Thêm" hoặc "Cập nhật")
+%>
+
+<%= form_with model: model_object, url: submit_url, method: method, local: true do |f| %>
+
+  <%# Render partial hiển thị lỗi validation %>
+  <%= render "shared/error_messages", object: f.object %>
+
+  <div class="row">
+    <div class="col-md-6">
+      <div class="form-group">
+        <%= f.label :name %>
+        <%= f.text_field :name, class: "form-control" %>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="form-group">
+        <%= f.label :email %>
+        <%= f.email_field :email, class: "form-control" %>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-6">
+      <div class="form-group">
+        <%= f.label :password %>
+        <%= f.password_field :password, class: "form-control" %>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="form-group">
+        <%= f.label :password_confirmation %>
+        <%= f.password_field :password_confirmation, class: "form-control" %>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-6">
+      <div class="form-group">
+        <%= f.label :birthday %>
+        <%= f.date_field :birthday, class: "form-control" %>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="form-group">
+        <%= f.label :gender %>
+        <%= f.select :gender, User.genders.keys.map { |g| [t("activerecord.attributes.user.genders.#{g}", default: g.humanize), g] }, { include_blank: true }, class: "form-control" %>
+      </div>
+    </div>
+  </div>
+
+  <%# Các nút hành động ở cuối form %>
+  <div class="form-actions text-right">
+    <%= link_to t("common.cancel"), admin_users_path, class: "btn btn-default" %>
+    <%= f.submit submit_text, class: "btn btn-primary" %>
+  </div>
+<% end %>
