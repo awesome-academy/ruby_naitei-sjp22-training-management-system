@@ -38,6 +38,7 @@ user:
 
 course:
   max_name_length: 200
+  creators: "creators"
   status:
     not_started: 0
     in_progress: 1

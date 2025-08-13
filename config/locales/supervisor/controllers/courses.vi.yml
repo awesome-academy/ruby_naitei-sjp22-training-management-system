@@ -1,0 +1,57 @@
+vi:
+  activerecord:
+    models:
+      course: "Khóa học"
+    attributes:
+      course:
+        status: "Trạng thái"
+
+  courses:
+    statuses:
+      not_started: "Chưa bắt đầu"
+      in_progress: "Đang diễn ra"
+      finished: "Đã kết thúc"
+
+  supervisor:
+    dashboards:
+      index:
+        title: "Bảng điều khiển"
+        search: "Nhập từ khóa..."
+        overview: "Tổng quan"
+        active_courses_title: "Khóa học đang diễn ra"
+        trainers: "Giảng viên"
+        trainees: "Học viên"
+        active_courses: "Khóa học đang diễn ra"
+        completion_rate: "Tỷ lệ hoàn thành"
+      tables:
+        table_headers:
+          course: "Khóa học"
+          trainers: "Giảng viên"
+          trainees: "Học viên"
+          start_date: "Ngày bắt đầu"
+          end_date: "Ngày kết thúc"
+          actions: "Hành động"
+          creators: "Người tạo"
+      courses_row:
+        view_action: "Xem chi tiết"
+    courses:
+      index:
+        title: "Tất cả Khóa học"
+        add_course_button: "Thêm Khóa học"
+        search_by: "Tìm kiếm theo"
+        search_placeholder: "Nhập từ khóa..."
+        courses: "Tên khóa học"
+        creators: "Tên giảng viên"
+        all_statuses: "Tất cả trạng thái"
+        start_date_range: "Khoảng ngày bắt đầu"
+        apply_button: "Áp dụng"
+        clear_filter_button: "Xóa bộ lọc"
+      courses_table:
+        no_courses_found: "Không tìm thấy khóa học nào."
+        course_name: "Tên Khóa học"
+        supervisors: "Giảng viên"
+        trainees: "Học viên"
+        start_date: "Ngày bắt đầu"
+        end_date: "Ngày kết thúc"
+        status: "Trạng thái"
+        actions: "Hành động"

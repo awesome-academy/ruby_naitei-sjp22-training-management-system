@@ -1,0 +1,57 @@
+en:
+  activerecord:
+    models:
+      course: "Course"
+    attributes:
+      course:
+        status: "Status"
+
+  courses:
+    statuses:
+      not_started: "Not Started"
+      in_progress: "In Progress"
+      finished: "Finished"
+
+  supervisor:
+    dashboards:
+      index:
+        title: "Dashboard"
+        search: "Enter keyword..."
+        overview: "Overview"
+        active_courses_title: "Active Courses"
+        trainers: "Trainers"
+        trainees: "Trainees"
+        active_courses: "Ongoing Courses"
+        completion_rate: "Completion Rate"
+      tables:
+        table_headers:
+          course: "Course"
+          trainers: "Trainers"
+          trainees: "Trainees"
+          start_date: "Start Date"
+          end_date: "End Date"
+          actions: "Actions"
+          creators: "Creators"
+      courses_row:
+        view_action: "Details"
+    courses:
+      index:
+        title: "All Courses"
+        add_course_button: "Add Course"
+        search_by: "Search By"
+        search_placeholder: "Enter keyword..."
+        courses: "Course Name"
+        creators: "Trainer Name"
+        all_statuses: "All Statuses"
+        start_date_range: "Start Date Range"
+        apply_button: "Apply"
+        clear_filter_button: "Clear Filter"
+      courses_table:
+        no_courses_found: "No courses were found."
+        course_name: "Course Name"
+        supervisors: "Supervisors"
+        trainees: "Trainees"
+        start_date: "Start Date"
+        end_date: "End Date"
+        status: "Status"
+        actions: "Actions"

@@ -33,7 +33,7 @@
     <div class="courses-header">
       <h2 class="section-title"><%= t(".active_courses_title") %></h2>
       <div class="pagination-search-wrapper">
-        <%== pagy_bootstrap_nav(@pagy) %>
+        <%== pagy_bootstrap_nav @pagy %>
         <div class="search-form-wrapper">
           <%= form_with url: admin_dashboards_path, method: :get, class: "d-flex", id: "search-form" do %>
             <%= text_field_tag :search, params[:search], class: "form-control", placeholder: t(".search") %>

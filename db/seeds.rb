@@ -33,9 +33,9 @@ class CourseSeederService
         subject: subject, position: index + 1,
         start_date: cs_start, finish_date: cs_finish
       )
-      rand(3..8).times do
+      rand(3..8).times.each_with_index do |_, i|
         course_subject.tasks.create!(
-          name: "#{Faker::Hacker.verb.capitalize} the #{Faker::Hacker.adjective} #{Faker::Hacker.noun}"
+          name: "#{Faker::Hacker.verb.capitalize} the #{Faker::Hacker.adjective} #{Faker::Hacker.noun} #{Faker::Number.unique.number(digits: 4)} #{i + 1}"
         )
       end
     end
@@ -125,7 +125,7 @@ class CourseSeederService
       report_status = rand > 0.2 ? Settings.daily_report.status.submitted : Settings.daily_report.status.draft
       DailyReport.create!(
         user: trainee, course: course, content: Faker::Lorem.paragraph(sentence_count: rand(3..6)),
-        status: report_status, 
+        status: report_status,
         created_at: date.at_beginning_of_day, updated_at: date.at_beginning_of_day
       )
     end
@@ -158,32 +158,45 @@ ActiveRecord::Base.transaction do
 
   puts "-> Đang tạo Categories và Subjects..."
   categories = 10.times.map { Category.create!(name: Faker::Educator.unique.subject.capitalize) }
-  100.times do
-    subject = Subject.create!(name: "#{Faker::ProgrammingLanguage.name}: #{Faker::Educator.course_name}",
+  100.times.each_with_index do |_, i|
+    subject = Subject.create!(name: "#{Faker::ProgrammingLanguage.name}: #{Faker::Educator.course_name} #{i + 1}",
                               max_score: Settings.user_subject.max_score, estimated_time_days: rand(5..15))
     subject.categories = categories.sample(rand(1..3))
   end
 
+  puts "-> Đang tạo Tasks cho Subject..."
+  subjects = Subject.all
+  200.times.each_with_index do |_, i|
+    Task.create!(
+      name: "#{Faker::Hacker.verb.capitalize} the #{Faker::Hacker.adjective} #{Faker::Hacker.noun} #{i + 1}",
+      taskable_type: "Subject",
+      taskable_id: subjects.sample.id
+    )
+  end
+
   puts "\n-> Đang tạo các Khóa học và dữ liệu liên quan..."
-  10.times do
+  10.times.each_with_index do |_, i|
     finish_date = Faker::Date.between(from: 8.months.ago, to: 1.week.ago)
     start_date = finish_date - rand(3..4).months
-    course = Course.create!(user: supervisors.sample, name: "#{Faker::Company.industry.capitalize} (Finished)",
-                           start_date: start_date, finish_date: finish_date, status: Settings.course.status.finished)
+    course = Course.create!(user: supervisors.sample, name: "#{Faker::Company.industry.capitalize} (Finished) #{i + 1}",
+                           start_date: start_date, finish_date: finish_date, status: Settings.course.status.finished,
+                           link_to_course: "https://www.#{Faker::Internet.domain_name}")
     CourseSeederService.new(course, supervisors, trainees).seed!
   end
-  20.times do
+  20.times.each_with_index do |_, i|
     start_date = Faker::Date.between(from: 3.months.ago, to: 2.weeks.ago)
     finish_date = Faker::Date.between(from: 1.week.from_now, to: 4.months.from_now)
-    course = Course.create!(user: supervisors.sample, name: "#{Faker::Company.industry.capitalize} (In-Progress)",
-                           start_date: start_date, finish_date: finish_date, status: Settings.course.status.in_progress)
+    course = Course.create!(user: supervisors.sample, name: "#{Faker::Company.industry.capitalize} (In-Progress) #{i + 1}",
+                           start_date: start_date, finish_date: finish_date, status: Settings.course.status.in_progress,
+                           link_to_course: "https://www.#{Faker::Internet.domain_name}")
     CourseSeederService.new(course, supervisors, trainees).seed!
   end
-  8.times do
+  8.times.each_with_index do |_, i|
     start_date = Faker::Date.between(from: 1.week.from_now, to: 2.months.from_now)
     finish_date = start_date + rand(3..4).months
-    course = Course.create!(user: supervisors.sample, name: "#{Faker::Company.industry.capitalize} (Pending)",
-                           start_date: start_date, finish_date: finish_date, status: Settings.course.status.not_started)
+    course = Course.create!(user: supervisors.sample, name: "#{Faker::Company.industry.capitalize} (Pending) #{i + 1}",
+                           start_date: start_date, finish_date: finish_date, status: Settings.course.status.not_started,
+                           link_to_course: "https://www.#{Faker::Internet.domain_name}")
     CourseSeederService.new(course, supervisors, trainees).seed!
   end
   puts "\n-> Đang tạo Comments với logic nghiệp vụ..."

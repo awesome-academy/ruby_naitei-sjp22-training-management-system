@@ -18,6 +18,20 @@ module UsersHelper
     end
   end
 
+  def status_filter_options
+    [
+      [t("admin.users.index.all_statuses"), ""],
+      [t("common.active"), true],
+      [t("common.inactive"), false]
+    ]
+  end
+
+  def search_type_options
+    [
+      [t("admin.users.index.name_search_type"), "name"]
+    ]
+  end
+
   def current_user? user
     user == current_user
   end

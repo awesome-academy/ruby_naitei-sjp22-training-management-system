@@ -1,0 +1,49 @@
+.page-controls-container {
+  margin-bottom: 25px;
+}
+
+/* Khu vực chứa nút hành động chính (vd: "Thêm khóa học") */
+.top-action-area {
+  margin-bottom: 15px;
+  text-align: right;
+}
+
+.filter-form .form-group {
+  margin-bottom: 15px;
+}
+
+/*Tạo khoảng cách phía trên cho hàng lọc thứ hai */
+.filter-row-secondary {
+  margin-top: -5px;
+}
+
+/* Nhóm tìm kiếm hợp nhất */
+.unified-search-group .input-group-btn > .form-control.search-type-select {
+  border-color: #ccc;
+  border-right: 0;
+  border-radius: 4px 0 0 4px;
+  min-width: 100px;
+}
+
+.input-group-btn {
+  min-width: 150px;
+}
+
+/* Nhóm các nút hành động của form ("Áp dụng", "Xóa lọc") */
+.filter-action-buttons {
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+.filter-action-buttons .btn {
+  margin-right: 10px;
+}
+
+.filter-action-buttons .btn:last-child {
+  margin-right: 0;
+}
+
+.filter-action-buttons-group .form-group {
+  display: flex;
+  flex-direction: column;
+}

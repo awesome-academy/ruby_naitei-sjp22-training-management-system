@@ -37,12 +37,6 @@ class Course < ApplicationRecord
   scope :completed, -> {where(finish_date: ..Date.current.prev_day)}
   scope :ordered_by_start_date, -> {order(:start_date)}
   scope :by_status, ->(status) {where(status:) if status.present?}
-  scope :search_by_name, lambda {|query|
-                           if query.present?
-                             where("name LIKE ?",
-                                   "%#{sanitize_sql_like(query)}%")
-                           end
-                         }
   scope :supervised_by, ->(user_id) {where(supervisor_id: user_id)}
   scope :with_counts, (lambda do
     select(
@@ -58,6 +52,50 @@ class Course < ApplicationRecord
     )
   end)
   scope :recent, -> {order(created_at: :desc)}
+  scope :search_by_name, (lambda do |query|
+    if query.present?
+      where("name LIKE ?",
+            "%#{sanitize_sql_like(query)}%")
+    end
+  end)
+  scope :search_by_trainer_name, (lambda do |query|
+    if query.present?
+      joins(:supervisors)
+        .where("users.name LIKE ?",
+               "%#{sanitize_sql_like(query)}%")
+        .distinct
+    end
+  end)
+  scope :by_start_date_from, (lambda do |date|
+                                where("start_date >= ?", date) if date.present?
+                              end)
+  scope :by_start_date_to, (lambda do |date|
+                              where("start_date <= ?", date) if date.present?
+                            end)
+  scope :by_trainer, (lambda do |trainer_id|
+    if trainer_id.present?
+      joins(:course_supervisors)
+        .where(course_supervisors: {user_id: trainer_id})
+    end
+  end)
+  scope :filter_by_params, (lambda do |params|
+    relation = self
+
+    search_query = params[:search_query]
+    if search_query.present?
+      relation = if params[:search_type] == Settings.course.creators
+                   relation.search_by_trainer_name(search_query)
+                 else
+                   relation.search_by_name(search_query)
+                 end
+    end
+
+    relation = relation.by_status(params[:status])
+                       .by_start_date_from(params[:start_date_from])
+                       .by_start_date_to(params[:start_date_to])
+
+    relation
+  end)
 
   def trainees_count
     self[:trainees_count] || user_courses

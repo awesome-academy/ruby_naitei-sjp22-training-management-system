@@ -1,0 +1,72 @@
+<% provide :title, t(".title") %>
+
+<div class="content-container">
+  <h1 class="page-title"><%= t(".title") %></h1>
+
+  <div class="page-controls-container">
+    <div class="top-action-area">
+      <%= link_to t(".add_course_button"), new_admin_course_path, class: "btn btn-success" %>
+    </div>
+
+    <%= form_with url: admin_courses_path, method: :get, class: "filter-form", role: "form" do |f| %>
+
+      <div class="row">
+        <div class="col-md-7">
+          <div class="form-group">
+            <label for="search_type"><%= t(".search_by") %></label>
+            <div class="input-group unified-search-group">
+              <span class="input-group-btn">
+                <%= select_tag :search_type,
+                               options_for_select(search_type_options, params[:search_type]),
+                               class: "form-control search-type-select" %>
+              </span>
+              <%= text_field_tag :search_query, params[:search_query],
+                                 class: "form-control",
+                                 placeholder: t(".search_placeholder") %>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-2">
+          <div class="form-group">
+            <label for="status"><%= Course.human_attribute_name(:status) %></label>
+            <%= f.select :status,
+                           options_for_select(status_filter_options, params[:status]),
+                           {},
+                           class: "form-control" %>
+          </div>
+        </div>
+
+        <div class="col-md-3">
+          <div class="form-group filter-action-buttons-group">
+            <label>&nbsp;</label>
+            <div class="filter-action-buttons">
+              <%= submit_tag t(".apply_button"), class: "btn btn-primary" %>
+              <%= link_to t(".clear_filter_button"), admin_courses_path, class: "btn btn-default" %>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row filter-row-secondary">
+        <div class="col-md-5">
+          <div class="form-group">
+            <label for="start_date_from"><%= t(".start_date_range") %></label>
+            <div class="input-group">
+              <%= date_field_tag :start_date_from, params[:start_date_from], class: "form-control" %>
+              <span class="input-group-addon">-</span>
+              <%= date_field_tag :start_date_to, params[:start_date_to], class: "form-control" %>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    <% end %>
+  </div>
+
+  <%= render "courses_table", courses: @courses %>
+
+  <div class="pagination-wrapper">
+    <%== pagy_bootstrap_nav @pagy %>
+  </div>
+</div>
