@@ -1,0 +1,86 @@
+vi:
+  common:
+    active: "Đang hoạt động"
+    inactive: "Vô hiệu hóa"
+    activate: "Kích hoạt"
+    add: "Thêm"
+    cancel: "Hủy"
+    not_available: "Chưa có"
+  time:
+    formats:
+      short: "%d-%m-%Y"
+  activerecord:
+    attributes:
+      user:
+        genders:
+          male: "Nam"
+          female: "Nữ"
+          other: "Khác"
+  admin:
+    users:
+      index:
+        title: "Tất cả Quản trị viên"
+        add_admin_button: "+ Thêm Admin"
+        name: "Tên"
+        email: "Email"
+        phone: "Số điện thoại"
+        gender: "Giới tính"
+        birthday: "Ngày sinh"
+        address: "Địa chỉ"
+        status: "Trạng thái"
+        actions: "Hành động"
+        confirm_delete: "Bạn có chắc không?"
+        no_admins_found: "Không tìm thấy quản trị viên nào."
+        all_statuses: "Tất cả trạng thái"  
+      new:
+        title: "Thêm admin Mới"
+      create:
+        admin_created_successfully: "Đã tạo admin mới thành công."
+        creation_failed: "Tạo admin thất bại. Vui lòng kiểm tra lại các lỗi bên dưới."
+      show:
+        actions: "Hành động"
+        edit_profile: "Chỉnh sửa hồ sơ"
+        email: "Email"
+        phone: "Điện thoại"
+        address: "Địa chỉ"
+        birthday: "Ngày sinh"
+        gender: "Giới tính"
+        id: "ID"
+        course_name: "Khóa học"
+        start_date: "Ngày bắt đầu"
+        end_date: "Ngày kết thúc"
+        trainees_count: "Học viên"
+        status: "Trạng thái"
+        no_courses_found: "Admin này chưa quản lý khóa học nào."
+      helpers:
+        submit:
+          user:
+            create: "Thêm" 
+      filter_form:
+        apply_button: "Áp dụng"       
+        search_placeholder: "Tìm kiếm theo tên..."      
+        search_by: "Tìm kiếm theo"
+        enter_keyword: "Nhập từ khóa..."
+        clear_filter_button: "Xóa bộ lọc" 
+        name: "Tên"
+      admins_table:
+        name: "Tên"
+        email: "Email"
+        gender: "Giới tính"
+        birthday: "Ngày sinh"
+        address: "Địa chỉ"
+        status: "Trạng thái"
+        actions: "Hành động"
+      admin:
+        view_profile: "Xem"
+        deactivate: "Vô hiệu hóa"
+        delete: "Xóa"
+      activate:
+        admin_activated: "Đã kích hoạt quản trị viên."
+        activation_failed: "Kích hoạt quản trị viên thất bại."
+      deactivate:
+        admin_deactivated: "Đã vô hiệu hóa quản trị viên."
+        deactivation_failed: "Vô hiệu hóa quản trị viên thất bại."
+      destroy:
+        admin_deleted: "Đã xóa quản trị viên thành công."
+        deletion_failed: "Xóa quản trị viên thất bại. Tài khoản này có thể đang liên kết với các dữ liệu khác."
