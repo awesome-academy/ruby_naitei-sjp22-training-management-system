@@ -1,0 +1,17 @@
+# config/locales/en.yml
+en:
+  activerecord:
+    attributes:
+      subject:
+        name: "Subject name"
+        estimated_time_days: "Estimated time"
+        max_score: "Max score"
+  supervisor:
+    unauthorized_access: "You are not authorized to perform this action."
+    
+    subjects:
+      show:
+        edit: "Edit"
+        task_list: "Task list"
+        days: "days"
+        no_tasks: "No tasks have been added for this subject."

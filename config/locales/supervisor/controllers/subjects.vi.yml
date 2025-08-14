@@ -1,0 +1,17 @@
+# config/locales/vi.yml
+vi:
+  activerecord:
+    attributes:
+      subject:
+        name: "Tên môn học"
+        estimated_time_days: "Thời gian dự kiến"
+        max_score: "Điểm tối đa"
+  supervisor:
+    unauthorized_access: "Bạn không có quyền thực hiện hành động này."
+
+    subjects:
+      show:
+        edit: "Chỉnh sửa"
+        task_list: "Danh sách nhiệm vụ"
+        days: "ngày"
+        no_tasks: "Chưa có nhiệm vụ nào được thêm cho môn học này."

@@ -1,0 +1,42 @@
+<% provide :title, @subject.name %>
+<div class="subject-detail-page">
+
+  <% if manager? %>
+    <%= link_to edit_supervisor_subject_path(@subject), class: "btn btn-primary pull-right" do %>
+      <i class="fa fa-pencil"></i> <%= t(".edit") %>
+    <% end %>
+  <% end %>
+
+  <h1 class="page-header"><%= @subject.name %></h1>
+
+  <div class="panel panel-default">
+    <div class="panel-body">
+      <dl class="dl-horizontal">
+        <dt><%= Subject.human_attribute_name(:name) %></dt>
+        <dd><%= @subject.name %></dd>
+
+        <dt><%= Subject.human_attribute_name(:estimated_time_days) %></dt>
+        <dd>
+          <%= @subject.estimated_time_days %>
+          <%= t(".days") if @subject.estimated_time_days.present? %>
+        </dd>
+
+        <dt><%= Subject.human_attribute_name(:max_score) %></dt>
+        <dd><%= @subject.max_score %></dd>
+
+        <dt><%= t ".task_list" %></dt>
+        <dd>
+          <% if @tasks.present? %>
+            <ul class="list-unstyled task-list">
+              <% @tasks.each do |task| %>
+                <li><%= task.name %></li>
+              <% end %>
+            </ul>
+          <% else %>
+            <p class="text-muted"><%= t ".no_tasks" %></p>
+          <% end %>
+        </dd>
+      </dl>
+    </div>
+  </div>
+</div>
