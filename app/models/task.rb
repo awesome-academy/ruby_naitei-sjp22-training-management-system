@@ -9,9 +9,9 @@ class Task < ApplicationRecord
   has_many :users, through: :user_tasks
 
   # Validations
-  validates :name, presence: true, # rubocop:disable Rails/UniqueValidationWithoutIndex
+  validates :name, presence: true,
             length: {maximum: Settings.task.max_name_length},
-            uniqueness: {case_sensitive: false}
+            uniqueness: {scope: [:taskable_id, :taskable_type]}
 
   delegate :name, to: :taskable, prefix: true
 

@@ -1,0 +1,26 @@
+<%# app/views/admin/users/_admins_table.html.erb %>
+<div class="table-responsive">
+  <table class="table table-bordered table-striped table-hover">
+    <thead>
+      <tr>
+        <th><%= t(".name") %></th>
+        <th><%= t(".email") %></th>
+        <th><%= t(".gender") %></th>
+        <th><%= t(".birthday") %></th>
+        <th class="text-center"><%= t(".status") %></th>
+        <th class="text-center"><%= t(".actions") %></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% if admins.present? %>
+        <% admins.each do |admin| %>
+          <%= render "admin", admin: admin %>
+        <% end %>
+      <% else %>
+        <tr>
+          <td colspan="8" class="text-center"><%= t(".no_admins_found") %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

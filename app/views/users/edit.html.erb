@@ -3,6 +3,10 @@
 <h1><%= t(".update_profile") %></h1>
 
 <div class="row">
+  <div class="gravatar_edit">
+    <%= link_to t(".change"), Settings.links.gravatar_email, target: "_blank" %>
+    <%= gravatar_for @user %>
+  </div>
   <div class="col-md-6 col-md-offset-3">
     <%= render partial: "form", locals: { users_custom_path: user_path(@user) } %>
     <div class="gravatar_edit">

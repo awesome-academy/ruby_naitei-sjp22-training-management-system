@@ -12,6 +12,36 @@ module ApplicationHelper
     page_title.empty? ? base_title : "#{page_title} | #{base_title}"
   end
 
+  def status_badge is_active
+    case is_active
+    when true
+      text = t("common.active")
+      css_class = "badge bg-success"
+    else
+      text = t("common.inactive")
+      css_class = "badge bg-danger"
+    end
+    content_tag(:span, text, class: css_class)
+  end
+
+  def course_status_badge status
+    status_text = t("activerecord.attributes.course.statuses.#{status}",
+                    default: status.humanize)
+
+    css_class = case status
+                when "not_started"
+                  "label label-default"
+                when "in_progress"
+                  "label label-success"
+                when "finished"
+                  "label label-primary"
+                else
+                  "label label-info"
+                end
+
+    content_tag(:span, status_text, class: css_class)
+  end
+
   def page_class
     controller.instance_variable_get(:@page_class)
   end

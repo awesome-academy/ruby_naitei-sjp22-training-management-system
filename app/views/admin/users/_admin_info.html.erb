@@ -1,0 +1,10 @@
+<%# app/views/admin/users/_admin_info.html.erb %>
+<%# Partial này hiển thị thông tin chi tiết của một admin %>
+
+<div class="info-box">
+  <p><strong><%= t(".email") %>:</strong> <%= @admin.email %></p>
+  <p><strong><%= t(".phone") %>:</strong> <%= @admin.try(:phone) || t("common.not_available") %></p>
+  <p><strong><%= t(".address") %>:</strong> <%= @admin.try(:address) || t("common.not_available") %></p>
+  <p><strong><%= t(".birthday") %>:</strong> <%= l(@admin.birthday, format: :long) if @admin.birthday? %></p>
+  <p><strong><%= t(".gender") %>:</strong> <%= t("activerecord.attributes.user.genders.#{@admin.gender}", default: @admin.gender.humanize) %></p>
+</div>

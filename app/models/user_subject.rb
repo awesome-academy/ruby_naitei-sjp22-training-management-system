@@ -54,7 +54,7 @@ class UserSubject < ApplicationRecord
   end
 
   def comment_count
-    comments.count
+    comments.length
   end
 
   private

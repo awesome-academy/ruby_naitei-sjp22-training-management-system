@@ -31,7 +31,15 @@ class Trainee::CoursesController < Trainee::BaseController
 
   # GET /trainee/courses/:id/subjects
   def subjects
-    @course_subjects = @course.course_subjects.includes(COURSE_SUBJECTS_PRELOAD)
+    @course_subjects = @course.course_subjects
+                              .includes(
+                                :tasks,
+                                subject: {image_attachment: :blob},
+                                user_subjects: [
+                                  :user,
+                                  {comments: :user}
+                                ]
+                              )
                               .ordered_by_position
     @subject_count = @course_subjects.count
     @trainee_count = @course.trainee_count

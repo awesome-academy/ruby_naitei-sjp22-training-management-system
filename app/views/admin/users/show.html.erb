@@ -1,0 +1,45 @@
+<%# app/views/admin/users/show.html.erb %>
+<% provide :title, @admin.name %>
+
+<div class="content-container">
+  <div class="page-header-with-actions">
+    <h1 class="page-title"><%= @admin.name %></h1>
+
+    <div class="page-controls-container">
+      <div class="dropdown top-action-area">
+        <button class="btn btn-primary dropdown-toggle" type="button" id="adminActionsDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+          <%= t(".actions") %>
+          <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="adminActionsDropdown">
+          <li><%= link_to t(".edit_profile"), edit_user_path(@admin) %></li>
+          <li role="separator" class="divider"></li>
+          <%# Sử dụng link_to với method: :patch cho các hành động này %>
+          <% if @admin.activated? %>
+            <li><%= link_to t("admin.users.index.deactivate"), deactivate_admin_user_path(@admin), method: :patch %></li>
+          <% else %>
+            <li><%= link_to t("common.activate"), activate_admin_user_path(@admin), method: :patch %></li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <%# --- Khối Thông tin cá nhân của Admin --- %>
+  <%# Render partial để hiển thị thông tin chi tiết %>
+  <%= render "admin_info", admin: @admin %>
+
+  <%# --- Khu vực Bảng danh sách các khóa học do Admin quản lý --- %>
+  <div class="courses-section">
+    <%# Nếu cần bộ lọc cho bảng này, bạn có thể render nó ở đây %>
+    <%# <%= render "courses_filter_form" %>
+
+    <%# Render partial chứa bảng dữ liệu khóa học %>
+    <%= render "courses_table", courses: @courses %>
+
+    <%# Render bộ phân trang, chỉ hiển thị khi có nhiều hơn 1 trang %>
+    <div class="pagination-wrapper">
+      <%== pagy_bootstrap_nav(@pagy) if @pagy.pages > 1 %>
+    </div>
+  </div>
+</div>

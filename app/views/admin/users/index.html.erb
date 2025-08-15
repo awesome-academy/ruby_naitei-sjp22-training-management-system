@@ -1,0 +1,23 @@
+<%# app/views/admin/users/index.html.erb %>
+<% provide :title, t(".title") %>
+
+<div class="content-container">
+  <h1 class="page-title"><%= t(".title") %></h1>
+
+  <%# Container cho các nút điều khiển và bộ lọc %>
+  <div class="page-controls-container">
+    <div class="top-action-area">
+      <%= link_to t(".add_admin_button"), new_admin_user_path, class: "btn btn-success" %>
+    </div>
+
+    <%= render "filter_form" %>
+  </div>
+
+  <%# Render bảng dữ liệu %>
+  <%= render "admins_table", admins: @admins %>
+
+  <%# Render bộ phân trang %>
+  <div class="pagination-wrapper">
+    <%== pagy_bootstrap_nav(@pagy) if @pagy.pages > 1 %>
+  </div>
+</div>

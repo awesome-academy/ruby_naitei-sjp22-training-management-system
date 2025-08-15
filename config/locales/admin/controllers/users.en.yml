@@ -1,0 +1,88 @@
+en:
+  common:
+    active: "Active"
+    inactive: "Inactive"
+    activate: "Activate"
+    add: "Add"
+    cancel: "Cancel"
+    not_available: "N/A"
+  time:
+    formats:
+      short: "%d-%m-%Y"
+  activerecord:
+    attributes:
+      user:
+        genders:
+          male: "Male"
+          female: "Female"
+          other: "Other"
+  admin:
+    users:
+      index:
+        title: "All Admins"
+        add_admin_button: "+ Add Admin"
+        name: "Name"
+        email: "Email"
+        phone: "Phone Number"
+        gender: "Gender"
+        birthday: "Date of Birth"
+        address: "Address"
+        status: "Status"
+        actions: "Actions"
+        confirm_delete: "Are you sure?"
+        no_admins_found: "No admins found."
+        all_statuses: "All Statuses"
+        deactivate: "Deactivate"
+      new:
+        title: "Add New Admin"
+      create:
+        admin_created_successfully: "New admin was successfully created."
+        creation_failed: "Failed to create admin. Please check the errors below."
+      show:
+        actions: "Actions"
+        edit_profile: "Edit Profile"
+        email: "Email"
+        phone: "Phone"
+        address: "Address"
+        birthday: "Date of birth"
+        gender: "Gender"
+        id: "ID"
+        course_name: "Course"
+        start_date: "Start Date"
+        end_date: "End Date"
+        trainees_count: "Trainees"
+        status: "Status"
+        no_courses_found: "This admin is not supervising any courses yet."
+      helpers:
+        submit:
+          user:
+            create: "Add"
+      filter_form:
+        apply_button: "Apply"
+        search_placeholder: "Search by name..."
+        search_by: "Search by"
+        enter_keyword: "Enter keyword..."
+        clear_filter_button: "Clear Filter"     
+        name: "Name"   
+      admins_table:
+        name: "Name"
+        email: "Email"
+        gender: "Gender"
+        birthday: "Date of Birth"
+        address: "Address"
+        status: "Status"
+        actions: "Actions"
+      admin:
+        view_profile: "View"
+        deactivate: "Deactivate"
+        delete: "Delete"
+        confirm_delete: "Are you sure to delete %{name} ?"
+      activate:
+        admin_activated: "Admin has been activated."
+        activation_failed: "Failed to activate admin."
+      deactivate:
+        admin_deactivated: "Admin has been deactivated."
+        deactivation_failed: "Failed to deactivate admin."
+      destroy:
+        admin_deleted: "Admin was successfully deleted."
+        deletion_failed: "Failed to delete admin. It might have associated records."

@@ -1,0 +1,37 @@
+<%# app/views/admin/users/_courses_table.html.erb %>
+<div class="table-responsive">
+  <table class="table table-bordered table-striped table-hover">
+    <thead>
+      <tr>
+        <th><%= t(".id") %></th>
+        <th><%= t(".course_name") %></th>
+        <th><%= t(".start_date") %></th>
+        <th><%= t(".end_date") %></th>
+        <th class="text-center"><%= t(".trainees_count") %></th>
+        <th class="text-center"><%= t(".status") %></th>
+        <th class="text-center"><%= t(".actions") %></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% if courses.present? %>
+        <% courses.each do |course| %>
+          <tr>
+            <td><%= course.id %></td>
+            <td><%= link_to course.name, supervisor_course_path(course) %></td>
+            <td><%= l(course.start_date, format: :short) if course.start_date? %></td>
+            <td><%= l(course.finish_date, format: :short) if course.finish_date? %></td>
+            <td class="text-center"><%= course.trainees_count %></td>
+            <td class="text-center"><%= course_status_badge(course.status) %></td>
+            <td class="text-center">
+              <%= link_to t(".actions"), supervisor_course_path(course), class: "btn btn-xs btn-default" %>
+            </td>
+          </tr>
+        <% end %>
+      <% else %>
+        <tr>
+          <td colspan="7" class="text-center"><%= t(".no_courses_found") %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

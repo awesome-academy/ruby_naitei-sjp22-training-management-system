@@ -74,6 +74,18 @@ Rails.application.routes.draw do
     namespace :admin do
       resources :dashboards
       resources :users
+      resources :courses do
+        member do
+          get :members
+        end
+      end
+
+      resources :users, only: %i(index new create show destroy) do
+        member do
+          patch :activate
+          patch :deactivate
+        end
+      end
       resources :daily_reports, only: %i(index show)
     end
   end

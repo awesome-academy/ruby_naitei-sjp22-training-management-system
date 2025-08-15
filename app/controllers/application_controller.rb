@@ -46,6 +46,8 @@ class ApplicationController < ActionController::Base
   end
 
   def correct_user
+    return if current_user.admin?
+
     return if current_user?(@user)
 
     flash[:danger] = t("shared.not_authorized")

@@ -1,0 +1,42 @@
+<%# app/views/admin/users/_filter_form.html.erb %>
+<%= form_with url: admin_users_path, method: :get, class: "filter-form", role: "form" do %>
+  <div class="row">
+
+    <%# Cột Tìm kiếm theo Tên %>
+    <div class="col-md-7">
+      <div class="form-group">
+        <label for="search_type"><%= t(".search_by") %></label>
+        <div class="input-group">
+          <%# Để giống ví dụ, ta có thể dùng select, nhưng ở đây chỉ có tìm theo tên %>
+          <%# nên ta dùng text đơn giản để hiển thị %>
+          <span class="input-group-addon"><%= t(".name") %></span>
+          <%= text_field_tag :search, params[:search],
+                             class: "form-control",
+                             placeholder: t(".search_placeholder") %>
+        </div>
+      </div>
+    </div>
+
+    <%# Cột Lọc theo Trạng thái %>
+    <div class="col-md-2">
+      <div class="form-group">
+        <label for="status"><%= t(".status") %></label>
+        <%= select_tag :status,
+                       options_for_select(status_filter_options, params[:status]),
+                       class: "form-control" %>
+      </div>
+    </div>
+
+    <%# Cột Chứa nút Áp dụng và Xóa lọc %>
+    <div class="col-md-3">
+      <div class="form-group filter-action-buttons-group">
+        <%# Label rỗng để căn chỉnh chiều cao cho đúng với các input khác %>
+        <label>&nbsp;</label>
+        <div class="filter-action-buttons">
+          <%= submit_tag t(".apply_button"), class: "btn btn-primary" %>
+          <%= link_to t(".clear_filter_button"), admin_users_path, class: "btn btn-default" %>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>
