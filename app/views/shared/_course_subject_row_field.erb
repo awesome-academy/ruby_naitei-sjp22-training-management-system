@@ -1,0 +1,12 @@
+<div class="flex-container subject-row mb-5">
+  <%= f.select :subject_id,
+        options_for_select(Subject.all.map {|s| [s.name, s.id]}, f.object&.subject_id),
+        {},
+        class: "form-control width-50" %>
+  <%= f.text_field :position,
+        placeholder: t(".position"),
+        class: "form-control width-30 ml-5" %>
+  <button type="button" class="btn btn-danger btn-sm remove-subject ml-5">
+    <%= t(".delete") %>
+  </button>
+</div>

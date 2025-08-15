@@ -11,18 +11,32 @@ en:
         no_categories_found: "No categories found."
       new:
         title: "Add new category"
+        add: "Add"
+      form:
         category_name: "Category name"
         subject_list: "Subject list"
         cancel: "Cancel"
-        add: "Add"
       create:
         create_success: "Category was successfully created."
         create_fail: "Failed to create the category."
+      edit:
+        title: "Chỉnh sửa danh mục"
+        update: "Cập nhật"
       destroy:
         category_deleted: "Category was successfully deleted."
         delete_failed: "Failed to delete the category."
+      update:
+        update_success: "Category was successfully updated."
+        update_fail: "Failed to update the category."
       category:
         detail: "Details"
         delete: "Delete"
         confirm_delete: "Are you sure you want to delete this item?"
+      show:
+        title: "Category Details"
+        edit: "Edit"
+        category_name: "Category name"
+        subject_list: "Subject list"
+        no_subjects: "There are no subjects in this category."
+        back: "Back"
   not_found_category: "Category not found."

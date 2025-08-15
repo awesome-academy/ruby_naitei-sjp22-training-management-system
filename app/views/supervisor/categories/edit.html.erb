@@ -1,0 +1,4 @@
+<% provide(:title, t(".title")) %>
+<h3 class="mt-15 mb-15"><%= t(".title") %></h3>
+
+<%= render "form", form_url: supervisor_category_path(@category), submit_label: t(".update") %>

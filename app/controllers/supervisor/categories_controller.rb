@@ -1,5 +1,8 @@
 class Supervisor::CategoriesController < Supervisor::BaseController
-  before_action :load_category, only: %i(destroy)
+  before_action (lambda do
+    load_category(with_position: true)
+  end), only: %i(show edit update)
+  before_action -> {load_category}, only: %i(destroy)
 
   # GET /supervisor/categories
   def index
@@ -38,14 +41,40 @@ class Supervisor::CategoriesController < Supervisor::BaseController
     end
   end
 
+  # GET /supervisor/categories/:id
+  def show; end
+
+  # GET /supervisor/categories/:id/edit
+  def edit
+    @category = Category.includes(subject_categories: :subject)
+                        .find(params[:id])
+  end
+
+  # PATCH /supervisor/categories/:id
+  def update
+    if @category.update(category_params)
+      flash[:success] = t(".update_success")
+      redirect_to supervisor_category_path(@category)
+    else
+      flash.now[:danger] = t(".update_fail")
+      render :edit, status: :unprocessable_entity
+    end
+  end
+
   private
 
-  def load_category
-    @category = Category.includes(:subject_categories).find_by id: params[:id]
-    return if @category
+  def load_category with_position: false
+    @category = Category.includes(subject_categories: :subject)
+                        .find_by(id: params[:id])
 
-    flash[:danger] = t("not_found_category")
-    redirect_to supervisor_categories_path
+    unless @category
+      flash[:danger] = t("not_found_category")
+      redirect_to supervisor_categories_path
+    end
+
+    return unless with_position
+
+    @subject_categories = @category.subject_categories.ordered_by_position
   end
 
   def category_params

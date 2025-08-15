@@ -11,18 +11,32 @@ vi:
         no_categories_found: "Không tìm thấy danh mục nào."
       new:
         title: "Thêm danh mục mới"
+        add: "Thêm"
+      form:
         category_name: "Tên danh mục"
         subject_list: "Danh sách môn học"
         cancel: "Hủy bỏ"
-        add: "Thêm"
       create:
         create_success: "Tạo danh mục thành công"
         create_fail: "Tạo danh mục thất bại"
+      edit:
+        title: "Chỉnh sửa danh mục"
+        update: "Cập nhật"
       destroy:
         category_deleted: "Danh mục đã được xóa thành công."
         delete_failed: "Xóa danh mục thất bại."
+      update:
+        update_success: "Danh mục đã được cập nhật thành công."
+        update_fail: "Cập nhật danh mục thất bại."
       category:
         detail: "Chi tiết"
         delete: "Xóa"
         confirm_delete: "Bạn có chắc chắn muốn xóa mục này không?"
+      show:
+        title: "Chi tiết danh mục"
+        edit: "Sửa"
+        category_name: "Tên danh mục"
+        subject_list: "Danh sách môn học"
+        no_subjects: "Danh mục này chưa có môn học nào."
+        back: "Trở lại"
   not_found_category: "Không tìm thấy danh mục."
