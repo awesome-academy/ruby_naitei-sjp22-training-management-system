@@ -1,4 +1,4 @@
-<%= form_with url: supervisor_users_path, method: :get, data: {turbo: false}, local: true, class: "filter-form" do |form| %>
+<%= form_with url: admin_users_path, method: :get, data: {turbo: false}, local: true, class: "filter-form" do |form| %>
   <div class="row g-3">
     <!-- Search Input -->
     <div class="col-lg-4 col-md-6">
@@ -59,7 +59,7 @@
           <%= form.submit t(".apply"),
               class: "btn btn-primary apply-btn" %>
           <% if params[:search].present? || params[:status].present? || params[:course].present? %>
-            <%= link_to supervisor_users_path,
+            <%= link_to admin_users_path,
                 class: "btn btn-outline-secondary reset-btn",
                 title: t(".reset_filters") do %>
               <i class="fas fa-undo"></i>

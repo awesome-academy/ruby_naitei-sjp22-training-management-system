@@ -1,0 +1,55 @@
+en:
+  admin:
+    users:
+      index:
+        title: "Supervisor Management"
+        filter_title: "Filter and Search"
+        items_selected: "items selected"
+        change_status: "Change Status"
+        name: "Name"
+        email: "Email"
+        gender: "Gender"
+        birthday: "Birthday"
+        status: "Status"
+        actions: "Actions"
+        no_supervisors_found: "No supervisors found"
+        no_supervisors_description: "No supervisors match your current filter criteria. Try adjusting your search parameters."
+        showing_results: "Showing filtered results"
+
+      update_status:
+        update_success: "Supervisor status updated successfully"
+        update_failed: "Failed to update supervisor status"
+        supervisor:
+          not_found: "Supervisor not found"
+
+      bulk_deactivate:
+        bulk_statuses_success: "%{count} supervisors status changed successfully"
+        bulk_statuses_failed: "Failed to change supervisors status"
+        supervisor_no_selection: "Please select at least one supervisor"
+
+      supervisor_infor_list:
+        gender:
+          male: "Male"
+          female: "Female"
+          other: "Other"
+        active: "Active"
+        inactive: "Inactive"
+        unknown: "Unknown"
+        view_profile: "View Profile"
+        deactivate: "Deactivate"
+        activate: "Activate"
+        deactivate_confirm: "Are you sure you want to deactivate this supervisor?"
+        activate_confirm: "Are you sure you want to activate this supervisor?"
+
+      filter_form:
+        search_label: "Search"
+        search_placeholder: "Search by name or email..."
+        clear_search: "Clear search"
+        status_label: "Status"
+        status_all: "All Status"
+        status_active: "Active"
+        status_inactive: "Inactive"
+        course_label: "Course"
+        course_all: "All Courses"
+        apply: "Apply Filters"
+        reset_filters: "Reset Filters"

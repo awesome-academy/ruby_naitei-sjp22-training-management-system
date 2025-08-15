@@ -73,7 +73,17 @@ Rails.application.routes.draw do
     # --- Admin Namespace ---
     namespace :admin do
       resources :dashboards
-      resources :users
+      resources :users, only: %i(index show update) do
+        member do
+          patch :update_status
+          delete :delete_user_course, path: "user_course"
+        end
+        collection do
+          patch :bulk_deactivate
+        end
+      end
+      resources :subjects
+      resources :categories
       resources :daily_reports, only: %i(index show)
     end
   end

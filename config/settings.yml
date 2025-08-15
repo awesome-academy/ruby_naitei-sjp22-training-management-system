@@ -183,6 +183,7 @@ pagination:
 page_classes:
   courses: "courses_page"
   admin_courses: "admin_courses_page"
+  admin_users: "admin-users-page"
   trainee_manager: "trainee-manager-page"
   supervisor_users: "supervisor-users-page"
 
@@ -225,6 +226,11 @@ trainee:
     default_progress: 0
 
 views:
+  admin:
+    users:
+      index:
+        selected_count: "0"
+        supervisors_display_limit: 2
   supervisor:
     users:
       index:

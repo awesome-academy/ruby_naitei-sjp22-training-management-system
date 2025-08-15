@@ -32,7 +32,7 @@ class Supervisor::UsersController < Supervisor::BaseController
   def update_status
     flash[:success] = t(".update_success") if update_status?
 
-    redirect_to supervisor_user_path(@user_trainee)
+    redirect_to session.delete(:forwarding_url) || supervisor_users_path
   end
 
   # PATCH /supervisor/users/bulk_deactivate

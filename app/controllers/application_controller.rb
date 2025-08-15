@@ -8,6 +8,7 @@ class ApplicationController < ActionController::Base
 
   before_action :set_locale
   before_action :logged_in_user
+  before_action :store_user_location
 
   protected
 
@@ -63,5 +64,9 @@ class ApplicationController < ActionController::Base
 
     flash[:danger] = t("messages.permission_denied")
     redirect_to root_path
+  end
+
+  def store_user_location
+    session[:forwarding_url] = request.original_url if request.get?
   end
 end

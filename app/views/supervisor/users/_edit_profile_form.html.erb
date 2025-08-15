@@ -37,7 +37,7 @@
         <div class="form-group mb-3">
           <%= f.label :gender, class: "form-label fw-bold" %>
           <%= f.select :gender,
-                options_for_select(user_course_status_options, @user_trainee.gender),
+                options_for_select(user_gender_options, @user_trainee.gender),
                 {},
                 { class: "form-select" } %>
           <div class="invalid-feedback"></div>
