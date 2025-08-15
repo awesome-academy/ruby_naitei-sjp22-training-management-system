@@ -8,7 +8,8 @@ class Supervisor::CoursesController < Supervisor::BaseController
   ].freeze
 
   before_action :load_course, only: %i(show members subjects supervisors leave)
-  before_action :authorize_supervisor_access!, except: [:index]
+  before_action :authorize_supervisor_access!,
+                only: %i(show members subjects supervisors leave)
   before_action :ensure_multiple_supervisors, only: [:leave]
   before_action :set_courses_page_class
   before_action :check_supervisor_role

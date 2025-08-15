@@ -44,7 +44,7 @@ Rails.application.routes.draw do
       resources :daily_reports, only: %i(index show)
       resources :subjects, only: %i(index show destroy new create)
       resources :tasks, only: %i(index show destroy new create)
-      resources :categories, only: %i(index show destroy new create)
+      resources :categories, only: %i(index show destroy new create edit update)
       resources :users, only: %i(index show update) do
         member do
           patch :update_status

@@ -1,12 +1,46 @@
-<div class="flex-container subject-row mb-5">
-  <%= f.select :subject_id,
-        options_for_select(Subject.all.map {|s| [s.name, s.id]}, f.object&.subject_id),
-        {},
-        class: "form-control", style: "width:50%;" %>
-  <%= f.text_field :position,
-        placeholder: t(".position"),
-        class: "form-control", style: "width:30%; margin-left:5px;" %>
-  <button type="button" class="btn btn-danger btn-sm remove-subject ml-5">
-    <%= t(".delete") %>
-  </button>
+<div id="subject-list-container">
+  <%# Do sẽ có 2 loại row khác nhau, dựa vào trạng thái persited của object %>
+  <%# Nên cần tạo một hidden row để js có thể query ra làm mẫu %>
+  <div id="subject-row-template" style="display:none;">
+    <div class="row subject-row mb-5">
+      <div class="col-xs-5">
+        <%= f.select :subject_id,
+              options_for_select(Subject.all.map {|s| [s.name, s.id]}),
+              {}, class: "form-control" %>
+      </div>
+      <div class="col-xs-3">
+        <%= f.text_field :position,
+              placeholder: t(".position"),
+              class: "form-control" %>
+      </div>
+      <div class="col-xs-4">
+        <button type="button" class="btn btn-danger btn-sm remove-subject" data-delete-text="<%= t('.delete') %>">
+          <%= t(".delete") %>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="row subject-row mb-5">
+    <div class="col-xs-5">
+      <%= f.select :subject_id,
+            options_for_select(Subject.all.map {|s| [s.name, s.id]}, f.object&.subject_id),
+            {}, class: "form-control" %>
+    </div>
+    <div class="col-xs-3">
+      <%= f.text_field :position,
+            placeholder: t(".position"),
+            class: "form-control" %>
+    </div>
+    <div class="col-xs-4">
+      <% if f.object.persisted? %>
+        <%= f.hidden_field :_destroy, value: 0, class: "destroy-field" %>
+        <%= f.check_box :_destroy, {class: "delete-subject-checkbox"}, "1", "0" %>
+      <% else %>
+        <button type="button" class="btn btn-danger btn-sm remove-subject">
+          <%= t(".delete") %>
+        </button>
+      <% end %>
+    </div>
+  </div>
 </div>

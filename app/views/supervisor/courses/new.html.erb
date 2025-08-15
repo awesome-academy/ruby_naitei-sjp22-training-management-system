@@ -5,12 +5,14 @@
              {
                id: s.id,
                name: s.name,
-               categories: s.subject_categories.map do |sc|
-                 {
-                   id: sc.category_id,
-                   position: sc.position
-                 }
-               end
+               categories: s.subject_categories
+                            .sort_by { |sc| sc.position || Float::INFINITY }
+                            .map do |sc|
+                              {
+                                id: sc.category_id,
+                                position: sc.position
+                              }
+                            end
              }
            end.to_json
   ) %>;
@@ -76,9 +78,9 @@
                 <div class="col-sm-3">
                   <label class="control-label"><%= t(".subject_list") %></label>
                 </div>
-                <div class="col-sm-9" id="subject-list-container">
+                <div class="col-sm-9" id="subject-list-container-in-course">
                     <%= f.fields_for :course_subjects do |subject_form| %>
-                      <%= render "shared/subject_row_fields", f: subject_form %>
+                      <%= render "shared/course_subject_row_field", f: subject_form %>
                     <% end %>
                 </div>
               </div>
@@ -100,12 +102,12 @@
         </div>
         <div class="form-group">
           <div class="col-sm-offset-8 col-sm-1 flex-container">
-            <%= link_to t(".cancel_button"), "#", class: "btn btn-danger" %>
+            <%= link_to t(".cancel_button"), supervisor_courses_path, class: "btn btn-danger" %>
             <%= f.submit t(".add_button"), class: "btn btn-warning ml-2" %>
           </div>
         </div>
       <% end %>
-      <%= javascript_tag "initSubjectForm()" %>
+      <%= javascript_tag "initCourseSubjectForm()" %>
     </div>
   </div>
 </div>

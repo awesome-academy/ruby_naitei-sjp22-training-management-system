@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2025_08_14_125035) do
+ActiveRecord::Schema[7.0].define(version: 2025_08_15_100710) do
   create_table "active_storage_attachments", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -113,7 +113,6 @@ ActiveRecord::Schema[7.0].define(version: 2025_08_14_125035) do
     t.integer "position"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["category_id", "position"], name: "index_subject_categories_on_category_and_position", unique: true
     t.index ["category_id"], name: "index_subject_categories_on_category_id"
     t.index ["subject_id", "category_id"], name: "index_subject_categories_on_subject_id_and_category_id", unique: true
     t.index ["subject_id"], name: "index_subject_categories_on_subject_id"

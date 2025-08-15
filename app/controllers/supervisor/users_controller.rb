@@ -9,7 +9,7 @@ class Supervisor::UsersController < Supervisor::BaseController
   before_action :set_css_class, only: %i(index show)
   before_action :require_manager
   skip_before_action :check_supervisor_role
-  before_action :get_user_course,
+  before_action :load_user_course,
                 only: %i(update_user_course_status delete_user_course)
 
   # GET supervisor/users
@@ -134,7 +134,7 @@ class Supervisor::UsersController < Supervisor::BaseController
     @page_class = Settings.page_classes.supervisor_users
   end
 
-  def get_user_course
+  def load_user_course
     @user_course =
       case action_name.to_sym
       when :update_user_course_status

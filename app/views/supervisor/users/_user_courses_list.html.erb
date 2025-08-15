@@ -6,7 +6,7 @@
   </td>
   <td>
     <div class="progress">
-      <% progress = get_progress_user_course(user_course) %>
+      <% progress = load_progress_user_course(user_course) %>
       <div class="progress-bar progress-bar-info" role="progressbar"
            style="width: <%= progress %>%"
            aria-valuenow="<%= progress %>"

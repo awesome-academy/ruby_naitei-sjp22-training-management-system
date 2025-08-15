@@ -12,7 +12,7 @@ module Supervisor::UsersHelper
     end
   end
 
-  def get_progress_user_course user_course
+  def load_progress_user_course user_course
     return Settings.zero_value if user_course.nil?
 
     user_subjects = user_course.user_subjects.to_a

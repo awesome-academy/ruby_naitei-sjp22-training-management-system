@@ -31,3 +31,6 @@ vi:
     subject_row_fields:
       position: "Vị trí"
       delete: "Xóa"
+    course_subject_row_field:
+      position: "Vị trí"
+      delete: "Xóa"

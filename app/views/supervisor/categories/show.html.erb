@@ -1,0 +1,49 @@
+<% provide(:title, t(".title")) %>
+<div class="flex-container space-between align-center mt-15 mb-15">
+  <h3><%= t(".title") %></h3>
+  <%= link_to t(".edit"), edit_supervisor_category_path(@category), class: "btn btn-warning height-fit" %>
+</div>
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-9 col-md-10 main">
+      <div class="col-sm-8">
+
+        <div class="form-group">
+          <div class="row">
+            <div class="col-sm-3">
+              <label class="control-label"><%= t(".category_name") %></label>
+            </div>
+            <div class="col-sm-9">
+              <p class="form-control-static"><%= @category.name %></p>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <div class="row">
+            <div class="col-sm-3">
+              <label class="control-label"><%= t(".subject_list") %></label>
+            </div>
+            <div class="col-sm-9">
+              <% if @subject_categories.any? %>
+                <ul class="list-group">
+                  <% @subject_categories.each do |sc| %>
+                    <li class="list-group-item"><%= sc.subject.name %></li>
+                  <% end %>
+                </ul>
+              <% else %>
+                <p><%= t(".no_subjects") %></p>
+              <% end %>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-sm-offset-10 col-sm-2 form-group text-right flex-container">
+          <%= link_to t(".back"), supervisor_categories_path, class: "btn btn-primary" %>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>

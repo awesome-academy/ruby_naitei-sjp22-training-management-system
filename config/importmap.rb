@@ -1,7 +1,7 @@
 # Pin npm packages by running ./bin/importmap
 
 pin "application", preload: true
-pin "@hotwired/turbo-rails", to: "turbo.min.js", preload: true
+pin "@hotwired/turbo-rails", to: "@hotwired--turbo-rails.js" # @8.0.16
 pin "@hotwired/stimulus", to: "stimulus.min.js", preload: true
 pin "@hotwired/stimulus-loading", to: "stimulus-loading.js", preload: true
 pin "i18n-js", to: "https://ga.jspm.io/npm:i18n-js@4.5.1/dist/import/index.js"
@@ -20,3 +20,5 @@ pin_all_from "app/javascript/controllers", under: "controllers"
 pin_all_from "app/javascript/custom", under: "custom"
 pin "jquery", to: "https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"
 pin "bootstrap", to: "https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/js/bootstrap.min.js"
+pin "@hotwired/turbo", to: "@hotwired--turbo.js"
+pin "@rails/actioncable/src", to: "@rails--actioncable--src.js"

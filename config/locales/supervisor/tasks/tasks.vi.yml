@@ -24,6 +24,6 @@ vi:
         delete: "Xóa"
         confirm_delete: "Bạn có chắc chắn muốn xóa mục này không?"
       destroy:
-        task_deleted: "Task was successfully deleted."
-        delete_failed: "Failed to delete the task."
-  not_found_task: "Task not found."
+        task_deleted: "Xóa nhiệm vụ thành công"
+        delete_failed: "Xóa nhiệm vụ thất bại"
+  not_found_task: "Không tìm thấy nhiệm vụ"

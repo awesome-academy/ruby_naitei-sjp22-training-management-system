@@ -124,6 +124,17 @@ textarea {
   }
 }
 
+.delete-subject-checkbox {
+  transform: scale(1.5);
+
+  width: 25px !important;
+  height: 25px !important;
+
+  margin-left: 8px !important;
+  margin-bottom: 4px ;
+  position: relative;
+}
+
 .color-dot-danger {
   background-color: #dc3545;
   border-radius: 50%;
@@ -505,6 +516,10 @@ textarea {
 
 .width-fit {
   width: fit-content;
+}
+
+.width-20 {
+  width: 20%;
 }
 
 .width-30 {

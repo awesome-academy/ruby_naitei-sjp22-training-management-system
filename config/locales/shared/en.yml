@@ -31,3 +31,6 @@ en:
     subject_row_fields:
         position: "Position"
         delete: "Delete"
+    course_subject_row_field:
+        position: "Position"
+        delete: "Delete"
