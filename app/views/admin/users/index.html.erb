@@ -32,7 +32,7 @@
         <div class="bulk-actions-content">
           <span class="bulk-actions-label">
             <i class="fas fa-check-square me-1"></i>
-            <span class="selected-count"><%= Settings.views.supervisor.users.index.selected_count %></span> <%= t(".items_selected") %>
+            <span class="selected-count"><%= Settings.views.admin.users.index.selected_count %></span> <%= t(".items_selected") %>
           </span>
           <div class="bulk-actions-buttons">
             <button type="button" class="btn btn-danger btn-sm" id="bulk-deactivate-btn">
@@ -44,7 +44,7 @@
     </div>
   </div>
 
-  <!-- Trainees Table -->
+  <!-- supervisors Table -->
   <div class="row">
     <div class="col-12">
       <div class="table-card">
@@ -82,16 +82,16 @@
               </tr>
             </thead>
             <tbody>
-              <%= render "trainee_infor_list", trainees: @trainees %>
+              <%= render "supervisor_infor_list", supervisors: @supervisors %>
               <!-- Empty state -->
-              <% if @trainees.empty? %>
+              <% if @supervisors.empty? %>
                 <tr>
                   <td colspan="7" class="text-center py-5">
                     <div class="empty-state">
                       <i class="fas fa-users fa-4x text-muted mb-3"></i>
-                      <h5 class="text-muted mb-2"><%= t(".no_trainees_found") %></h5>
+                      <h5 class="text-muted mb-2"><%= t(".no_supervisors_found") %></h5>
                       <p class="text-muted small">
-                        <%= t(".no_trainees_description") %>
+                        <%= t(".no_supervisors_description") %>
                       </p>
                     </div>
                   </td>
@@ -109,7 +109,7 @@
     <div class="col-12">
       <div class="d-flex justify-content-between align-items-center">
         <div class="pagination-info">
-          <% if @trainees.any? %>
+          <% if @supervisors.any? %>
             <small class="text-muted">
               <i class="fas fa-info-circle me-1"></i>
               <%= t(".showing_results") %>
@@ -123,5 +123,3 @@
     </div>
   </div>
 </div>
-
-

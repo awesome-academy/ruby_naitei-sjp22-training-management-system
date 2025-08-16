@@ -1,0 +1,55 @@
+vi:
+  admin:
+    users:
+      index:
+        title: "Quản lý Giám sát viên"
+        filter_title: "Bộ lọc và Tìm kiếm"
+        items_selected: "mục đã chọn"
+        change_status: "Thay đổi Trạng thái"
+        name: "Họ và tên"
+        email: "Email"
+        gender: "Giới tính"
+        birthday: "Ngày sinh"
+        status: "Trạng thái"
+        actions: "Hành động"
+        no_supervisors_found: "Không tìm thấy giám sát viên"
+        no_supervisors_description: "Không có giám sát viên nào phù hợp với tiêu chí lọc hiện tại. Hãy thử điều chỉnh các tham số tìm kiếm."
+        showing_results: "Hiển thị kết quả đã lọc"
+
+      update_status:
+        update_success: "Cập nhật trạng thái giám sát viên thành công"
+        update_failed: "Cập nhật trạng thái giám sát viên thất bại"
+        supervisor:
+          not_found: "Không tìm thấy giám sát viên"
+
+      bulk_deactivate:
+        bulk_statuses_success: "Thay đổi trạng thái %{count} giám sát viên thành công"
+        bulk_statuses_failed: "Thay đổi trạng thái giám sát viên thất bại"
+        supervisor_no_selection: "Vui lòng chọn ít nhất một giám sát viên"
+
+      supervisor_infor_list:
+        gender:
+          male: "Nam"
+          female: "Nữ"
+          other: "Khác"
+        active: "Hoạt động"
+        inactive: "Không hoạt động"
+        unknown: "Không xác định"
+        view_profile: "Xem hồ sơ"
+        deactivate: "Vô hiệu hóa"
+        activate: "Kích hoạt"
+        deactivate_confirm: "Bạn có chắc chắn muốn vô hiệu hóa giám sát viên này không?"
+        activate_confirm: "Bạn có chắc chắn muốn kích hoạt giám sát viên này không?"
+
+      filter_form:
+        search_label: "Tìm kiếm"
+        search_placeholder: "Tìm kiếm theo tên hoặc email..."
+        clear_search: "Xóa tìm kiếm"
+        status_label: "Trạng thái"
+        status_all: "Tất cả trạng thái"
+        status_active: "Hoạt động"
+        status_inactive: "Không hoạt động"
+        course_label: "Khóa học"
+        course_all: "Tất cả khóa học"
+        apply: "Áp dụng bộ lọc"
+        reset_filters: "Đặt lại bộ lọc"

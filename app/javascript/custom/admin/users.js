@@ -40,39 +40,22 @@ document.addEventListener('turbo:load', function() {
   }
 
   function closeAllDropdowns() {
-    // Close all dropdown menus - check if elements exist
-    const dropdowns = document.querySelectorAll('.dropdown');
-    if (dropdowns && dropdowns.length > 0) {
-      dropdowns.forEach(dropdown => {
-        if (dropdown && dropdown.classList) {
-          dropdown.classList.remove('open');
-          const row = dropdown.closest('.trainee-row');
-          if (row && row.classList) {
-            row.classList.remove('dropdown-open');
-          }
-        }
-      });
-    }
+    // Close all dropdown menus
+    document.querySelectorAll('.dropdown').forEach(dropdown => {
+      dropdown.classList.remove('open');
+      const row = dropdown.closest('.supervisor-row');
+      if (row) row.classList.remove('dropdown-open');
+    });
     
     // Hide all dropdown menus
-    const dropdownMenus = document.querySelectorAll('.dropdown-menu');
-    if (dropdownMenus && dropdownMenus.length > 0) {
-      dropdownMenus.forEach(menu => {
-        if (menu && menu.style) {
-          menu.style.display = 'none';
-        }
-      });
-    }
+    document.querySelectorAll('.dropdown-menu').forEach(menu => {
+      menu.style.display = 'none';
+    });
     
     // Remove all submenu displays
-    const submenus = document.querySelectorAll('.dropdown-submenu .dropdown-menu');
-    if (submenus && submenus.length > 0) {
-      submenus.forEach(submenu => {
-        if (submenu && submenu.style) {
-          submenu.style.display = 'none';
-        }
-      });
-    }
+    document.querySelectorAll('.dropdown-submenu .dropdown-menu').forEach(submenu => {
+      submenu.style.display = 'none';
+    });
   }
 
   function initializeSubmenu() {
@@ -134,14 +117,14 @@ document.addEventListener('turbo:load', function() {
         document.querySelectorAll('.dropdown').forEach(dropdown => {
           if (dropdown !== this.closest('.dropdown')) {
             dropdown.classList.remove('open');
-            const row = dropdown.closest('.trainee-row');
+            const row = dropdown.closest('.supervisor-row');
             if (row) row.classList.remove('dropdown-open');
           }
         });
         
         // Toggle current dropdown
         const dropdown = this.closest('.dropdown');
-        const row = this.closest('.trainee-row');
+        const row = this.closest('.supervisor-row');
         
         if (dropdown) {
           const isOpening = !dropdown.classList.contains('open');
@@ -169,7 +152,7 @@ document.addEventListener('turbo:load', function() {
         if (!e.target.closest('.dropdown')) {
           document.querySelectorAll('.dropdown').forEach(dropdown => {
             dropdown.classList.remove('open');
-            const row = dropdown.closest('.trainee-row');
+            const row = dropdown.closest('.supervisor-row');
             if (row) row.classList.remove('dropdown-open');
           });
         }
@@ -181,7 +164,7 @@ document.addEventListener('turbo:load', function() {
   }
 
   const selectAll = document.getElementById('select-all');
-  const checkboxes = document.querySelectorAll('.trainee-checkbox');
+  const checkboxes = document.querySelectorAll('.supervisor-checkbox');
   const bulkActions = document.querySelector('.bulk-actions');
   const bulkDeleteBtn = document.getElementById('bulk-delete-btn');
   const bulkDeactivateBtn = document.getElementById('bulk-deactivate-btn');
@@ -227,7 +210,7 @@ document.addEventListener('turbo:load', function() {
       }
       
       checkbox.addEventListener('change', function() {
-        const checkedBoxes = document.querySelectorAll('.trainee-checkbox:checked');
+        const checkedBoxes = document.querySelectorAll('.supervisor-checkbox:checked');
         const checkedCount = checkedBoxes ? checkedBoxes.length : 0;
         
         if (selectAll) {
@@ -242,7 +225,7 @@ document.addEventListener('turbo:load', function() {
   }
 
   function updateBulkActions() {
-    const checkedBoxes = document.querySelectorAll('.trainee-checkbox:checked');
+    const checkedBoxes = document.querySelectorAll('.supervisor-checkbox:checked');
     const checkedCount = checkedBoxes ? checkedBoxes.length : 0;
     const anyChecked = checkedCount > 0;
     
@@ -260,20 +243,18 @@ document.addEventListener('turbo:load', function() {
     bulkDeactivateBtn.addEventListener('click', function() {
       const selectedIds = getSelectedIds();
       if (!selectedIds || selectedIds.length === 0) {
+        // alert('<%= t("admin.users.no_selection") %>');
         return;
       }
 
-      performBulkAction('supervisor/users/bulk_deactivate', selectedIds, 'PATCH');
+      performBulkAction('/admin/users/bulk_deactivate', selectedIds, 'PATCH');
     });
     bulkDeactivateBtn.setAttribute('data-bulk-initialized', 'true');
   }
 
   function getSelectedIds() {
-    const checkedBoxes = document.querySelectorAll('.trainee-checkbox:checked');
-    if (!checkedBoxes || checkedBoxes.length === 0) {
-      return [];
-    }
-    return Array.from(checkedBoxes).map(checkbox => checkbox ? checkbox.value : null).filter(value => value !== null);
+    const checkedBoxes = document.querySelectorAll('.supervisor-checkbox:checked');
+    return Array.from(checkedBoxes).map(checkbox => checkbox.value);
   }
 
   function performBulkAction(url, ids, method) {
@@ -318,7 +299,7 @@ document.addEventListener('turbo:load', function() {
       if (id) {
         const idInput = document.createElement('input');
         idInput.type = 'hidden';
-        idInput.name = 'trainee_ids[]';
+        idInput.name = 'supervisor_ids[]';
         idInput.value = id;
         form.appendChild(idInput);    
       }

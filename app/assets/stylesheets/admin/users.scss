@@ -1,0 +1,735 @@
+.admin-users-page {
+    /* =================================================
+       TAG SELECTORS (HTML Elements)
+       ================================================= */
+    
+    /* Table Elements */
+    .table {
+        margin: 0;
+    }
+
+    .table th {
+        background: linear-gradient(135deg, #6ea8da 0%, #5a9bd4 100%) !important;
+        border: none;
+        color: white;
+        font-size: 1rem; /* Increased from 0.9rem */
+        font-weight: 600;
+        letter-spacing: 0.5px;
+        padding: 15px 12px;
+        text-transform: uppercase;
+    }
+
+    .table td {
+        border-color: #f1f3f4;
+        font-size: 1.2rem; /* Increased from 1rem */
+        padding: 12px;
+        vertical-align: middle;
+    }
+
+    /* =================================================
+       CLASS SELECTORS - LAYOUT & GENERAL COMPONENTS
+       ================================================= */
+    
+    /* Page Header & Title */
+    .page-title {
+        border-bottom: 3px solid #3498db;
+        color: #2c3e50;
+        font-size: 2rem; /* Increased from default */
+        font-weight: 600;
+        margin-bottom: 0;
+        padding-bottom: 15px;
+    }
+
+    /* Action Buttons */
+    .action-btn {
+        background-color: #337ab7;
+        border-radius: 6px;
+        color: white;
+        font-size: 1.1rem; /* Increased from 1rem */
+        font-weight: 600;
+        margin: 0 2px;
+        padding: 8px 12px; /* Increased from 6px 10px */
+        position: relative;
+        transition: all 0.3s ease;
+        z-index: 1; /* Lower than dropdown menu */
+    }
+
+    .action-btn:hover {
+        transform: translateY(-1px);
+    }
+
+    /* Ensure action button stays below dropdown menu */
+    .dropdown.open .action-btn {
+        z-index: 1 !important;
+    }
+
+    /* Apply Button */
+    .apply-btn {
+        background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+        border: none;
+        border-radius: 8px;
+        font-size: 1.1rem; /* Increased */
+        font-weight: 600;
+        transition: all 0.3s ease;
+    }
+
+    .apply-btn:hover {
+        box-shadow: 0 4px 12px rgba(52, 152, 219, 0.3);
+        transform: translateY(-1px);
+    }
+
+    /* Reset Button */
+    .reset-btn {
+        border-radius: 8px;
+        font-size: 1.1rem; /* Increased */
+        transition: all 0.3s ease;
+    }
+
+    /* Clear Search Button */
+    .clear-search {
+        border-radius: 0 8px 8px 0;
+    }
+
+    /* =================================================
+       FILTER COMPONENTS
+       ================================================= */
+    
+    /* Active Filters Section */
+    .active-filters {
+        background: rgba(52, 152, 219, 0.1);
+        border: 1px solid rgba(52, 152, 219, 0.2);
+        border-radius: 8px;
+        padding: 15px;
+    }
+
+    .active-filters-label {
+        color: #2980b9;
+        font-size: 1.1rem; /* Increased */
+        font-weight: 600;
+        margin-right: 10px;
+    }
+
+    /* Filter Form */
+    .filter-form .form-label {
+        color: #495057;
+        font-size: 1rem; /* Increased from 0.9rem */
+        font-weight: 600;
+        margin-bottom: 5px;
+    }
+
+    .filter-header {
+        border-bottom: 1px solid #dee2e6;
+        margin-bottom: 20px;
+        padding-bottom: 10px;
+    }
+
+    .filter-section {
+        animation: fadeInUp 0.5s ease-out;
+        background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        border: 1px solid #dee2e6;
+        border-radius: 12px;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        padding: 20px;
+    }
+
+    .filter-title {
+        color: #495057;
+        font-size: 1.3rem; /* Increased from 1.1rem */
+        font-weight: 600;
+        margin: 0;
+    }
+
+    /* Filter Tags */
+    .filter-tag {
+        background: #3498db;
+        border-radius: 15px;
+        color: white;
+        display: inline-block;
+        font-size: 1rem; /* Increased from 0.85rem */
+        margin: 2px;
+        padding: 6px 12px; /* Increased padding */
+        text-decoration: none;
+    }
+
+    .filter-tag-remove {
+        color: white;
+        margin-left: 5px;
+        opacity: 0.8;
+        text-decoration: none;
+        transition: opacity 0.3s ease;
+    }
+
+    .filter-tag-remove:hover {
+        color: white;
+        opacity: 1;
+    }
+
+    /* Form Elements */
+    .course-select,
+    .search-input,
+    .status-select {
+        border: 1px solid #ced4da;
+        border-radius: 8px;
+        font-size: 1.1rem; /* Increased */
+        transition: all 0.3s ease;
+    }
+
+    .course-select:focus,
+    .search-input:focus,
+    .status-select:focus {
+        border-color: #3498db;
+        box-shadow: 0 0 0 0.2rem rgba(52, 152, 219, 0.25);
+    }
+
+    /* =================================================
+       BULK ACTIONS COMPONENTS
+       ================================================= */
+    
+    .bulk-actions {
+        animation: fadeInUp 0.5s ease-out;
+        background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        border: 1px solid #dee2e6;
+        border-radius: 10px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        padding: 15px;
+    }
+
+    .bulk-actions-buttons {
+        display: flex;
+        gap: 8px;
+    }
+
+    .bulk-actions-content {
+        align-items: center;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        justify-content: space-between;
+    }
+
+    .bulk-actions-label {
+        color: #495057;
+        font-size: 1.1rem; /* Increased */
+        font-weight: 600;
+    }
+
+    .bulk-actions .btn {
+        border-radius: 8px;
+        font-size: 1.1rem; /* Increased */
+        font-weight: 600;
+        transition: all 0.3s ease;
+    }
+
+    .bulk-actions .btn:hover {
+        transform: translateY(-1px);
+    }
+
+    /* =================================================
+       TABLE COMPONENTS
+       ================================================= */
+    
+    /* Table Layout */
+    .table-card {
+        animation: fadeInUp 0.5s ease-out;
+        background: white;
+        border-radius: 12px;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        overflow: visible; /* Allow dropdowns to show outside */
+    }
+
+    .table-responsive {
+        overflow: visible; /* Allow dropdowns to show outside table */
+    }
+
+    /* Table Columns */
+    .actions-col {
+        overflow: visible !important;
+        text-align: center;
+        width: 150px;
+    }
+
+    .actions-col .dropdown {
+        position: static; /* Allow dropdown to use table cell as positioning context */
+    }
+
+    .checkbox-col {
+        text-align: center;
+        width: 50px;
+    }
+
+    /* Table Rows */
+    .supervisor-row {
+        position: relative;
+        transition: all 0.3s ease;
+        z-index: 1;
+    }
+
+    .supervisor-row:hover {
+        background-color: rgba(110, 168, 218, 0.08);
+        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        transform: translateY(-1px);
+    }
+
+    /* When dropdown is open, elevate the entire row */
+    .supervisor-row:has(.dropdown.open) {
+        z-index: 99998 !important; /* Just below dropdown menu */
+    }
+
+    /* Alternative for browsers that don't support :has() */
+    .supervisor-row.dropdown-open {
+        z-index: 99998 !important; /* Just below dropdown menu */
+    }
+
+    /* supervisor Name Styling */
+    .supervisor-name {
+        color: #2980b9;
+        font-size: 1.2rem; /* Increased */
+        font-weight: 600;
+        transition: color 0.3s ease;
+    }
+
+    .supervisor-name:hover {
+        color: #1a5490;
+        text-decoration: underline !important;
+    }
+
+    /* Status Badges */
+    .status-badge {
+        border-radius: 15px;
+        font-size: 1.1rem; /* Increased from 1rem */
+        font-weight: 600;
+        padding: 10px 15px; /* Increased padding */
+    }
+
+    .status-badge.bg-danger {
+        background-color: #dc3545 !important;
+    }
+
+    .status-badge.bg-info {
+        background-color: #17a2b8 !important;
+    }
+
+    .status-badge.bg-secondary {
+        background-color: #6c757d !important;
+        color: white !important;
+    }
+
+    .status-badge.bg-success {
+        background-color: #28a745 !important;
+    }
+
+    .status-badge.bg-warning {
+        background-color: #ffc107 !important;
+        color: #212529 !important;
+    }
+
+    /* Pagination Info */
+    .pagination-info {
+        font-size: 1rem; /* Increased from 0.9rem */
+    }
+
+    /* Empty State */
+    .empty-state {
+        padding: 60px 20px;
+    }
+
+    .empty-state i {
+        color: #6c757d;
+        opacity: 0.3;
+    }
+
+    .empty-state p {
+        font-size: 1.3rem; /* Increased from 1.1rem */
+        margin-top: 15px;
+    }
+
+    /* =================================================
+       DROPDOWN COMPONENTS
+       ================================================= */
+    
+    /* Modal should have higher z-index than dropdowns */
+    .modal {
+        z-index: 999999 !important;
+    }
+
+    .modal-backdrop {
+        z-index: 999998 !important;
+    }
+
+    /* Dropdown base z-index */
+    .dropdown-menu {
+        background-color: white;
+        border: 1px solid rgba(0,0,0,0.15);
+        border: none;
+        border-radius: 8px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        left: 0;
+        min-width: 160px;
+        padding: 8px 0;
+        position: absolute;
+        top: 100%;
+        z-index: 99999 !important; /* Lower than modal */
+    }
+
+    /* Dropdown Items */
+    .dropdown-menu .dropdown-item {
+        clear: both;
+        color: #333;
+        display: block;
+        font-size: 1rem; /* Increased from 0.9rem */
+        font-weight: normal;
+        line-height: 1.42857143;
+        padding: 12px 20px; /* Increased padding */
+        position: relative;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        white-space: nowrap;
+        width: 100%;
+    }
+
+    .dropdown-menu .dropdown-item:hover {
+        background-color: rgba(52, 152, 219, 0.1);
+        color: #262626;
+        transform: translateX(5px);
+    }
+
+    .dropdown-menu .dropdown-item i {
+        color: #6c757d;
+        width: 16px;
+    }
+
+    .dropdown-menu .dropdown-item.text-danger:hover {
+        background-color: rgba(220, 53, 69, 0.1);
+        color: #dc3545 !important;
+    }
+
+    .dropdown-menu .dropdown-item.active {
+        background-color: rgba(52, 152, 219, 0.15);
+        color: #2980b9;
+        font-weight: 600;
+    }
+
+    /* Dropdown Submenu - Force with higher specificity */
+    .supervisor-manager-page .dropdown-submenu {
+        position: relative;
+    }
+
+    .supervisor-manager-page .dropdown-submenu .submenu-arrow {
+        float: right;
+        margin-top: 3px;
+    }
+
+    .supervisor-manager-page .dropdown-submenu > .dropdown-menu {
+        background-color: white;
+        border: 1px solid rgba(0,0,0,0.15);
+        border-radius: 6px;
+        box-shadow: 0 6px 12px rgba(0,0,0,0.175);
+        display: none !important;
+        left: 100%; /* Position to the right */
+        margin-left: -1px;
+        margin-top: -1px;
+        min-width: 200px;
+        position: absolute;
+        top: 0;
+        z-index: 1000;
+    }
+
+    .supervisor-manager-page .dropdown-submenu:hover > .dropdown-menu {
+        display: block !important;
+    }
+
+    /* Remove left side submenu styles since we want right side */
+
+    .supervisor-manager-page .dropdown-submenu .dropdown-menu .dropdown-item {
+        color: #333;
+        font-size: 1rem;
+        padding: 10px 15px;
+        text-decoration: none;
+    }
+
+    .supervisor-manager-page .dropdown-submenu .dropdown-menu .dropdown-item:hover {
+        background-color: #f8f9fa;
+        color: #333;
+    }
+
+    .supervisor-manager-page .dropdown-submenu .dropdown-menu .dropdown-item i.fas.fa-circle {
+        font-size: 0.7rem;
+        margin-right: 8px;
+    }
+
+    /* =================================================
+       MODAL COMPONENTS
+       ================================================= */
+    
+    /* Modal Structure */
+    .modal-content {
+        border: none;
+        border-radius: 12px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    }
+
+    .modal-header {
+        border-bottom: none;
+        border-radius: 12px 12px 0 0;
+        padding: 20px 25px;
+    }
+
+    .modal-header.bg-primary {
+        background: linear-gradient(135deg, #3498db 0%, #2980b9 100%) !important;
+    }
+
+    .modal-body {
+        padding: 25px;
+    }
+
+    .modal-footer {
+        border-radius: 0 0 12px 12px;
+        border-top: 1px solid #dee2e6;
+        padding: 20px 25px;
+    }
+
+    /* Modal Form Elements */
+    .form-label.fw-bold {
+        color: #495057;
+        font-size: 1.1rem; /* Increased */
+        margin-bottom: 8px;
+    }
+
+    .form-control,
+    .form-select {
+        border: 1px solid #ced4da;
+        border-radius: 8px;
+        font-size: 1.1rem; /* Increased */
+        padding: 12px 15px; /* Increased padding */
+        transition: all 0.3s ease;
+    }
+
+    .form-control:focus,
+    .form-select:focus {
+        border-color: #3498db;
+        box-shadow: 0 0 0 0.2rem rgba(52, 152, 219, 0.25);
+    }
+
+    /* Modal Buttons */
+    .btn-success {
+        background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+        border: none;
+        border-radius: 8px;
+        font-size: 1.1rem; /* Increased */
+        font-weight: 600;
+        padding: 12px 25px; /* Increased padding */
+        transition: all 0.3s ease;
+    }
+
+    .btn-success:hover {
+        box-shadow: 0 4px 15px rgba(40, 167, 69, 0.3);
+        transform: translateY(-1px);
+    }
+
+    .btn-secondary {
+        border-radius: 8px;
+        font-size: 1.1rem; /* Increased */
+        font-weight: 600;
+        padding: 12px 25px; /* Increased padding */
+        transition: all 0.3s ease;
+    }
+
+    /* Form Validation */
+    .text-danger {
+        font-size: 1rem; /* Increased */
+        font-weight: bold;
+    }
+
+    .is-invalid {
+        border-color: #dc3545;
+    }
+
+    .invalid-feedback {
+        color: #dc3545;
+        display: block;
+        font-size: 1rem; /* Increased from 0.875em */
+        margin-top: 0.25rem;
+        width: 100%;
+    }
+
+    /* =================================================
+       supervisor DETAIL PAGE COMPONENTS
+       ================================================= */
+    
+    /* supervisor Info Card */
+    .supervisor-info-card .card {
+        background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+        border: none;
+        border-radius: 12px;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    }
+
+    .supervisor-info-card .card-body {
+        padding: 25px;
+    }
+
+    .supervisor-info-card .info-item {
+        border-bottom: 1px solid rgba(0,0,0,0.05);
+        margin-bottom: 15px;
+        padding: 8px 0;
+    }
+
+    .supervisor-info-card .info-item:last-child {
+        border-bottom: none;
+        margin-bottom: 0;
+    }
+
+    .supervisor-info-card .info-item strong {
+        color: #495057;
+        display: inline-block;
+        font-size: 1.1rem; /* Increased */
+        font-weight: 600;
+        min-width: 120px;
+    }
+
+    /* Progress Bars */
+    .progress {
+        background-color: rgba(0,0,0,0.05);
+        border-radius: 10px;
+    }
+
+    .progress .progress-bar {
+        border-radius: 10px;
+        font-size: 1.0rem; /* Increased from 0.75rem */
+        font-weight: 600;
+        line-height: 20px;
+        transition: width 0.6s ease;
+    }
+    
+
+    /* Trainer Badges */
+    .trainer-badges .badge {
+        border-radius: 12px;
+        font-size: 0.8rem; /* Increased from 0.7rem */
+        padding: 6px 10px; /* Increased padding */
+    }
+
+    /* Course History */
+    .course-history-title {
+        border-left: 4px solid #3498db;
+        color: #2c3e50;
+        font-size: 1.5rem; /* Increased */
+        font-weight: 600;
+        margin-bottom: 20px;
+        padding-left: 15px;
+    }
+
+    /* Enhanced table styling for detail page */
+    .table-card .table th {
+        border-bottom: 2px solid #dee2e6;
+        font-size: 1rem; /* Increased from 0.85rem */
+        letter-spacing: 0.5px;
+        text-transform: uppercase;
+    }
+
+    .table-card .table td {
+        font-size: 1.3rem; /* Increased from 1.1rem */
+        padding: 15px 12px;
+        position: relative; /* Ensure dropdown positioning context */
+    }
+
+    /* =================================================
+       ANIMATIONS & KEYFRAMES
+       ================================================= */
+    
+    @keyframes fadeInUp {
+        from {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    /* =================================================
+       RESPONSIVE DESIGN - MEDIA QUERIES
+       ================================================= */
+    
+    /* Tablet and Small Desktop */
+    @media (max-width: 768px) {
+        .action-btn {
+            font-size: 1rem; /* Increased from 0.8rem */
+            padding: 6px 10px; /* Increased from 4px 8px */
+        }
+
+        .bulk-actions-content {
+            align-items: stretch;
+            flex-direction: column;
+        }
+
+        .bulk-actions-buttons {
+            justify-content: center;
+        }
+
+        .filter-section {
+            padding: 15px;
+        }
+
+        .page-title {
+            font-size: 1.7rem; /* Increased from 1.5rem */
+        }
+
+        .table-card {
+            font-size: 1rem; /* Increased from 0.8rem */
+        }
+
+        .table-card .action-btn {
+            font-size: 0.9rem; /* Increased from 0.75rem */
+            padding: 6px 10px; /* Increased from 4px 8px */
+            z-index: 1 !important;
+        }
+
+        .table-responsive {
+            font-size: 1rem; /* Increased from 0.875rem */
+        }
+
+        .supervisor-info-card .info-item strong {
+            display: block;
+            margin-bottom: 5px;
+            min-width: auto;
+        }
+
+        .supervisor-info-card .info-item {
+            margin-bottom: 12px;
+        }
+
+        .trainer-badges .badge {
+            font-size: 0.7rem; /* Increased from 0.6rem */
+            margin-bottom: 2px;
+        }
+    }
+
+    /* Mobile Phones */
+    @media (max-width: 576px) {
+        .action-btn {
+            margin: 1px 0;
+        }
+
+        .btn-group {
+            flex-direction: column;
+        }
+
+        .filter-form .row > div {
+            margin-bottom: 15px;
+        }
+
+        .filter-section {
+            padding: 15px;
+        }
+
+        .page-title {
+            font-size: 1.5rem; /* Increased from 1.3rem */
+        }
+
+        .supervisor-info-card .card-body {
+            padding: 20px 15px;
+        }
+    }
+}
