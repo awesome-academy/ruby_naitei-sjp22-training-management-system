@@ -6,7 +6,7 @@ ruby "3.2.2"
 gem "active_storage_validations", "0.9.8"
 
 gem "bullet"
-
+gem "devise"
 gem "i18n-js", "~> 4.2"
 
 gem "omniauth"
@@ -73,9 +73,15 @@ gem "image_processing", "1.12.2"
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html
   gem "debug", platforms: %i(mri mingw x64_mingw)
+  gem "factory_bot_rails"
+  gem "rails-controller-testing"
+  gem "rspec-core"
+  gem "rspec-rails"
   gem "rubocop", "~> 1.26", require: false
   gem "rubocop-checkstyle_formatter", require: false
   gem "rubocop-rails", "~> 2.14.0", require: false
+  gem "simplecov"
+  gem "simplecov-rcov"
 end
 
 group :development do
