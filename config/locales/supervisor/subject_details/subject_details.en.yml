@@ -92,6 +92,11 @@ en:
         in_progress: "In Progress"
         not_started: "Not Started"
         edit: "Edit"
+        no_files_uploaded: "No files uploaded"
+        files_attached: "files attached"
+        download_file: "Download file"
+        submitted_files: "Submitted files"
+        no_files_submitted: "No files submitted"
       
       students_panel:
         students_joined: "Students Joined"

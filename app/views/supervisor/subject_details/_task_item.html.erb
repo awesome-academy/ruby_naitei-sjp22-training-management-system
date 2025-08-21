@@ -1,12 +1,17 @@
-<div class="task-item modern-task-item">
+<div class="task-item modern-task-item" data-task-id="<%= task.id %>">
   <div class="task-number">
     <%= index + Settings.digits.digit_one %>
   </div>
-  <div class="task-name">
-    <h6 class="mb-0"><%= task.name %></h6>
+  
+  <div class="task-name clickable-task" data-task-id="<%= task.id %>">
+    <h6 class="mb-0 task-title">
+      <%= task.name %>
+      <i class="fas fa-chevron-down ms-2 collapse-icon"></i>
+    </h6>
   </div>
+  
   <div class="task-status">
-    <% user_task = task.user_tasks.find_by(user_subject: @user_subject) %>
+    <% user_task = task.user_tasks.to_a.find { |ut| ut.user_subject == @user_subject } %>
     <% if user_task&.done? %>
       <span class="badge badge-success">
         <i class="fas fa-check-circle me-1"></i><%= t(".completed") %>
@@ -17,9 +22,69 @@
       </span>
     <% end %>
   </div>
+  
   <div class="task-actions">
     <button class="btn btn-sm btn-outline-primary" data-toggle="modal" data-target="#editTaskModal<%= task.id %>">
       <i class="fas fa-edit me-1"></i><%= t(".edit") %>
     </button>
   </div>
 </div>
+
+<!-- Collapsible File Submissions Section -->
+<div class="task-submissions collapse" id="taskSubmissions<%= task.id %>" data-task-id="<%= task.id %>">
+  <div class="submissions-container">
+    <div class="submissions-header">
+      <h6 class="mb-3">
+        <i class="fas fa-paperclip me-2"></i>
+        <%= t(".submitted_files") %> 
+      </h6>
+    </div>
+
+    <% if user_task&.documents&.any? %>
+      <div class="submissions-list">
+        <% user_task.documents.each_with_index do |document, sub_index| %>
+          <div class="submission-item">
+            <div class="submission-info">
+              <div class="file-icon">
+                <% file_extension = document.filename.extension.downcase %>
+                <i class="<%= file_type(file_extension) %>"></i>
+              </div>
+              
+              <div class="file-details">
+                <div class="file-name">
+                  <%= document.filename %>
+                </div>
+                <div class="file-meta">
+                  <span class="file-size">
+                    <%= number_to_human_size(document.byte_size)%>
+                  </span>
+                  <span class="file-date">
+                    <i class="fas fa-clock me-1"></i>
+                    <%= l(document.created_at, format: :short) %>
+                  </span>
+                </div>
+              </div>
+            </div>
+            
+            <div class="submission-actions">
+              <%= link_to document, 
+                    class: "btn btn-sm btn-outline-primary me-2",
+                    target: "_blank",
+                    title: t(".download_file") do %>
+                  <i class="fas fa-download"></i>
+              <% end %>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    <% else %>
+      <div class="no-submissions">
+        <div class="no-submissions-icon">
+          <i class="fas fa-inbox text-muted"></i>
+        </div>
+        <p class="text-muted mb-0"><%= t(".no_files_submitted") %></p>
+      </div>
+    <% end %>
+  </div>
+</div>
+

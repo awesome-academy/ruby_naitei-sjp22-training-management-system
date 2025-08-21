@@ -92,7 +92,8 @@ update_score show)
   end
 
   def load_subject_tasks
-    @subject_tasks = @course_subject.tasks.includes(:user_tasks)
+    @subject_tasks = @course_subject.tasks.includes(user_tasks:
+    [:documents_attachments])
   end
 
   def load_user_subjects
@@ -200,7 +201,8 @@ update_score show)
   def reset_all_user_subjects_completion
     @course_subject.user_subjects.update_all(
       completed_at: nil,
-      started_at: nil
+      started_at: nil,
+      status: :in_progress
     )
   end
 end

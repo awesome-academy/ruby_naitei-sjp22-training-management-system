@@ -80,7 +80,12 @@ vi:
         in_progress: "Đang học"
         not_started: "Chưa bắt đầu"
         edit: "Sửa"
-      
+        no_files_uploaded: "Chưa có tệp nào được tải lên"
+        files_attached: "tệp đính kèm"
+        download_file: "Tải tệp xuống"
+        submitted_files: "Tệp đã nộp"
+        no_files_submitted: "Chưa có tệp nào được nộp"
+
       students_panel:
         students_joined: "Học viên tham gia"
 
