@@ -76,14 +76,14 @@ en:
             status:
               inclusion: "is not included in the list"
             documents:
-              invalid_document_type: "is not a valid document type. Allowed types: %{types}"
-              document_size_exceeded: "exceeds the maximum size of %{size} MB"
+              invalid_document_type: "is not a valid document type."
+              document_size_exceeded: "exceeds the maximum size"
+            user_id:
+              taken: "has already been taken"
       messages:
         member_to_after_member_from: "must be after member from date"
         finish_date_after_start_date: "must be after start date"
         image_size_exceeded: "must be less than %{max_size}"
-        document_size_exceeded: "must be less than %{max_size}"
-        invalid_document_type: "is not a valid document type"
         invalid_image_type: "is not a valid image type"
         one_report_per_day: "You have already submitted a report for this course today."
         not_a_valid_course: "is not valid. You can only submit a report for a course you are enrolled in."
@@ -91,4 +91,4 @@ en:
         must_be_within_one_year_from_now: "must be within one year from now"
         must_be_valid_url: "must be a valid URL format (starting with https://)"
         must_be_unique: "must be unique"
-        must_be_unique_positions : "Positions can not be duplicate"
+        must_be_unique_positions: "Positions can not be duplicate"

@@ -94,10 +94,12 @@ user_task:
     not_done: 0
     done: 1
   allowed_document_types: ["application/pdf", "image/jpeg", "image/png"]
-  max_document_size: 50 # in MB
+  max_document_size:
+    megabytes: 50
   spent_time_step: 0.1
-  spent_time_min: 0
-
+  min_document_size:
+    megabytes: 1
+    
 course_subject:
   min_position: 1
 
