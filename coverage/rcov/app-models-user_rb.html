@@ -1,0 +1,620 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang='en' xml:lang='en' xmlns='http://www.w3.org/1999/xhtml'>
+  <head>
+    <title>app/models/user.rb</title>
+    <link href="./assets/0.3.7/screen.css" media="all" rel="stylesheet" type="text/css" />
+    <link href="./assets/0.3.7/print.css" media="print" rel="stylesheet" type="text/css" />
+    <meta http-equiv="Content-type" content="text/html;charset=UTF-8" />
+    <script type="text/javascript" src="./assets/0.3.7/rcov.js"></script>
+  </head>
+  <body>
+    <h1>Ruby naitei-sjp22-training-management-system C0 Coverage Information - Simploco - RCov</h1>
+    <h2>app/models/user.rb</h2>
+
+    <div class="report_table_wrapper">
+      <table class='report' id='report_table'>
+        <thead>
+          <tr>
+            <th class="left_align">Name</th>
+            <th class="right_align">Total Lines</th>
+            <th class="right_align">Lines of Code</th>
+            <th class="left_align">Total Coverage</th>
+            <th class="left_align">Code Coverage</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="left_align"><a href="app-models-user_rb.html">app/models/user.rb</a></td>
+            <td class='right_align'><tt>187</tt></td>
+            <td class='right_align'><tt>100</tt></td>
+            <td class="left_align"><div class="percent_graph_legend"><tt class=''>77.54%</tt></div>
+      <div class="percent_graph">
+        <div class="covered" style="width:78px"></div>
+        <div class="uncovered" style="width:22px"></div>
+      </div></td>
+            <td class="left_align"><div class="percent_graph_legend"><tt class=''>58.00%</tt></div>
+      <div class="percent_graph">
+        <div class="covered" style="width:58px"></div>
+        <div class="uncovered" style="width:42px"></div>
+      </div></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>Key</h3>
+
+    <div class="key"><pre><span class='marked'>Code reported as executed by Ruby looks like this...</span><span class='marked1'>and this: this line is also marked as covered.</span><span class='inferred'>Lines considered as run by rcov, but not reported by Ruby, look like this,</span><span class='inferred1'>and this: these lines were inferred by rcov (using simple heuristics).</span><span class='uncovered'>Finally, here's a line marked as not executed.</span></pre></div>
+
+    <h3>Coverage Details</h3>
+
+    <table class="details">
+      <tbody>
+        <tr class="marked">
+          <td><pre><a name="line2">2</a> class User &lt; ApplicationRecord</pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line3">3</a>   attr_accessor :remember_token, :session_token, :activation_token,</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line4">4</a>                 :reset_token, :from_google_oauth</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line5">5</a> </pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line6">6</a>   has_secure_password</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line7">7</a> </pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line8">8</a>   # Constants</pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line9">9</a>   PERMITTED_ATTRIBUTES = %i(name email password password_confirmation birthday</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line10">10</a> gender).freeze</pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line11">11</a>   PASSWORD_RESET_ATTRIBUTES = %i(password password_confirmation).freeze</pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line12">12</a>   PASSWORD_RESET_EXPIRATION = 2.hours.freeze</pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line13">13</a>   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i</pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line14">14</a>   PERMITTED_UPDATE_ATTRIBUTES = %i(name birthday gender).freeze</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line15">15</a> </pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line16">16</a>   # Enums</pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line17">17</a>   enum gender: {</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line18">18</a>     female: Settings.user.genders.female,</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line19">19</a>     male: Settings.user.genders.male,</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line20">20</a>     other: Settings.user.genders.other</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line21">21</a>   }</pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line22">22</a>   enum role: {</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line23">23</a>     trainee: Settings.user.roles.trainee,</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line24">24</a>     supervisor: Settings.user.roles.supervisor,</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line25">25</a>     admin: Settings.user.roles.admin</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line26">26</a>   }</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line27">27</a> </pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line28">28</a>   # Associations</pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line29">29</a>   has_many :user_courses, dependent: :destroy</pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line30">30</a>   has_many :courses, through: :user_courses</pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line31">31</a>   has_many :user_subjects, dependent: :destroy</pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line32">32</a>   has_many :course_subjects, through: :user_subjects</pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line33">33</a>   has_many :subjects, through: :course_subjects</pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line34">34</a>   has_many :user_tasks, dependent: :destroy</pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line35">35</a>   has_many :tasks, through: :user_tasks</pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line36">36</a>   has_many :daily_reports, dependent: :destroy</pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line37">37</a>   has_many :comments, dependent: :destroy</pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line38">38</a>   has_many :course_supervisors, dependent: :destroy</pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line39">39</a>   has_many :supervised_courses, through: :course_supervisors, source: :course</pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line40">40</a>   has_one_attached :image</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line41">41</a> </pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line42">42</a>   scope :recent, -&gt; {order(created_at: :desc)}</pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line43">43</a>   scope :sort_by_name, -&gt; {order(:name)}</pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line44">44</a>   scope :trainers, -&gt; {where(role: :supervisor).count}</pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line45">45</a>   scope :trainees, -&gt; {where(role: :trainee).count}</pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line46">46</a>   scope :supervised_by, (lambda do |user_id|</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line47">47</a>     joins(:supervised_courses).where(supervised_courses: {user_id:})</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line48">48</a>   end)</pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line49">49</a>   scope :by_course, (lambda do |course_ids|</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line50">50</a>     return all if course_ids.blank?</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line51">51</a> </pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line52">52</a>     joins(:courses).where(courses: {id: course_ids})</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line53">53</a>   end)</pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line54">54</a>   scope :filter_by_status, (lambda do |status|</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line55">55</a>     return all if status.blank?</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line56">56</a> </pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line57">57</a>     where(activated: status)</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line58">58</a>   end)</pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line59">59</a>   scope :filter_by_name, (lambda do |search|</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line60">60</a>     return all if search.blank?</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line61">61</a> </pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line62">62</a>     where(&quot;LOWER(users.name) LIKE ?&quot;, &quot;%#{search.downcase}%&quot;)</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line63">63</a>   end)</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line64">64</a> </pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line65">65</a>   before_save :downcase_email</pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line66">66</a>   before_create :create_activation_digest</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line67">67</a> </pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line68">68</a>   validates :name, presence: true,</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line69">69</a>             length: {maximum: Settings.user.max_name_length}</pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line70">70</a>   validates :email, presence: true,</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line71">71</a>             length: {maximum: Settings.user.max_email_length},</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line72">72</a>             format: {with: VALID_EMAIL_REGEX},</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line73">73</a>             uniqueness: {case_sensitive: false}</pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line74">74</a>   validates :birthday, presence: true, unless: :from_google_oauth</pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line75">75</a>   validates :gender, presence: true, unless: :from_google_oauth</pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line76">76</a>   validates :role, presence: true</pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line77">77</a>   validate :birthday_within_valid_years,</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line78">78</a>            unless: -&gt; {from_google_oauth || birthday.nil?}</pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line79">79</a>   validates :password, presence: true,</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line80">80</a>             length: {minimum: Settings.user.min_password_length},</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line81">81</a>             allow_nil: true,</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line82">82</a>             if: :password_required?</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line83">83</a> </pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line84">84</a>   def self.digest string</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line85">85</a>     cost = if ActiveModel::SecurePassword.min_cost</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line86">86</a>              BCrypt::Engine::MIN_COST</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line87">87</a>            else</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line88">88</a>              BCrypt::Engine.cost</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line89">89</a>            end</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line90">90</a>     BCrypt::Password.create string, cost:</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line91">91</a>   end</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line92">92</a> </pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line93">93</a>   def remember</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line94">94</a>     self.remember_token = User.new_token</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line95">95</a>     update_column :remember_digest, User.digest(remember_token)</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line96">96</a>   end</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line97">97</a> </pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line98">98</a>   def forget</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line99">99</a>     update_column :remember_digest, nil</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line100">100</a>   end</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line101">101</a> </pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line102">102</a>   def create_session</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line103">103</a>     self.session_token = User.new_token</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line104">104</a>     update_column :remember_digest, User.digest(session_token)</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line105">105</a>   end</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line106">106</a> </pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line107">107</a>   # Returns true if the given token matches the digest.</pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line108">108</a>   def authenticated? attribute, token</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line109">109</a>     digest = send(&quot;#{attribute}_digest&quot;)</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line110">110</a>     return false unless digest</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line111">111</a> </pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line112">112</a>     BCrypt::Password.new(digest).is_password?(token)</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line113">113</a>   end</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line114">114</a> </pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line115">115</a>   # Activates an account.</pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line116">116</a>   def activate</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line117">117</a>     update_columns(activated: true, activated_at: Time.zone.now)</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line118">118</a>   end</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line119">119</a> </pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line120">120</a>   # Sends activation email.</pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line121">121</a>   def send_activation_email</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line122">122</a>     UserMailer.account_activation(self).deliver_now</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line123">123</a>   end</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line124">124</a> </pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line125">125</a>   # Creates password reset attributes.</pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line126">126</a>   def create_reset_digest</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line127">127</a>     self.reset_token = User.new_token</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line128">128</a>     update_columns reset_digest: User.digest(reset_token),</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line129">129</a>                    reset_sent_at: Time.zone.now</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line130">130</a>   end</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line131">131</a> </pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line132">132</a>   # Sends password reset email.</pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line133">133</a>   def send_password_reset_email</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line134">134</a>     UserMailer.password_reset(self).deliver_now</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line135">135</a>   end</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line136">136</a> </pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line137">137</a>   # Sends password changed email.</pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line138">138</a>   def send_password_changed_email</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line139">139</a>     UserMailer.password_changed(self).deliver_now</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line140">140</a>   end</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line141">141</a> </pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line142">142</a>   # Checks expiration of reset token.</pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line143">143</a>   def password_reset_expired?</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line144">144</a>     reset_sent_at &lt; PASSWORD_RESET_EXPIRATION.ago</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line145">145</a>   end</pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line146">146</a>   class &lt;&lt; self</pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line147">147</a>     def new_token</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line148">148</a>       SecureRandom.urlsafe_base64</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line149">149</a>     end</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line150">150</a>   end</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line151">151</a> </pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line152">152</a>   private</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line153">153</a> </pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line154">154</a>   def password_required?</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line155">155</a>     !from_google_oauth &amp;&amp;</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line156">156</a>       (password.present? || password_confirmation.present? || new_record?)</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line157">157</a>   end</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line158">158</a> </pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line159">159</a>   def birthday_within_valid_years</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line160">160</a>     return if birthday.nil?</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line161">161</a> </pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line162">162</a>     years = Settings.user.birthday_valid_years</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line163">163</a>     min_date = Time.zone.today - years.years</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line164">164</a>     return if birthday.between?(min_date, Time.zone.today)</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line165">165</a> </pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line166">166</a>     errors.add(:birthday, :birthday_invalid, years:)</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line167">167</a>   end</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line168">168</a> </pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line169">169</a>   def member_to_after_member_from</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line170">170</a>     return unless member_from &amp;&amp; member_to</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line171">171</a> </pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line172">172</a>     return unless member_to &lt; member_from</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line173">173</a> </pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line174">174</a>     errors.add(:member_to,</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line175">175</a>                :member_to_after_member_from)</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line176">176</a>   end</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line177">177</a> </pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line178">178</a>   def downcase_email</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line179">179</a>     email.downcase!</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line180">180</a>   end</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line181">181</a> </pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line182">182</a>   def create_activation_digest</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line183">183</a>     return if from_google_oauth</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line184">184</a> </pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line185">185</a>     self.activation_token = User.new_token</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line186">186</a>     self.activation_digest = User.digest(activation_token)</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line187">187</a>   end</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line188">188</a> end</pre></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p>Generated on 2025-08-21 19:44:03 +0700 with <a href="https://github.com/fguillen/simplecov-rcov">SimpleCov-RCov 0.3.7</a></p>
+
+  </body>
+</html>

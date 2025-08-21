@@ -73,15 +73,20 @@ gem "image_processing", "1.12.2"
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html
   gem "debug", platforms: %i(mri mingw x64_mingw)
+  gem "factory_bot_rails" # FactoryBot
   gem "rubocop", "~> 1.26", require: false
   gem "rubocop-checkstyle_formatter", require: false
   gem "rubocop-rails", "~> 2.14.0", require: false
+  gem "shoulda-matchers", "~> 5.0"
+  gem "simplecov"
+  gem "simplecov-rcov"
 end
 
 group :development do
   gem "annotate"
   gem "faker", "2.21.0"
   # Use console on exceptions pages [https://github.com/rails/web-console]
+  gem "rspec-rails", "~> 5.0.0"
   gem "web-console"
 
   # Add speed badges [https://github.com/MiniProfiler/rack-mini-profiler]

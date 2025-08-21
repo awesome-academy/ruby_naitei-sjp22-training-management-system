@@ -1,0 +1,806 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang='en' xml:lang='en' xmlns='http://www.w3.org/1999/xhtml'>
+  <head>
+    <title>app/models/course.rb</title>
+    <link href="./assets/0.3.7/screen.css" media="all" rel="stylesheet" type="text/css" />
+    <link href="./assets/0.3.7/print.css" media="print" rel="stylesheet" type="text/css" />
+    <meta http-equiv="Content-type" content="text/html;charset=UTF-8" />
+    <script type="text/javascript" src="./assets/0.3.7/rcov.js"></script>
+  </head>
+  <body>
+    <h1>Ruby naitei-sjp22-training-management-system C0 Coverage Information - Simploco - RCov</h1>
+    <h2>app/models/course.rb</h2>
+
+    <div class="report_table_wrapper">
+      <table class='report' id='report_table'>
+        <thead>
+          <tr>
+            <th class="left_align">Name</th>
+            <th class="right_align">Total Lines</th>
+            <th class="right_align">Lines of Code</th>
+            <th class="left_align">Total Coverage</th>
+            <th class="left_align">Code Coverage</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="left_align"><a href="app-models-course_rb.html">app/models/course.rb</a></td>
+            <td class='right_align'><tt>249</tt></td>
+            <td class='right_align'><tt>213</tt></td>
+            <td class="left_align"><div class="percent_graph_legend"><tt class=''>14.46%</tt></div>
+      <div class="percent_graph">
+        <div class="covered" style="width:14px"></div>
+        <div class="uncovered" style="width:86px"></div>
+      </div></td>
+            <td class="left_align"><div class="percent_graph_legend"><tt class=''>0.00%</tt></div>
+      <div class="percent_graph">
+        <div class="covered" style="width:0px"></div>
+        <div class="uncovered" style="width:100px"></div>
+      </div></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>Key</h3>
+
+    <div class="key"><pre><span class='marked'>Code reported as executed by Ruby looks like this...</span><span class='marked1'>and this: this line is also marked as covered.</span><span class='inferred'>Lines considered as run by rcov, but not reported by Ruby, look like this,</span><span class='inferred1'>and this: these lines were inferred by rcov (using simple heuristics).</span><span class='uncovered'>Finally, here's a line marked as not executed.</span></pre></div>
+
+    <h3>Coverage Details</h3>
+
+    <table class="details">
+      <tbody>
+        <tr class="uncovered">
+          <td><pre><a name="line2">2</a> class Course &lt; ApplicationRecord</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line3">3</a>   include Positionable</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line4">4</a> </pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line5">5</a>   COURSE_PARAMS = [</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line6">6</a>     :name,</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line7">7</a>     :start_date,</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line8">8</a>     :finish_date,</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line9">9</a>     :link_to_course,</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line10">10</a>     :image,</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line11">11</a>     {supervisor_ids: []},</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line12">12</a>     {course_subjects_attributes: [</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line13">13</a>       :id,</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line14">14</a>       :subject_id,</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line15">15</a>       :position,</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line16">16</a>       :start_date,</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line17">17</a>       :finish_date,</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line18">18</a>       :_destroy,</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line19">19</a>       {tasks_attributes: [</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line20">20</a>         :id,</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line21">21</a>         :name,</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line22">22</a>         :_destroy</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line23">23</a>       ]}</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line24">24</a>     ]}</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line25">25</a>   ].freeze</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line26">26</a>   IMAGE_DISPLAY_SIZE = [120, 80].freeze</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line27">27</a>   URL_FORMAT = %r{\Ahttps://.*}</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line28">28</a> </pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line29">29</a>   # Enums</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line30">30</a>   enum status: {not_started: Settings.course.status.not_started,</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line31">31</a>                 in_progress: Settings.course.status.in_progress,</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line32">32</a>                 finished: Settings.course.status.finished}</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line33">33</a> </pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line34">34</a>   # Associations</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line35">35</a>   belongs_to :user</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line36">36</a>   has_many :user_courses, dependent: :destroy</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line37">37</a>   has_many :users, through: :user_courses</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line38">38</a>   has_many :daily_reports, dependent: :destroy</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line39">39</a>   has_many :course_subjects, dependent: :destroy</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line40">40</a>   has_many :subjects, through: :course_subjects</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line41">41</a>   has_many :course_supervisors, dependent: :destroy</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line42">42</a>   has_many :supervisors, through: :course_supervisors, source: :user</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line43">43</a>   has_one_attached :image do |attachable|</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line44">44</a>     attachable.variant :display, resize_to_limit: IMAGE_DISPLAY_SIZE</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line45">45</a>   end</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line46">46</a> </pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line47">47</a>   accepts_nested_attributes_for :course_subjects, allow_destroy: true</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line48">48</a> </pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line49">49</a>   # Validations</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line50">50</a>   validates :name, presence: true,</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line51">51</a>             length: {</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line52">52</a>               maximum: Settings.course.max_name_length</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line53">53</a>             },</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line54">54</a>             uniqueness: {case_sensitive: false}</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line55">55</a>   validates :link_to_course, presence: true,</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line56">56</a>             format: {with: URL_FORMAT,</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line57">57</a>                      message: :must_be_valid_url}</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line58">58</a>   validates :start_date, presence: true</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line59">59</a>   validates :finish_date, presence: true</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line60">60</a>   validate :at_least_one_supervisor_selected</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line61">61</a>   validate :finish_date_after_start_date</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line62">62</a>   validate :start_date_within_allowed_range</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line63">63</a>   validate :finish_date_within_allowed_range</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line64">64</a>   validates :image, presence: true,</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line65">65</a>             content_type: {</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line66">66</a>               in: Settings.course.allowed_image_types,</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line67">67</a>               message: :invalid_image_type</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line68">68</a>             },</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line69">69</a>             size: {</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line70">70</a>               less_than: Settings.course.max_image_size.megabytes,</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line71">71</a>               message: :image_size_exceeded,</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line72">72</a>               size: Settings.course.max_image_size.megabytes</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line73">73</a>             }</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line74">74</a>   before_save :update_status_based_on_dates</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line75">75</a>   after_create :clone_tasks_for_course</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line76">76</a> </pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line77">77</a>   # Scopes</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line78">78</a>   scope :upcoming, -&gt; {where(start_date: Date.current.next_day..)}</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line79">79</a>   scope :completed, -&gt; {where(finish_date: ..Date.current.prev_day)}</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line80">80</a>   scope :ordered_by_start_date, -&gt; {order(:start_date)}</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line81">81</a>   scope :by_status, -&gt;(status) {where(status:) if status.present?}</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line82">82</a>   scope :supervised_by, -&gt;(user_id) {where(supervisor_id: user_id)}</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line83">83</a>   scope :with_counts, (lambda do</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line84">84</a>     select(</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line85">85</a>       &quot;courses.*&quot;,</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line86">86</a>       &quot;(SELECT COUNT(*) FROM user_courses</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line87">87</a>         INNER JOIN users ON users.id = user_courses.user_id</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line88">88</a>         WHERE user_courses.course_id = courses.id</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line89">89</a>         AND users.role = #{User.roles[:trainee]}) AS trainees_count&quot;,</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line90">90</a>       &quot;(SELECT COUNT(*) FROM course_supervisors</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line91">91</a>         INNER JOIN users ON users.id = course_supervisors.user_id</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line92">92</a>         WHERE course_supervisors.course_id = courses.id</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line93">93</a>         AND users.role = #{User.roles[:supervisor]}) AS trainers_count&quot;</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line94">94</a>     )</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line95">95</a>   end)</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line96">96</a>   scope :recent, -&gt; {order(created_at: :desc)}</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line97">97</a>   scope :search_by_name, (lambda do |query|</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line98">98</a>     if query.present?</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line99">99</a>       where(&quot;name LIKE ?&quot;,</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line100">100</a>             &quot;%#{sanitize_sql_like(query)}%&quot;)</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line101">101</a>     end</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line102">102</a>   end)</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line103">103</a>   scope :search_by_trainer_name, (lambda do |query|</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line104">104</a>     if query.present?</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line105">105</a>       joins(:supervisors)</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line106">106</a>         .where(&quot;users.name LIKE ?&quot;,</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line107">107</a>                &quot;%#{sanitize_sql_like(query)}%&quot;)</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line108">108</a>         .distinct</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line109">109</a>     end</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line110">110</a>   end)</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line111">111</a>   scope :by_start_date_from, (lambda do |date|</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line112">112</a>                                 where(&quot;start_date &gt;= ?&quot;, date) if date.present?</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line113">113</a>                               end)</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line114">114</a>   scope :by_start_date_to, (lambda do |date|</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line115">115</a>                               where(&quot;start_date &lt;= ?&quot;, date) if date.present?</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line116">116</a>                             end)</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line117">117</a>   scope :by_trainer, (lambda do |trainer_id|</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line118">118</a>     if trainer_id.present?</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line119">119</a>       joins(:course_supervisors)</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line120">120</a>         .where(course_supervisors: {user_id: trainer_id})</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line121">121</a>     end</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line122">122</a>   end)</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line123">123</a>   scope :filter_by_params, (lambda do |params|</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line124">124</a>     relation = self</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line125">125</a> </pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line126">126</a>     search_query = params[:search_query]</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line127">127</a>     if search_query.present?</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line128">128</a>       relation = if params[:search_type] == Settings.course.creators</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line129">129</a>                    relation.search_by_trainer_name(search_query)</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line130">130</a>                  else</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line131">131</a>                    relation.search_by_name(search_query)</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line132">132</a>                  end</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line133">133</a>     end</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line134">134</a> </pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line135">135</a>     relation = relation.by_status(params[:status])</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line136">136</a>                        .by_start_date_from(params[:start_date_from])</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line137">137</a>                        .by_start_date_to(params[:start_date_to])</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line138">138</a> </pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line139">139</a>     relation</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line140">140</a>   end)</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line141">141</a>   scope :by_course, (lambda do |course_ids|</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line142">142</a>     where(id: course_ids) if course_ids.present?</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line143">143</a>   end)</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line144">144</a>   scope :by_user_course_status, (lambda do |status|</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line145">145</a>     return all if status.blank?</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line146">146</a> </pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line147">147</a>     includes(:user_courses).where(user_courses: {status:}).distinct</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line148">148</a>   end)</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line149">149</a>   scope :by_supervisor_course, (lambda do |supervisor_id|</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line150">150</a>     return all if supervisor_id.blank?</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line151">151</a> </pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line152">152</a>     joins(:course_supervisors)</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line153">153</a>     .where(course_supervisors: {user_id: supervisor_id})</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line154">154</a>   end)</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line155">155</a> </pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line156">156</a>   def trainees_count</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line157">157</a>     self[:trainees_count] || user_courses</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line158">158</a>       .joins(:user)</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line159">159</a>       .where(users: {role: :trainee})</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line160">160</a>       .count</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line161">161</a>   end</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line162">162</a> </pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line163">163</a>   def trainee_count</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line164">164</a>     user_courses.trainees.count</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line165">165</a>   end</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line166">166</a> </pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line167">167</a>   def trainers_count</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line168">168</a>     self[:trainers_count] || course_supervisors</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line169">169</a>       .joins(:user)</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line170">170</a>       .where(users: {role: :supervisor})</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line171">171</a>       .count</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line172">172</a>   end</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line173">173</a> </pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line174">174</a>   def subjects_count</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line175">175</a>     Course.subjects.count</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line176">176</a>   end</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line177">177</a> </pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line178">178</a>   private</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line179">179</a> </pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line180">180</a>   def finish_date_after_start_date</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line181">181</a>     return unless start_date &amp;&amp; finish_date</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line182">182</a> </pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line183">183</a>     return unless finish_date &lt; start_date</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line184">184</a> </pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line185">185</a>     errors.add(:finish_date,</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line186">186</a>                :finish_date_after_start_date)</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line187">187</a>   end</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line188">188</a> </pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line189">189</a>   def at_least_one_supervisor_selected</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line190">190</a>     return unless supervisor_ids.blank? || supervisor_ids.compact_blank.empty?</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line191">191</a> </pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line192">192</a>     errors.add(:supervisor_ids,</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line193">193</a>                :at_least_one_trainer)</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line194">194</a>   end</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line195">195</a> </pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line196">196</a>   def start_date_within_allowed_range</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line197">197</a>     return if start_date.blank?</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line198">198</a>     return if start_date.between?(1.year.ago.to_date, 1.year.from_now.to_date)</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line199">199</a> </pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line200">200</a>     errors.add(:start_date, :must_be_within_one_year_from_now)</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line201">201</a>   end</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line202">202</a> </pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line203">203</a>   def finish_date_within_allowed_range</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line204">204</a>     return if finish_date.blank?</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line205">205</a>     return if finish_date.between?(1.year.ago.to_date, 1.year.from_now.to_date)</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line206">206</a> </pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line207">207</a>     errors.add(:finish_date, :must_be_within_one_year_from_now)</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line208">208</a>   end</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line209">209</a> </pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line210">210</a>   def filter_and_get_positions</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line211">211</a>     course_subjects.reject(&amp;:marked_for_destruction?).map(&amp;:position)</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line212">212</a>   end</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line213">213</a> </pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line214">214</a>   def positionable_association_name</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line215">215</a>     :course_subjects</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line216">216</a>   end</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line217">217</a> </pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line218">218</a>   def clone_tasks_for_course</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line219">219</a>     course_subjects.each do |course_subject|</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line220">220</a>       subject = course_subject.subject</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line221">221</a>       next if subject.tasks.blank?</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line222">222</a> </pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line223">223</a>       subject.tasks.each do |original_task|</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line224">224</a>         cloned_task_attributes = original_task.attributes.except(</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line225">225</a>           &quot;id&quot;,</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line226">226</a>           &quot;taskable_id&quot;,</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line227">227</a>           &quot;taskable_type&quot;,</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line228">228</a>           &quot;created_at&quot;,</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line229">229</a>           &quot;updated_at&quot;</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line230">230</a>         )</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line231">231</a>         raise ActiveRecord::Rollback unless</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line232">232</a>           course_subject.tasks.create(cloned_task_attributes)</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line233">233</a>       end</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line234">234</a>     end</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line235">235</a>   end</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line236">236</a> </pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line237">237</a>   def update_status_based_on_dates</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line238">238</a>     return self.status = :not_started unless start_date &amp;&amp; finish_date</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line239">239</a> </pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line240">240</a>     today = Date.current</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line241">241</a> </pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line242">242</a>     self.status = if today &lt; start_date</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line243">243</a>                     :not_started</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line244">244</a>                   elsif today.between?(start_date, finish_date)</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line245">245</a>                     :in_progress</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line246">246</a>                   else</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line247">247</a>                     :finished</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line248">248</a>                   end</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line249">249</a>   end</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line250">250</a> end</pre></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p>Generated on 2025-08-21 19:44:03 +0700 with <a href="https://github.com/fguillen/simplecov-rcov">SimpleCov-RCov 0.3.7</a></p>
+
+  </body>
+</html>

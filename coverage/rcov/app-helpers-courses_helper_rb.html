@@ -1,0 +1,377 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang='en' xml:lang='en' xmlns='http://www.w3.org/1999/xhtml'>
+  <head>
+    <title>app/helpers/courses_helper.rb</title>
+    <link href="./assets/0.3.7/screen.css" media="all" rel="stylesheet" type="text/css" />
+    <link href="./assets/0.3.7/print.css" media="print" rel="stylesheet" type="text/css" />
+    <meta http-equiv="Content-type" content="text/html;charset=UTF-8" />
+    <script type="text/javascript" src="./assets/0.3.7/rcov.js"></script>
+  </head>
+  <body>
+    <h1>Ruby naitei-sjp22-training-management-system C0 Coverage Information - Simploco - RCov</h1>
+    <h2>app/helpers/courses_helper.rb</h2>
+
+    <div class="report_table_wrapper">
+      <table class='report' id='report_table'>
+        <thead>
+          <tr>
+            <th class="left_align">Name</th>
+            <th class="right_align">Total Lines</th>
+            <th class="right_align">Lines of Code</th>
+            <th class="left_align">Total Coverage</th>
+            <th class="left_align">Code Coverage</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="left_align"><a href="app-helpers-courses_helper_rb.html">app/helpers/courses_helper.rb</a></td>
+            <td class='right_align'><tt>106</tt></td>
+            <td class='right_align'><tt>53</tt></td>
+            <td class="left_align"><div class="percent_graph_legend"><tt class=''>68.87%</tt></div>
+      <div class="percent_graph">
+        <div class="covered" style="width:69px"></div>
+        <div class="uncovered" style="width:31px"></div>
+      </div></td>
+            <td class="left_align"><div class="percent_graph_legend"><tt class=''>37.74%</tt></div>
+      <div class="percent_graph">
+        <div class="covered" style="width:38px"></div>
+        <div class="uncovered" style="width:62px"></div>
+      </div></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>Key</h3>
+
+    <div class="key"><pre><span class='marked'>Code reported as executed by Ruby looks like this...</span><span class='marked1'>and this: this line is also marked as covered.</span><span class='inferred'>Lines considered as run by rcov, but not reported by Ruby, look like this,</span><span class='inferred1'>and this: these lines were inferred by rcov (using simple heuristics).</span><span class='uncovered'>Finally, here's a line marked as not executed.</span></pre></div>
+
+    <h3>Coverage Details</h3>
+
+    <table class="details">
+      <tbody>
+        <tr class="marked">
+          <td><pre><a name="line2">2</a> module CoursesHelper</pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line3">3</a>   SUBJECT_NON_DELETABLE_STATUSES = %w(in_progress finished).freeze</pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line4">4</a>   FINISHED_ONTIME_STATUS = UserSubject.statuses[:finished_ontime]</pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line5">5</a>   FINISHED_STATUS_VALUES = UserSubject.statuses.values_at(</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line6">6</a>     :finished_early, :finished_ontime, :finished_but_overdue</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line7">7</a>   )</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line8">8</a> </pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line9">9</a>   def course_status_badge status</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line10">10</a>     status_text = t(&quot;activerecord.attributes.course.statuses.#{status}&quot;,</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line11">11</a>                     default: status.humanize)</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line12">12</a> </pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line13">13</a>     css_class = case status</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line14">14</a>                 when &quot;not_started&quot; then &quot;label label-default&quot;</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line15">15</a>                 when &quot;in_progress&quot; then &quot;label label-success&quot;</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line16">16</a>                 when &quot;finished&quot;    then &quot;label label-primary&quot;</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line17">17</a>                 else &quot;label label-info&quot;</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line18">18</a>                 end</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line19">19</a> </pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line20">20</a>     content_tag(:span, status_text, class: css_class)</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line21">21</a>   end</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line22">22</a> </pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line23">23</a>   def course_link_url_for course</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line24">24</a>     if admin_role? || supervisor_role?</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line25">25</a>       supervisor_course_url(course)</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line26">26</a>     else</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line27">27</a>       trainee_course_url(course)</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line28">28</a>     end</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line29">29</a>   end</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line30">30</a> </pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line31">31</a>   def course_members_path_for course</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line32">32</a>     if admin_role? || supervisor_role?</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line33">33</a>       members_supervisor_course_path(course)</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line34">34</a>     else</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line35">35</a>       members_trainee_course_path(course)</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line36">36</a>     end</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line37">37</a>   end</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line38">38</a> </pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line39">39</a>   def course_subjects_path_for course</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line40">40</a>     if admin_role? || supervisor_role?</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line41">41</a>       subjects_supervisor_course_path(course)</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line42">42</a>     else</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line43">43</a>       subjects_trainee_course_path(course)</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line44">44</a>     end</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line45">45</a>   end</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line46">46</a> </pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line47">47</a>   def destroy_user_course_path_for course, user_course_id:</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line48">48</a>     supervisor_course_user_course_path(course, id: user_course_id)</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line49">49</a>   end</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line50">50</a> </pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line51">51</a>   def destroy_supervisor_path_for course, supervisor_id:</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line52">52</a>     supervisor_course_supervisor_path(course, id: supervisor_id)</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line53">53</a>   end</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line54">54</a> </pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line55">55</a>   def finish_course_subject_path_for course, course_subject_id:</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line56">56</a>     finish_supervisor_course_course_subject_path(course, id: course_subject_id)</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line57">57</a>   end</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line58">58</a> </pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line59">59</a>   def destroy_course_subject_path_for course, course_subject_id:</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line60">60</a>     supervisor_course_course_subject_path(course, id: course_subject_id)</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line61">61</a>   end</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line62">62</a> </pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line63">63</a>   def can_leave_course? course</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line64">64</a>     supervisor_role? &amp;&amp;</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line65">65</a>       course.supervisors.include?(current_user) &amp;&amp;</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line66">66</a>       course.supervisors.count &gt; 1</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line67">67</a>   end</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line68">68</a> </pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line69">69</a>   def leave_course_path_for course</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line70">70</a>     supervisor_course_supervisor_path(course, id: current_user.id)</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line71">71</a>   end</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line72">72</a> </pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line73">73</a>   def subject_status course_subject</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line74">74</a>     return Settings.subject_status.finished if subject_finished?(course_subject)</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line75">75</a>     if subject_in_progress?(course_subject)</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line76">76</a>       return Settings.subject_status.in_progress</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line77">77</a>     end</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line78">78</a> </pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line79">79</a>     Settings.subject_status.not_started</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line80">80</a>   end</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line81">81</a> </pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line82">82</a>   private</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line83">83</a> </pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line84">84</a>   def subject_finished? course_subject</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line85">85</a>     past_finish_date?(course_subject) || all_trainees_finished?(course_subject)</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line86">86</a>   end</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line87">87</a> </pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line88">88</a>   def subject_in_progress? course_subject</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line89">89</a>     course_subject.start_date &amp;&amp; course_subject.start_date &lt;= Date.current</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line90">90</a>   end</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line91">91</a> </pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line92">92</a>   def past_finish_date? course_subject</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line93">93</a>     course_subject.finish_date &amp;&amp; course_subject.finish_date &lt; Date.current</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line94">94</a>   end</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line95">95</a> </pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line96">96</a>   def all_trainees_finished? course_subject</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line97">97</a>     if course_subject.association(:user_subjects).loaded?</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line98">98</a>       course_subject.user_subjects.none? do |user_subject|</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line99">99</a>         FINISHED_STATUS_VALUES.exclude?(user_subject.status_before_type_cast)</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line100">100</a>       end</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line101">101</a>     else</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line102">102</a>       course_subject.user_subjects</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line103">103</a>                     .where.not(status: FINISHED_STATUS_VALUES)</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line104">104</a>                     .none?</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line105">105</a>     end</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line106">106</a>   end</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line107">107</a> end</pre></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p>Generated on 2025-08-21 19:44:03 +0700 with <a href="https://github.com/fguillen/simplecov-rcov">SimpleCov-RCov 0.3.7</a></p>
+
+  </body>
+</html>

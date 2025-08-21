@@ -1,0 +1,401 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang='en' xml:lang='en' xmlns='http://www.w3.org/1999/xhtml'>
+  <head>
+    <title>app/controllers/sessions_controller.rb</title>
+    <link href="./assets/0.3.7/screen.css" media="all" rel="stylesheet" type="text/css" />
+    <link href="./assets/0.3.7/print.css" media="print" rel="stylesheet" type="text/css" />
+    <meta http-equiv="Content-type" content="text/html;charset=UTF-8" />
+    <script type="text/javascript" src="./assets/0.3.7/rcov.js"></script>
+  </head>
+  <body>
+    <h1>Ruby naitei-sjp22-training-management-system C0 Coverage Information - Simploco - RCov</h1>
+    <h2>app/controllers/sessions_controller.rb</h2>
+
+    <div class="report_table_wrapper">
+      <table class='report' id='report_table'>
+        <thead>
+          <tr>
+            <th class="left_align">Name</th>
+            <th class="right_align">Total Lines</th>
+            <th class="right_align">Lines of Code</th>
+            <th class="left_align">Total Coverage</th>
+            <th class="left_align">Code Coverage</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="left_align"><a href="app-controllers-sessions_controller_rb.html">app/controllers/sessions_controller.rb</a></td>
+            <td class='right_align'><tt>114</tt></td>
+            <td class='right_align'><tt>89</tt></td>
+            <td class="left_align"><div class="percent_graph_legend"><tt class=''>21.93%</tt></div>
+      <div class="percent_graph">
+        <div class="covered" style="width:22px"></div>
+        <div class="uncovered" style="width:78px"></div>
+      </div></td>
+            <td class="left_align"><div class="percent_graph_legend"><tt class=''>0.00%</tt></div>
+      <div class="percent_graph">
+        <div class="covered" style="width:0px"></div>
+        <div class="uncovered" style="width:100px"></div>
+      </div></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>Key</h3>
+
+    <div class="key"><pre><span class='marked'>Code reported as executed by Ruby looks like this...</span><span class='marked1'>and this: this line is also marked as covered.</span><span class='inferred'>Lines considered as run by rcov, but not reported by Ruby, look like this,</span><span class='inferred1'>and this: these lines were inferred by rcov (using simple heuristics).</span><span class='uncovered'>Finally, here's a line marked as not executed.</span></pre></div>
+
+    <h3>Coverage Details</h3>
+
+    <table class="details">
+      <tbody>
+        <tr class="uncovered">
+          <td><pre><a name="line2">2</a> class SessionsController &lt; ApplicationController</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line3">3</a>   before_action :validate_session_params, only: :create</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line4">4</a>   before_action :load_user_by_session_email, only: :create</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line5">5</a>   before_action :check_authentication, only: :create</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line6">6</a>   before_action :check_activation, only: :create</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line7">7</a>   before_action :logged_out_user, only: %i(new create)</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line8">8</a>   skip_before_action :logged_in_user, only: %i(new create create_from_google)</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line9">9</a>   skip_before_action :store_user_location, only: %i(create_from_google)</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line10">10</a> </pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line11">11</a>   REMEMBER_ME = &quot;1&quot;.freeze</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line12">12</a> </pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line13">13</a>   # GET /login</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line14">14</a>   def new; end</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line15">15</a> </pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line16">16</a>   # POST /login</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line17">17</a>   def create</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line18">18</a>     handle_successful_login(@user)</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line19">19</a>   end</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line20">20</a> </pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line21">21</a>   # DELETE /logout</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line22">22</a>   def destroy</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line23">23</a>     log_out if logged_in?</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line24">24</a>     flash[:success] = t(&quot;.logout_success&quot;)</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line25">25</a>     redirect_to login_url, status: :see_other</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line26">26</a>   end</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line27">27</a> </pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line28">28</a>   # POST /auth/google_oauth2/callback</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line29">29</a>   def create_from_google</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line30">30</a>     auth = request.env[&quot;omniauth.auth&quot;]</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line31">31</a>     if auth.nil?</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line32">32</a>       return redirect_to(login_path,</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line33">33</a>                          alert: t(&quot;sessions.google_auth_failed&quot;))</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line34">34</a>     end</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line35">35</a> </pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line36">36</a>     user = find_or_create_user_from_google(auth)</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line37">37</a>     handle_successful_login(user)</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line38">38</a>   end</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line39">39</a> </pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line40">40</a>   private</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line41">41</a> </pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line42">42</a>   def find_or_create_user_from_google auth</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line43">43</a>     user = User.find_or_initialize_by(email: auth.info.email)</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line44">44</a>     return user unless user.new_record?</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line45">45</a> </pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line46">46</a>     user.assign_attributes(</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line47">47</a>       name: auth.info.name,</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line48">48</a>       password: SecureRandom.hex(15),</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line49">49</a>       activated: true,</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line50">50</a>       activated_at: Time.zone.now,</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line51">51</a>       from_google_oauth: true,</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line52">52</a>       role: :trainee</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line53">53</a>     )</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line54">54</a> </pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line55">55</a>     unless user.save</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line56">56</a>       flash[:danger] = t(</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line57">57</a>         &quot;sessions.google_create_failed&quot;,</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line58">58</a>         errors: user.errors.full_messages.join(&quot;, &quot;)</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line59">59</a>       )</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line60">60</a>       redirect_to login_path and return</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line61">61</a>     end</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line62">62</a> </pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line63">63</a>     user</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line64">64</a>   end</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line65">65</a> </pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line66">66</a>   def validate_session_params</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line67">67</a>     if params.dig(:session, :email).present? &amp;&amp;</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line68">68</a>        params.dig(:session, :password).present?</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line69">69</a>       return</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line70">70</a>     end</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line71">71</a> </pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line72">72</a>     flash.now[:danger] = t(&quot;.missing_credentials&quot;)</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line73">73</a>     render :new, status: :unprocessable_entity</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line74">74</a>   end</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line75">75</a> </pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line76">76</a>   def check_authentication</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line77">77</a>     return if @user&amp;.authenticate(session_password)</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line78">78</a> </pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line79">79</a>     handle_failed_login</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line80">80</a>   end</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line81">81</a> </pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line82">82</a>   def check_activation</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line83">83</a>     return if @user.activated?</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line84">84</a> </pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line85">85</a>     handle_unactivated_user</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line86">86</a>   end</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line87">87</a> </pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line88">88</a>   def session_password</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line89">89</a>     params.dig(:session, :password)</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line90">90</a>   end</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line91">91</a> </pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line92">92</a>   def handle_successful_login user</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line93">93</a>     forwarding_url = session[:forwarding_url]</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line94">94</a>     reset_session</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line95">95</a>     log_in(user)</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line96">96</a>     if params.dig(:session,</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line97">97</a>                   :remember_me) == REMEMBER_ME</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line98">98</a>       remember(user)</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line99">99</a>     else</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line100">100</a>       create_session(user)</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line101">101</a>     end</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line102">102</a>     flash[:success] = t(&quot;.login_success&quot;)</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line103">103</a>     redirect_to forwarding_url || user</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line104">104</a>   end</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line105">105</a> </pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line106">106</a>   def handle_failed_login</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line107">107</a>     flash.now[:danger] = t(&quot;.login_failed&quot;)</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line108">108</a>     render :new, status: :unprocessable_entity</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line109">109</a>   end</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line110">110</a> </pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line111">111</a>   def handle_unactivated_user</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line112">112</a>     flash[:warning] = t(&quot;.account_not_activated&quot;)</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line113">113</a>     redirect_to login_url</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line114">114</a>   end</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line115">115</a> end</pre></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p>Generated on 2025-08-21 19:44:03 +0700 with <a href="https://github.com/fguillen/simplecov-rcov">SimpleCov-RCov 0.3.7</a></p>
+
+  </body>
+</html>

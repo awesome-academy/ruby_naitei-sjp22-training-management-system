@@ -1,0 +1,1076 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang='en' xml:lang='en' xmlns='http://www.w3.org/1999/xhtml'>
+  <head>
+    <title>app/controllers/supervisor/courses_controller.rb</title>
+    <link href="./assets/0.3.7/screen.css" media="all" rel="stylesheet" type="text/css" />
+    <link href="./assets/0.3.7/print.css" media="print" rel="stylesheet" type="text/css" />
+    <meta http-equiv="Content-type" content="text/html;charset=UTF-8" />
+    <script type="text/javascript" src="./assets/0.3.7/rcov.js"></script>
+  </head>
+  <body>
+    <h1>Ruby naitei-sjp22-training-management-system C0 Coverage Information - Simploco - RCov</h1>
+    <h2>app/controllers/supervisor/courses_controller.rb</h2>
+
+    <div class="report_table_wrapper">
+      <table class='report' id='report_table'>
+        <thead>
+          <tr>
+            <th class="left_align">Name</th>
+            <th class="right_align">Total Lines</th>
+            <th class="right_align">Lines of Code</th>
+            <th class="left_align">Total Coverage</th>
+            <th class="left_align">Code Coverage</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="left_align"><a href="app-controllers-supervisor-courses_controller_rb.html">app/controllers/supervisor/courses_controller.rb</a></td>
+            <td class='right_align'><tt>339</tt></td>
+            <td class='right_align'><tt>264</tt></td>
+            <td class="left_align"><div class="percent_graph_legend"><tt class=''>22.12%</tt></div>
+      <div class="percent_graph">
+        <div class="covered" style="width:22px"></div>
+        <div class="uncovered" style="width:78px"></div>
+      </div></td>
+            <td class="left_align"><div class="percent_graph_legend"><tt class=''>0.00%</tt></div>
+      <div class="percent_graph">
+        <div class="covered" style="width:0px"></div>
+        <div class="uncovered" style="width:100px"></div>
+      </div></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>Key</h3>
+
+    <div class="key"><pre><span class='marked'>Code reported as executed by Ruby looks like this...</span><span class='marked1'>and this: this line is also marked as covered.</span><span class='inferred'>Lines considered as run by rcov, but not reported by Ruby, look like this,</span><span class='inferred1'>and this: these lines were inferred by rcov (using simple heuristics).</span><span class='uncovered'>Finally, here's a line marked as not executed.</span></pre></div>
+
+    <h3>Coverage Details</h3>
+
+    <table class="details">
+      <tbody>
+        <tr class="uncovered">
+          <td><pre><a name="line2">2</a> class Supervisor::CoursesController &lt; Supervisor::BaseController</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line3">3</a>   include Supervisor::CoursesHelper</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line4">4</a> </pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line5">5</a>   EAGER_LOAD_SUBJECTS = [</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line6">6</a>     {subject: :image_attachment},</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line7">7</a>     :tasks,</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line8">8</a>     {user_subjects: [:user, :comments]}</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line9">9</a>   ].freeze</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line10">10</a> </pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line11">11</a>   SUPERVISORS_INCLUDES = [:user_courses].freeze</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line12">12</a>   COURSE_PRELOAD = {course_subjects: [:subject, :tasks, :user_subjects]}.freeze</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line13">13</a> </pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line14">14</a>   # Member type constants</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line15">15</a>   MEMBER_TYPE_TRAINER = &quot;trainer&quot;.freeze</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line16">16</a>   MEMBER_TYPE_TRAINEE = &quot;trainee&quot;.freeze</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line17">17</a> </pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line18">18</a>   # Template constants</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line19">19</a>   TEMPLATE_COURSES_EDIT = &quot;courses/edit&quot;.freeze</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line20">20</a> </pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line21">21</a>   # Error message constants</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line22">22</a>   ERROR_ADD_SUBJECT_FAILED = &quot;add_subject failed: %&lt;class&gt;s: %&lt;message&gt;s&quot;.freeze</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line23">23</a> </pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line24">24</a>   before_action :load_course,</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line25">25</a>                 only: %i(show members subjects supervisors leave search_members</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line26">26</a>                         edit update add_subject)</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line27">27</a>   before_action :load_subject_to_add, only: [:add_subject]</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line28">28</a>   before_action :validate_subject_for_add, only: [:add_subject]</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line29">29</a>   before_action :authorize_supervisor_access!,</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line30">30</a>                 only: %i(show members subjects supervisors leave search_members)</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line31">31</a>   before_action :ensure_multiple_supervisors, only: [:leave]</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line32">32</a>   before_action :set_courses_page_class</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line33">33</a> </pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line34">34</a>   # GET /supervisor/courses</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line35">35</a>   def index</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line36">36</a>     @statuses = build_statuses</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line37">37</a> </pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line38">38</a>     courses_query = accessible_courses</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line39">39</a>                     .includes(:user)</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line40">40</a>                     .with_counts</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line41">41</a>                     .filter_by_params(params)</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line42">42</a>                     .ordered_by_start_date</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line43">43</a> </pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line44">44</a>     @pagy, @courses = pagy courses_query, limit: Settings.ui.items_per_page</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line45">45</a>   end</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line46">46</a> </pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line47">47</a>   # GET /supervisor/courses/:id</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line48">48</a>   def show</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line49">49</a>     redirect_to subjects_supervisor_course_path @course</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line50">50</a>   end</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line51">51</a> </pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line52">52</a>   # GET /supervisor/courses/:id/members</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line53">53</a>   def members</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line54">54</a>     @trainers = @course.supervisors.includes SUPERVISORS_INCLUDES</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line55">55</a>     @pagy, @trainees = pagy(</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line56">56</a>       @course.user_courses.trainees.includes(:user),</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line57">57</a>       limit: Settings.pagination.course_members_per_page</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line58">58</a>     )</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line59">59</a>     @trainee_count = @pagy.count</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line60">60</a>     @trainer_count = @trainers.count</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line61">61</a>     @subject_count = @course.subjects.count</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line62">62</a> </pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line63">63</a>     render template: Settings.templates.courses.members</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line64">64</a>   end</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line65">65</a> </pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line66">66</a>   # GET /supervisor/courses/:id/subjects</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line67">67</a>   def subjects</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line68">68</a>     @subjects = @course.course_subjects.includes(EAGER_LOAD_SUBJECTS)</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line69">69</a>                        .ordered_by_position</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line70">70</a>     @subject_count = @subjects.count</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line71">71</a>     @trainee_count = @course.trainees_count</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line72">72</a>     @trainer_count = @course.supervisors.count</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line73">73</a> </pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line74">74</a>     render template: Settings.templates.courses.subjects</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line75">75</a>   end</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line76">76</a> </pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line77">77</a>   # GET /supervisor/courses/:id/search_members</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line78">78</a>   def search_members</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line79">79</a>     users = find_available_users</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line80">80</a>     render json: users.select(:id, :name, :email)</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line81">81</a>   end</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line82">82</a> </pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line83">83</a>   # GET /supervisor/courses/:id/supervisors</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line84">84</a>   def supervisors</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line85">85</a>     @trainers = @course.supervisors.includes SUPERVISORS_INCLUDES</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line86">86</a>     @trainer_count = @trainers.count</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line87">87</a>     @subject_count = @course.subjects.count</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line88">88</a>     @trainee_count = @course.trainees_count</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line89">89</a>   end</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line90">90</a> </pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line91">91</a>   # POST supervisor/courses</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line92">92</a>   def create</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line93">93</a>     @course = Course.new course_params.merge(user_id: current_user.id)</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line94">94</a> </pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line95">95</a>     if @course.save</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line96">96</a>       flash[:success] = t(&quot;.course_created_successfully&quot;)</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line97">97</a>       redirect_to supervisor_courses_path</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line98">98</a>     else</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line99">99</a>       flash[:danger] = t(&quot;.course_creation_failed&quot;)</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line100">100</a>       render :new, status: :unprocessable_entity</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line101">101</a>     end</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line102">102</a>   end</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line103">103</a> </pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line104">104</a>   # DELETE /supervisor/courses/:id/leave</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line105">105</a>   def leave</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line106">106</a>     if @course.supervisors.destroy(current_user)</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line107">107</a>       flash[:success] = t(&quot;.success&quot;)</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line108">108</a>       redirect_to supervisor_courses_path</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line109">109</a>     else</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line110">110</a>       flash[:danger] = t(&quot;.failed&quot;)</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line111">111</a>       redirect_back fallback_location: members_fallback_path</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line112">112</a>     end</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line113">113</a>   end</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line114">114</a> </pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line115">115</a>   # GET supervisor/courses/new</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line116">116</a>   def new</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line117">117</a>     @course = Course.new</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line118">118</a>     @course.course_subjects.build.build_subject</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line119">119</a>   end</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line120">120</a> </pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line121">121</a>   # GET /supervisor/courses/:id/edit</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line122">122</a>   def edit</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line123">123</a>     @subjects = @course.course_subjects.includes(EAGER_LOAD_SUBJECTS)</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line124">124</a>                        .ordered_by_position</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line125">125</a>     render template: TEMPLATE_COURSES_EDIT</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line126">126</a>   end</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line127">127</a> </pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line128">128</a>   # PATCH /supervisor/courses/:id</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line129">129</a>   def update</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line130">130</a>     if update_course_with_reorder(course_params)</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line131">131</a>       flash[:success] = t(&quot;.course_updated_successfully&quot;)</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line132">132</a>       redirect_to subjects_supervisor_course_path(@course)</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line133">133</a>     else</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line134">134</a>       reload_subjects_for_edit</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line135">135</a>       flash[:danger] = t(&quot;.course_update_failed&quot;)</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line136">136</a>       render template: TEMPLATE_COURSES_EDIT, status: :unprocessable_entity</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line137">137</a>     end</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line138">138</a>   end</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line139">139</a> </pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line140">140</a>   def update_course_with_reorder permitted_params</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line141">141</a>     CourseSubject.transaction do</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line142">142</a>       @course.assign_attributes(permitted_params)</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line143">143</a>       raise ActiveRecord::Rollback unless @course.save</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line144">144</a>     end</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line145">145</a>     @course.errors.empty?</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line146">146</a>   end</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line147">147</a> </pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line148">148</a>   # POST /supervisor/courses/:id/add_subject</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line149">149</a>   def add_subject</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line150">150</a>     course_subject = @course.course_subjects.build(</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line151">151</a>       subject: @subject,</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line152">152</a>       position: next_position</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line153">153</a>     )</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line154">154</a> </pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line155">155</a>     ActiveRecord::Base.transaction do</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line156">156</a>       course_subject.save!</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line157">157</a>       copy_subject_tasks_to_course_subject(@subject, course_subject)</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line158">158</a>       create_user_subjects_for_existing_trainees(course_subject)</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line159">159</a>     end</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line160">160</a> </pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line161">161</a>     render json: {</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line162">162</a>       success: true,</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line163">163</a>       message: t(&quot;.subject_added_successfully&quot;, subject_name: @subject.name)</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line164">164</a>     }</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line165">165</a>   rescue StandardError =&gt; e</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line166">166</a>     Rails.logger.error(format(ERROR_ADD_SUBJECT_FAILED,</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line167">167</a>                               class: e.class, message: e.message))</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line168">168</a>     render json: {success: false, message: t(&quot;.failed_to_add_subject&quot;)},</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line169">169</a>            status: :unprocessable_entity</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line170">170</a>   end</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line171">171</a> </pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line172">172</a>   private</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line173">173</a> </pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line174">174</a>   def find_available_users</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line175">175</a>     member_type = determine_member_type</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line176">176</a>     users = User.where(role: User.roles[member_type])</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line177">177</a>     existing_ids = existing_user_ids?(member_type)</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line178">178</a>     users = users.where.not(id: existing_ids)</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line179">179</a>     users = apply_search_filter(users)</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line180">180</a>     users.sort_by_name.limit(20)</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line181">181</a>   end</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line182">182</a> </pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line183">183</a>   def determine_member_type</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line184">184</a>     params[:type] == MEMBER_TYPE_TRAINER ? :supervisor : :trainee</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line185">185</a>   end</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line186">186</a> </pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line187">187</a>   def existing_user_ids? member_type</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line188">188</a>     if member_type == :trainee</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line189">189</a>       @course.users.where(role: :trainee).pluck(:id)</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line190">190</a>     else</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line191">191</a>       @course.supervisors.pluck(:id)</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line192">192</a>     end</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line193">193</a>   end</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line194">194</a> </pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line195">195</a>   def apply_search_filter users</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line196">196</a>     query = params[:q].to_s</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line197">197</a>     return users if query.blank?</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line198">198</a> </pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line199">199</a>     users.filter_by_name(query)</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line200">200</a>   end</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line201">201</a> </pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line202">202</a>   def copy_subject_tasks_to_course_subject subject, course_subject</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line203">203</a>     subject.tasks.each do |subject_task|</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line204">204</a>       course_subject.tasks.create!(</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line205">205</a>         name: subject_task.name</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line206">206</a>       )</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line207">207</a>     end</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line208">208</a>   end</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line209">209</a> </pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line210">210</a>   def reload_subjects_for_edit</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line211">211</a>     @course.reload</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line212">212</a>     @subjects = @course.course_subjects.includes(EAGER_LOAD_SUBJECTS)</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line213">213</a>                        .ordered_by_position</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line214">214</a>   end</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line215">215</a> </pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line216">216</a>   def create_user_subjects_for_existing_trainees course_subject</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line217">217</a>     @course.user_courses.includes(:user).each do |user_course|</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line218">218</a>       next unless user_course.user.trainee?</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line219">219</a> </pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line220">220</a>       user_subject = course_subject.user_subjects.create!(</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line221">221</a>         user: user_course.user,</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line222">222</a>         user_course: user_course,</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line223">223</a>         status: Settings.user_subject.status.not_started</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line224">224</a>       )</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line225">225</a> </pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line226">226</a>       create_user_tasks_for_user_subject(user_subject, course_subject)</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line227">227</a>     end</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line228">228</a>   end</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line229">229</a> </pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line230">230</a>   def create_user_tasks_for_user_subject user_subject, course_subject</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line231">231</a>     course_subject.tasks.each do |task|</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line232">232</a>       user_subject.user_tasks.create!(</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line233">233</a>         user: user_subject.user,</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line234">234</a>         task: task,</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line235">235</a>         status: Settings.user_task.status.not_done</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line236">236</a>       )</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line237">237</a>     end</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line238">238</a>   end</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line239">239</a> </pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line240">240</a>   def next_position</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line241">241</a>     @course.course_subjects.maximum(:position).to_i + 1</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line242">242</a>   end</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line243">243</a> </pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line244">244</a>   def render_subject_not_found</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line245">245</a>     render json: {success: false, message: t(&quot;.subject_not_found&quot;)},</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line246">246</a>            status: :not_found</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line247">247</a>   end</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line248">248</a> </pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line249">249</a>   def render_subject_already_added</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line250">250</a>     render json: {success: false, message: t(&quot;.subject_already_added&quot;)},</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line251">251</a>            status: :unprocessable_entity</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line252">252</a>   end</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line253">253</a> </pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line254">254</a>   def load_subject_to_add</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line255">255</a>     @subject = Subject.find_by(id: params[:subject_id])</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line256">256</a>     return if @subject</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line257">257</a> </pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line258">258</a>     render_subject_not_found</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line259">259</a>   end</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line260">260</a> </pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line261">261</a>   def validate_subject_for_add</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line262">262</a>     return unless @subject</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line263">263</a>     return unless @course.subjects.include?(@subject)</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line264">264</a> </pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line265">265</a>     render_subject_already_added</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line266">266</a>   end</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line267">267</a> </pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line268">268</a>   def course_params</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line269">269</a>     params.require(:course).permit Course::COURSE_PARAMS</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line270">270</a>   end</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line271">271</a> </pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line272">272</a>   def accessible_courses</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line273">273</a>     if current_user&amp;.admin?</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line274">274</a>       Course.all</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line275">275</a>     else</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line276">276</a>       Course.where(</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line277">277</a>         &quot;courses.user_id = ? OR courses.id IN (</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line278">278</a>           SELECT course_id FROM course_supervisors WHERE user_id = ?</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line279">279</a>         )&quot;,</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line280">280</a>         current_user.id, current_user.id</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line281">281</a>       )</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line282">282</a>     end</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line283">283</a>   end</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line284">284</a> </pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line285">285</a>   def load_course</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line286">286</a>     @course = Course.includes(COURSE_PRELOAD)</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line287">287</a>                     .find_by(id: params[:id])</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line288">288</a>     return if @course</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line289">289</a> </pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line290">290</a>     flash[:danger] = I18n.t(&quot;courses.errors.course_not_found&quot;)</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line291">291</a>     redirect_to root_path</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line292">292</a>   end</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line293">293</a> </pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line294">294</a>   def authorize_supervisor_access!</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line295">295</a>     return if current_user&amp;.admin?</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line296">296</a> </pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line297">297</a>     return if allowed_for_supervisor?(@course)</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line298">298</a> </pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line299">299</a>     flash[:danger] = I18n.t(&quot;courses.errors.access_denied&quot;)</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line300">300</a>     redirect_to root_path</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line301">301</a>   end</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line302">302</a> </pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line303">303</a>   def allowed_for_supervisor? course</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line304">304</a>     return false unless course</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line305">305</a> </pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line306">306</a>     if read_only_action?</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line307">307</a>       course.user_id == current_user&amp;.id ||</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line308">308</a>         course.supervisors.include?(current_user)</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line309">309</a>     else</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line310">310</a>       course.supervisors.include?(current_user)</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line311">311</a>     end</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line312">312</a>   end</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line313">313</a> </pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line314">314</a>   def read_only_action?</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line315">315</a>     %w(show members subjects).include?(action_name)</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line316">316</a>   end</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line317">317</a> </pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line318">318</a>   def set_courses_page_class</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line319">319</a>     self.page_class = if current_user&amp;.admin?</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line320">320</a>                         Settings.page_classes.admin_courses</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line321">321</a>                       else</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line322">322</a>                         Settings.page_classes.courses</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line323">323</a>                       end</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line324">324</a>   end</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line325">325</a> </pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line326">326</a>   def ensure_multiple_supervisors</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line327">327</a>     return if @course.supervisors.count &gt; 1</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line328">328</a> </pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line329">329</a>     flash[:danger] = t(&quot;courses.leave.must_have_another_supervisor&quot;)</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line330">330</a>     redirect_back fallback_location: members_fallback_path</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line331">331</a>   end</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line332">332</a> </pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line333">333</a>   def members_fallback_path</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line334">334</a>     members_supervisor_course_path(@course)</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line335">335</a>   end</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line336">336</a> </pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line337">337</a>   def subjects_fallback_path</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line338">338</a>     subjects_supervisor_course_path(@course)</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line339">339</a>   end</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line340">340</a> end</pre></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p>Generated on 2025-08-21 19:44:03 +0700 with <a href="https://github.com/fguillen/simplecov-rcov">SimpleCov-RCov 0.3.7</a></p>
+
+  </body>
+</html>
