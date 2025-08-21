@@ -15,7 +15,7 @@
           <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="adminActionsDropdown">
             <li><%= link_to t(".edit_profile"), edit_user_path(@admin) %></li>
             <li role="separator" class="divider"></li>
-            <% if @admin.activated? %>
+            <% if @admin.confirmed? %>
               <li><%= link_to t("admin.admin_users.index.deactivate"), deactivate_admin_admin_user_path(@admin),
                   data: {turbo_method: :patch} %></li>
             <% else %>

@@ -31,6 +31,8 @@ user:
   max_email_length: 255
   birthday_valid_years: 100
   min_password_length: 6
+  max_password_length: 128
+  reset_password_expires_in: 6.hours
   roles:
     trainee: 0
     supervisor: 1
@@ -60,6 +62,10 @@ course:
     not_started: "not_started"
     in_progress: "in_progress"
     finished: "finished"
+
+devise:
+  default_stretches: 12
+  test_stretches: 1
 
 subject:
   max_name_length: 150

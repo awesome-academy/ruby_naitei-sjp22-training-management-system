@@ -4,11 +4,9 @@ class ApplicationController < ActionController::Base
 
   protect_from_forgery with: :exception
 
-  include SessionsHelper
-
   before_action :set_locale
-  before_action :logged_in_user
-  before_action :store_user_location
+  before_action :authenticate_user!
+  before_action :store_user_location!, if: :storable_location?
 
   protected
 
@@ -16,6 +14,7 @@ class ApplicationController < ActionController::Base
 
   private
 
+  # --- I18n ---
   def set_locale
     locale = params[:locale]
     allowed_locales = I18n.available_locales.map(&:to_s)
@@ -31,34 +30,17 @@ class ApplicationController < ActionController::Base
     {locale: I18n.locale}
   end
 
-  def logged_in_user
-    return if logged_in?
-
-    flash[:danger] = t("shared.login_required")
-    store_location
-    redirect_to login_url
-  end
-
-  def logged_out_user
-    return unless logged_in?
-
-    flash[:info] = t("shared.already_logged_in")
-    redirect_to root_url
-  end
-
+  # --- Authorization helpers ---
   def correct_user
     return if current_user.admin?
-
-    return if current_user?(@user)
+    return if current_user == @user
 
     flash[:danger] = t("shared.not_authorized")
     redirect_to root_path
   end
 
   def manager?
-    return false unless current_user
-
-    current_user.admin? || current_user.supervisor?
+    current_user&.admin? || current_user&.supervisor?
   end
 
   def require_manager
@@ -68,10 +50,16 @@ class ApplicationController < ActionController::Base
     redirect_to root_path
   end
 
-  def store_user_location
-    return unless request.get?
-    return if request.xhr? # Skip AJAX requests
-
+  # --- Devise friendly forwarding ---
+  def store_user_location!
     session[:forwarding_url] = request.fullpath
+  end
+
+  def storable_location?
+    request.get? && !request.xhr? && !devise_controller?
+  end
+
+  def after_sign_in_path_for _resource_or_scope
+    session.delete(:forwarding_url) || root_path
   end
 end

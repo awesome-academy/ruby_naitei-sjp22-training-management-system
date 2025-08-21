@@ -34,6 +34,15 @@ vi:
     course_subject_row_field:
       position: "Vị trí"
       delete: "Xóa"
+    user_form:
+      name_label: "Tên"
+      email_label: "Email"
+      birthday_label: "Ngày sinh"
+      gender_label: "Giới tính"
+      password_label: "Mật khẩu"
+      password_confirmation_label: "Xác nhận mật khẩu"
+      select_gender: "Chọn giới tính"
+      save_changes: "Lưu thay đổi"
     error_messages:
       course_edit:
         failed: "Lỗi khi cập nhật khóa học"

@@ -1,0 +1,157 @@
+vi:
+  devise:
+    confirmations:
+      confirmed: "Địa chỉ email của bạn đã được xác nhận thành công."
+      send_instructions: "Bạn sẽ nhận được một email với hướng dẫn để xác nhận địa chỉ email của bạn trong vài phút nữa."
+      send_paranoid_instructions: "Nếu địa chỉ email của bạn tồn tại trong cơ sở dữ liệu của chúng tôi, bạn sẽ nhận được một email với hướng dẫn để xác nhận địa chỉ email của bạn trong vài phút nữa."
+      new:
+        title: "Gửi lại hướng dẫn xác nhận tài khoản"
+        email: "Địa chỉ email"
+        submit: "Gửi lại email xác nhận"
+    failure:
+      already_authenticated: "Bạn đã đăng nhập rồi."
+      inactive: "Tài khoản của bạn chưa được kích hoạt."
+      invalid: "%{authentication_keys} hoặc mật khẩu không hợp lệ."
+      locked: "Tài khoản của bạn đã bị khóa."
+      last_attempt: "Bạn chỉ còn một lần thử nữa trước khi tài khoản của bạn bị khóa."
+      not_found_in_database: "%{authentication_keys} hoặc mật khẩu không hợp lệ."
+      timeout: "Phiên làm việc của bạn đã hết hạn. Vui lòng đăng nhập lại để tiếp tục."
+      unauthenticated: "Bạn cần đăng nhập hoặc đăng ký trước khi tiếp tục."
+      unconfirmed: "Bạn phải xác nhận địa chỉ email của mình trước khi tiếp tục."
+    mailer:
+      unlock_instructions:
+        subject: "Hướng dẫn mở khóa"
+      email_changed:
+        subject: "Email đã thay đổi"
+      confirmation_instructions:
+        subject: "Kích hoạt tài khoản"
+        app_name: "Training System"
+        greeting: "Xin chào %{name},"
+        welcome_message: "Chào mừng bạn đến với Training System! Nhấp vào liên kết bên dưới để kích hoạt tài khoản của bạn:"
+        activate_button: "Kích hoạt"
+      reset_password_instructions:
+        subject: "Đặt lại mật khẩu"
+        title: "Đặt Lại Mật Khẩu"
+        instruction: "Để đặt lại mật khẩu, nhấp vào nút bên dưới:"
+        instruction_text: "Để đặt lại mật khẩu, nhấp vào liên kết bên dưới:"
+        reset_button: "Đặt Lại Mật Khẩu"
+        expiry_notice: "Liên kết này sẽ hết hạn trong <strong>2 giờ</strong>."
+        expiry_notice_text: "Liên kết này sẽ hết hạn trong hai giờ."
+        ignore_message: "Nếu bạn không yêu cầu đặt lại mật khẩu, vui lòng bỏ qua thông báo này. Mật khẩu của bạn sẽ không thay đổi."
+        ignore_message_text: "Nếu bạn không yêu cầu đặt lại mật khẩu, vui lòng bỏ qua email này và mật khẩu của bạn sẽ giữ nguyên."
+      password_change:
+        subject: "Đổi mật khẩu thành công"
+        title: "Mật Khẩu Đã Được Thay Đổi"
+        message: "Bạn vừa thay đổi mật khẩu, hãy đăng nhập lại để chúng tôi biết đó là bạn! Nhấp vào đây"
+        message_text: "Bạn vừa thay đổi mật khẩu, hãy đăng nhập lại để chúng tôi biết đó là bạn! Nhấp vào liên kết bên dưới:"
+        login_button: "Đăng Nhập"
+        security_notice: "Nếu bạn không thay đổi mật khẩu, vui lòng liên hệ với chúng tôi ngay lập tức."
+        security_notice_text: "Nếu bạn không thay đổi mật khẩu, vui lòng liên hệ với chúng tôi ngay lập tức."
+    omniauth_callbacks:
+      failure: "Không thể xác thực bạn từ %{kind} vì \"%{reason}\"."
+      success: "Đã xác thực thành công từ tài khoản %{kind}."
+    sessions:
+      signed_in: "Đã đăng nhập thành công."
+      signed_out: "Đã đăng xuất thành công."
+      already_signed_out: "Đã đăng xuất thành công."
+      google_auth_failed: "Xác thực Google thất bại (CSRF hoặc session bị lỗi)."
+      google_create_failed: "Không thể tạo tài khoản từ Google: %{errors}"
+      new:
+        title: "Đăng nhập"
+        heading: "Đăng nhập"
+        email_label: "Email"
+        password_label: "Mật khẩu"
+        forgot_password_link: "(quên mật khẩu)"
+        remember_me_label: "Ghi nhớ tôi trên máy tính này"
+        submit_button: "Đăng nhập"
+        new_user_text: "Người dùng mới? "
+        sign_up_link: "Đăng ký ngay!"
+        login_with_google: "Đăng nhập với tài khoản google"
+      create:
+        login_success: "Chào mừng bạn trở lại!"
+        login_failed: "Email/mật khẩu không đúng"
+        account_not_activated: "Tài khoản chưa được kích hoạt. Vui lòng kiểm tra email để lấy liên kết kích hoạt."
+        missing_credentials: "Vui lòng nhập cả email và mật khẩu"
+        system_error: "Có lỗi xảy ra. Vui lòng thử lại sau"
+      destroy:
+        logout_success: "Bạn đã đăng xuất thành công"
+      create_from_google:
+        login_success: "Chào mừng bạn trở lại!"
+        login_failed: "Email/mật khẩu không đúng"
+    unlocks:
+      send_instructions: "Bạn sẽ nhận được một email với hướng dẫn cách mở khóa tài khoản của bạn trong vài phút nữa."
+      send_paranoid_instructions: "Nếu tài khoản của bạn tồn tại, bạn sẽ nhận được một email với hướng dẫn cách mở khóa nó trong vài phút nữa."
+      unlocked: "Tài khoản của bạn đã được mở khóa thành công. Vui lòng đăng nhập để tiếp tục."
+    registrations:
+      destroyed: "Tạm biệt! Tài khoản của bạn đã được hủy thành công. Chúng tôi hy vọng sẽ sớm gặp lại bạn."
+      signed_up: "Chào mừng! Bạn đã đăng ký thành công."
+      signed_up_but_inactive: "Bạn đã đăng ký thành công. Tuy nhiên, chúng tôi không thể đăng nhập cho bạn vì tài khoản của bạn chưa được kích hoạt."
+      signed_up_but_locked: "Bạn đã đăng ký thành công. Tuy nhiên, chúng tôi không thể đăng nhập cho bạn vì tài khoản của bạn đã bị khóa."
+      signed_up_but_unconfirmed: "Một tin nhắn với liên kết xác nhận đã được gửi đến địa chỉ email của bạn. Vui lòng làm theo liên kết để kích hoạt tài khoản của bạn."
+      update_needs_confirmation: "Bạn đã cập nhật tài khoản thành công, nhưng chúng tôi cần xác minh địa chỉ email mới của bạn. Vui lòng kiểm tra email và làm theo liên kết xác nhận để xác nhận địa chỉ email mới của bạn."
+      updated: "Tài khoản của bạn đã được cập nhật thành công."
+      updated_but_not_signed_in: "Tài khoản của bạn đã được cập nhật thành công, nhưng vì mật khẩu của bạn đã được thay đổi, bạn cần đăng nhập lại."
+      new:
+        sign_up: "Đăng ký"
+        create_my_account: "Tạo tài khoản của tôi"
+        select_gender: "Chọn giới tính"
+      show:
+        email: "Email"
+        birthday: "Ngày sinh"
+        gender: "Giới tính"
+        member_since: "Thành viên từ"
+        last_updated: "Cập nhật lần cuối"
+        user_not_found: "Không tìm thấy người dùng"
+        system_error: "Có lỗi xảy ra. Vui lòng thử lại sau"
+      create:
+        signup_success: "Đăng ký thành công! Chào mừng bạn đến với Hệ thống huấn luyện."
+        activation_email_sent: "Vui lòng kiểm tra email để kích hoạt tài khoản của bạn."
+        signup_failure: "Có lỗi trong form đăng ký của bạn. Vui lòng sửa chúng và thử lại."
+        system_error: "Có lỗi xảy ra trong quá trình đăng ký. Vui lòng thử lại sau"
+    passwords:
+      no_token: "Bạn không thể truy cập trang này nếu không đến từ email đặt lại mật khẩu. Nếu bạn đến từ một email đặt lại mật khẩu, vui lòng đảm bảo rằng bạn đã sử dụng toàn bộ URL được cung cấp."
+      send_instructions: "Bạn sẽ nhận được một email với hướng dẫn cách đặt lại mật khẩu của bạn trong vài phút nữa."
+      send_paranoid_instructions: "Nếu địa chỉ email của bạn tồn tại trong cơ sở dữ liệu của chúng tôi, bạn sẽ nhận được một liên kết khôi phục mật khẩu qua email trong vài phút nữa."
+      updated: "Mật khẩu của bạn đã được thay đổi thành công. Bây giờ bạn đã đăng nhập."
+      updated_not_active: "Mật khẩu của bạn đã được thay đổi thành công."
+      new:
+        title: "Quên mật khẩu"
+        heading: "Quên mật khẩu"
+        email_label: "Email"
+        submit_button: "Gửi"
+      create:
+        email_sent: "Email đã được gửi với hướng dẫn đặt lại mật khẩu"
+        user_not_found: "Không tìm thấy địa chỉ email"
+        system_error: "Có lỗi xảy ra. Vui lòng thử lại sau"
+      edit:
+        title: "Đặt lại mật khẩu"
+        heading: "Đặt lại mật khẩu"
+        password_label: "Mật khẩu"
+        password_confirmation_label: "Xác nhận"
+        submit_button: "Cập nhật mật khẩu"
+        user_not_found: "Không tìm thấy người dùng"
+        user_inactive: "Tài khoản người dùng chưa được kích hoạt"
+        expired_token: "Liên kết đặt lại mật khẩu đã hết hạn"
+      update:
+        password_reset_success: "Mật khẩu đã được đặt lại"
+        password_reset_failed: "Đặt lại mật khẩu thất bại"
+        invalid_or_expired: "Liên kết đặt lại mật khẩu đã hết hạn hoặc không hợp lệ"
+        system_error: "Có lỗi xảy ra. Vui lòng thử lại sau"
+        password_empty: "Mật khẩu không được để trống"
+    shared:
+      links:
+        login: "Đăng nhập"
+        sign_up: "Đăng ký"
+        forgot_password: "Quên mật khẩu?"
+        confirmation: "Không nhận được email xác nhận?"
+        unlock: "Không nhận được email mở khóa?"
+  errors:
+    messages:
+      already_confirmed: "đã được xác nhận rồi, vui lòng thử đăng nhập"
+      confirmation_period_expired: "cần được xác nhận trong vòng %{period}, vui lòng yêu cầu một cái mới"
+      expired: "đã hết hạn, vui lòng yêu cầu một cái mới"
+      not_found: "không tìm thấy"
+      not_locked: "không bị khóa"
+      not_saved:
+        one: "1 lỗi đã ngăn không cho %{resource} này được lưu:"
+        other: "%{count} lỗi đã ngăn không cho %{resource} này được lưu:"
