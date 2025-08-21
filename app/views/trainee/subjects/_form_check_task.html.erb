@@ -5,18 +5,18 @@
           html: { class: "d-inline" } do |f| %>
     <%= f.hidden_field :task_id, value: task.id %>
     <%= f.hidden_field :user_subject_id, value: @user_subject.id %>
-    <% if @user_subject.display_status == Settings.user_subject.display_status.in_progress %>
-    <%= f.check_box :status,
-            id: "task#{task.id}",
-            checked: current_user.user_tasks.find_by(task_id: task.id)&.done?,
-            class: "custom-control-input task-checkbox",
-            onchange: "this.form.requestSubmit()" %>
+    <% if @user_subject.completed_at.nil? %>
+      <%= f.check_box :status,
+              id: "task#{task.id}",
+              checked: current_user.user_tasks.find_by(task_id: task.id)&.done?,
+              class: "custom-control-input task-checkbox",
+              onchange: "this.form.requestSubmit()" %>
     <% else %>
-    <%= f.check_box :status,
-            id: "task#{task.id}",
-            checked: current_user.user_tasks.find_by(task_id: task.id)&.done?,
-            class: "custom-control-input task-checkbox",
-            disabled: true %>
+      <%= f.check_box :status,
+              id: "task#{task.id}",
+              checked: current_user.user_tasks.find_by(task_id: task.id)&.done?,
+              class: "custom-control-input task-checkbox",
+              disabled: true %>
     <% end %>
     <label class="custom-control-label" for="task<%= task.id %>"></label>
   <% end %>

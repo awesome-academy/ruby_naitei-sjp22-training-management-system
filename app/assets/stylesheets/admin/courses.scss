@@ -9,11 +9,11 @@
   }
 
   .subject-edit-card:hover {
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   }
 
   .subject-edit-card.ui-sortable-helper {
-    box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
     transform: rotate(2deg);
   }
 
@@ -28,7 +28,6 @@
     justify-content: center;
     color: #6c757d;
     font-style: italic;
-    &:before { content: "Drop subject here"; }
   }
 
   .subject-edit-header {
@@ -163,9 +162,18 @@
     text-transform: uppercase;
   }
 
-  .status-not_started { background-color: #e9ecef; color: #495057; }
-  .status-in_progress { background-color: #fff3cd; color: #856404; }
-  .status-finished { background-color: #d4edda; color: #155724; }
+  .status-not_started {
+    background-color: #e9ecef;
+    color: #495057;
+  }
+  .status-in_progress {
+    background-color: #fff3cd;
+    color: #856404;
+  }
+  .status-finished {
+    background-color: #d4edda;
+    color: #155724;
+  }
 
   @media (max-width: 768px) {
     .subject-edit-content {
@@ -181,7 +189,9 @@
       flex-direction: column;
       gap: 8px;
     }
-    .form-row > div { width: 100%; }
+    .form-row > div {
+      width: 100%;
+    }
   }
   /* Course Detail Page Styles */
   .course-detail-page {
@@ -194,7 +204,7 @@
   .course-info-header {
     background: #fff;
     border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     display: flex;
     gap: 20px;
     margin-bottom: 20px;
@@ -324,7 +334,7 @@
   .member-list-section {
     background: #fff;
     border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     padding: 20px;
   }
 
@@ -559,14 +569,14 @@
   .subject-item {
     background: #fff;
     border-radius: 12px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
     position: relative;
     z-index: 1;
     transition: all 0.3s ease;
     border: 1px solid #f0f2f5;
 
     &:hover {
-      box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
       transform: translateY(-3px);
       z-index: 20;
       border-color: #e3f2fd;
@@ -630,7 +640,7 @@
   .subject-name {
     position: relative;
     z-index: 10;
-    
+
     .subject-link {
       color: #333;
       font-size: 18px;
@@ -715,7 +725,7 @@
     border-radius: 10px;
     overflow: hidden;
     position: relative;
-    box-shadow: inset 0 2px 4px rgba(0,0,0,0.06);
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.06);
   }
 
   .status-progress-fill {
@@ -731,7 +741,12 @@
       left: 0;
       right: 0;
       bottom: 0;
-      background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.3) 50%, transparent 100%);
+      background: linear-gradient(
+        90deg,
+        transparent 0%,
+        rgba(255, 255, 255, 0.3) 50%,
+        transparent 100%
+      );
       animation: shimmer 2s infinite;
     }
 
@@ -799,8 +814,12 @@
   }
 
   @keyframes shimmer {
-    0% { transform: translateX(-100%); }
-    100% { transform: translateX(100%); }
+    0% {
+      transform: translateX(-100%);
+    }
+    100% {
+      transform: translateX(100%);
+    }
   }
 
   .status-label {
@@ -854,27 +873,36 @@
     background: rgba(108, 117, 125, 0.1);
   }
 
-  .status-progress-container:has(.status-progress-fill.status-in_progress) .status-label {
+  .status-progress-container:has(.status-progress-fill.status-in_progress)
+    .status-label {
     color: #856404;
     background: rgba(255, 193, 7, 0.1);
   }
 
-  .status-progress-container:has(.status-progress-fill.status-finished_early) .status-label {
+  .status-progress-container:has(.status-progress-fill.status-finished_early)
+    .status-label {
     color: #0c5460;
     background: rgba(32, 201, 151, 0.1);
   }
 
-  .status-progress-container:has(.status-progress-fill.status-finished_ontime) .status-label {
+  .status-progress-container:has(.status-progress-fill.status-finished_ontime)
+    .status-label {
     color: #155724;
     background: rgba(40, 167, 69, 0.1);
   }
 
-  .status-progress-container:has(.status-progress-fill.status-finished_but_overdue) .status-label {
+  .status-progress-container:has(
+      .status-progress-fill.status-finished_but_overdue
+    )
+    .status-label {
     color: #a05c1b;
     background: rgba(253, 126, 20, 0.1);
   }
 
-  .status-progress-container:has(.status-progress-fill.status-overdue_and_not_finished) .status-label {
+  .status-progress-container:has(
+      .status-progress-fill.status-overdue_and_not_finished
+    )
+    .status-label {
     color: #721c24;
     background: rgba(220, 53, 69, 0.1);
   }
@@ -926,7 +954,7 @@
   .assessment-dropdown-menu {
     border: none;
     border-radius: 16px;
-    box-shadow: 0 16px 40px rgba(0,0,0,0.15);
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.15);
     min-width: 380px;
     padding: 0;
     margin-top: 8px;
@@ -1088,7 +1116,7 @@
   .task-dropdown-menu {
     border: none;
     border-radius: 12px;
-    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
     min-width: 300px;
     padding: 0;
 
@@ -1105,7 +1133,7 @@
     .dropdown-menu {
       // Let Bootstrap handle positioning and z-index
       border: none;
-      box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
     }
 
     // When dropdown is open, ensure proper layering
@@ -1186,19 +1214,64 @@
     align-items: flex-start;
   }
 
-  .course-thumbnail-edit { flex-shrink: 0; width: 200px; }
-  .course-image-preview { width: 100%; height: 150px; object-fit: cover; border-radius: 8px; margin-bottom: 15px; }
-  .default-thumbnail-edit { width: 100%; height: 150px; background: #e9ecef; border-radius: 8px; display: flex; align-items: center; justify-content: center; margin-bottom: 15px; }
-  .default-thumbnail-edit i { font-size: 48px; color: #6c757d; }
+  .course-thumbnail-edit {
+    flex-shrink: 0;
+    width: 200px;
+  }
+  .course-image-preview {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 15px;
+  }
+  .default-thumbnail-edit {
+    width: 100%;
+    height: 150px;
+    background: #e9ecef;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 15px;
+  }
+  .default-thumbnail-edit i {
+    font-size: 48px;
+    color: #6c757d;
+  }
 
-  .course-details-edit { flex: 1; }
-  .form-group { margin-bottom: 20px; }
-  .form-label { font-weight: 600; margin-bottom: 8px; color: #495057; }
-  .form-control { border-radius: 6px; border: 1px solid #ced4da; padding: 10px 12px; }
-  .form-row { display: flex; gap: 20px; }
+  .course-details-edit {
+    flex: 1;
+  }
+  .form-group {
+    margin-bottom: 20px;
+  }
+  .form-label {
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: #495057;
+  }
+  .form-control {
+    border-radius: 6px;
+    border: 1px solid #ced4da;
+    padding: 10px 12px;
+  }
+  .form-row {
+    display: flex;
+    gap: 20px;
+  }
 
-  .form-actions-top, .form-actions-bottom { display: flex; gap: 15px; justify-content: flex-end; }
-  .form-actions-bottom { margin-top: 30px; padding-top: 20px; border-top: 1px solid #dee2e6; }
+  .form-actions-top,
+  .form-actions-bottom {
+    display: flex;
+    gap: 15px;
+    justify-content: flex-end;
+  }
+  .form-actions-bottom {
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid #dee2e6;
+  }
 
   .subject-management-section {
     background: #fff;
@@ -1206,21 +1279,57 @@
     border-radius: 10px;
     padding: 24px;
   }
-  .section-description { color: #6c757d; margin-bottom: 14px; font-style: italic; }
-  .subjects-edit-list { display: flex; flex-direction: column; gap: 16px; }
-  .trainers-info { display: flex; align-items: center; gap: 15px; }
-  .alert { border-radius: 6px; margin-bottom: 25px; }
+  .section-description {
+    color: #6c757d;
+    margin-bottom: 14px;
+    font-style: italic;
+  }
+  .subjects-edit-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  .trainers-info {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+  }
+  .alert {
+    border-radius: 6px;
+    margin-bottom: 25px;
+  }
 
   @media (max-width: 768px) {
-    .course-info-edit-section { flex-direction: column; }
-    .form-row { flex-direction: column; gap: 0; }
-    .form-actions-top, .form-actions-bottom { justify-content: center; }
+    .course-info-edit-section {
+      flex-direction: column;
+    }
+    .form-row {
+      flex-direction: column;
+      gap: 0;
+    }
+    .form-actions-top,
+    .form-actions-bottom {
+      justify-content: center;
+    }
   }
-  .z-1000 { z-index: 1000; }
+  .z-1000 {
+    z-index: 1000;
+  }
 }
 
-.d-none { display: none !important; }
-.position-relative { position: relative !important; }
-.w-auto { width: auto !important; }
-.me-2 { margin-right: .5rem !important; }
-.mx-2 { margin-left: .5rem !important; margin-right: .5rem !important; }
+.d-none {
+  display: none !important;
+}
+.position-relative {
+  position: relative !important;
+}
+.w-auto {
+  width: auto !important;
+}
+.me-2 {
+  margin-right: 0.5rem !important;
+}
+.mx-2 {
+  margin-left: 0.5rem !important;
+  margin-right: 0.5rem !important;
+}

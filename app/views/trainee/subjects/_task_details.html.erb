@@ -27,7 +27,7 @@
   <!-- File Upload Form (expand/collapse) -->
   <div id="uploadForm<%= task.id %>" class="collapse mt-3">
     <div class="card card-body bg-light border-0 shadow-sm">
-      <% if @user_subject.display_status == Settings.user_subject.display_status.in_progress %>
+      <% if @user_subject.completed_at.nil? %>
         <%= render "trainee/subjects/form_upload_file", task: task, user_subject: @user_subject %>
       <% end %>
         <!-- List uploaded files -->

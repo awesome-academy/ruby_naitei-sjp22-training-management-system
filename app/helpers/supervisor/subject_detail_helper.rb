@@ -14,4 +14,23 @@ module Supervisor::SubjectDetailHelper
       Settings.trainee.subjects.default_progress
     end
   end
+
+  def file_type file_extension
+    case file_extension.to_s.downcase.to_sym
+    when :pdf
+      "fas fa-file-pdf text-danger"
+    when :doc, :docx
+      "fas fa-file-word text-primary"
+    when :xls, :xlsx
+      "fas fa-file-excel text-success"
+    when :ppt, :pptx
+      "fas fa-file-powerpoint text-warning"
+    when :jpg, :jpeg, :png, :gif
+      "fas fa-file-image text-info"
+    when :zip, :rar
+      "fas fa-file-archive text-secondary"
+    else
+      "fas fa-file text-muted"
+    end
+  end
 end
