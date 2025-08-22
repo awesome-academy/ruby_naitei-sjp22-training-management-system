@@ -18,10 +18,13 @@ class UserTask < ApplicationRecord
             allow_nil: true
   validates :documents,
             content_type: {
-              in: Settings.user_task.allowed_document_types
+              in: Settings.user_task.allowed_document_types,
+              message: :invalid_document_type
             },
             size: {
-              less_than: Settings.user_task.max_document_size.megabytes
+              greater_than_or_equal_to: Settings.user_task
+                                                .max_document_size.megabytes,
+              message: :document_size_exceeded
             }
 
   # Scopes

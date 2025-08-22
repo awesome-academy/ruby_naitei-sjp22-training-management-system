@@ -76,14 +76,14 @@ vi:
             status:
               inclusion: "không có trong danh sách"
             documents:
-              invalid_document_type: "không phải là loại tài liệu hợp lệ. Các loại được phép: %{types}"
-              document_size_exceeded: "vượt quá kích thước tối đa %{size} MB"
+              invalid_document_type: "không phải là loại tài liệu hợp lệ"
+              document_size_exceeded: "vượt quá kích thước tối đa"
+            user_id:
+              taken: "đã được sử dụng"
       messages:
         member_to_after_member_from: "Ngày kết thúc thành viên phải sau ngày bắt đầu thành viên"
         finish_date_after_start_date: "Ngày kết thúc phải sau ngày bắt đầu"
         image_size_exceeded: "phải nhỏ hơn %{max_size}"
-        document_size_exceeded: "phải nhỏ hơn %{max_size}"
-        invalid_document_type: "không phải là loại tài liệu hợp lệ"
         invalid_image_type: "không phải là loại hình ảnh hợp lệ"
         one_report_per_day: "Bạn đã gửi báo cáo cho môn học này hôm nay rồi."
         not_a_valid_course: "không hợp lệ. Bạn chỉ có thể gửi báo cáo cho khóa học mà bạn tham gia"
@@ -91,4 +91,4 @@ vi:
         must_be_within_one_year_from_now: "phải trong vòng 1 năm kể từ ngày hôm nay"
         must_be_valid_url: "phải có định dạng URL hợp lệ (bắt đầu bằng https://)"
         must_be_unique: "không được trùng nhau"
-        must_be_unique_positions : "Các vị trí không được trùng nhau"
+        must_be_unique_positions: "Các vị trí không được trùng nhau"
