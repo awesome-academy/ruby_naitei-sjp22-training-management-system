@@ -2,7 +2,7 @@ class Supervisor::CoursesController < Supervisor::BaseController
   include Supervisor::CoursesHelper
 
   EAGER_LOAD_SUBJECTS = [
-    {subject: :image_attachment},
+    {subject: {image_attachment: :blob}},
     :tasks,
     {user_subjects: [:user, :comments]}
   ].freeze

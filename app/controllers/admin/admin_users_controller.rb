@@ -50,7 +50,7 @@ class Admin::AdminUsersController < Admin::BaseController
 
   # PATCH /admin/admin/users/:id/deactivate
   def deactivate
-    if @admin.update(activated: false)
+    if @admin.update(confirmed_at: nil)
       flash[:success] = t(".admin_deactivated")
     else
       flash[:danger] = t(".deactivation_failed")

@@ -41,7 +41,7 @@ module UserLoadable
   end
 
   def valid_user
-    return if @user.activated && @user.authenticated?(:reset, params[:id])
+    return if @user.confirmed? && @user.authenticated?(:reset, params[:id])
 
     flash[:danger] = t("password_resets.edit.user_inactive")
     redirect_to login_url

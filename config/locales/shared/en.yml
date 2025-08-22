@@ -34,6 +34,15 @@ en:
     course_subject_row_field:
         position: "Position"
         delete: "Delete"
+    user_form:
+      name_label: "Name"
+      email_label: "Email"
+      birthday_label: "Birthday"
+      gender_label: "Gender"
+      password_label: "Password"
+      password_confirmation_label: "Confirmation"
+      select_gender: "Select gender"
+      save_changes: "Save changes"
     error_messages:
       course_edit:
         failed: "Failed to update course"

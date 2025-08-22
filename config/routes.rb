@@ -1,23 +1,12 @@
 # config/routes.rb
-
 Rails.application.routes.draw do
+  devise_for :users, only: [:sessions]
+
   scope "(:locale)", locale: /vi|en/ do
     root "static_pages#home"
-    
-    # google login
-    post "/auth/google_oauth2", as: :google_login
-    get "/auth/google_oauth2/callback", to: "sessions#create_from_google"
-    get "/auth/failure", to: redirect("/login") 
 
-    # --- Authentication & User Management ---
-    get "/signup", to: "users#new"
-    post "/signup", to: "users#create"
-    get "/login", to: "sessions#new"
-    post "/login", to: "sessions#create"
-    delete "/logout", to: "sessions#destroy"
-
-    resources :account_activations, only: :edit
-    resources :password_resets, only: %i(new create edit update)
+    # resources :account_activations, only: :edit
+    # resources :password_resets, only: %i(new create edit update)
     resources :users, only: %i(show edit update)
 
     # Subject search API (accessible to all authenticated users)
@@ -89,7 +78,7 @@ Rails.application.routes.draw do
       end
       resources :subjects do
         member do
-          delete :destroy_tasks     
+          delete :destroy_tasks
         end
       end
     end

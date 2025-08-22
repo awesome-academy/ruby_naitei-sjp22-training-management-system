@@ -4,14 +4,14 @@
   <td><%= admin.email %></td>
   <td><%= t("activerecord.attributes.user.genders.#{admin.gender}") %></td>
   <td><%= l(admin.birthday, format: :long) if admin.birthday? %></td>
-  <td class="text-center"><%= status_badge(admin.activated?) %></td>
+  <td class="text-center"><%= status_badge(admin.confirmed?) %></td>
 
   <td class="text-center">
     <%= link_to t(".view_profile"), admin_admin_user_path(admin), class: "btn btn-xs btn-info" %>
-    <% if admin.activated? %>
+    <% if admin.confirmed? %>
       <%= link_to t(".deactivate"), deactivate_admin_admin_user_path(admin),
                   data: {turbo_method: :patch},
-                  class: "btn btn-xs btn-warning" %> 
+                  class: "btn btn-xs btn-warning" %>
     <% else %>
       <%= link_to t("common.activate"), activate_admin_admin_user_path(admin),
                   data: {turbo_method: :patch},
