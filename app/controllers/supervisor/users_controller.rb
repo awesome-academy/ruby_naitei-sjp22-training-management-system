@@ -84,7 +84,7 @@ class Supervisor::UsersController < Supervisor::BaseController
 
   def handle_update_status?
     if params[:activated].present? &&
-       @user_trainee.update(activated: params[:activated])
+       @user_trainee.update(activated: params[:activated], remember_digest: nil)
       return true
     end
 
@@ -115,7 +115,8 @@ class Supervisor::UsersController < Supervisor::BaseController
     updated_count = 0
     trainees.each do |trainee|
       new_status = trainee.activated? ? false : true
-      updated_count += 1 if trainee.update(activated: new_status)
+      updated_count += 1 if trainee.update(activated: new_status,
+                                           remember_digest: nill)
     end
     updated_count
   end
