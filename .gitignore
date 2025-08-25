@@ -36,3 +36,12 @@ config/application.yml
 config/settings.local.yml
 config/settings/*.local.yml
 config/environments/*.local.yml
+coverage/*
+app/controllers/users
+!app/controllers/users/registrations_controller.rb
+app/views/devise/
+!app/views/devise/registrations/
+!app/views/devise/mailer/confirmation_instructions.html.erb
+
+# Ignore application configuration
+/config/application.yml

@@ -3,19 +3,15 @@ module SessionsHelper
     session[:user_id] = user.id
   end
 
-  def current_user
-    @current_user ||= find_user_by_session || find_user_by_remember_cookie
-  end
+  # def logged_in?
+  #   current_user.present?
+  # end
 
-  def logged_in?
-    current_user.present?
-  end
-
-  def log_out
-    forget(current_user) if logged_in?
-    reset_session
-    @current_user = nil
-  end
+  # def log_out
+  #   forget(current_user) if logged_in?
+  #   reset_session
+  #   @current_user = nil
+  # end
 
   def remember user
     user.remember
@@ -23,11 +19,11 @@ module SessionsHelper
     cookies.permanent[:remember_token] = user.remember_token
   end
 
-  def forget user
-    user.forget
-    cookies.delete :user_id
-    cookies.delete :remember_token
-  end
+  # def forget user
+  #   user.forget
+  #   cookies.delete :user_id
+  #   cookies.delete :remember_token
+  # end
 
   def create_session user
     user.create_session

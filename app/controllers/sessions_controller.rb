@@ -1,7 +1,7 @@
 class SessionsController < ApplicationController
   before_action :validate_session_params, only: :create
   before_action :load_user_by_session_email, only: :create
-  before_action :check_authentication, only: :create
+  # before_action :check_authentication, only: :create
   before_action :check_activation, only: :create
   before_action :logged_out_user, only: %i(new create)
   skip_before_action :logged_in_user, only: %i(new create create_from_google)
@@ -14,12 +14,17 @@ class SessionsController < ApplicationController
 
   # POST /login
   def create
-    handle_successful_login(@user)
+    user = User.find_by(email: params.dig(:session, :email))
+    if valid_password?(user, params.dig(:session, :password))
+      sign_in(user)
+      handle_successful_login(user)
+    else
+      handle_failed_login
+    end
   end
 
   # DELETE /logout
   def destroy
-    log_out if logged_in?
     flash[:success] = t(".logout_success")
     redirect_to login_url, status: :see_other
   end
@@ -72,11 +77,11 @@ class SessionsController < ApplicationController
     render :new, status: :unprocessable_entity
   end
 
-  def check_authentication
-    return if @user&.authenticate(session_password)
+  # def check_authentication
+  #   return if @user&.authenticate(session_password)
 
-    handle_failed_login
-  end
+  #   handle_failed_login
+  # end
 
   def check_activation
     return if @user.activated?
@@ -90,14 +95,6 @@ class SessionsController < ApplicationController
 
   def handle_successful_login user
     forwarding_url = session[:forwarding_url]
-    reset_session
-    log_in(user)
-    if params.dig(:session,
-                  :remember_me) == REMEMBER_ME
-      remember(user)
-    else
-      create_session(user)
-    end
     flash[:success] = t(".login_success")
     redirect_to forwarding_url || user
   end
