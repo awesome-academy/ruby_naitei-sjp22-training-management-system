@@ -1,6 +1,6 @@
 # config/routes.rb
 Rails.application.routes.draw do
-  devise_for :users, only: %i(sessions registrations confirmations)
+  devise_for :users, only: %i(sessions registrations confirmations passwords)
 
   scope "(:locale)", locale: /vi|en/ do
     root "static_pages#home"

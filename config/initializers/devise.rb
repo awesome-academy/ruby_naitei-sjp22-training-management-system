@@ -11,7 +11,7 @@ Devise.setup do |config|
   config.expire_all_remember_me_on_sign_out = true
   config.password_length = Settings.user.min_password_length..Settings.user.max_password_length
   config.email_regexp = /\A[^@\s]+@[^@\s]+\z/
-  config.reset_password_within = Settings.user.reset_password_expires_in
+  config.reset_password_within = Settings.user.reset_password_expires_in.hours
   config.sign_out_via = :delete
   config.responder.error_status = :unprocessable_entity
   config.responder.redirect_status = :see_other
