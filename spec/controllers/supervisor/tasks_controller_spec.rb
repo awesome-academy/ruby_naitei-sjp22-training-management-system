@@ -11,32 +11,29 @@ RSpec.describe Supervisor::TasksController do
                   taskable_id: subject.id)
   end
 
-  before {sign_in(supervisor)}
+  before {sign_in supervisor}
 
   describe "authentication and authorization" do
-    before {sign_out}
+    before {sign_out supervisor}
 
     context "when user is not signed in" do
       it "redirects to login page for index" do
         get :index
-        expect(response).to redirect_to(new_user_session_path)
+        expect(response).to redirect_to(/\/users\/sign_in/)
       end
 
       it "redirects to login page for create" do
         post :create,
              params: {task: attributes_for(:task, taskable_type: Subject.name,
              taskable_id: subject.id)}
-        expect(response).to redirect_to(new_user_session_path)
+        expect(response).to redirect_to(/\/users\/sign_in/)
       end
     end
 
     context "when user is signed in but not supervisor" do
       let!(:normal_user) {create(:user, :trainee)}
 
-      before do
-        allow(controller).to receive(:current_user).and_return(normal_user)
-        allow(controller).to receive(:user_signed_in?).and_return(true)
-      end
+      before {sign_in normal_user}
 
       context "GET #index" do
         before {get :index}
