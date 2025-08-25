@@ -1,0 +1,11 @@
+<% user_score = @user_subject.score || Settings.digits.digit_zero %>
+<% max_score = Settings.user_subject.max_score %>
+<% score_percentage = count_score_subject(@user_subject) %>
+<div class="score-circle">
+  <div class="score-value">
+    <span class="score-number"><%= user_score %></span>
+    <span class="score-divider">/</span>
+    <span class="score-max"><%= max_score %></span>
+  </div>
+  <div class="score-label"><%= t(".points_label") %></div>
+</div>

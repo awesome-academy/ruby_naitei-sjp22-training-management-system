@@ -1,0 +1,27 @@
+<% tasks.each do |task| %>
+  <div class="modal fade" id="editTaskModal<%= task.id %>" tabindex="-1" role="dialog" aria-labelledby="editTaskModalLabel<%= task.id %>" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <%= form_with model: task, url: update_task_supervisor_course_subject_detail_path(@course_subject.course, @subject, task_id: task.id), 
+                      data: {turbo_method: :patch} do |form| %>
+          <div class="modal-header">
+            <h5 class="modal-title" id="editTaskModalLabel<%= task.id %>"><%= t('.edit_task_modal_title') %></h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div class="mb-3">
+              <%= form.label :name, t('.task_name'), class: "form-label" %>
+              <%= form.text_field :name, class: "form-control", required: true %>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal"><%= t('.cancel') %></button>
+            <%= form.submit t('.update_task'), class: "btn btn-primary" %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+<% end %>

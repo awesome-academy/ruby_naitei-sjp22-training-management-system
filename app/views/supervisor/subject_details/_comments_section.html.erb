@@ -1,0 +1,35 @@
+<div class="assessment-section">
+  <div class="assessment-header mb-3 d-flex justify-content-between align-items-center">
+    <div>
+      <h6 class="mb-1"><%= t(".supervisor_assessment") %></h6>
+      <small class="text-muted"><%= t(".supervisor_comments_label") %></small>
+    </div>
+    <% if @user_subject.completed_at? %>
+      <button class="btn btn-sm btn-primary" data-toggle="modal" data-target="#addCommentModal">
+        <i class="fas fa-plus me-1"></i><%= t(".add_comment") %>
+      </button>
+    <% else %>
+      <button class="btn btn-sm btn-primary" data-toggle="modal" data-target="#addCommentModal" disabled>
+        <i class="fas fa-plus me-1"></i><%= t(".add_comment") %>
+      </button>
+    <% end %>
+  </div>
+  <div class="comments-container">
+    <% if @user_subject&.comments&.any? %>
+    <% preview_count = Settings.ui_limits.comment_preview_count || 3 %>
+      <% @user_subject.comments.recent.limit(preview_count).each do |comment| %>
+        <%= render "comment_item", comment: comment %>
+      <% end %>
+      <% if @user_subject.comments.count > preview_count %>
+        <div class="more-comments">
+          <small class="text-primary">
+            <i class="fas fa-plus-circle me-1"></i>
+            <%= t(".and_more_comments", count: @user_subject.comments.count - preview_count) %>
+          </small>
+        </div>
+      <% end %>
+    <% else %>
+      <%= render "empty_comments_state" %>
+    <% end %>
+  </div>
+</div>

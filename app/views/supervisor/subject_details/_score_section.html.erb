@@ -1,0 +1,24 @@
+<div class="score-section">
+  <div class="score-header mb-3 d-flex justify-content-between align-items-center">
+    <div>
+      <h6 class="mb-1"><%= t(".score") %></h6>
+      <small class="text-muted"><%= t(".overall_score_label") %></small>
+    </div>
+    <% if @user_subject && @user_subject.completed_at? %>
+      <button class="btn btn-sm btn-outline-primary" data-toggle="modal" data-target="#editScoreModal">
+        <i class="fas fa-edit me-1"></i><%= t(".edit_score") %>
+      </button>
+    <% else %>
+      <button class="btn btn-sm btn-outline-primary" data-toggle="modal" data-target="#editScoreModal" disabled>
+        <i class="fas fa-edit me-1"></i><%= t(".edit_score") %>
+      </button>
+    <% end %>
+  </div>
+  <div class="score-display">
+    <% if @user_subject %>
+      <%= render "score_circle_with_data" %>
+    <% else %>
+      <%= render "score_circle_empty" %>
+    <% end %>
+  </div>
+</div>

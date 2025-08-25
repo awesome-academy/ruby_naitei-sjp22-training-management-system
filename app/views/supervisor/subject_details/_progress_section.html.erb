@@ -1,0 +1,58 @@
+<div class="card modern-card mb-4">
+  <div class="card-header modern-card-header">
+    <div class="d-flex align-items-center">
+      <div class="card-icon me-3">
+        <i class="fas fa-chart-line"></i>
+      </div>
+      <div>
+        <h5 class="card-title mb-0"><%= t(".progress_section") %></h5>
+        <small class="text-muted"><%= t(".progress_tasks_subtitle") %></small>
+      </div>
+    </div>
+  </div>
+  <div class="card-body modern-card-body">
+    <% progress_percentage = count_process_user_tasks(@user_subject.user_tasks, @user_subject.user) %>
+
+    <!-- Progress Overview -->
+    <div class="progress-overview mb-4">
+      <div class="d-flex justify-content-between align-items-center mb-2">
+        <span class="progress-label"><%= t(".overall_progress") %></span>
+        <span class="progress-percentage"><%= progress_percentage %>%</span>
+      </div>
+  <div class="progress modern-progress">
+  <div class="progress-bar progress-bar-animated" 
+       role="progressbar" 
+       style="width: <%= progress_percentage %>%" 
+       aria-valuenow="<%= progress_percentage %>" 
+       aria-valuemin="0" 
+       aria-valuemax="100">
+        </div>
+      </div>
+      <div class="progress-stats mt-2">
+        <small class="text-muted">
+          <% completed_tasks = user_tasks_done_subjects_admin(@user_subject.user, @user_subject.user_tasks).count %>
+          <% total_tasks = @user_subject.present? ? @subject_tasks_count : Settings.ui_limits.task_preview_count %>
+          <%= completed_tasks %>/<%= total_tasks %> <%= t(".tasks_completed") %>
+        </small>
+      </div>
+    </div>
+    
+    <!-- Tasks List -->
+    <div class="tasks-section">
+      <div class="d-flex justify-content-between align-items-center mb-3">
+        <h6 class="mb-0"><%= t(".tasks_list") %></h6>
+        <span class="badge bg-light text-dark"><%= @subject_tasks.count %> <%= t(".tasks_label") %></span>
+      </div>
+
+      <% if @subject_tasks.present? %>
+        <div class="tasks-container">
+          <% @subject_tasks.each_with_index do |task, index| %>
+            <%= render "task_item", task: task, index: index %>
+          <% end %>
+        </div>
+      <% else %>
+        <%= render "empty_tasks_state" %>
+      <% end %>
+    </div>
+  </div>
+</div>

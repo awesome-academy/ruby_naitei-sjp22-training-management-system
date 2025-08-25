@@ -1,0 +1,26 @@
+<div class="comment-item">
+  <div class="comment-header d-flex justify-content-between align-items-start">
+    <div class="comment-info">
+      <div class="comment-author">
+        <i class="fas fa-user-circle me-2"></i>
+        <strong><%= comment.user&.name || t(".anonymous") %></strong>
+      </div>
+      <small class="comment-time">
+        <%= comment.created_at.strftime("%d/%m/%Y") %>
+      </small>
+    </div>
+    <div class="comment-actions">
+      <% if comment.user == current_user %>
+        <button class="btn btn-sm btn-outline-secondary me-1" data-toggle="modal" data-target="#editCommentModal<%= comment.id %>">
+          <i class="fas fa-edit"></i>
+        </button>
+        <button class="btn btn-sm btn-outline-danger" onclick="confirmDeleteComment(<%= comment.id %>)">
+          <i class="fas fa-trash"></i>
+        </button>
+      <% end %>
+    </div>
+  </div>
+  <div class="comment-content">
+    <%= comment.content %>
+  </div>
+</div>

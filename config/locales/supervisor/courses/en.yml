@@ -61,5 +61,7 @@ en:
       create:
         course_created_successfully: "Course was successfully created."
         course_creation_failed: "Failed to create course. Please check the errors."
+      courses_row:
+        view_action: "View detail"
       errors:
         access_denied: "You don't have permission to access this course"

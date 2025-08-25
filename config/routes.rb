@@ -1,23 +1,12 @@
 # config/routes.rb
-
 Rails.application.routes.draw do
+  devise_for :users, only: %i(sessions registrations confirmations passwords omniauth_callbacks), controllers: {
+    omniauth_callbacks: "users/omniauth_callbacks"
+  }
+
   scope "(:locale)", locale: /vi|en/ do
     root "static_pages#home"
-    
-    # google login
-    post "/auth/google_oauth2", as: :google_login
-    get "/auth/google_oauth2/callback", to: "sessions#create_from_google"
-    get "/auth/failure", to: redirect("/login") 
 
-    # --- Authentication & User Management ---
-    get "/signup", to: "users#new"
-    post "/signup", to: "users#create"
-    get "/login", to: "sessions#new"
-    post "/login", to: "sessions#create"
-    delete "/logout", to: "sessions#destroy"
-
-    resources :account_activations, only: :edit
-    resources :password_resets, only: %i(new create edit update)
     resources :users, only: %i(show edit update)
 
     # Subject search API (accessible to all authenticated users)
@@ -63,6 +52,16 @@ Rails.application.routes.draw do
         end
       end
       resources :courses, only: %i(index show new create edit update) do
+        resources :subject_details, only: %i(show) do
+          member do
+            post :create_task
+            patch :update_task
+            patch :update_score
+            post :create_comment
+            delete :destroy_comment
+            patch :update_comment
+          end
+        end
         member do
           get :members
           get :subjects
@@ -79,7 +78,7 @@ Rails.application.routes.draw do
       end
       resources :subjects do
         member do
-          delete :destroy_tasks     
+          delete :destroy_tasks
         end
       end
     end

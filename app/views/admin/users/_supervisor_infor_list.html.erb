@@ -2,7 +2,7 @@
   <tr class="supervisor-row">
     <!-- Checkbox for bulk actions -->
     <td class="checkbox-col">
-      <input type="checkbox" class="form-check-input supervisor-checkbox" value="<%= supervisor.id %>">
+      <input type="checkbox" class="form-check-input supervisor-checkbox" value="<%= supervisor.id %>" data-bs-toggle="modal" data-bs-target="#bulkActionModal">
     </td>
 
     <!-- Name (clickable link) -->
@@ -33,7 +33,7 @@
 
     <!-- Status -->
     <td class="status-col">
-      <% case supervisor.activated %>
+      <% case supervisor.confirmed? %>
       <% when true %>
         <span class="badge bg-success status-badge">
           <i class="fas fa-check-circle me-1"></i>
@@ -63,15 +63,15 @@
         <% end %>
 
         <!-- Deactivate/Activate -->
-        <% if supervisor.activated? %>
-          <%= link_to update_status_admin_user_path(supervisor, activated: false),
+        <% if supervisor.confirmed? %>
+          <%= link_to update_status_admin_user_path(supervisor, confirmed: false),
                       data: {turbo_method: :patch, turbo_confirm: t(".deactivate_confirm")},
                       class: "btn btn-outline-warning btn-sm action-btn",
                       title: t(".deactivate") do %>
             <i class="fas fa-ban"></i>
           <% end %>
         <% else %>
-          <%= link_to update_status_admin_user_path(supervisor, activated: true),
+          <%= link_to update_status_admin_user_path(supervisor, confirmed: Time.zone.now),
                       method: :patch,
                       data: {turbo_method: :patch, turbo_confirm: t(".activate_confirm")},
                       class: "btn btn-outline-success btn-sm action-btn",

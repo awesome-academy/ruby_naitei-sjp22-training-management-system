@@ -22,19 +22,18 @@ document.addEventListener('turbo:load', function() {
     }
   })
 
-  container.addEventListener('change', function(event) {
-    if (event.target.classList.contains('task-delete-checkbox')) {
-      const checkbox = event.target
-      const taskItem = checkbox.closest('.task-item')
+  container.addEventListener('click', function(event) {
+    if (event.target.classList.contains('task-delete-btn')) {
+      const taskItem = event.target.closest('.task-item')
       const destroyInput = taskItem.querySelector('.task-destroy-hidden-field')
       const nameInput = taskItem.querySelector('input[type="text"]')
 
-      if (checkbox.checked) {
+      if (destroyInput.value === 'false') {
         destroyInput.value = 'true'
         nameInput.style.textDecoration = 'line-through'
       } else {
-        destroyInput.value = 'false'
-        nameInput.style.textDecoration = 'none'
+      destroyInput.value = 'false'
+      nameInput.style.textDecoration = 'none'
       }
     }
   })

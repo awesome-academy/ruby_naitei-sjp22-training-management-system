@@ -3,7 +3,7 @@ class PasswordResetsController < ApplicationController
   before_action :load_user_by_email, :valid_user, :check_expiration,
                 only: %i(edit update)
   before_action :check_password_presence, only: :update
-  skip_before_action :logged_in_user, only: %i(new create)
+  skip_before_action :authenticate_user!, only: %i(new create)
 
   # GET /password_resets/new
   def new; end

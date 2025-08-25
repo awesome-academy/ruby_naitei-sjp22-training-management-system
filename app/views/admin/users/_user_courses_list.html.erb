@@ -1,7 +1,7 @@
 <tr class="supervisor-row">
   <td><%= index + 1 %></td>
   <td>
-    <%= link_to course.name, admin_course_path(course), class: "supervisor-name text-decoration-none" %>
+    <%= link_to course.name, supervisor_course_path(course), class: "supervisor-name text-decoration-none" %>
   </td>
   <td>
     <span class="badge badge-secondary"><%= course.start_date %></span>
@@ -30,7 +30,7 @@
       </button>
       <ul class="dropdown-menu">
         <li>
-          <%= link_to admin_course_path(course), class: "dropdown-item" do %>
+          <%= link_to supervisor_course_path(course), class: "dropdown-item" do %>
             <i class="fas fa-eye mr-2"></i><%= t(".view_course_details") %>
           <% end %>
         </li>

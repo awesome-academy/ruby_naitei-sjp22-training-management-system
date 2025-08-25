@@ -3,7 +3,7 @@
   <div class="container">
     <nav>
       <ul class="nav navbar-nav navbar-right">
-        <% if logged_in? %>
+        <% if user_signed_in? %>
           <li class="dropdown">
             <%= link_to "#", class: "dropdown-toggle", data: {toggle: "dropdown"} do %>
               <%= t("navigation.account") %>
@@ -13,11 +13,11 @@
               <li><%= link_to t("navigation.profile"), user_path(current_user) %></li>
               <li><%= link_to t("navigation.setting"), edit_user_path(current_user) %></li>
               <li class="divider"></li>
-              <li><%= link_to t("navigation.logout"), logout_path, data: {"turbo-method": :delete} %></li>
+              <li><%= link_to t("navigation.logout"), destroy_user_session_path, data: {"turbo-method": :delete} %></li>
             </ul>
           </li>
         <% else %>
-          <li><%= link_to t("navigation.log_in"), login_path %></li>
+          <li><%= link_to t("navigation.log_in"), new_user_session_path %></li>
         <% end %>
         <li class="language-switcher">
           <a href="#" class="language-toggle">

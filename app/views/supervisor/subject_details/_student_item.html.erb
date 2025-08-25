@@ -1,0 +1,20 @@
+<%= link_to supervisor_course_subject_detail_path(@course_subject.course, @course_subject.subject, user_id: user_subject.user.id), 
+           class: "student-item modern-student-item text-decoration-none", 
+           data: {user_id: user_subject.user.id} do %>
+  <div class="student-rank">
+    #<%= (@pagy.page - Settings.digits.digit_one) * @pagy.limit + index + Settings.digits.digit_one %>
+  </div>
+  <div class="student-avatar">
+    <%= image_tag user_subject.user.image.attached? ? user_subject.user.image : Settings.image_user_default, 
+        alt: user_subject.user.name, 
+        class: "avatar-img" %>
+    <div class="student-status online"></div>
+  </div>
+  <div class="student-details">
+    <div class="student-name"><%= user_subject.user.name %></div>
+    <div class="student-email"><%= user_subject.user.email %></div>
+  </div>
+  <div class="student-actions">
+    <i class="fas fa-chevron-right"></i>
+  </div>
+<% end %>

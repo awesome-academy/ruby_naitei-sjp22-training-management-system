@@ -1,0 +1,263 @@
+en:
+  supervisor:
+    subject_details:
+      # Controller actions I18n
+      create_task:
+        create_success: "Task created successfully"
+        create_failed: "Failed to create task"
+      
+      update_task:
+        update_success: "Task updated successfully"
+        update_failed: "Failed to update task"
+      
+      update_score:
+        update_success: "Score updated successfully"
+        update_failed: "Failed to update score"
+      
+      create_comment:
+        create_success: "Comment created successfully"
+        create_failed: "Failed to create comment"
+      
+      update_comment:
+        update_success: "Comment updated successfully"
+        update_failed: "Failed to update comment"
+      
+      destroy_comment:
+        destroy_success: "Comment deleted successfully"
+        destroy_failed: "Failed to delete comment"
+
+      course_subject:
+        not_found: "Subject not found in course"
+      
+      subject:
+        not_found: "Subject not found"
+      
+      task:
+        not_found: "Task not found"
+      
+      user_subject:
+        not_found: "User subject not found"
+      
+      comment:
+        not_found: "Comment not found"
+
+      shared:
+        add_task: "Add Task"
+        edit: "Edit"
+        cancel: "Cancel"
+        completed: "Completed"
+        in_progress: "In Progress"
+        not_started: "Not Started"
+        not_completed: "Not Completed"
+        delete_comment_confirm: "Are you sure you want to delete this comment?"
+        students_joined: "students joined"
+        tasks_label: "tasks"
+        days_label: "days"
+        status_completed: "Completed"
+        status_in_progress: "In Progress"
+        status_not_started: "Not Started"
+        supervisor: "Supervisor"
+        no_supervisor: "No supervisor assigned"
+        anonymous: "Anonymous"
+        points_label: "points"
+
+      empty_tasks_state:
+        no_tasks_found: "No tasks found"
+        no_tasks_created: "No tasks have been created for this subject yet"
+        completed: "Completed"
+        not_started: "Not Started"
+
+      show:
+        title: "%{subject_name} - Subject Details"
+        dashboard: "Dashboard"
+        courses: "Courses"
+        add_task: "Add Task"
+        delete_comment_confirm: "Are you sure you want to delete this comment?"
+
+      progress_section:
+        progress_section: "Subject Progress"
+        progress_tasks_subtitle: "Task completion progress"
+        tasks_list: "Task List"
+        overall_progress: "Overall Progress"
+        tasks_completed: "tasks completed"
+        no_tasks_found: "No tasks found"
+        no_tasks_created: "No tasks have been created for this subject yet"
+        completed: "Completed"
+        not_started: "Not Started"
+        edit: "Edit"
+        tasks_label: "Tasks"
+      
+      task_item:
+        completed: "Completed"
+        in_progress: "In Progress"
+        not_started: "Not Started"
+        edit: "Edit"
+        no_files_uploaded: "No files uploaded"
+        files_attached: "files attached"
+        download_file: "Download file"
+        submitted_files: "Submitted files"
+        no_files_submitted: "No files submitted"
+      
+      students_panel:
+        students_joined: "Students Joined"
+
+      trainee_status_badge:
+        status_completed: "Completed"
+        status_in_progress: "In Progress"
+        status_not_started: "Not Started"
+
+      comments_section:
+        comment_section: "Comments Section"
+        add_comment: "Add Comment"
+        edit_comment: "Edit Comment"
+        delete_comment: "Delete Comment"
+        no_comments: "No comments yet"
+        view_all_comments: "View all comments"
+        comments_count: "%{count} comments"
+        comment_content: "Comment content"
+        comment_placeholder: "Enter your comment..."
+        add_comment_submit: "Add Comment"
+        edit_comment_modal_title: "Edit Comment"
+        update_comment: "Update Comment"
+        cancel: "Cancel"
+        supervisor_assessment: "Supervisor Assessment"
+        supervisor_comments_label: "Supervisor Comments"
+      
+      modals:
+        edit_comment_modal:
+          edit_comment_modal_title: "Edit Comment"
+          comment_content_label: "Comment Content"
+          cancel: "Cancel"
+          update_comment: "Update Comment"
+        delete_comment:
+          title: "Delete Comment"
+          confirm: "Are you sure you want to delete this comment?"
+        add_comment:
+          title: "Add Comment"
+          submit: "Add Comment"
+          cancel: "Cancel"
+        update_comment:
+          title: "Update Comment"
+          submit: "Update Comment"
+          cancel: "Cancel"
+        edit_task_modal:
+          edit_task_modal_title: "Edit Task"
+          task_name: "Task Name"
+          task_name_label: "Task Name"
+          cancel: "Cancel"
+          update_task: "Update Task"
+        add_comment_modal:
+          add_comment_modal_title: "Add Comment"
+          comment_content_label: "Comment Content"
+          comment_placeholder: "Enter your comment..."
+          cancel: "Cancel"
+          add_comment_submit: "Add Comment"
+        score_modal:
+          edit_score_modal_title: "Edit Score"
+          score_label: "Score"
+          max_score_info: "Maximum score: %{max_score}"
+          update_score: "Update Score"
+          cancel: "Cancel"
+          edit_score: "Edit Score"
+        add_task_modal:
+          add_new_task: "Add New Task"
+          task_name: "Task Name"
+          cancel: "Cancel"
+          create_task: "Create Task"
+
+      score_section:
+        score_section: "Score Section"
+        score: "Score"
+        overall_score_label: "Overall Assessment Score"
+        points_label: "points"
+        completion_percentage: "completed"
+        score_assessment_subtitle: "Score and assessment from supervisor"
+        supervisor_assessment: "Supervisor Assessment"
+        supervisor_comments_label: "Comments from supervisor"
+        no_assessment_yet: "No assessment yet"
+        no_score_available: "No assessment score available"
+        no_supervisor_evaluation: "No supervisor evaluation yet"
+        and_more_comments: "and %{count} more comments..."
+        comment_content_label: "Comment Content"
+        comment_placeholder: "Enter your comment..."
+        add_comment: "Add Comment"
+        edit_score: "Edit Score"
+        anonymous: "Anonymous"
+
+      subject_overview:
+        subject_overview: "Subject Overview"
+        subject_name: "Subject Name"
+        course_name: "Course Name"
+        duration: "Duration"
+        start_time: "Start Time"
+        end_time: "End Time"
+        actual_start_time: "Actual Start Time"
+        actual_end_time: "Actual End Time"
+        actual_completion_time: "Actual Completion Time"
+        not_specified: "Not specified"
+        not_started: "Not started"
+        not_completed: "Not completed"
+        subject_details: "Subject Details"
+        last_updated: "Last updated"
+
+      score_circle_with_data:
+        points_label: "Points"
+
+      students_panel:
+        course_students: "Course Students"
+        students_count: "%{count} students enrolled"
+        no_students_enrolled: "No students enrolled"
+        no_students_enrolled_description: "No students have enrolled in this subject yet"
+        students_joined: "Students Joined"
+
+      trainee_info:
+        default_trainee_name: "Current Trainee"
+
+      assessment_section:
+        assessment_section: "Assessment"
+        score: "Score"
+        overall_score_label: "Overall Assessment Score"
+        points_label: "points"
+        completion_percentage: "completed"
+        score_assessment_subtitle: "Score and assessment from supervisor"
+        supervisor_assessment: "Supervisor Assessment"
+        supervisor_comments_label: "Comments from supervisor"
+        no_assessment_yet: "No assessment yet"
+        no_score_available: "No assessment score available"
+        no_supervisor_evaluation: "No supervisor evaluation yet"
+        and_more_comments: "and %{count} more comments..."
+        comment_content_label: "Comment Content"
+        comment_placeholder: "Enter your comment..."
+        add_comment: "Add Comment"
+        edit_score: "Edit Score"
+        anonymous: "Anonymous"
+
+      flash:
+        create_task:
+          create_success: "Task created successfully"
+          create_failed: "Failed to create task"
+        update_task:
+          update_success: "Task updated successfully"
+          update_failed: "Failed to update task"
+        update_score:
+          update_success: "Score updated successfully"
+          update_failed: "Failed to update score"
+        create_comment:
+          create_success: "Comment created successfully"
+          create_failed: "Failed to create comment"
+        update_comment:
+          update_success: "Comment updated successfully"
+          update_failed: "Failed to update comment"
+        destroy_comment:
+          destroy_success: "Comment deleted successfully"
+          destroy_failed: "Failed to delete comment"
+
+      errors:
+        course_subject:
+          not_found: "Subject not found in course"
+        subject:
+          not_found: "Subject not found"
+        task:
+          not_found: "Task not found"
+        user_subject:
+          not_found: "User subject not found"

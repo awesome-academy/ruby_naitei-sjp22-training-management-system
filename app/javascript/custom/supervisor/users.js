@@ -8,13 +8,13 @@ function applyProgressWidths() {
   });
 }
 
-document.addEventListener('turbo:load', function() {
+document.addEventListener('turbo:load', function () {
   // Track if document listeners have been added to avoid duplicates
   let dropdownDocumentListenerAdded = false;
-  
+
   // Initialize dropdowns first
   initializeDropdowns();
-  
+
   // Initialize submenu hover
   initializeSubmenu();
 
@@ -23,19 +23,21 @@ document.addEventListener('turbo:load', function() {
 
   function initializeModalTriggers() {
     // Handle modal trigger links
-    const modalTriggers = document.querySelectorAll('[data-toggle="modal"], [data-bs-toggle="modal"]');
-    
+    const modalTriggers = document.querySelectorAll(
+      '[data-toggle="modal"], [data-bs-toggle="modal"]'
+    );
+
     if (!modalTriggers || modalTriggers.length === 0) {
       return;
     }
-    
+
     modalTriggers.forEach(trigger => {
       // Check if element exists and hasn't already been initialized
       if (!trigger || trigger.hasAttribute('data-modal-initialized')) {
         return;
       }
-      
-      trigger.addEventListener('click', function(e) {
+
+      trigger.addEventListener('click', function (e) {
         // Close all dropdowns immediately when modal trigger is clicked
         closeAllDropdowns();
         // Small delay to ensure dropdowns are closed
@@ -43,7 +45,7 @@ document.addEventListener('turbo:load', function() {
           closeAllDropdowns();
         }, 10);
       });
-      
+
       // Mark as initialized to prevent duplicate event listeners
       trigger.setAttribute('data-modal-initialized', 'true');
     });
@@ -63,7 +65,7 @@ document.addEventListener('turbo:load', function() {
         }
       });
     }
-    
+
     // Hide all dropdown menus
     const dropdownMenus = document.querySelectorAll('.dropdown-menu');
     if (dropdownMenus && dropdownMenus.length > 0) {
@@ -73,9 +75,11 @@ document.addEventListener('turbo:load', function() {
         }
       });
     }
-    
+
     // Remove all submenu displays
-    const submenus = document.querySelectorAll('.dropdown-submenu .dropdown-menu');
+    const submenus = document.querySelectorAll(
+      '.dropdown-submenu .dropdown-menu'
+    );
     if (submenus && submenus.length > 0) {
       submenus.forEach(submenu => {
         if (submenu && submenu.style) {
@@ -87,37 +91,37 @@ document.addEventListener('turbo:load', function() {
 
   function initializeSubmenu() {
     const submenuItems = document.querySelectorAll('.dropdown-submenu');
-    
+
     if (!submenuItems || submenuItems.length === 0) {
       return;
     }
-    
-    submenuItems.forEach(function(submenu) {
+
+    submenuItems.forEach(function (submenu) {
       // Check if submenu exists and hasn't been initialized
       if (!submenu || submenu.hasAttribute('data-submenu-initialized')) {
         return;
       }
-      
+
       const submenuToggle = submenu.querySelector('.dropdown-item');
       const submenuDropdown = submenu.querySelector('.dropdown-menu');
-      
+
       // Validate required elements exist
       if (!submenuToggle || !submenuDropdown) {
         return;
       }
-      
-      submenuToggle.addEventListener('mouseenter', function() {
+
+      submenuToggle.addEventListener('mouseenter', function () {
         if (submenuDropdown && typeof submenuDropdown.style !== 'undefined') {
           submenuDropdown.style.display = 'block';
         }
       });
-      
-      submenu.addEventListener('mouseleave', function() {
+
+      submenu.addEventListener('mouseleave', function () {
         if (submenuDropdown && typeof submenuDropdown.style !== 'undefined') {
           submenuDropdown.style.display = 'none';
         }
       });
-      
+
       // Mark as initialized
       submenu.setAttribute('data-submenu-initialized', 'true');
     });
@@ -125,21 +129,21 @@ document.addEventListener('turbo:load', function() {
 
   function initializeDropdowns() {
     const dropdownToggles = document.querySelectorAll('.dropdown-toggle');
-    
+
     if (!dropdownToggles || dropdownToggles.length === 0) {
       return;
     }
-    
+
     dropdownToggles.forEach(toggle => {
       // Check if element exists and hasn't been initialized
       if (!toggle || toggle.hasAttribute('data-dropdown-initialized')) {
         return;
       }
-      
-      toggle.addEventListener('click', function(e) {
+
+      toggle.addEventListener('click', function (e) {
         e.preventDefault();
         e.stopPropagation();
-        
+
         // Close all other dropdowns and remove z-index elevation from rows
         document.querySelectorAll('.dropdown').forEach(dropdown => {
           if (dropdown !== this.closest('.dropdown')) {
@@ -148,15 +152,15 @@ document.addEventListener('turbo:load', function() {
             if (row) row.classList.remove('dropdown-open');
           }
         });
-        
+
         // Toggle current dropdown
         const dropdown = this.closest('.dropdown');
         const row = this.closest('.trainee-row');
-        
+
         if (dropdown) {
           const isOpening = !dropdown.classList.contains('open');
           dropdown.classList.toggle('open');
-          
+
           // Add or remove z-index elevation to the row
           if (row) {
             if (isOpening) {
@@ -167,15 +171,15 @@ document.addEventListener('turbo:load', function() {
           }
         }
       });
-      
+
       // Mark as initialized
       toggle.setAttribute('data-dropdown-initialized', 'true');
     });
-    
+
     // Check if document click listener hasn't been added yet
     if (!dropdownDocumentListenerAdded) {
       // Close dropdown when clicking outside
-      document.addEventListener('click', function(e) {
+      document.addEventListener('click', function (e) {
         if (!e.target.closest('.dropdown')) {
           document.querySelectorAll('.dropdown').forEach(dropdown => {
             dropdown.classList.remove('open');
@@ -184,7 +188,7 @@ document.addEventListener('turbo:load', function() {
           });
         }
       });
-      
+
       // Mark document listener as added
       dropdownDocumentListenerAdded = true;
     }
@@ -194,7 +198,9 @@ document.addEventListener('turbo:load', function() {
   const checkboxes = document.querySelectorAll('.trainee-checkbox');
   const bulkActions = document.querySelector('.bulk-actions');
   const bulkDeleteBtn = document.getElementById('bulk-delete-btn');
-  const bulkDeactivateBtn = document.getElementById('bulk-deactivate-btn');
+  const bulkDeactivateBtn = document.getElementById(
+    'bulk-deactivate-btn-supervisor-page'
+  );
   const selectedCount = document.querySelector('.selected-count');
   const clearSearchBtn = document.querySelector('.clear-search');
 
@@ -202,7 +208,7 @@ document.addEventListener('turbo:load', function() {
   if (clearSearchBtn) {
     // Check if not already initialized
     if (!clearSearchBtn.hasAttribute('data-clear-initialized')) {
-      clearSearchBtn.addEventListener('click', function() {
+      clearSearchBtn.addEventListener('click', function () {
         const searchInput = document.querySelector('.search-input');
         if (searchInput && searchInput.form) {
           searchInput.value = '';
@@ -215,7 +221,7 @@ document.addEventListener('turbo:load', function() {
 
   // Select/Deselect all functionality
   if (selectAll && !selectAll.hasAttribute('data-select-initialized')) {
-    selectAll.addEventListener('change', function() {
+    selectAll.addEventListener('change', function () {
       if (checkboxes && checkboxes.length > 0) {
         checkboxes.forEach(checkbox => {
           if (checkbox) {
@@ -235,18 +241,21 @@ document.addEventListener('turbo:load', function() {
       if (!checkbox || checkbox.hasAttribute('data-checkbox-initialized')) {
         return;
       }
-      
-      checkbox.addEventListener('change', function() {
-        const checkedBoxes = document.querySelectorAll('.trainee-checkbox:checked');
+
+      checkbox.addEventListener('change', function () {
+        const checkedBoxes = document.querySelectorAll(
+          '.trainee-checkbox:checked'
+        );
         const checkedCount = checkedBoxes ? checkedBoxes.length : 0;
-        
+
         if (selectAll) {
           selectAll.checked = checkedCount === checkboxes.length;
-          selectAll.indeterminate = checkedCount > 0 && checkedCount < checkboxes.length;
+          selectAll.indeterminate =
+            checkedCount > 0 && checkedCount < checkboxes.length;
         }
         updateBulkActions();
       });
-      
+
       checkbox.setAttribute('data-checkbox-initialized', 'true');
     });
   }
@@ -255,25 +264,32 @@ document.addEventListener('turbo:load', function() {
     const checkedBoxes = document.querySelectorAll('.trainee-checkbox:checked');
     const checkedCount = checkedBoxes ? checkedBoxes.length : 0;
     const anyChecked = checkedCount > 0;
-    
+
     if (bulkActions) {
       bulkActions.style.display = anyChecked ? 'block' : 'none';
     }
-    
+
     if (selectedCount) {
       selectedCount.textContent = checkedCount;
     }
   }
 
   // Bulk deactivate functionality
-  if (bulkDeactivateBtn && !bulkDeactivateBtn.hasAttribute('data-bulk-initialized')) {
-    bulkDeactivateBtn.addEventListener('click', function() {
+  if (
+    bulkDeactivateBtn &&
+    !bulkDeactivateBtn.hasAttribute('data-bulk-initialized')
+  ) {
+    bulkDeactivateBtn.addEventListener('click', function () {
       const selectedIds = getSelectedIds();
       if (!selectedIds || selectedIds.length === 0) {
         return;
       }
 
-      performBulkAction('supervisor/users/bulk_deactivate', selectedIds, 'PATCH');
+      performBulkAction(
+        '/supervisor/users/bulk_deactivate',
+        selectedIds,
+        'PATCH'
+      );
     });
     bulkDeactivateBtn.setAttribute('data-bulk-initialized', 'true');
   }
@@ -283,7 +299,9 @@ document.addEventListener('turbo:load', function() {
     if (!checkedBoxes || checkedBoxes.length === 0) {
       return [];
     }
-    return Array.from(checkedBoxes).map(checkbox => checkbox ? checkbox.value : null).filter(value => value !== null);
+    return Array.from(checkedBoxes)
+      .map(checkbox => (checkbox ? checkbox.value : null))
+      .filter(value => value !== null);
   }
 
   function performBulkAction(url, ids, method) {
@@ -330,7 +348,7 @@ document.addEventListener('turbo:load', function() {
         idInput.type = 'hidden';
         idInput.name = 'trainee_ids[]';
         idInput.value = id;
-        form.appendChild(idInput);    
+        form.appendChild(idInput);
       }
     });
 
@@ -347,8 +365,12 @@ document.addEventListener('turbo:load', function() {
   if (editProfileModal && editProfileForm) {
     // Multiple event listeners to ensure dropdowns close
     // Bootstrap 4 syntax (jQuery)
-    if (window.$ && window.$.fn.modal && !editProfileModal.hasAttribute('data-jquery-modal-initialized')) {
-      $(editProfileModal).on('show.bs.modal', function() {
+    if (
+      window.$ &&
+      window.$.fn.modal &&
+      !editProfileModal.hasAttribute('data-jquery-modal-initialized')
+    ) {
+      $(editProfileModal).on('show.bs.modal', function () {
         closeAllDropdowns();
         clearFormErrors();
       });
@@ -357,7 +379,7 @@ document.addEventListener('turbo:load', function() {
 
     // Bootstrap 5 syntax (vanilla JS)
     if (!editProfileModal.hasAttribute('data-vanilla-modal-initialized')) {
-      editProfileModal.addEventListener('show.bs.modal', function() {
+      editProfileModal.addEventListener('show.bs.modal', function () {
         closeAllDropdowns();
         clearFormErrors();
       });
@@ -366,7 +388,7 @@ document.addEventListener('turbo:load', function() {
 
     // Backup - close dropdowns when modal is fully shown
     if (!editProfileModal.hasAttribute('data-modal-shown-initialized')) {
-      editProfileModal.addEventListener('shown.bs.modal', function() {
+      editProfileModal.addEventListener('shown.bs.modal', function () {
         closeAllDropdowns();
       });
       editProfileModal.setAttribute('data-modal-shown-initialized', 'true');
@@ -374,7 +396,7 @@ document.addEventListener('turbo:load', function() {
 
     // Handle form submission (regular form submission, not AJAX)
     if (!editProfileForm.hasAttribute('data-form-initialized')) {
-      editProfileForm.addEventListener('submit', function(event) {
+      editProfileForm.addEventListener('submit', function (event) {
         // Let the form submit normally to the server
         // No need to prevent default - we want regular form submission
       });
@@ -384,7 +406,7 @@ document.addEventListener('turbo:load', function() {
     function clearFormErrors() {
       const invalidFields = document.querySelectorAll('.is-invalid');
       const feedbackElements = document.querySelectorAll('.invalid-feedback');
-      
+
       if (invalidFields && invalidFields.length > 0) {
         invalidFields.forEach(field => {
           if (field && field.classList) {
@@ -392,7 +414,7 @@ document.addEventListener('turbo:load', function() {
           }
         });
       }
-      
+
       if (feedbackElements && feedbackElements.length > 0) {
         feedbackElements.forEach(feedback => {
           if (feedback) {

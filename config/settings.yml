@@ -1,3 +1,10 @@
+ui_limits:
+  subject_tasks_preview_count: 3
+  comment_preview_count: 3
+  score_circle_size: 120
+  score_font_size: 36
+  subject_search_limit: 10
+  trainee_manager: "trainee-manager-page"
 allowed_pagy: 1
 percentage: 100
 avatar: "Avatar"
@@ -24,6 +31,8 @@ user:
   max_email_length: 255
   birthday_valid_years: 100
   min_password_length: 6
+  max_password_length: 128
+  reset_password_expires_in: 6
   roles:
     trainee: 0
     supervisor: 1
@@ -49,6 +58,14 @@ course:
     finished: 2
   allowed_image_types: ["image/jpeg", "image/png"]
   max_image_size: 10 # in MB
+  display_status:
+    not_started: "not_started"
+    in_progress: "in_progress"
+    finished: "finished"
+
+devise:
+  default_stretches: 12
+  test_stretches: 1
 
 subject:
   max_name_length: 150
@@ -176,6 +193,7 @@ formats:
   date: "%d/%m/%Y"
   datetime: "%d/%m/%Y %H:%M:%S"
   decimal_places: 1
+  date_for_edit_form: "%Y-%m-%d"
 
 params:
   date: "%Y-%m-%d"
@@ -194,6 +212,7 @@ page_classes:
   admin_users: "admin-users-page"
   trainee_manager: "trainee-manager-page"
   supervisor_users: "supervisor-users-page"
+  admin_subjects: "admin-subjects-page"
 
 scope:
   admin: "admin"

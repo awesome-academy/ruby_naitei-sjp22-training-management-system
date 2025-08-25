@@ -1,0 +1,20 @@
+<% provide :title, t(".title") %>
+<h2><%= t(".heading") %></h2>
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+      <%= f.label :email, t(".email_label") %>
+      <%= f.email_field :email, class: "form-control" %>
+      <%= f.label :password, t(".password_label") %>
+      <%= f.password_field :password, class: "form-control" %>
+      <%= f.label :remember_me, class: "checkbox inline" do %>
+        <%= f.check_box :remember_me %>
+        <span><%= t(".remember_me_label") %></span>
+      <% end %>
+      <%= f.submit t(".submit_button"), class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>
+
+
+<%= render "devise/shared/links" %>

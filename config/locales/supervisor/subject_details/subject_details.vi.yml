@@ -1,0 +1,263 @@
+vi:
+  supervisor:
+    subject_details:
+      # Controller actions I18n
+      create_task:
+        create_success: "Tạo nhiệm vụ thành công"
+        create_failed: "Tạo nhiệm vụ thất bại"
+      
+      update_task:
+        update_success: "Cập nhật nhiệm vụ thành công"
+        update_failed: "Cập nhật nhiệm vụ thất bại"
+      
+      update_score:
+        update_success: "Cập nhật điểm số thành công"
+        update_failed: "Cập nhật điểm số thất bại"
+      
+      create_comment:
+        create_success: "Tạo nhận xét thành công"
+        create_failed: "Tạo nhận xét thất bại"
+      
+      update_comment:
+        update_success: "Cập nhật nhận xét thành công"
+        update_failed: "Cập nhật nhận xét thất bại"
+      
+      destroy_comment:
+        destroy_success: "Xóa nhận xét thành công"
+        destroy_failed: "Xóa nhận xét thất bại"
+
+      # Error messages
+      course_subject:
+        not_found: "Không tìm thấy môn học trong khóa học"
+      
+      subject:
+        not_found: "Không tìm thấy môn học"
+      
+      task:
+        not_found: "Không tìm thấy nhiệm vụ"
+      
+      user_subject:
+        not_found: "Không tìm thấy môn học của người dùng"
+      
+      comment:
+        not_found: "Không tìm thấy nhận xét"
+
+      shared:
+        add_task: "Thêm nhiệm vụ"
+        edit: "Sửa"
+        cancel: "Hủy"
+        completed: "Đã hoàn thành"
+        in_progress: "Đang học"
+        not_started: "Chưa bắt đầu"
+        not_completed: "Chưa hoàn thành"
+        delete_comment_confirm: "Bạn có chắc chắn muốn xóa nhận xét này không?"
+        students_joined: "học viên tham gia"
+        tasks_label: "nhiệm vụ"
+        days_label: "ngày"
+        status_completed: "Hoàn thành"
+        status_in_progress: "Đang học"
+        status_not_started: "Chưa bắt đầu"
+        supervisor: "Giám sát viên"
+        no_supervisor: "Chưa có giám sát viên"
+        anonymous: "Ẩn danh"
+        points_label: "điểm"
+
+      empty_tasks_state:
+        no_tasks_found: "Không tìm thấy nhiệm vụ"
+        no_tasks_created: "Chưa có nhiệm vụ nào được tạo cho môn học này"
+        completed: "Đã hoàn thành"
+        not_started: "Chưa bắt đầu"
+
+      show:
+        title: "%{subject_name} - Chi tiết Môn học"
+        dashboard: "Bảng điều khiển"
+        courses: "Khóa học"
+        add_task: "Thêm nhiệm vụ"
+        delete_comment_confirm: "Bạn có chắc chắn muốn xóa nhận xét này không?"
+
+      task_item:
+        completed: "Đã hoàn thành"
+        in_progress: "Đang học"
+        not_started: "Chưa bắt đầu"
+        edit: "Sửa"
+        no_files_uploaded: "Chưa có tệp nào được tải lên"
+        files_attached: "tệp đính kèm"
+        download_file: "Tải tệp xuống"
+        submitted_files: "Tệp đã nộp"
+        no_files_submitted: "Chưa có tệp nào được nộp"
+
+      students_panel:
+        students_joined: "Học viên tham gia"
+
+      trainee_status_badge:
+        status_completed: "Hoàn thành"
+        status_in_progress: "Đang học"
+        status_not_started: "Chưa bắt đầu"
+
+      comments_section:
+        comment_section: "Phần nhận xét"
+        add_comment: "Thêm nhận xét"
+        edit_comment: "Sửa nhận xét"
+        delete_comment: "Xóa nhận xét"
+        no_comments: "Chưa có nhận xét nào"
+        view_all_comments: "Xem tất cả nhận xét"
+        comments_count: "%{count} nhận xét"
+        comment_content: "Nội dung nhận xét"
+        comment_placeholder: "Nhập nhận xét của bạn..."
+        add_comment_submit: "Thêm nhận xét"
+        edit_comment_modal_title: "Chỉnh sửa nhận xét"
+        update_comment: "Cập nhật nhận xét"
+        cancel: "Hủy"
+        supervisor_assessment: "Đánh giá của Giám sát viên"
+        supervisor_comments_label: "Nhận xét của Giám sát viên"
+      modals:
+        edit_comment_modal:
+          edit_comment_modal_title: "Chỉnh sửa nhận xét"
+          comment_content_label: "Nội dung nhận xét"
+          cancel: "Hủy"
+          update_comment: "Cập nhật nhận xét"
+        delete_comment:
+          title: "Xóa nhận xét"
+          confirm: "Bạn có chắc chắn muốn xóa nhận xét này không?"
+        add_comment:
+          title: "Thêm nhận xét"
+          submit: "Thêm nhận xét"
+          cancel: "Hủy"
+        update_comment:
+          title: "Cập nhật nhận xét"
+          submit: "Cập nhật nhận xét"
+          cancel: "Hủy"
+        edit_task_modal:
+          edit_task_modal_title: "Chỉnh sửa nhiệm vụ"
+          task_name: "Tên nhiệm vụ"
+          task_name_label: "Tên nhiệm vụ"
+          cancel: "Hủy"
+          update_task: "Cập nhật nhiệm vụ"
+        add_comment_modal:
+          add_comment_modal_title: "Thêm nhận xét"
+          comment_content_label: "Nội dung nhận xét"
+          comment_placeholder: "Nhập nhận xét của bạn..."
+          cancel: "Hủy"
+          add_comment_submit: "Thêm nhận xét"
+        score_modal:
+          edit_score_modal_title: "Chỉnh sửa điểm số"
+          score_label: "Điểm số"
+          max_score_info: "Điểm tối đa: %{max_score}"
+          update_score: "Cập nhật điểm số"
+          cancel: "Hủy"
+          edit_score: "Sửa điểm"
+        add_task_modal:
+          add_new_task: "Thêm nhiệm vụ"
+          task_name: "Tên nhiệm vụ"
+          cancel: "Hủy"
+          create_task: "Tạo nhiệm vụ"
+
+      score_section:
+        score_section: "Phần điểm số"
+        score: "Điểm số"
+        overall_score_label: "Điểm đánh giá tổng thể"
+        points_label: "điểm"
+        completion_percentage: "hoàn thành"
+        score_assessment_subtitle: "Điểm số và đánh giá từ giám sát viên"
+        supervisor_assessment: "Đánh giá của Giám sát viên"
+        supervisor_comments_label: "Nhận xét từ giám sát viên"
+        no_assessment_yet: "Chưa có đánh giá"
+        no_score_available: "Chưa có điểm đánh giá"
+        no_supervisor_evaluation: "Chưa có đánh giá từ giám sát viên"
+        and_more_comments: "và %{count} nhận xét khác..."
+        comment_content_label: "Nội dung nhận xét"
+        comment_placeholder: "Nhập nhận xét của bạn..."
+        add_comment: "Thêm nhận xét"
+        edit_score: "Sửa điểm"
+        anonymous: "Ẩn danh"
+
+      subject_overview:
+        subject_overview: "Tổng quan Môn học"
+        subject_name: "Tên môn học"
+        course_name: "Tên khóa học"
+        duration: "Thời lượng"
+        start_time: "Thời gian bắt đầu"
+        end_time: "Thời gian kết thúc"
+        actual_start_time: "Thời gian bắt đầu thực tế"
+        actual_end_time: "Thời gian kết thúc thực tế"
+        actual_completion_time: "Thời gian hoàn thành thực tế"
+        not_specified: "Chưa xác định"
+        not_started: "Chưa bắt đầu"
+        not_completed: "Chưa hoàn thành"
+        subject_details: "Chi tiết thông tin môn học"
+        last_updated: "Cập nhật lần cuối"
+
+      progress_section:
+        progress_section: "Tiến độ môn học"
+        progress_tasks_subtitle: "Tiến độ hoàn thành nhiệm vụ"
+        tasks_list: "Danh sách nhiệm vụ"
+        overall_progress: "Tiến độ tổng thể"
+        tasks_completed: "nhiệm vụ đã hoàn thành"
+        no_tasks_found: "Không tìm thấy nhiệm vụ"
+        no_tasks_created: "Chưa có nhiệm vụ nào được tạo cho môn học này"
+        completed: "Đã hoàn thành"
+        not_started: "Chưa bắt đầu"
+        edit: "Sửa"
+        tasks_label: "Nhiệm vụ"
+
+      score_circle_with_data:
+        points_label: "Điểm"
+
+      students_panel:
+        course_students: "Học viên trong khóa học"
+        students_count: "%{count} học viên đã tham gia"
+        no_students_enrolled: "Chưa có học viên tham gia"
+        no_students_enrolled_description: "Chưa có học viên nào tham gia môn học này"
+        students_joined: "Học viên tham gia"
+
+      trainee_info:
+        default_trainee_name: "Học viên hiện tại"
+
+      assessment_section:
+        assessment_section: "Đánh giá"
+        score: "Điểm số"
+        overall_score_label: "Điểm đánh giá tổng thể"
+        points_label: "điểm"
+        completion_percentage: "hoàn thành"
+        score_assessment_subtitle: "Điểm số và đánh giá từ giám sát viên"
+        supervisor_assessment: "Đánh giá của Giám sát viên"
+        supervisor_comments_label: "Nhận xét từ giám sát viên"
+        no_assessment_yet: "Chưa có đánh giá"
+        no_score_available: "Chưa có điểm đánh giá"
+        no_supervisor_evaluation: "Chưa có đánh giá từ giám sát viên"
+        and_more_comments: "và %{count} nhận xét khác..."
+        comment_content_label: "Nội dung nhận xét"
+        comment_placeholder: "Nhập nhận xét của bạn..."
+        add_comment: "Thêm nhận xét"
+        edit_score: "Sửa điểm"
+        anonymous: "Ẩn danh"
+
+      flash:
+        create_task:
+          create_success: "Tạo nhiệm vụ thành công"
+          create_failed: "Tạo nhiệm vụ thất bại"
+        update_task:
+          update_success: "Cập nhật nhiệm vụ thành công"
+          update_failed: "Cập nhật nhiệm vụ thất bại"
+        update_score:
+          update_success: "Cập nhật điểm số thành công"
+          update_failed: "Cập nhật điểm số thất bại"
+        create_comment:
+          create_success: "Tạo nhận xét thành công"
+          create_failed: "Tạo nhận xét thất bại"
+        update_comment:
+          update_success: "Cập nhật nhận xét thành công"
+          update_failed: "Cập nhật nhận xét thất bại"
+        destroy_comment:
+          destroy_success: "Xóa nhận xét thành công"
+          destroy_failed: "Xóa nhận xét thất bại"
+
+      errors:
+        course_subject:
+          not_found: "Không tìm thấy môn học trong khóa học"
+        subject:
+          not_found: "Không tìm thấy môn học"
+        task:
+          not_found: "Không tìm thấy nhiệm vụ"
+        user_subject:
+          not_found: "Không tìm thấy môn học của người dùng"

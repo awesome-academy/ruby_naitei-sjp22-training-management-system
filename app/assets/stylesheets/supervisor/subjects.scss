@@ -35,3 +35,17 @@
     }
   }
 }
+
+.task-delete-btn {
+  background-color: #dc3545;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  font-weight: bold;
+  text-align: center;
+  transition: background-color 0.2s ease;
+}
+
+.task-delete-btn:hover {
+  background-color: #b02a37; 
+}

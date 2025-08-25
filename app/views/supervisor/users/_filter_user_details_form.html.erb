@@ -1,39 +1,39 @@
-<%= form_with url: supervisor_user_path(@user_trainee), 
-        method: :get, 
-        local: true, 
-        data: { turbo: false }, 
+<%= form_with url: supervisor_user_path(@user_trainee),
+        method: :get,
+        local: true,
+        data: {turbo: false},
         class: "filter-form" do |f| %>
   <div class="row g-3">
   <div class="col-md-3">
-    <%= f.text_field :search, 
-             value: params[:search], 
-             placeholder: t(".search_placeholder"), 
+    <%= f.text_field :search,
+             value: params[:search],
+             placeholder: t(".search_placeholder"),
              class: "form-control search-input" %>
   </div>
-  
+
   <div class="col-md-2">
-    <%= f.select :status, 
-           options_for_select(user_course_status_options, params[:status]), 
-           {}, 
+    <%= f.select :status,
+           options_for_select(user_course_status_options, params[:status]),
+           {},
            {class: "form-select status-select"} %>
   </div>
-  
+
   <div class="col-md-3">
-    <%= f.select :course, 
+    <%= f.select :course,
            options_for_select([
            [t(".course_all"), ""]
-           ] + Course.recent.map {|course| [course.name, course.id]}, params[:course]), 
+           ] + Course.recent.map {|course| [course.name, course.id]}, params[:course]),
            {},
            {class: "form-select course-select"} %>
   </div>
-  
+
   <div class="col-md-2">
     <%= f.submit t(".apply"), class: "btn btn-primary apply-btn w-100" %>
   </div>
-  
+
   <div class="col-md-2">
-    <%= link_to t(".reset_filters"), 
-          supervisor_user_path(@user_trainee), 
+    <%= link_to t(".reset_filters"),
+          supervisor_user_path(@user_trainee),
           class: "btn btn-outline-secondary reset-btn w-100" %>
   </div>
   </div>

@@ -70,6 +70,7 @@ class Course < ApplicationRecord
               message: :image_size_exceeded,
               size: Settings.course.max_image_size.megabytes
             }
+  before_save :update_status_based_on_dates
   after_create :clone_tasks_for_course
 
   # Scopes
@@ -230,5 +231,19 @@ class Course < ApplicationRecord
           course_subject.tasks.create(cloned_task_attributes)
       end
     end
+  end
+
+  def update_status_based_on_dates
+    return self.status = :not_started unless start_date && finish_date
+
+    today = Date.current
+
+    self.status = if today < start_date
+                    :not_started
+                  elsif today.between?(start_date, finish_date)
+                    :in_progress
+                  else
+                    :finished
+                  end
   end
 end

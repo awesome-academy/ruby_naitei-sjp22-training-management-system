@@ -1,0 +1,42 @@
+<div class="card modern-card mb-4">
+  <div class="card-header modern-card-header">
+    <div class="d-flex align-items-center">
+      <div class="card-icon me-3">
+        <i class="fas fa-info-circle"></i>
+      </div>
+      <div>
+        <h5 class="card-title mb-0"><%= t(".subject_overview") %></h5>
+        <small class="text-muted"><%= t(".subject_details") %></small>
+      </div>
+    </div>
+  </div>
+  <div class="card-body modern-card-body">
+    <div class="row g-4">
+      <div class="col-md-6">
+        <div class="info-group">
+          <%= render "info_item", icon: "fas fa-book text-primary", label: t(".subject_name"), value: @subject.name %>
+          <%= render "info_item", icon: "fas fa-graduation-cap text-success", label: t(".start_time"), 
+              value: @course_subject.start_date&.strftime(Settings.formats.date) || t(".not_specified") %>
+          <%= render "info_item", icon: "fas fa-clock text-warning", label: t(".actual_start_time"), 
+              value: @user_subject&.started_at&.strftime(Settings.formats.date) || t(".not_started") %>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="info-group">
+          <%= render "info_item", icon: "fas fa-calendar-alt text-info", label: t(".course_name"), 
+              value: @course_subject.course.name %>
+          <%= render "info_item", icon: "fas fa-calendar-check text-danger", label: t(".end_time"), 
+              value: @course_subject.finish_date&.strftime(Settings.formats.date) || t(".not_specified") %>
+          <%= render "info_item", icon: "fas fa-play-circle text-success", label: t(".actual_completion_time"), 
+              value: @user_subject&.completed_at&.strftime(Settings.formats.date) || t(".not_completed") %>
+        </div>
+      </div>
+    </div>
+    <div class="mt-4 pt-3 border-top">
+      <div class="d-flex align-items-center text-muted">
+        <i class="fas fa-sync-alt me-2"></i>
+        <small><%= t(".last_updated") %>: <%= @course_subject.updated_at.strftime(Settings.formats.datetime) %></small>
+      </div>
+    </div>
+  </div>
+</div>

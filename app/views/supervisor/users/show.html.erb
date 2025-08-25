@@ -15,12 +15,12 @@
           <% end %>
         </li>
         <li>
-          <% if @user_trainee.activated? %>
-            <%= link_to update_status_supervisor_user_path(@user_trainee, activated: false), class: "dropdown-item", data: {turbo_method: :patch} do %>
+          <% if @user_trainee.confirmed? %>
+            <%= link_to update_status_supervisor_user_path(@user_trainee, confirmed: false), class: "dropdown-item", data: {turbo_method: :patch} do %>
               <i class="fas fa-ban mr-2"></i><%= t(".deactivate_account") %>
             <% end %>
           <% else %>
-            <%= link_to update_status_supervisor_user_path(@user_trainee, activated: true), class: "dropdown-item", data: {turbo_method: :patch} do %>
+            <%= link_to update_status_supervisor_user_path(@user_trainee, confirmed: Time.current), class: "dropdown-item", data: {turbo_method: :patch} do %>
               <i class="fas fa-check mr-2"></i><%= t(".activate_account") %>
             <% end %>
           <% end %>

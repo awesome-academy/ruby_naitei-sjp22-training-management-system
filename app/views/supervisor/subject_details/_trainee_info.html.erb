@@ -1,0 +1,16 @@
+<div class="card modern-card mb-4">
+  <div class="card-body modern-card-body">
+    <div class="trainee-info-simple text-center">
+      <div class="trainee-avatar-container mb-3">
+        <%= image_tag @user_subject.user.image.attached? ? @user_subject.user.image : Settings.image_user_default, 
+            alt: @user_subject.user.name, 
+            class: "trainee-avatar-simple" %>
+        <div class="trainee-status-simple">
+          <%= render 'trainee_status_badge' %>
+        </div>
+      </div>
+      <h6 class="trainee-name-simple mb-2"><%= @user_subject.user.name %></h6>
+      <p class="trainee-email-simple text-muted mb-0"><%= @user_subject.user.email %></p>
+    </div>
+  </div>
+</div>

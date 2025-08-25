@@ -1,0 +1,30 @@
+<div class="modal fade" id="editScoreModal" tabindex="-1" role="dialog" aria-labelledby="editScoreModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <%= form_with url: update_score_supervisor_course_subject_detail_path(@course_subject.course, @subject), 
+                    method: :patch, local: true, data: { turbo: false } do |form| %>
+        <div class="modal-header">
+          <h5 class="modal-title" id="editScoreModalLabel"><%= t('.edit_score_modal_title') %></h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="mb-3">
+            <%= form.label :score, t('.score_label'), class: "form-label" %>
+            <%= form.number_field :score, class: "form-control", 
+                                 value: @user_subject.score, 
+                                 min: 0, max: Settings.user_subject.max_score, 
+                                 step: 0.1, required: true %>
+            <small class="form-text text-muted"><%= t('.max_score_info', max_score: Settings.user_subject.max_score) %></small>
+          </div>
+          <%= form.hidden_field :user_id, value: @user_subject.user_id %>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal"><%= t('.cancel') %></button>
+          <%= form.submit t('.update_score'), class: "btn btn-primary" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

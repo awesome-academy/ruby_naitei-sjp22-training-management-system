@@ -1,7 +1,7 @@
 <div class="input-group task-item mb-2" id="task_<%= task_form.object.id %>">
   <span class="input-group-addon">
 
-    <input type="checkbox" class="task-delete-checkbox">
+    <button type="button" class="task-delete-btn">✖</button>
     <%= task_form.hidden_field :_destroy, value: "false", class: "task-destroy-hidden-field" %>
     <%= task_form.hidden_field :id %>
   </span>

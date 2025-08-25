@@ -14,7 +14,7 @@
 
   <body class="<%= @page_class %>">
     <%= render "layouts/header" %>
-    <% if logged_in? %>
+    <% if user_signed_in? %>
       <%= render "sidebar" %>
     <% end %>
     <main class="main-content">

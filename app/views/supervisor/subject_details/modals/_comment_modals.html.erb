@@ -1,0 +1,11 @@
+<!-- Add Comment Modal -->
+<%= render 'supervisor/subject_details/modals/add_comment_modal' %>
+
+<!-- Edit Comment Modals -->
+<% if @user_subject.comments&.any? %>
+  <% @user_subject.comments.recent.limit(3).each do |comment| %>
+    <% if comment.user == current_user %>
+      <%= render 'supervisor/subject_details/modals/edit_comment_modal', comment: comment %>
+    <% end %>
+  <% end %>
+<% end %>

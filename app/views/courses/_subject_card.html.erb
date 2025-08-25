@@ -5,8 +5,8 @@
       <%= course_subject.finish_date&.strftime(Settings.formats.date) %>
     </div>
     <div class="subject-name">
-      <%= course_subject.subject.name %>: 
-      <%= t("courses.subjects.time_to_finish", days: course_subject.subject.estimated_time_days || 0) %>
+      <%= link_to course_subject.subject.name, supervisor_course_subject_detail_path(course_subject.course, course_subject.subject) %>:
+      <%= t("courses.subjects.time_to_finish", days: course_subject.subject.estimated_time_days || Setting.digits.digit_zero) %>
     </div>
 
     <div class="tasks-preview">

@@ -21,7 +21,7 @@ document.addEventListener('turbo:load', function () {
       return;
     }
 
-    modalTriggers.forEach((trigger) => {
+    modalTriggers.forEach(trigger => {
       // Check if element exists and hasn't already been initialized
       if (!trigger || trigger.hasAttribute('data-modal-initialized')) {
         return;
@@ -43,21 +43,21 @@ document.addEventListener('turbo:load', function () {
 
   function closeAllDropdowns() {
     // Close all dropdown menus
-    document.querySelectorAll('.dropdown').forEach((dropdown) => {
+    document.querySelectorAll('.dropdown').forEach(dropdown => {
       dropdown.classList.remove('open');
       const row = dropdown.closest('.supervisor-row');
       if (row) row.classList.remove('dropdown-open');
     });
 
     // Hide all dropdown menus
-    document.querySelectorAll('.dropdown-menu').forEach((menu) => {
+    document.querySelectorAll('.dropdown-menu').forEach(menu => {
       menu.style.display = 'none';
     });
 
     // Remove all submenu displays
     document
       .querySelectorAll('.dropdown-submenu .dropdown-menu')
-      .forEach((submenu) => {
+      .forEach(submenu => {
         submenu.style.display = 'none';
       });
   }
@@ -107,7 +107,7 @@ document.addEventListener('turbo:load', function () {
       return;
     }
 
-    dropdownToggles.forEach((toggle) => {
+    dropdownToggles.forEach(toggle => {
       // Check if element exists and hasn't been initialized
       if (!toggle || toggle.hasAttribute('data-dropdown-initialized')) {
         return;
@@ -118,7 +118,7 @@ document.addEventListener('turbo:load', function () {
         e.stopPropagation();
 
         // Close all other dropdowns and remove z-index elevation from rows
-        document.querySelectorAll('.dropdown').forEach((dropdown) => {
+        document.querySelectorAll('.dropdown').forEach(dropdown => {
           if (dropdown !== this.closest('.dropdown')) {
             dropdown.classList.remove('open');
             const row = dropdown.closest('.supervisor-row');
@@ -154,7 +154,7 @@ document.addEventListener('turbo:load', function () {
       // Close dropdown when clicking outside
       document.addEventListener('click', function (e) {
         if (!e.target.closest('.dropdown')) {
-          document.querySelectorAll('.dropdown').forEach((dropdown) => {
+          document.querySelectorAll('.dropdown').forEach(dropdown => {
             dropdown.classList.remove('open');
             const row = dropdown.closest('.supervisor-row');
             if (row) row.classList.remove('dropdown-open');
@@ -171,7 +171,9 @@ document.addEventListener('turbo:load', function () {
   const checkboxes = document.querySelectorAll('.supervisor-checkbox');
   const bulkActions = document.querySelector('.bulk-actions');
   const bulkDeleteBtn = document.getElementById('bulk-delete-btn');
-  const bulkDeactivateBtn = document.getElementById('bulk-deactivate-btn');
+  const bulkDeactivateBtn = document.getElementById(
+    'bulk-deactivate-btn-admin-page'
+  );
   const selectedCount = document.querySelector('.selected-count');
   const clearSearchBtn = document.querySelector('.clear-search');
 
@@ -194,7 +196,7 @@ document.addEventListener('turbo:load', function () {
   if (selectAll && !selectAll.hasAttribute('data-select-initialized')) {
     selectAll.addEventListener('change', function () {
       if (checkboxes && checkboxes.length > 0) {
-        checkboxes.forEach((checkbox) => {
+        checkboxes.forEach(checkbox => {
           if (checkbox) {
             checkbox.checked = this.checked;
           }
@@ -207,7 +209,7 @@ document.addEventListener('turbo:load', function () {
 
   // Individual checkbox change
   if (checkboxes && checkboxes.length > 0) {
-    checkboxes.forEach((checkbox) => {
+    checkboxes.forEach(checkbox => {
       // Check if checkbox exists and hasn't been initialized
       if (!checkbox || checkbox.hasAttribute('data-checkbox-initialized')) {
         return;
@@ -267,7 +269,7 @@ document.addEventListener('turbo:load', function () {
     const checkedBoxes = document.querySelectorAll(
       '.supervisor-checkbox:checked'
     );
-    return Array.from(checkedBoxes).map((checkbox) => checkbox.value);
+    return Array.from(checkedBoxes).map(checkbox => checkbox.value);
   }
 
   function performBulkAction(url, ids, method) {
@@ -308,7 +310,7 @@ document.addEventListener('turbo:load', function () {
     }
 
     // Add selected IDs
-    ids.forEach((id) => {
+    ids.forEach(id => {
       if (id) {
         const idInput = document.createElement('input');
         idInput.type = 'hidden';
@@ -374,7 +376,7 @@ document.addEventListener('turbo:load', function () {
       const feedbackElements = document.querySelectorAll('.invalid-feedback');
 
       if (invalidFields && invalidFields.length > 0) {
-        invalidFields.forEach((field) => {
+        invalidFields.forEach(field => {
           if (field && field.classList) {
             field.classList.remove('is-invalid');
           }
@@ -382,7 +384,7 @@ document.addEventListener('turbo:load', function () {
       }
 
       if (feedbackElements && feedbackElements.length > 0) {
-        feedbackElements.forEach((feedback) => {
+        feedbackElements.forEach(feedback => {
           if (feedback) {
             feedback.textContent = '';
           }

@@ -8,8 +8,6 @@
         <span class="badge status-badge-"><%= t("#{courses_row.status}") %> </span>
     </td>
     <td>
-    <%= link_to "#", class: "action-icon" do %>
-        <i class="fas fa-cog"></i>
-    <% end %>
+        <%= link_to t(".view_action"), supervisor_course_path(courses_row), class: "action-view-link" %>
     </td>
 </tr>

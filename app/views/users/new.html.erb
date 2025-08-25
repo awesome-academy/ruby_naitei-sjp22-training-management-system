@@ -1,8 +1,0 @@
-<% provide :title, t(".sign_up") %>
-<% provide(:button_text, t(".create_my_account")) %>
-<h2><%= t(".sign_up") %></h2>
-<div class="row">
-    <div class="col-md-6 col-md-offset-3">
-        <%= render partial: "form", locals: { users_custom_path: signup_url } %>
-    </div>
-</div>

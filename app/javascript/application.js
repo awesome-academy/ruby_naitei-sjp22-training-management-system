@@ -14,5 +14,6 @@ import 'custom/add_subject_in_category';
 import 'custom/add_subject_in_course';
 import 'custom/supervisor/tasks_form';
 import 'custom/admin/new_supervisor';
-import 'custom/course_edit'
-import 'custom/subject_search'
+import 'custom/course_edit';
+import 'custom/subject_search';
+import 'custom/admin/subjects';

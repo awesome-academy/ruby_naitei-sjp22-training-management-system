@@ -1,0 +1,31 @@
+<div class="col-lg-4">
+  <div class="card modern-card sticky-top" style="top: 2rem;">
+    <div class="card-header modern-card-header">
+      <div class="d-flex align-items-center">
+        <div class="card-icon me-3">
+          <i class="fas fa-users"></i>
+        </div>
+        <div>
+          <h5 class="card-title mb-0"><%= t(".course_students") %></h5>
+          <small class="text-muted"><%= @pagy.count %> <%= t(".students_joined") %></small>
+        </div>
+      </div>
+    </div>
+    <div class="card-body modern-card-body p-0">
+      <% if @user_subjects.present? %>
+        <div class="students-list">
+          <% @user_subjects.each_with_index do |user_subject, index| %>
+            <%= render "student_item", user_subject: user_subject, index: index %>
+          <% end %>
+        </div>
+        
+        <!-- Pagination Controls -->
+        <div class="pagination-wrapper p-3">
+          <%== pagy_bootstrap_nav(@pagy) if @pagy.pages > Settings.pagination.min_pages_to_show %>
+        </div>
+      <% else %>
+        <%= render "empty_students_state" %>
+      <% end %>
+    </div>
+  </div>
+</div>

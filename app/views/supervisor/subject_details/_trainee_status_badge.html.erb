@@ -1,0 +1,13 @@
+<% if @user_subject.completed_at.present? %>
+  <span class="badge badge-success">
+    <i class="fas fa-check-circle"></i> <%= t(".status_completed") %>
+  </span>
+<% elsif @user_subject.started_at.present? %>
+  <span class="badge badge-warning">
+    <i class="fas fa-play-circle"></i> <%= t(".status_in_progress") %>
+  </span>
+<% else %>
+  <span class="badge badge-secondary">
+    <i class="fas fa-pause-circle"></i> <%= t(".status_not_started") %>
+  </span>
+<% end %>

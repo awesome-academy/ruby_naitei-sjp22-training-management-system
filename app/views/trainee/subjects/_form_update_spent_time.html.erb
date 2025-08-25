@@ -6,7 +6,7 @@
     <%= f.hidden_field :task_id, value: task.id %>
     <%= f.hidden_field :user_subject_id, value: @user_subject.id %>
     <div class="input-group input-group-sm">
-    <% if @user_subject.display_status == Settings.user_subject.display_status.in_progress %>
+    <% if @user_subject.completed_at.nil?%>
       <%= f.number_field :spent_time,
         class: "form-control",
         value: task.user_tasks.find_by(user_subject_id: @user_subject.id)&.spent_time,

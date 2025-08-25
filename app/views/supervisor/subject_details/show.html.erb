@@ -1,0 +1,86 @@
+<% content_for :title, t(".title", subject_name: @subject.name) %>
+
+<div class="admin-subjects-page">
+  <div class="modern-interface">
+    <div class="container-fluid">
+      <!-- Modern Header Section -->
+      <div class="header-section mb-5">
+        <div class="container-fluid px-0">
+          <div class="row align-items-center">
+            <div class="col-md-8">
+              <div class="page-header">
+                <div class="page-title-section">
+                  <h1 class="page-title">
+                    <span class="subject-icon">
+                      <i class="fas fa-book-open"></i>
+                    </span>
+                    <%= @subject.name %>
+                    <span class="course-badge">
+                      <%= @course_subject.course.name %>
+                    </span>
+                  </h1>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-2 text-end">
+              <div class="action-buttons-group">
+                <button type="button" class="btn btn-primary btn-modern me-2" data-toggle="modal" data-target="#addTaskModal">
+                  <i class="fas fa-plus me-2"></i><%= t(".add_task") %>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row g-4">
+        <!-- Main Content -->
+        <div class="col-lg-8">
+          <!-- Subject Overview Section -->
+          <%= render "subject_overview" %>
+
+          <!-- Progress Section -->
+          <%= render "progress_section" %>
+
+          <!-- Selected Trainee Information Section -->
+          <%= render "trainee_info" if @user_subject %>
+
+          <!-- Assessment Section -->
+          <%= render "assessment_section" %>
+        </div>
+
+        <!-- Course Students Panel -->
+        <%= render "students_panel" %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modals -->
+<%= render "supervisor/subject_details/modals/add_task_modal" %>
+<%= render "supervisor/subject_details/modals/edit_task_modal", tasks: @subject_tasks if @subject_tasks.present? %>
+<%= render "supervisor/subject_details/modals/score_modal" if @user_subject %>
+<%= render "supervisor/subject_details/modals/comment_modals" if @user_subject %>
+
+<script>
+// Pass Rails data to JavaScript
+window.AdminSubjects = {
+  deleteUrl: "<%= destroy_comment_supervisor_course_subject_detail_path(@course_subject.course, @subject) %>",
+  confirmMessage: "<%= t('.delete_comment_confirm') %>",
+  csrfToken: "<%= form_authenticity_token %>",
+  userId: "<%= @user_subject&.user_id %>"
+};
+
+// Confirm delete comment with Rails data
+function confirmDeleteComment(commentId) {
+  if (window.AdminSubjects && window.confirmDeleteComment) {
+    window.confirmDeleteComment(
+      commentId, 
+      window.AdminSubjects.deleteUrl,
+      window.AdminSubjects.confirmMessage,
+      window.AdminSubjects.csrfToken,
+      window.AdminSubjects.userId
+    );
+  }
+}
+</script>

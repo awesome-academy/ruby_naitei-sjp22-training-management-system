@@ -3,8 +3,10 @@ class Subject < ApplicationRecord
 
   SUBJECT_PERMITTED_PARAMS_CREATE = %i(name max_score
                                         estimated_time_days).freeze
-  SUBJECT_PERMITTED_PARAMS_UPDATE = %i(name max_score estimated_time_days
-                              tasks_attributes: [:id name _destroy]).freeze
+  SUBJECT_PERMITTED_PARAMS_UPDATE = [
+    :name, :max_score, :estimated_time_days,
+    {tasks_attributes: %i(id name _destroy)}
+  ].freeze
 
   # Associations
   has_many :course_subjects # rubocop:disable Rails/HasManyOrHasOneDependent

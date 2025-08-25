@@ -91,7 +91,7 @@ module ApplicationHelper
     return "" unless date
 
     date_for_input = date.respond_to?(:to_date) ? date.to_date : date
-    date_for_input.strftime(Settings.formats.date)
+    date_for_input.strftime(Settings.formats.date_for_edit_form)
   end
 
   private
