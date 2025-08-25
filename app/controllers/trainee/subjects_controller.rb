@@ -5,6 +5,7 @@ class Trainee::SubjectsController < Trainee::BaseController
   before_action :ensure_user_enrollments, only: %i(show)
   before_action :load_tasks, only: %i(show)
   before_action :load_comments, only: %i(show)
+  authorize_resource
 
   # GET /trainee/courses/:course_id/subjects/:id
   def show; end
@@ -59,7 +60,7 @@ class Trainee::SubjectsController < Trainee::BaseController
   end
 
   def ensure_user_enrollments
-    @user_course = current_user.user_courses.find_by(course_id: @course.id)
+    @user_course = UserCourse.find_by(course_id: @course.id)
     return unless @user_course && @course_subject
 
     ActiveRecord::Base.transaction do
@@ -75,7 +76,7 @@ class Trainee::SubjectsController < Trainee::BaseController
   end
 
   def find_or_create_user_subject!
-    @user_subject = current_user.user_subjects.find_or_create_by!(
+    @user_subject = UserSubject.find_or_create_by!(
       user_course_id: @user_course.id,
       course_subject_id: @course_subject.id
     ) do |user_subject|

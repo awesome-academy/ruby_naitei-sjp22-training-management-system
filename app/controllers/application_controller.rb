@@ -1,6 +1,8 @@
 class ApplicationController < ActionController::Base
   include Pagy::Backend
   include UserLoadable
+  include CanCan::ControllerAdditions
+  rescue_from CanCan::AccessDenied, with: :user_not_authorized
 
   protect_from_forgery with: :exception
 
@@ -66,5 +68,10 @@ class ApplicationController < ActionController::Base
 
   def after_sign_in_path_for _resource_or_scope
     session.delete(:forwarding_url) || root_path
+  end
+
+  def user_not_authorized _exception
+    flash[:danger] = t("shared.not_authorized")
+    redirect_to(request.referer || root_path)
   end
 end

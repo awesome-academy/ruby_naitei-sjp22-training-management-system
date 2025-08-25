@@ -7,6 +7,7 @@ class Supervisor::UsersController < Supervisor::BaseController
   before_action :require_manager
   before_action :load_user_course,
                 only: %i(update_user_course_status delete_user_course)
+  authorize_resource
 
   # GET supervisor/users
   def index
@@ -21,6 +22,7 @@ class Supervisor::UsersController < Supervisor::BaseController
                                     .by_user_course_status(params[:status])
                                     .search_by_name(params[:search])
                                     .by_course(params[:course]).recent
+
     @pagy, @trainee_courses = pagy(@trainee_courses)
   end
 

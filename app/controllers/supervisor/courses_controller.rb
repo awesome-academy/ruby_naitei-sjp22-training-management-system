@@ -25,10 +25,9 @@ class Supervisor::CoursesController < Supervisor::BaseController
                         edit update add_subject)
   before_action :load_subject_to_add, only: [:add_subject]
   before_action :validate_subject_for_add, only: [:add_subject]
-  before_action :authorize_supervisor_access!,
-                only: %i(show members subjects supervisors leave search_members)
   before_action :ensure_multiple_supervisors, only: [:leave]
   before_action :set_courses_page_class
+  authorize_resource
 
   # GET /supervisor/courses
   def index
@@ -288,26 +287,6 @@ class Supervisor::CoursesController < Supervisor::BaseController
 
     flash[:danger] = I18n.t("courses.errors.course_not_found")
     redirect_to root_path
-  end
-
-  def authorize_supervisor_access!
-    return if current_user&.admin?
-
-    return if allowed_for_supervisor?(@course)
-
-    flash[:danger] = I18n.t("courses.errors.access_denied")
-    redirect_to root_path
-  end
-
-  def allowed_for_supervisor? course
-    return false unless course
-
-    if read_only_action?
-      course.user_id == current_user&.id ||
-        course.supervisors.include?(current_user)
-    else
-      course.supervisors.include?(current_user)
-    end
   end
 
   def read_only_action?

@@ -1,6 +1,7 @@
 class Supervisor::CategoriesController < Supervisor::BaseController
   before_action :load_category, only: %i(show edit update destroy)
   before_action :load_subject_categories, only: %i(show edit update)
+  authorize_resource
 
   # GET /supervisor/categories
   def index
