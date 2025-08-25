@@ -1,12 +1,12 @@
 # config/routes.rb
 Rails.application.routes.draw do
-  devise_for :users, only: %i(sessions registrations confirmations passwords)
+  devise_for :users, only: %i(sessions registrations confirmations passwords omniauth_callbacks), controllers: {
+    omniauth_callbacks: 'users/omniauth_callbacks'
+  }
 
   scope "(:locale)", locale: /vi|en/ do
     root "static_pages#home"
 
-    # resources :account_activations, only: :edit
-    # resources :password_resets, only: %i(new create edit update)
     resources :users, only: %i(show edit update)
 
     # Subject search API (accessible to all authenticated users)
