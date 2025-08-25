@@ -1,6 +1,6 @@
 class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
-         :validatable, :confirmable
+         :validatable, :confirmable, :recoverable
 
   # Constants
   PERMITTED_ATTRIBUTES = %i(name email password password_confirmation birthday

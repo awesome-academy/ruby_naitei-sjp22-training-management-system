@@ -9,6 +9,9 @@ vi:
         didnt_receive_unlock_instructions: "Chưa nhận được hướng dẫn mở khóa?"
         sign_in_with: "Đăng nhập với %{provider}"
     confirmations:
+      new:
+        title: "Gửi lại hướng dẫn xác nhận"
+        submit: "Gửi lại hướng dẫn xác nhận"
       confirmed: "Địa chỉ email của bạn đã được xác nhận thành công."
       send_instructions: "Bạn sẽ nhận được email với hướng dẫn xác nhận địa chỉ email trong vài phút."
       send_paranoid_instructions: "Nếu địa chỉ email tồn tại trong hệ thống, bạn sẽ nhận được email với hướng dẫn xác nhận trong vài phút."
@@ -29,6 +32,11 @@ vi:
         confirm: "Bạn có thể xác nhận địa chỉ email tài khoản của mình qua liên kết bên dưới:"
         link_text: "Xác nhận tài khoản của tôi"
       reset_password_instructions:
+        greeting: "Xin chào"
+        someone_requested: "Ai đó đã yêu cầu liên kết để thay đổi mật khẩu của bạn. Bạn có thể thực hiện việc này qua liên kết bên dưới."
+        change_my_password: "Đổi mật khẩu của tôi"
+        if_you_didnt_request: "Nếu bạn không yêu cầu việc này, vui lòng bỏ qua email này."
+        your_password_wont_change: "Mật khẩu của bạn sẽ không thay đổi cho đến khi bạn truy cập vào liên kết ở trên và tạo một mật khẩu mới."
         subject: "Hướng dẫn đặt lại mật khẩu"
       unlock_instructions:
         subject: "Hướng dẫn mở khóa tài khoản"
@@ -40,6 +48,19 @@ vi:
       failure: 'Không thể xác thực bạn từ %{kind} vì "%{reason}".'
       success: "Xác thực thành công từ tài khoản %{kind}."
     passwords:
+      new:
+        title: "Quên mật khẩu?"
+        submit_button: "Gửi hướng dẫn đặt lại mật khẩu"
+        heading: "Quên mật khẩu?"
+        forgot_your_password: "Quên mật khẩu?"
+      edit:
+        title: "Đổi mật khẩu"
+        heading: "Đổi mật khẩu"
+        submit_button: "Đổi mật khẩu"
+        characters_minimum: "ký tự tối thiểu"
+        new_password: "Mật khẩu mới"
+        confirm_new_password: "Xác nhận mật khẩu mới"
+        change_my_password: "Đổi mật khẩu của tôi"
       no_token: "Bạn không thể truy cập trang này nếu không đến từ email đặt lại mật khẩu. Hãy chắc chắn rằng bạn đã dùng đúng đường link trong email."
       send_instructions: "Bạn sẽ nhận được email với hướng dẫn đặt lại mật khẩu trong vài phút."
       send_paranoid_instructions: "Nếu email tồn tại trong hệ thống, bạn sẽ nhận được liên kết khôi phục mật khẩu trong vài phút."
@@ -77,6 +98,15 @@ vi:
       signed_in: "Đăng nhập thành công."
       signed_out: "Đăng xuất thành công."
       already_signed_out: "Bạn đã đăng xuất."
+      new:
+        heading: "Đăng nhập"
+        email_label: "Email"
+        password_label: "Mật khẩu"
+        submit_button: "Đăng nhập"
+        new_user_text: "Chưa có tài khoản? Đăng ký ngay!"
+        sign_up_link: "Đăng ký"
+        title: "Đăng nhập"
+        forgot_your_password: "Quên mật khẩu?"
     unlocks:
       send_instructions: "Bạn sẽ nhận được email với hướng dẫn mở khóa tài khoản trong vài phút."
       send_paranoid_instructions: "Nếu tài khoản tồn tại, bạn sẽ nhận được email hướng dẫn mở khóa trong vài phút."

@@ -10,12 +10,10 @@ Rails.application.routes.draw do
     get "/auth/failure", to: redirect("/login") 
 
     # Devise
-    devise_for :users, only: %i(sessions registrations confirmations), controllers: {
+    devise_for :users, only: %i(sessions registrations confirmations passwords), controllers: {
       registrations: "users/registrations"
     }
 
-    resources :account_activations, only: :edit
-    resources :password_resets, only: %i(new create edit update)
     resources :users, only: %i(show edit update)
 
     # Subject search API (accessible to all authenticated users)

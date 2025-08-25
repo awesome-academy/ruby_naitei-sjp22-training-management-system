@@ -1,4 +1,4 @@
-<% if logged_in? %>
+<% if user_signed_in? %>
   <% provide :title, t(".dashboard_title") %>
   <%= render "shared/courses_list" %>
 <% end %>
