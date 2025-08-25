@@ -7,7 +7,8 @@ class User < ApplicationRecord
   # Devise modules
   devise :database_authenticatable,
          :rememberable, :validatable,
-         :confirmable, :registerable
+         :confirmable, :registerable,
+         :recoverable
 
   # Associations
   has_many :user_courses, dependent: :destroy
