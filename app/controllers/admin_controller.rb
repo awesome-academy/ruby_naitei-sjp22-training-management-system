@@ -11,7 +11,7 @@ class AdminController < ApplicationController
   def authenticate_user!
     return if current_user
 
-    redirect_to login_path
+    redirect_to new_user_session_path
   end
 
   def authorize_admin!
