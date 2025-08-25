@@ -6,6 +6,7 @@ class Admin::UsersController < Admin::BaseController
                 only: %i(update_status show update delete_user_course)
   before_action :set_css_class, only: %i(index show)
   before_action :load_user_course, only: %i(delete_user_course)
+  authorize_resource
 
   # GET /admin/users
   def index

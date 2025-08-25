@@ -1,4 +1,6 @@
 class Admin::DailyReportsController < Admin::BaseController
+  authorize_resource
+
   # GET /daily_reports
   def index
     all_reports = DailyReport.recent.includes(DailyReport::EAGER_LOADING_PARAMS)

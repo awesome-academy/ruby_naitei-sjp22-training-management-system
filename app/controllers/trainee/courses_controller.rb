@@ -13,9 +13,10 @@ class Trainee::CoursesController < Trainee::BaseController
     :user_tasks,
     :comments
   ].freeze
+
   before_action :load_course, only: %i(show members subjects)
-  before_action :check_course_access, only: %i(show members subjects)
   before_action :set_courses_page_class
+  authorize_resource
 
   # GET /trainee/courses/:id
   def show
@@ -39,9 +40,8 @@ class Trainee::CoursesController < Trainee::BaseController
                               .ordered_by_position
     @subject_count = @course_subjects.count
     @trainee_count = @course.trainee_count
-    @user_subjects_for_current_course = current_user.user_subjects
-                                                    .for_course(@course)
-                                                    .includes(USER_SJ_PRELOAD)
+    @user_subjects_for_current_course = UserSubject.for_course(@course)
+                                                   .includes(USER_SJ_PRELOAD)
   end
 
   private
@@ -51,21 +51,10 @@ class Trainee::CoursesController < Trainee::BaseController
   end
 
   def load_course
-    @course = Course.find_by id: params[:id]
+    @course = Course.find_by(id: params[:id])
     return if @course
 
     flash[:danger] = t(".course_not_found")
-    redirect_to root_path
-  end
-
-  def check_course_access
-    # Allow access if user is admin, supervisor of the course, or enrolled in
-    # the course
-    return if current_user.admin?
-    return if @course.supervisors.include?(current_user)
-    return if @course.users.include?(current_user)
-
-    flash[:danger] = t(".access_denied")
     redirect_to root_path
   end
 end

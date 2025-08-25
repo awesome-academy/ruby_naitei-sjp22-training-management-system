@@ -20,6 +20,8 @@ update_score show)
   before_action :load_comment, only: %i(update_comment destroy_comment)
   before_action :set_css_class, only: %i(show)
   before_action :require_manager
+  authorize_resource class: "CourseSubject"
+
   # GET /admin/courses/:course_id/subjects/:id
   def show; end
 

@@ -1,5 +1,6 @@
 class Supervisor::TasksController < Supervisor::BaseController
   before_action :load_task, only: %i(destroy show edit update)
+  authorize_resource
 
   # GET /supervisor/tasks
   def index

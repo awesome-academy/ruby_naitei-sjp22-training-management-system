@@ -1,6 +1,7 @@
 class Admin::AdminUsersController < Admin::BaseController
   before_action :load_admin, only: %i(show destroy activate deactivate)
   before_action :load_supervisor, only: :promote
+  authorize_resource class: "User"
 
   # GET /admin/admin_users
   def index
