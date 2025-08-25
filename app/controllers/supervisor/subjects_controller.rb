@@ -1,6 +1,7 @@
 class Supervisor::SubjectsController < Supervisor::BaseController
   before_action :load_subject,
                 only: %i(show edit update destroy_tasks destroy)
+  authorize_resource
 
   # GET /supervisor/subjects
   def index
