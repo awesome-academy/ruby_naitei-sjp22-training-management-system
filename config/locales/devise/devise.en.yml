@@ -9,6 +9,9 @@ en:
         didnt_receive_unlock_instructions: "Didn't receive unlock instructions?"
         sign_in_with: "Sign in with %{provider}"
     confirmations:
+      new:
+        title: "Resend confirmation instructions"
+        submit: "Resend confirmation instructions"
       confirmed: "Your email address has been successfully confirmed."
       send_instructions: "You will receive an email with instructions for how to confirm your email address in a few minutes."
       send_paranoid_instructions: "If your email address exists in our database, you will receive an email with instructions for how to confirm your email address in a few minutes."
@@ -29,17 +32,35 @@ en:
         confirm: "You can confirm your account email through the link below:"
         link_text: "Confirm my account"
       reset_password_instructions:
+        greeting: "Hello"
+        someone_requested: "Someone has requested a link to change your password. You can do this through the link below."
+        change_my_password: "Change my password"
+        if_you_didnt_request: "If you didn't request this, please ignore this email."
+        your_password_wont_change: "Your password won't change until you access the link above and create a new one."
         subject: "Reset password instructions"
       unlock_instructions:
         subject: "Unlock instructions"
       email_changed:
-        subject: "EDímail Changed"
+        subject: "Email Changed"
       password_change:
         subject: "Password Changed"
     omniauth_callbacks:
       failure: 'Could not authenticate you from %{kind} because "%{reason}".'
       success: "Successfully authenticated from %{kind} account."
     passwords:
+      new:
+        title: "Forgot your password?"
+        submit_button: "Send me reset password instructions"
+        heading: "Forgot your password?"
+        forgot_your_password: "Forgot your password?"
+      edit:
+        title: "Change your password"
+        heading: "Change your password"
+        submit_button: "Change my password"
+        characters_minimum: "characters minimum"
+        new_password: "New password"
+        confirm_new_password: "Confirm new password"
+        change_my_password: "Change my password"
       no_token: "You can't access this page without coming from a password reset email. If you do come from a password reset email, please make sure you used the full URL provided."
       send_instructions: "You will receive an email with instructions on how to reset your password in a few minutes."
       send_paranoid_instructions: "If your email address exists in our database, you will receive a password recovery link at your email address in a few minutes."
@@ -77,6 +98,15 @@ en:
       signed_in: "Signed in successfully."
       signed_out: "Signed out successfully."
       already_signed_out: "Signed out successfully."
+      new:
+        heading: "Log in"
+        email_label: "Email"
+        password_label: "Password"
+        submit_button: "Log in"
+        new_user_text: "Don't have an account? Sign up now!"
+        sign_up_link: "Sign up"
+        title: "Log in"
+        forgot_your_password: "Forgot your password?"
     unlocks:
       send_instructions: "You will receive an email with instructions for how to unlock your account in a few minutes."
       send_paranoid_instructions: "If your account exists, you will receive an email with instructions for how to unlock it in a few minutes."
