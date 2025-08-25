@@ -1,23 +1,22 @@
 # config/routes.rb
 
 Rails.application.routes.draw do
+  # OmniAuth callbacks phải nằm ngoài scope động
+  devise_for :users, only: :omniauth_callbacks, controllers: {
+    omniauth_callbacks: 'users/omniauth_callbacks'
+  }
+
   scope "(:locale)", locale: /vi|en/ do
     root "static_pages#home"
-    
-    # google login
-    post "/auth/google_oauth2", as: :google_login
-    get "/auth/google_oauth2/callback", to: "sessions#create_from_google"
-    get "/auth/failure", to: redirect("/login") 
 
-    # --- Authentication & User Management ---
-    get "/signup", to: "users#new"
-    post "/signup", to: "users#create"
-    get "/login", to: "sessions#new"
-    post "/login", to: "sessions#create"
-    delete "/logout", to: "sessions#destroy"
+    # Devise routes (không bao gồm omniauth_callbacks)
+    devise_for :users, skip: :omniauth_callbacks, controllers: {
+      sessions: 'users/sessions',
+      registrations: 'users/registrations',
+      confirmations: 'users/confirmations',
+      passwords: 'users/passwords'
+    }
 
-    resources :account_activations, only: :edit
-    resources :password_resets, only: %i(new create edit update)
     resources :users, only: %i(show edit update)
 
     # Subject search API (accessible to all authenticated users)
@@ -26,7 +25,6 @@ Rails.application.routes.draw do
     # --- Trainee Namespace ---
     namespace :trainee do
       resources :daily_reports, only: %i(index show new create edit update destroy)
-
       resources :courses, only: %i(show) do
         member do
           get :members
@@ -34,7 +32,6 @@ Rails.application.routes.draw do
         end
         resources :subjects, only: %i(show)
       end
-
       resources :user_subjects, only: %i(update)
       resources :user_tasks, only: [] do
         member do
@@ -89,7 +86,7 @@ Rails.application.routes.draw do
       end
       resources :subjects do
         member do
-          delete :destroy_tasks     
+          delete :destroy_tasks
         end
       end
     end

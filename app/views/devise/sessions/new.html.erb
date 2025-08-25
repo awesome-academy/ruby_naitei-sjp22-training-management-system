@@ -1,0 +1,20 @@
+<% provide :title, t("sessions.new.title") %>
+<h2><%= t("sessions.new.heading") %></h2>
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+      <%= f.label :email, t("sessions.new.email_label") %>
+      <%= f.email_field :email, class: "form-control" %>
+      <%= f.label :password, t("sessions.new.password_label") %>
+      <%= link_to t("sessions.new.forgot_password_link"), new_password_path(resource_name) %>
+      <%= f.password_field :password, class: "form-control" %>
+      <%= f.label :remember_me, class: "checkbox inline" do %>
+        <%= f.check_box :remember_me %>
+        <span><%= t("sessions.new.remember_me_label") %></span>
+      <% end %>
+      <%= f.submit t("sessions.new.submit_button"), class: "btn btn-primary" %>
+    <% end %>
+    <%= link_to t("sessions.new.login_with_google"), Settings.google_oauth2_path, method: :post, data: { turbo: false } %>
+    <p><%= t("sessions.new.new_user_text") %><%= link_to t("sessions.new.sign_up_link"), new_registration_path(resource_name) %></p>
+  </div>
+</div>

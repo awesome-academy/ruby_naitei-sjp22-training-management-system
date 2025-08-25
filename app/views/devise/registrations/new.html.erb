@@ -1,0 +1,23 @@
+<% provide :title, t("users.new.sign_up") %>
+<% provide(:button_text, t("users.new.create_my_account")) %>
+<h2><%= t("users.new.sign_up") %></h2>
+<div class="row">
+    <div class="col-md-6 col-md-offset-3">
+        <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+          <%= render "devise/shared/error_messages", resource: resource %>
+          <%= f.label :name, t("users.form.name_label") %>
+          <%= f.text_field :name, class: "form-control" %>
+          <%= f.label :email, t("users.form.email_label") %>
+          <%= f.email_field :email, class: "form-control" %>
+          <%= f.label :birthday, t("users.form.birthday_label") %>
+          <%= f.date_field :birthday, class: "form-control" %>
+          <%= f.label :gender, t("users.form.gender_label") %>
+          <%= f.select :gender, options_for_select(gender_options, resource.gender), {prompt: t("users.form.select_gender")}, {class: "form-control"} %>
+          <%= f.label :password, t("users.form.password_label") %>
+          <%= f.password_field :password, class: "form-control" %>
+          <%= f.label :password_confirmation, t("users.form.password_confirmation_label") %>
+          <%= f.password_field :password_confirmation, class: "form-control" %>
+          <%= f.submit yield(:button_text), class: "btn btn-primary" %>
+        <% end %>
+    </div>
+</div>

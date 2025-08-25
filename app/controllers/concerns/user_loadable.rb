@@ -41,16 +41,17 @@ module UserLoadable
   end
 
   def valid_user
-    return if @user.activated && @user.authenticated?(:reset, params[:id])
+    return if @user.confirmed? && @user.authenticated?(:reset, params[:id])
 
     flash[:danger] = t("password_resets.edit.user_inactive")
-    redirect_to login_url
+    redirect_to new_user_session_path
   end
 
   def check_expiration
-    return unless @user.password_reset_expired?
+    # Devise handles password reset expiration automatically
+    return unless @user.reset_password_period_valid?
 
     flash[:danger] = t("password_resets.edit.expired_token")
-    redirect_to new_password_reset_url
+    redirect_to new_password_path(resource_name)
   end
 end

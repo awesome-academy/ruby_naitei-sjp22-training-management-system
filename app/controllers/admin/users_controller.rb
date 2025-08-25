@@ -142,7 +142,7 @@ class Admin::UsersController < Admin::BaseController
   def toggle_supervisors_status supervisors
     updated_count = 0
     supervisors.each do |supervisor|
-      new_status = supervisor.activated? ? false : true
+      new_status = !supervisor.activated?
       updated_count += 1 if supervisor.update(activated: new_status)
     end
     updated_count
