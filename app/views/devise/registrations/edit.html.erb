@@ -1,0 +1,17 @@
+<% provide(:title, t(".edit_user")) %>
+<% provide(:button_text, t(".save_change")) %>
+
+<h2><%= t(".update_profile") %></h2>
+
+<div class="row">
+  <div class="gravatar_edit">
+    <%= gravatar_for resource %>
+    <div>
+      <%= link_to t(".change"), Settings.links.gravatar_email, target: "_blank" %>
+    </div>
+  </div>
+
+  <div class="col-md-6 col-md-offset-2">
+    <%= render partial: "devise/registrations/form", locals: {users_custom_path: registration_path(resource)} %>
+  </div>
+</div>

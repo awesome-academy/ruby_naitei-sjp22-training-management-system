@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
   include SessionsHelper
 
   before_action :set_locale
-  before_action :logged_in_user
+  before_action :logged_in_user, unless: :devise_controller?
   before_action :store_user_location
 
   protected
@@ -32,15 +32,15 @@ class ApplicationController < ActionController::Base
   end
 
   def logged_in_user
-    return if logged_in?
+    return if user_signed_in?
 
     flash[:danger] = t("shared.login_required")
     store_location
-    redirect_to login_url
+    redirect_to new_user_session_path
   end
 
   def logged_out_user
-    return unless logged_in?
+    return unless user_signed_in?
 
     flash[:info] = t("shared.already_logged_in")
     redirect_to root_url

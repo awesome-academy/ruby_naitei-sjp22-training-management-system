@@ -31,7 +31,8 @@
   },
   "[erb]": {
     "editor.formatOnSave": true,
-    "editor.defaultFormatter": "Shopify.ruby-lsp"
+    "editor.defaultFormatter": "Shopify.ruby-lsp",
+    "ruby.format": "rubocop"
   },
   "ruby.rubocop.configFilePath": ".rubocop.yml",
   "ruby.format": "rubocop",
