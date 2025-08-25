@@ -145,6 +145,7 @@ vi:
         forgot_password: "Quên mật khẩu?"
         confirmation: "Không nhận được email xác nhận?"
         unlock: "Không nhận được email mở khóa?"
+        login_with_google: "Đăng nhập với tài khoản Google"
   errors:
     messages:
       already_confirmed: "đã được xác nhận rồi, vui lòng thử đăng nhập"

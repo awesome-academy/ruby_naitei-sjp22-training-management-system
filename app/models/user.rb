@@ -8,7 +8,7 @@ class User < ApplicationRecord
   devise :database_authenticatable,
          :rememberable, :validatable,
          :confirmable, :registerable,
-         :recoverable
+         :recoverable, :omniauthable, omniauth_providers: [:google_oauth2]
 
   # Associations
   has_many :user_courses, dependent: :destroy

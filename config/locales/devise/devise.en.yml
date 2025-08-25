@@ -145,6 +145,7 @@ en:
         forgot_password: "Forgot your password?"
         confirmation: "Didn't receive confirmation instructions?"
         unlock: "Didn't receive unlock instructions?"
+        login_with_google: "Sign in with Google"
   errors:
     messages:
       already_confirmed: "was already confirmed, please try signing in"
