@@ -74,9 +74,13 @@ gem "image_processing", "1.12.2"
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html
   gem "debug", platforms: %i(mri mingw x64_mingw)
+  gem "factory_bot_rails"
+  gem "rails-controller-testing"
+  gem "rspec-rails", "~> 5.0.0"
   gem "rubocop", "~> 1.26", require: false
   gem "rubocop-checkstyle_formatter", require: false
   gem "rubocop-rails", "~> 2.14.0", require: false
+  gem "shoulda-matchers", "~> 5.0"
 end
 
 group :development do
@@ -96,6 +100,8 @@ group :test do
   # Use system testing [https://guides.rubyonrails.org/testing.html]
   gem "capybara"
   gem "selenium-webdriver"
+  gem "simplecov"
+  gem "simplecov-rcov"
   gem "webdrivers"
 end
 
