@@ -13,6 +13,7 @@ rescue ActiveRecord::PendingMigrationError => e
 end
 
 RSpec.configure do |config|
+  config.include Devise::Test::ControllerHelpers, type: :controller
   config.fixture_path = Rails.root.join("spec/fixtures")
 
   config.use_transactional_fixtures = true
