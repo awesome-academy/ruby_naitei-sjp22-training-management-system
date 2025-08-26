@@ -2,16 +2,11 @@
   <h2><%= t(".course_dashboard_title") %></h2>
   <div class="row filter-form">
     <div class="col-md-6">
-      <%= form_with(url: root_path, method: :get, local: true) do |f| %>
+      <%= search_form_for @q, url: root_path, method: :get, class: "form-inline" do |f| %>
         <div class="input-group">
-          <%= f.select :status,
-                       options_for_select(
-                         [[t(".all_statuses"), ""]] +
-                         Course.statuses.keys.map {|s| [t("#{s}"), s]},
-                         params[:status]
-                       ),
-                       {},
-                       class: "form-control" %>
+          <%= f.select :status_eq,
+                        options_for_select(status_filter_options, params.dig(:q, :status_eq)),
+                        class: "form-control" %>
           <span class="input-group-btn">
             <%= f.submit t(".apply"), class: "btn btn-primary" %>
           </span>

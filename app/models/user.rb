@@ -40,22 +40,10 @@ class User < ApplicationRecord
   scope :sort_by_name, -> {order(:name)}
   scope :trainers, -> {where(role: :supervisor).count}
   scope :trainees, -> {where(role: :trainee).count}
-  scope :supervised_by, (lambda do |user_id|
-    joins(:supervised_courses).where(supervised_courses: {user_id:})
-  end)
   scope :by_course, (lambda do |course_ids|
     return all if course_ids.blank?
 
     joins(:courses).where(courses: {id: course_ids})
-  end)
-  scope :filter_by_status, (lambda do |status|
-    return all if status.blank?
-
-    if status.to_s == "true"
-      where.not(confirmed_at: nil)
-    else
-      where(confirmed_at: nil)
-    end
   end)
   scope :filter_by_name, (lambda do |search|
     return all if search.blank?

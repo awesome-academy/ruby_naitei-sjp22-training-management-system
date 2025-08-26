@@ -24,6 +24,7 @@ class Course < ApplicationRecord
   ].freeze
   IMAGE_DISPLAY_SIZE = [120, 80].freeze
   URL_FORMAT = %r{\Ahttps://.*}
+  TRAINEE_RANGE_REGEX = /\A\d+-\d+\z/
 
   # Enums
   enum status: {not_started: Settings.course.status.not_started,
@@ -77,8 +78,6 @@ class Course < ApplicationRecord
   scope :upcoming, -> {where(start_date: Date.current.next_day..)}
   scope :completed, -> {where(finish_date: ..Date.current.prev_day)}
   scope :ordered_by_start_date, -> {order(:start_date)}
-  scope :by_status, ->(status) {where(status:) if status.present?}
-  scope :supervised_by, ->(user_id) {where(supervisor_id: user_id)}
   scope :with_counts, (lambda do
     select(
       "courses.*",
@@ -99,44 +98,6 @@ class Course < ApplicationRecord
             "%#{sanitize_sql_like(query)}%")
     end
   end)
-  scope :search_by_trainer_name, (lambda do |query|
-    if query.present?
-      joins(:supervisors)
-        .where("users.name LIKE ?",
-               "%#{sanitize_sql_like(query)}%")
-        .distinct
-    end
-  end)
-  scope :by_start_date_from, (lambda do |date|
-                                where("start_date >= ?", date) if date.present?
-                              end)
-  scope :by_start_date_to, (lambda do |date|
-                              where("start_date <= ?", date) if date.present?
-                            end)
-  scope :by_trainer, (lambda do |trainer_id|
-    if trainer_id.present?
-      joins(:course_supervisors)
-        .where(course_supervisors: {user_id: trainer_id})
-    end
-  end)
-  scope :filter_by_params, (lambda do |params|
-    relation = self
-
-    search_query = params[:search_query]
-    if search_query.present?
-      relation = if params[:search_type] == Settings.course.creators
-                   relation.search_by_trainer_name(search_query)
-                 else
-                   relation.search_by_name(search_query)
-                 end
-    end
-
-    relation = relation.by_status(params[:status])
-                       .by_start_date_from(params[:start_date_from])
-                       .by_start_date_to(params[:start_date_to])
-
-    relation
-  end)
   scope :by_course, (lambda do |course_ids|
     where(id: course_ids) if course_ids.present?
   end)
@@ -145,11 +106,21 @@ class Course < ApplicationRecord
 
     includes(:user_courses).where(user_courses: {status:}).distinct
   end)
-  scope :by_supervisor_course, (lambda do |supervisor_id|
-    return all if supervisor_id.blank?
-
-    joins(:course_supervisors)
-    .where(course_supervisors: {user_id: supervisor_id})
+  scope :trainee_range_eq, (lambda do |value|
+    joins(:users)
+      .where(users: {role: 0})
+      .group(:id)
+      .yield_self do |scope|
+        case value
+        when "31+"
+          scope.having("COUNT(users.id) >= 31")
+        when TRAINEE_RANGE_REGEX
+          min, max = value.split("-").map(&:to_i)
+          scope.having("COUNT(users.id) BETWEEN ? AND ?", min, max)
+        else
+          scope
+        end
+      end
   end)
 
   def trainees_count
@@ -172,6 +143,19 @@ class Course < ApplicationRecord
 
   def subjects_count
     Course.subjects.count
+  end
+
+  def self.ransackable_attributes _auth_object = nil
+    %w(created_at finish_date id name start_date status
+      user_id trainee_range)
+  end
+
+  def self.ransackable_associations _auth_object = nil
+    %w(course_supervisors)
+  end
+
+  def self.ransackable_scopes _auth_object = nil
+    [:trainee_range_eq]
   end
 
   private

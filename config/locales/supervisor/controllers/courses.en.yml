@@ -38,6 +38,7 @@ en:
       index:
         title: "All Courses"
         add_course_button: "Add Course"
+      filter_form:
         search_by: "Search By"
         search_placeholder: "Enter keyword..."
         courses: "Course Name"
@@ -46,6 +47,7 @@ en:
         start_date_range: "Start Date Range"
         apply_button: "Apply"
         clear_filter_button: "Clear Filter"
+        trainee_range_placeholder: "Select number of trainees"
       courses_table:
         no_courses_found: "No courses were found."
         course_name: "Course Name"

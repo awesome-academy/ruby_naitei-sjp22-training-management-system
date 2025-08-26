@@ -4,25 +4,11 @@ class StaticPagesController < ApplicationController
   def home
     redirect_to admin_dashboards_path if manager?
 
-    @pagy, @courses = pagy(
-      current_user.courses
-                  .by_status(params[:status])
-                  .ordered_by_start_date
-                  .includes(:user)
-                  .with_attached_image,
-      items: Settings.ui.items_per_page
-    )
-  end
+    @q = Course.accessible_by(current_ability)
+               .ordered_by_start_date
+               .includes(:user)
+               .ransack(params[:q])
 
-  private
-  def trainee_dashboard
-    @pagy, @courses = pagy(
-      current_user.courses
-                  .by_status(params[:status])
-                  .ordered_by_start_date
-                  .includes(:user)
-                  .with_attached_image,
-      items: Settings.ui.items_per_page
-    )
+    @pagy, @courses = pagy(@q.result(distinct: true))
   end
 end

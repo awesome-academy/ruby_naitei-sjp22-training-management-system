@@ -2,15 +2,28 @@
   <div class="container-fluid">
     <div class="row align-items-center">
       <div class="col-xs-8">
-        <%= form_with url: trainee_daily_reports_path, method: :get, class: "form-inline" do |form| %>
-          <%= form.select :course_id, options_for_select(current_user.courses.map {|c| [c.name, c.id]}, params[:course_id]), {prompt: t("shared.filter.select_course_placeholder")}, {class: "form-control form-select"} %>
-          <%= form.date_field :filter_date, value: params[:filter_date], class: "form-control date-picker" %>
-          <button class="btn btn-primary" type="submit"><%= t("shared.filter.apply_filter") %></button>
+        <%= search_form_for @q, url: trainee_daily_reports_path, method: :get, class: "form-inline" do |f| %>
+          <%= f.select :course_id_eq,
+              options_for_select(
+                current_user.courses.map {|c| [c.name, c.id]},
+                @q.course_id_eq
+              ),
+              {prompt: t("shared.filter.select_course_placeholder")},
+              {class: "form-control form-select"} %>
+
+          <%= f.date_field :created_at_day_eq,
+              value: @q.created_at_day_eq,
+              class: "form-control date-picker" %>
+
+          <%= f.submit t("shared.filter.apply_filter"), class: "btn btn-primary width-fit" %>
         <% end %>
       </div>
+
       <% if current_user.trainee? %>
         <div class="col-xs-4 text-right">
-          <%= link_to t("shared.filter.create_report_button"), new_trainee_daily_report_path, class: "btn btn-primary" %>
+          <%= link_to t("shared.filter.create_report_button"),
+              new_trainee_daily_report_path,
+              class: "btn btn-primary" %>
         </div>
       <% end %>
     </div>

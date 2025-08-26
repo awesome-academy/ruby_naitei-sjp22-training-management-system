@@ -3,15 +3,6 @@
     <% @courses.each do |course| %>
       <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4 mt-4">
         <%= link_to subjects_trainee_course_path(course), class: "course-card-link" do %>
-          <div class="course-thumbnail">
-            <% if course.image.attached? %>
-              <%= image_tag course.image, class: "course-image" %>
-            <% else %>
-              <div class="default-thumbnail">
-                <i class="fas fa-graduation-cap"></i>
-              </div>
-            <% end %>
-          </div>
           <div class="card course-card-v2">
             <div class="card-header-v2">
               <div class="meta-line">

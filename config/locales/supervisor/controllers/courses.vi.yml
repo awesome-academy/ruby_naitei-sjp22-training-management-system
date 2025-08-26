@@ -38,6 +38,7 @@ vi:
       index:
         title: "Tất cả Khóa học"
         add_course_button: "Thêm Khóa học"
+      filter_form:
         search_by: "Tìm kiếm theo"
         search_placeholder: "Nhập từ khóa..."
         courses: "Tên khóa học"
@@ -46,6 +47,7 @@ vi:
         start_date_range: "Khoảng ngày bắt đầu"
         apply_button: "Áp dụng"
         clear_filter_button: "Xóa bộ lọc"
+        trainee_range_placeholder: "Chọn số lượng học viên"
       courses_table:
         no_courses_found: "Không tìm thấy khóa học nào."
         course_name: "Tên Khóa học"

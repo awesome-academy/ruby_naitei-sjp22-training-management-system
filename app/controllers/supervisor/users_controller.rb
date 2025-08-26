@@ -1,6 +1,5 @@
 class Supervisor::UsersController < Supervisor::BaseController
   before_action :load_courses, only: %i(index)
-  before_action :load_trainees, only: %i(index)
   before_action :load_trainee, only: %i(update_status show
   update_user_course_status delete_user_course update)
   before_action :set_css_class, only: %i(index show)
@@ -11,7 +10,8 @@ class Supervisor::UsersController < Supervisor::BaseController
 
   # GET supervisor/users
   def index
-    @pagy, @trainees = pagy(@user_trainees)
+    @q = User.trainee.ransack(params[:q])
+    @pagy, @trainees = pagy(@q.result(distinct: true))
   end
 
   # GET /supervisor/users/:id
@@ -64,13 +64,6 @@ class Supervisor::UsersController < Supervisor::BaseController
   end
 
   private
-
-  def load_trainees
-    @user_trainees = User.trainee.filter_by_name(params[:search])
-                         .filter_by_status(params[:status])
-                         .by_course(params[:course])
-                         .recent
-  end
 
   def load_courses
     @courses = Course.recent

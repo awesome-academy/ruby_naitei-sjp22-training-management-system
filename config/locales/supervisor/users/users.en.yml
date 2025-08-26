@@ -27,18 +27,18 @@ en:
         trainee_no_selection: "No trainees selected for bulk deactivation."
         bulk_deactivate_success: "%{count} trainees successfully deactivated."
         bulk_deactivate_failed: "Failed to deactivate trainees."
-      
+
       delete_user_course:
         delete_success: "User course deleted successfully."
         delete_failed: "Failed to delete user course."
-      
+
       update_user_course_status:
         update_success: "User course status updated successfully."
         update_failed: "Failed to update user course status."
 
       filter_form:
         search_label: "Search Trainees"
-        search_placeholder: "Enter trainee name"
+        search_placeholder: "Enter trainee name or email"
         status_label: "Status"
         status_all: "All"
         status_active: "Active"
@@ -79,7 +79,7 @@ en:
         no_trainees_found: "No trainees found."
         not_trainees_description: "You can manage trainees here. Use the filter options to find specific trainees or perform bulk actions."
         show_results: "Show Results"
-        
+
       trainee_no_selection: "No trainees selected."
       bulk_deactivate_confirm: "Are you sure you want to deactivate the selected trainees?"
 
@@ -106,16 +106,16 @@ en:
           status: "Status"
           actions: "Actions"
         course_history: "Course History"
-        
+
       edit_profile_form:
         name_placeholder: "Enter trainee name"
         email_placeholder: "Enter email address"
         select_gender: "Select Gender"
         save_changes: "Save Changes"
-      
+
       modal_edit_profile:
         edit_profile_title: "Edit Trainee Profile"
-      
+
       user_courses_list:
         status_not_started: "Not Started"
         status_in_progress: "In Progress"

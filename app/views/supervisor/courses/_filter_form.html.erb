@@ -1,0 +1,62 @@
+<%= search_form_for @q, url: supervisor_courses_path, html: {class: "filter-form", role: "form"} do |f| %>
+
+  <div class="row">
+    <div class="col-md-7">
+      <div class="form-group">
+        <label for="search_type"><%= t(".search_by") %></label>
+        <div class="input-group unified-search-group">
+          <span class="input-group-btn">
+            <%= select_tag :search_type,
+                            options_for_select(search_type_options, params[:search_type]),
+                            class: "form-control search-type-select" %>
+          </span>
+          <%= f.text_field :name_cont,
+                            class: "form-control",
+                            placeholder: t(".search_placeholder") %>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-2">
+      <div class="form-group">
+        <label for="status"><%= Course.human_attribute_name(:status) %></label>
+        <%= f.select :status_eq,
+                        options_for_select(status_filter_options, params.dig(:q, :status_eq)),
+                        class: "form-control" %>
+      </div>
+    </div>
+
+    <div class="col-md-3">
+      <div class="form-group filter-action-buttons-group">
+        <label>&nbsp;</label>
+        <div class="filter-action-buttons">
+          <%= f.submit t(".apply_button"), class: "btn btn-primary width-fit" %>
+          <%= link_to t(".clear_filter_button"), supervisor_courses_path, class: "btn btn-default" %>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row filter-row-secondary">
+    <div class="col-md-5">
+      <div class="form-group">
+        <label for="start_date_from"><%= t(".start_date_range") %></label>
+        <div class="input-group">
+          <%= f.date_field :start_date_gteq, class: "form-control" %>
+          <span class="input-group-addon">-</span>
+          <%= f.date_field :start_date_lteq, class: "form-control" %>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-2">
+      <div class="form-group">
+        <label for="trainee_range"><%= t(".trainee_range") %></label>
+        <%= f.select :trainee_range_eq,
+          options_for_select(trainee_range_options, params[:q]&.dig(:trainee_range_eq)),
+          {prompt: t(".trainee_range_placeholder")},
+          class: "form-control" %>
+      </div>
+    </div>
+  </div>
+<% end %>
