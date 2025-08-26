@@ -313,6 +313,10 @@ GEM
       zeitwerk (~> 2.5)
     rainbow (3.1.1)
     rake (13.3.0)
+    ransack (4.3.0)
+      activerecord (>= 6.1.5)
+      activesupport (>= 6.1.5)
+      i18n
     rdoc (6.14.2)
       erb
       psych (>= 4.0.0)
@@ -475,6 +479,7 @@ DEPENDENCIES
   rails (~> 7.0.5)
   rails-controller-testing
   rails-i18n (~> 7.0)
+  ransack
   rspec-core
   rspec-rails
   rubocop (~> 1.26)

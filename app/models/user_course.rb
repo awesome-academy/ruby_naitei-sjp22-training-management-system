@@ -30,6 +30,11 @@ class UserCourse < ApplicationRecord
     joins(:user).where(users: {role: :trainee}).includes(:user)
   end)
 
+  def self.ransackable_attributes _auth_object = nil
+    %w(course_id created_at finished_at id joined_at status
+      updated_at user_id)
+  end
+
   private
 
   def trainee?

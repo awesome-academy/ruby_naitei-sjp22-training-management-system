@@ -4,12 +4,8 @@ class Admin::DailyReportsController < Admin::BaseController
 
   # GET /daily_reports
   def index
-    all_reports = DailyReport.recent.includes(DailyReport::EAGER_LOADING_PARAMS)
-                             .by_course_filter(params[:course_id])
-                             .on_day(params[:filter_date])
-                             .by_user(params[:user_id])
-
-    @pagy, @daily_reports = pagy(all_reports)
+    @q = DailyReport.recent.includes(DailyReport::EAGER_LOADING_PARAMS).ransack(params[:q])
+    @pagy, @daily_reports = pagy(@q.result(distinct: true))
   end
 
   # GET /daily_reports/:id

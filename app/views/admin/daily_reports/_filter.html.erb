@@ -2,10 +2,15 @@
   <div class="container-fluid">
     <div class="row align-items-center">
       <div class="col-xs-8">
-        <%= form_with url: admin_daily_reports_path, method: :get, class: "form-inline" do |form| %>
-          <%= form.select :course_id, options_for_select(Course.all.map {|c| [c.name, c.id]}, params[:course_id]), {prompt: t("shared.filter.select_course_placeholder")}, {class: "form-control form-select"} %>
-          <%= form.select :user_id, options_for_select(User.trainee.map {|c| [c.name, c.id]}, params[:user_id]), {prompt: t("shared.filter.select_user_placeholder")}, {class: "form-control form-select"} %>
-          <%= form.date_field :filter_date, value: params[:filter_date], class: "form-control date-picker" %>
+        <%= search_form_for @q, url: admin_daily_reports_path, method: :get, html: {class: "form-inline"} do |f| %>
+          <%= f.select :course_id_eq, options_for_select(Course.all.map {|c| [c.name, c.id]}, params.dig(:q, :course_id_eq)),
+                       {prompt: t("shared.filter.select_course_placeholder")}, {class: "form-control form-select"} %>
+
+          <%= f.select :user_id_eq, options_for_select(User.trainee.map {|u| [u.name, u.id] }, params.dig(:q, :user_id_eq)),
+                       {prompt: t("shared.filter.select_user_placeholder")}, {class: "form-control form-select"} %>
+
+          <%= f.date_field :created_at_day_eq, value: params.dig(:q, :created_at_day_eq), class: "form-control date-picker" %>
+
           <button class="btn btn-primary" type="submit"><%= t("shared.filter.apply_filter") %></button>
         <% end %>
       </div>

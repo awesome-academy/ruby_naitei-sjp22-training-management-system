@@ -1,12 +1,11 @@
-<%# app/views/admin/users/_filter_form.html.erb %>
-<%= form_with url: admin_admin_users_path, method: :get, class: "filter-form", role: "form" do %>
+<%= search_form_for @q, url: admin_admin_users_path, method: :get, html: {class: "filter-form", role: "form"} do |f| %>
   <div class="row">
     <div class="col-md-7">
       <div class="form-group">
-        <label for="search_type"><%= t(".search_by") %></label>
+        <label><%= t(".search_by") %></label>
         <div class="input-group">
           <span class="input-group-addon"><%= t(".name") %></span>
-          <%= text_field_tag :search, params[:search],
+          <%= f.search_field :name_or_email_cont,
                              class: "form-control",
                              placeholder: t(".search_placeholder") %>
         </div>
@@ -15,10 +14,15 @@
 
     <div class="col-md-2">
       <div class="form-group">
-        <label for="status"><%= t(".status") %></label>
-        <%= select_tag :status,
-                       options_for_select(user_status_filter_options, params[:status]),
-                       class: "form-control" %>
+        <label><%= t(".status") %></label>
+        <%= f.select :confirmed_at_null,
+            options_for_select([
+              [t(".status_all"), nil],
+              [t(".status_inactive"), true],
+              [t(".status_active"), false]
+            ], params.dig(:q, :confirmed_at_null)),
+            {},
+            {class: "form-select status-select"} %>
       </div>
     </div>
 
@@ -26,7 +30,7 @@
       <div class="form-group filter-action-buttons-group">
         <label>&nbsp;</label>
         <div class="filter-action-buttons">
-          <%= submit_tag t(".apply_button"), class: "btn btn-primary width-fit" %>
+          <%= f.submit t(".apply_button"), class: "btn btn-primary width-fit" %>
           <%= link_to t(".clear_filter_button"), admin_admin_users_path, class: "btn btn-default" %>
         </div>
       </div>

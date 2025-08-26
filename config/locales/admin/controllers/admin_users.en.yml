@@ -49,12 +49,14 @@ en:
             create: "Add"
       filter_form:
         apply_button: "Apply"
-        search_placeholder: "Search by name..."
+        search_placeholder: "Search by name or email..."
         search_by: "Search by"
         enter_keyword: "Enter keyword..."
-        clear_filter_button: "Clear Filter"     
-        name: "Name"   
-        all_statuses: "All Statuses"
+        clear_filter_button: "Clear Filter"
+        name: "Name"
+        status_all: "All Statuses"
+        status_active: "Active"
+        status_inactive: "Inactive"
       admins_table:
         name: "Name"
         email: "Email"
@@ -71,7 +73,7 @@ en:
       promote_form:
         promote: "Promote"
         choose_supervisor: "Choose Supervisor"
-        choose: "Choose"  
+        choose: "Choose"
       courses_table:
         id: "ID"
         course_name: "Course Name"
@@ -86,7 +88,7 @@ en:
         phone: "Phone"
         address: "Address"
         birthday: "Date of Birth"
-        gender: "Gender"      
+        gender: "Gender"
       activate:
         admin_activated: "Admin has been activated."
         activation_failed: "Failed to activate admin."

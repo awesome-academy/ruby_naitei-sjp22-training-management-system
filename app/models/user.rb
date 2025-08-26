@@ -88,6 +88,24 @@ class User < ApplicationRecord
     update_columns(confirmed_at: Time.zone.now)
   end
 
+  def self.ransackable_attributes _auth_object = nil
+    %w(
+      confirmed_at
+      created_at
+      email
+      id
+      name
+      role
+    )
+  end
+
+  def self.ransackable_associations _auth_object = nil
+    %w(
+      course_supervisors
+      user_courses
+    )
+  end
+
   private
 
   def birthday_within_valid_years
