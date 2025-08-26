@@ -13,6 +13,10 @@ class CourseSupervisor < ApplicationRecord
   scope :by_user, ->(user) {where(user:)}
   scope :recent, -> {order(created_at: :desc)}
 
+  def self.ransackable_attributes _auth_object = nil
+    %w(course_id created_at id updated_at user_id)
+  end
+
   private
 
   def ensure_course_has_minimum_supervisors

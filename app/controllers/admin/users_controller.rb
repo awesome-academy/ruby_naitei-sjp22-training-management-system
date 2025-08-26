@@ -1,5 +1,4 @@
 class Admin::UsersController < Admin::BaseController
-  before_action :load_supervisors, only: %i(index)
   before_action :load_courses, only: %i(index)
   before_action :load_trainees, only: %i(new_supervisor add_role_supervisor)
   before_action :load_supervisor,
@@ -10,7 +9,8 @@ class Admin::UsersController < Admin::BaseController
 
   # GET /admin/users
   def index
-    @pagy, @supervisors = pagy(@user_supervisors)
+    @q = User.supervisor.ransack(params[:q])
+    @pagy, @supervisors = pagy(@q.result(distinct: true))
   end
 
   # GET /admin/users/new_supervisor
@@ -90,13 +90,6 @@ class Admin::UsersController < Admin::BaseController
 
   def user_params
     params.require(:user).permit(User::PERMITTED_UPDATE_ATTRIBUTES)
-  end
-
-  def load_supervisors
-    @user_supervisors = User.supervisor.filter_by_name(params[:search])
-                            .filter_by_status(params[:status])
-                            .by_course(params[:course])
-                            .recent
   end
 
   def load_courses

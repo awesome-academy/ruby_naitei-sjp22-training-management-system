@@ -35,9 +35,19 @@ class DailyReport < ApplicationRecord
     processed_date = Date.strptime(date, Settings.params.date)
     where(created_at: processed_date.all_day)
   end)
-  scope :by_course_filter, (lambda do |course_id|
-    where(course_id:) if course_id.present?
-  end)
+
+  def self.ransackable_attributes _auth_object = nil
+    %w(content course_id created_at id status updated_at
+      user_id created_at_day)
+  end
+
+  def self.ransackable_associations _auth_object = nil
+    %w(course user)
+  end
+
+  ransacker :created_at_day do |_parent|
+    Arel.sql("DATE(created_at)")
+  end
 
   private
 
