@@ -1,6 +1,7 @@
 class Supervisor::CourseSubjectsController < Supervisor::BaseController
   before_action :load_course
   before_action :load_course_subject, only: %i(destroy finish)
+  authorize_resource
 
   # DELETE /supervisor/courses/:course_id/course_subjects/:id
   def destroy

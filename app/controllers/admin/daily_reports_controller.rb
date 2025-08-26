@@ -1,4 +1,7 @@
 class Admin::DailyReportsController < Admin::BaseController
+  before_action :load_daily_report, only: :show
+  authorize_resource
+
   # GET /daily_reports
   def index
     all_reports = DailyReport.recent.includes(DailyReport::EAGER_LOADING_PARAMS)
@@ -10,9 +13,12 @@ class Admin::DailyReportsController < Admin::BaseController
   end
 
   # GET /daily_reports/:id
-  def show
-    @daily_report = DailyReport.submitted.find_by(id: params[:id])
+  def show; end
 
+  private
+
+  def load_daily_report
+    @daily_report = DailyReport.submitted.find_by(id: params[:id])
     return if @daily_report
 
     flash[:danger] = t(".report_not_found")
