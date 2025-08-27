@@ -28,16 +28,9 @@ class DailyReport < ApplicationRecord
   scope :recent, -> {order(updated_at: :desc)}
   scope :by_user, ->(user_id) {where(user_id:) if user_id.present?}
   scope :by_course, ->(course) {where(course:)}
-  scope :by_courses, ->(course_ids) {where(course_ids:)}
-  scope :on_day, (lambda do |date|
-    return if date.blank?
-
-    processed_date = Date.strptime(date, Settings.params.date)
-    where(created_at: processed_date.all_day)
-  end)
 
   def self.ransackable_attributes _auth_object = nil
-    %w(content course_id created_at id status updated_at
+    %w(course_id created_at id
       user_id created_at_day)
   end
 
@@ -45,8 +38,8 @@ class DailyReport < ApplicationRecord
     %w(course user)
   end
 
-  ransacker :created_at_day do |_parent|
-    Arel.sql("DATE(created_at)")
+  ransacker :created_at_day, type: :date do
+    Arel.sql("DATE(CONVERT_TZ(created_at, '+00:00', '+07:00'))")
   end
 
   private

@@ -211,7 +211,7 @@ end
 ActiveRecord::Base.transaction do
   # --- Bước 1: Tạo các dữ liệu lõi (Users, Categories) ---
   puts "-> Đang tạo Users (Admins, Supervisors, Trainees)..."
-  3.times do |n|
+  10.times do |n|
     User.find_or_create_by!(email: "admin-#{n + 1}@example.com") do |user|
       user.name = "Admin User #{n+1}"
       user.password = "password"
@@ -222,7 +222,7 @@ ActiveRecord::Base.transaction do
       user.skip_confirmation!
     end
   end
-  3.times do |n|
+  20.times do |n|
     User.find_or_create_by!(email: "supervisor-#{n + 1}@example.com") do |user|
       user.name = "Supervisor #{n + 1}"
       user.password = "password"
@@ -233,7 +233,7 @@ ActiveRecord::Base.transaction do
       user.skip_confirmation!
     end
   end
-  10.times do |n|
+  100.times do |n|
     User.find_or_create_by!(email: "trainee-#{n + 1}@example.com") do |user|
       user.name = Faker::Name.name
       user.password = "password"
@@ -249,9 +249,9 @@ ActiveRecord::Base.transaction do
   puts "   + Đã tạo/cập nhật: #{User.admin.count} Admins, #{supervisors.count} Supervisors, #{trainees.count} Trainees."
 
   puts "-> Đang tạo Categories và Subjects..."
-  categories = 10.times.map { |i| Category.find_or_create_by!(name: "Category #{i}: #{Faker::Educator.unique.subject.capitalize}") }
+  categories = 20.times.map { |i| Category.find_or_create_by!(name: "Category #{i}: #{Faker::Educator.unique.subject.capitalize}") }
   category_positions = Hash.new(0)
-  subjects = 50.times.map do |i|
+  subjects = 100.times.map do |i|
     subject_name = "Subject #{i}: #{Faker::ProgrammingLanguage.name}: #{Faker::Educator.course_name}"
     subject = Subject.with_deleted.find_or_create_by!(name: subject_name) do |s|
       s.max_score = Settings.subject.default_max_score
@@ -289,7 +289,7 @@ ActiveRecord::Base.transaction do
 
   # Tạo các khóa học ĐÃ KẾT THÚC
   puts "\n  -> Tạo 10 khóa học ĐÃ KẾT THÚC..."
-  3.times.each_with_index do |_, i|
+  15.times.each_with_index do |_, i|
     course_name = "#{Faker::Company.industry.capitalize} (Finished) #{i + 1}"
     course = Course.find_or_create_by!(name: course_name) do |c|
       c.user = supervisors.sample
@@ -305,7 +305,7 @@ ActiveRecord::Base.transaction do
 
   # Tạo các khóa học ĐANG DIỄN RA
   puts "\n  -> Tạo 20 khóa học ĐANG DIỄN RA..."
-  3.times.each_with_index do |_, i|
+  15.times.each_with_index do |_, i|
     course_name = "#{Faker::Company.industry.capitalize} (In-Progress) #{i + 1}"
     course = Course.find_or_create_by!(name: course_name) do |c|
       c.user = supervisors.sample
@@ -321,7 +321,7 @@ ActiveRecord::Base.transaction do
 
   # Tạo các khóa học CHƯA BẮT ĐẦU
   puts "\n  -> Tạo 8 khóa học CHƯA BẮT ĐẦU..."
-  3.times.each_with_index do |_, i|
+  15.times.each_with_index do |_, i|
     course_name = "#{Faker::Company.industry.capitalize} (Pending) #{i + 1}"
     course = Course.find_or_create_by!(name: course_name) do |c|
       c.user = supervisors.sample

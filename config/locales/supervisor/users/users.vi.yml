@@ -38,7 +38,7 @@ vi:
 
       filter_form:
         search_label: "Tìm kiếm học viên"
-        search_placeholder: "Nhập tên học viên"
+        search_placeholder: "Nhập tên học viên hoặc email"
         status_label: "Trạng thái"
         status_all: "Tất cả"
         status_active: "Đang hoạt động"
@@ -112,10 +112,10 @@ vi:
         email_placeholder: "Nhập địa chỉ email"
         select_gender: "Chọn giới tính"
         save_changes: "Lưu thay đổi"
-      
+
       modal_edit_profile:
         edit_profile_title: "Chỉnh sửa thông tin học viên"
-      
+
       user_courses_list:
         status_not_started: "Chưa bắt đầu"
         status_in_progress: "Đang thực hiện"
