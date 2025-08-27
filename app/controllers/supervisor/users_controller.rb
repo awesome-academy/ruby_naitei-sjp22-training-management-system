@@ -4,9 +4,9 @@ class Supervisor::UsersController < Supervisor::BaseController
   before_action :load_trainee, only: %i(update_status show
   update_user_course_status delete_user_course update)
   before_action :set_css_class, only: %i(index show)
-  before_action :require_manager
   before_action :load_user_course,
                 only: %i(update_user_course_status delete_user_course)
+  authorize_resource
 
   # GET supervisor/users
   def index
@@ -65,7 +65,7 @@ class Supervisor::UsersController < Supervisor::BaseController
 
   def load_trainees
     @user_trainees = User.trainee.filter_by_name(params[:search])
-                         .filter_by_status(params[:status])
+                         .filter_by_status(params[:confirmed_at])
                          .by_course(params[:course])
                          .recent
   end
@@ -83,13 +83,8 @@ class Supervisor::UsersController < Supervisor::BaseController
   end
 
   def handle_update_status?
-    if params[:activated].present? &&
-       @user_trainee.update(activated: params[:activated], remember_digest: nil)
-      return true
-    end
-
-    flash[:danger] = t(".update_failed")
-    false
+    @user_trainee.update(confirmed_at: params[:confirmed_at])
+    true
   end
 
   def handle_bulk_statuses
@@ -114,8 +109,9 @@ class Supervisor::UsersController < Supervisor::BaseController
   def toggle_trainees_status trainees
     updated_count = 0
     trainees.each do |trainee|
-      new_status = trainee.activated? ? false : true
-      updated_count += 1 if trainee.update(activated: new_status,
+      new_status = trainee.confirmed_at? ? false : true
+      updated_count += 1 if trainee.update(confirmed_at:
+      new_status ? Time.current : nil,
                                            remember_digest: nill)
     end
     updated_count

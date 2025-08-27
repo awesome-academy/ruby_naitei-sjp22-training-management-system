@@ -28,8 +28,8 @@
           <i class="fas fa-toggle-on me-1"></i>
           <%= t(".status_label") %>
         </label>
-        <%= form.select :status,
-            options_for_select(user_status_options, params[:status]),
+        <%= form.select :confirmed_at,
+            options_for_select(user_status_options, params[:confirmed_at]),
             {},
             {class: "form-select status-select"} %>
       </div>

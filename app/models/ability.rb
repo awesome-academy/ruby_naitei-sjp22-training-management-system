@@ -1,0 +1,62 @@
+# app/models/ability.rb
+class Ability
+  include CanCan::Ability
+
+  def initialize user
+    return if user.blank?
+
+    case user.role.to_sym
+    when :trainee
+      trainee_permissions(user)
+    when :supervisor
+      supervisor_permissions(user)
+    when :admin
+      admin_permissions(user)
+    end
+  end
+
+  private
+  def trainee_permissions user
+    can :manage, DailyReport, user_id: user.id
+
+    can %i(read members subjects), Course, user_courses: {user_id: user.id}
+
+    can :read, Subject, courses: {user_courses: {user_id: user.id}}
+
+    can :update, UserSubject, user_id: user.id
+
+    can %i(update_document update_status update_spent_time destroy_document),
+        UserTask, user_id: user.id
+  end
+
+  def supervisor_permissions user
+    can :read, DailyReport, course_id: user.supervised_course_ids
+
+    can :manage, Subject
+    can :manage, Task
+    can :manage, Category
+
+    can %i(index show update update_status update_user_course_status
+    delete_user_course bulk_deactivate),
+        User
+
+    can %i(index show new create edit update members subjects
+    supervisors search_members leave add_subject),
+        Course, supervisors: {id: user.id}
+
+    can :manage, UserCourse, course_id: user.supervised_course_ids
+
+    can :manage, CourseSupervisor, course_id: user.supervised_course_ids
+
+    can %i(show create_task update_task update_score create_comment
+    destroy_comment update_comment finish destroy),
+        CourseSubject, course_id: user.supervised_course_ids
+    can :destroy_tasks, Subject, courses: {id: user.supervised_course_ids}
+  end
+
+  def admin_permissions _user
+    can :manage, :all
+    cannot :destroy, DailyReport
+    cannot :update, DailyReport
+  end
+end

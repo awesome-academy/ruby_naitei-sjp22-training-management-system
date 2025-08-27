@@ -1,5 +1,6 @@
 class Supervisor::DailyReportsController < Supervisor::BaseController
   # GET supervisor/daily_reports
+  authorize_resource
   def index
     supervised_course_ids = current_user.supervised_courses.pluck(:id)
 
