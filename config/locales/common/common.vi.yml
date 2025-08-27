@@ -1,0 +1,3 @@
+vi:
+  common:
+    access_denied: "Truy cập bị từ chối"

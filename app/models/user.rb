@@ -104,6 +104,13 @@ gender).freeze
 
   private
 
+  def user_avatar_google auth, user
+    return if auth.info.image.blank?
+
+    user.image.attach(io: Faraday.get(auth.info.image).body,
+                      filename: "#{user.name}_avatar.jpg")
+  end
+
   def birthday_within_valid_years
     return if birthday.nil?
 

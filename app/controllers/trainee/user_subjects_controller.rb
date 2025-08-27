@@ -1,5 +1,6 @@
 class Trainee::UserSubjectsController < Trainee::BaseController
   before_action :load_user_subject, only: %i(update)
+  authorize_resource
 
   USER_SUBJECT_PARAMS = %i(started_at completed_at status).freeze
 
@@ -14,7 +15,7 @@ class Trainee::UserSubjectsController < Trainee::BaseController
     if course_id && subject_id
       redirect_to trainee_course_subject_path(course_id, subject_id)
     else
-      redirect_back fallback_location: trainee_courses_path
+      redirect_back fallback_location: root_path
     end
   end
 
@@ -41,11 +42,15 @@ class Trainee::UserSubjectsController < Trainee::BaseController
   end
 
   def load_user_subject
-    @user_subject = current_user.user_subjects.find_by(id: params[:id])
+    @user_subject = UserSubject
+                    .find_by(id: params[:id])
     return if @user_subject
 
     flash[:danger] = t(".subject_not_found")
-    redirect_to trainee_courses_path
+    redirect_to trainee_course_subject_path(
+      @user_subject.course_subject.course_id, @user_subject.course_subject
+      .subject_id
+    )
   end
 
   def update?

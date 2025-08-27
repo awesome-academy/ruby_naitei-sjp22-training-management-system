@@ -212,41 +212,41 @@ ActiveRecord::Base.transaction do
   # --- Bước 1: Tạo các dữ liệu lõi (Users, Categories) ---
   puts "-> Đang tạo Users (Admins, Supervisors, Trainees)..."
   5.times do |n|
-    User.find_or_create_by!(email: "admin-#{n + 1}@example.com") do |user|
-      user.name = "Admin User #{n+1}"
-      user.password = "password"
-      user.password_confirmation = "password"
-      user.role = Settings.user.roles.admin
-      user.gender = Settings.user.genders.male
-      user.birthday = 30.years.ago
-      user.activated = true
-      user.activated_at = Time.zone.now
-    end
+  User.find_or_create_by!(email: "admin-#{n + 1}@example.com") do |user|
+    user.name = "Admin User #{n + 1}"
+    user.password = "password"
+    user.password_confirmation = "password"
+    user.role = Settings.user.roles.admin
+    user.gender = Settings.user.genders.male
+    user.birthday = 30.years.ago
+    user.confirmed_at = Time.zone.now   # sửa chỗ này
   end
-  20.times do |n|
-    User.find_or_create_by!(email: "supervisor-#{n + 1}@example.com") do |user|
-      user.name = "Supervisor #{n + 1}"
-      user.password = "password"
-      user.password_confirmation = "password"
-      user.role = Settings.user.roles.supervisor
-      user.gender = User.genders.keys.sample
-      user.birthday = Faker::Date.birthday(min_age: 28, max_age: 50)
-      user.activated = true
-      user.activated_at = Time.zone.now
-    end
+end
+
+20.times do |n|
+  User.find_or_create_by!(email: "supervisor-#{n + 1}@example.com") do |user|
+    user.name = "Supervisor #{n + 1}"
+    user.password = "password"
+    user.password_confirmation = "password"
+    user.role = Settings.user.roles.supervisor
+    user.gender = User.genders.keys.sample
+    user.birthday = Faker::Date.birthday(min_age: 28, max_age: 50)
+    user.confirmed_at = Time.zone.now   # sửa chỗ này
   end
-  200.times do |n|
-    User.find_or_create_by!(email: "trainee-#{n + 1}@example.com") do |user|
-      user.name = Faker::Name.name
-      user.password = "password"
-      user.password_confirmation = "password"
-      user.role = Settings.user.roles.trainee
-      user.gender = User.genders.keys.sample
-      user.birthday = Faker::Date.birthday(min_age: 20, max_age: 24)
-      user.activated = true
-      user.activated_at = Time.zone.now
-    end
+end
+
+200.times do |n|
+  User.find_or_create_by!(email: "trainee-#{n + 1}@example.com") do |user|
+    user.name = Faker::Name.name
+    user.password = "password"
+    user.password_confirmation = "password"
+    user.role = Settings.user.roles.trainee
+    user.gender = User.genders.keys.sample
+    user.birthday = Faker::Date.birthday(min_age: 20, max_age: 24)
+    user.confirmed_at = Time.zone.now   # sửa chỗ này
   end
+end
+
   supervisors = User.supervisor.to_a
   trainees = User.trainee.to_a
   puts "   + Đã tạo/cập nhật: #{User.admin.count} Admins, #{supervisors.count} Supervisors, #{trainees.count} Trainees."

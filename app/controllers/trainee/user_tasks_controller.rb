@@ -42,11 +42,12 @@ class Trainee::UserTasksController < Trainee::BaseController
   private
 
   def load_user_task
-    @user_task = current_user.user_tasks.find_or_create_by(
+    @user_task = UserTask.find_or_create_by(
       task_id: params[:task_id], user_subject_id: params[:user_subject_id]
     ) do |user_task|
       user_task.status = :not_done
       user_task.spent_time = nil
+      user_task.user = current_user
     end
     attachments = @user_task.documents.attachments
     attachments.includes(:blob).load

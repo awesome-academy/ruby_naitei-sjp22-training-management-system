@@ -14,8 +14,8 @@ class Trainee::CoursesController < Trainee::BaseController
     :comments
   ].freeze
   before_action :load_course, only: %i(show members subjects)
-  before_action :check_course_access, only: %i(show members subjects)
   before_action :set_courses_page_class
+  authorize_resource
 
   # GET /trainee/courses/:id
   def show
@@ -55,17 +55,6 @@ class Trainee::CoursesController < Trainee::BaseController
     return if @course
 
     flash[:danger] = t(".course_not_found")
-    redirect_to root_path
-  end
-
-  def check_course_access
-    # Allow access if user is admin, supervisor of the course, or enrolled in
-    # the course
-    return if current_user.admin?
-    return if @course.supervisors.include?(current_user)
-    return if @course.users.include?(current_user)
-
-    flash[:danger] = t(".access_denied")
     redirect_to root_path
   end
 end
