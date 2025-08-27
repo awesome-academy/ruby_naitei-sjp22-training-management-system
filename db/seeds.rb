@@ -211,7 +211,7 @@ end
 ActiveRecord::Base.transaction do
   # --- Bước 1: Tạo các dữ liệu lõi (Users, Categories) ---
   puts "-> Đang tạo Users (Admins, Supervisors, Trainees)..."
-  10.times do |n|
+  5.times do |n|
     User.find_or_create_by!(email: "admin-#{n + 1}@example.com") do |user|
       user.name = "Admin User #{n+1}"
       user.password = "password"
@@ -222,7 +222,7 @@ ActiveRecord::Base.transaction do
       user.skip_confirmation!
     end
   end
-  20.times do |n|
+  5.times do |n|
     User.find_or_create_by!(email: "supervisor-#{n + 1}@example.com") do |user|
       user.name = "Supervisor #{n + 1}"
       user.password = "password"
@@ -233,7 +233,7 @@ ActiveRecord::Base.transaction do
       user.skip_confirmation!
     end
   end
-  100.times do |n|
+  20.times do |n|
     User.find_or_create_by!(email: "trainee-#{n + 1}@example.com") do |user|
       user.name = Faker::Name.name
       user.password = "password"
