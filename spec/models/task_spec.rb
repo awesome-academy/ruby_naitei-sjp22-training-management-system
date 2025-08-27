@@ -39,8 +39,11 @@ RSpec.describe Task, type: :model do
     end
 
     context "with an associated Subject" do
-      let!(:subject) { create(:subject, name: "Math") }
-      let!(:task) { create(:task, :with_subject, taskable: subject, name: "Homework 1") }
+      let!(:subject) {create(:subject, name: "Math")}
+      let!(:task) do
+        create(:task, :with_subject, taskable: subject,
+name: "Homework 1")
+      end
 
       it "sets the correct associated taskable record" do
         expect(task.taskable).to eq(subject)
@@ -56,9 +59,10 @@ RSpec.describe Task, type: :model do
     end
 
     context "with a CourseSubject as a taskable" do
-      let!(:course_subject) { create(:course_subject) }
+      let!(:course_subject) {create(:course_subject)}
       let!(:task) do
-        create(:task, :with_course_subject, taskable: course_subject, name: "Course task")
+        create(:task, :with_course_subject, taskable: course_subject,
+name: "Course task")
       end
 
       it "sets the correct taskable" do

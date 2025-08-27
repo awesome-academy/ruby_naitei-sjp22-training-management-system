@@ -19,14 +19,14 @@ RSpec.describe Supervisor::TasksController do
     context "when user is not signed in" do
       it "redirects to login page for index" do
         get :index
-        expect(response).to redirect_to(/\/users\/sign_in/)
+        expect(response).to redirect_to(%r{/users/sign_in})
       end
 
       it "redirects to login page for create" do
         post :create,
              params: {task: attributes_for(:task, taskable_type: Subject.name,
              taskable_id: subject.id)}
-        expect(response).to redirect_to(/\/users\/sign_in/)
+        expect(response).to redirect_to(%r{/users/sign_in})
       end
     end
 
