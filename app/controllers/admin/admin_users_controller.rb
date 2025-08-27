@@ -81,14 +81,16 @@ class Admin::AdminUsersController < Admin::BaseController
     @supervisor = User.find_by(id: params[:supervisor_id], role: :supervisor)
     return if @supervisor
 
-    redirect_to admin_admin_users_path, alert: t("users.show.user_not_found")
+    flash[:danger] = t(".user_not_found")
+    redirect_to admin_admin_users_path
   end
 
   def load_admin
     @admin = User.admin.find_by(id: params[:id])
     return if @admin
 
-    redirect_to admin_admin_users_path, alert: t("users.show.user_not_found")
+    flash[:danger] = t(".user_not_found")
+    redirect_to admin_admin_users_path
   end
 
   def supervisor_params

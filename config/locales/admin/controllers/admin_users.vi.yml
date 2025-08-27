@@ -43,6 +43,7 @@ vi:
       show:
         actions: "Hành động"
         edit_profile: "Chỉnh sửa hồ sơ"
+        user_not_found: "Không tìm thấy người dùng"
       helpers:
         submit:
           user:
@@ -101,3 +102,4 @@ vi:
       promote:
         promote_success: "Đã thăng tiến thành công thành quản trị viên."
         promote_failed: "Thăng tiến thất bại. Vui lòng thử lại."
+        user_not_found: "Không tìm thấy người dùng"

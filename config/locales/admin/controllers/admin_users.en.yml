@@ -43,6 +43,7 @@ en:
       show:
         actions: "Actions"
         edit_profile: "Edit Profile"
+        user_not_found: "User not found."
       helpers:
         submit:
           user:
@@ -101,3 +102,4 @@ en:
       promote:
         promote_success: "Successfully promoted to administrator."
         promote_failed: "Promotion failed. Please try again."
+        user_not_found: "User not found."

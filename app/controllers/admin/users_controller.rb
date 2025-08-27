@@ -56,7 +56,6 @@ class Admin::UsersController < Admin::BaseController
   # PATCH /admin/users/bulk_deactivate
   def bulk_deactivate
     handle_bulk_statuses
-    redirect_to admin_users_path
   end
 
   # PATCH /admin/users/add_role_supervisor
@@ -144,7 +143,7 @@ class Admin::UsersController < Admin::BaseController
 
   def flash_no_selection
     flash[:danger] = t(".supervisor_no_selection")
-    redirect_to admin_users_path
+    redirect_to admin_users_path and return
   end
 
   def set_css_class
@@ -157,10 +156,10 @@ class Admin::UsersController < Admin::BaseController
     begin
       @user_trainees.where(id: params[:supervisor_ids])
                     .update_all(role: :supervisor)
+      true
     rescue StandardError
       flash[:danger] = t(".add_failed")
       false
     end
-    true
   end
 end
