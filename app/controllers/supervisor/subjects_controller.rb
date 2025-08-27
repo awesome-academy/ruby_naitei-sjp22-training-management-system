@@ -25,7 +25,7 @@ class Supervisor::SubjectsController < Supervisor::BaseController
   def create
     @subject = Subject.new(subject_params_for_create)
     if @subject.save
-      flash[:success] = t(".subject_created")
+      flash[:success] = t(".create_success")
       redirect_to supervisor_subjects_path
     else
       flash[:danger] = t(".create_failed")

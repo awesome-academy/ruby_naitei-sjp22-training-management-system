@@ -22,10 +22,10 @@ update_score show)
   before_action :require_manager
   authorize_resource class: CourseSubject.name
 
-  # GET /admin/courses/:course_id/subjects/:id
+  # GET /supervisor/courses/:course_id/subjects/:id
   def show; end
 
-  # POST /admin/courses/:course_id/subjects/:id/create_task
+  # POST /supervisor/courses/:course_id/subjects/:id/create_task
   def create_task
     flash[:success] = t(".create_success") if handle_create_task?
 
@@ -33,7 +33,7 @@ update_score show)
                                                       @course_subject.subject)
   end
 
-  # PATCH /admin/courses/:course_id/subjects/:id/update_task
+  # PATCH /supervisor/courses/:course_id/subjects/:id/update_task
   def update_task
     flash[:success] = t(".update_success") if handle_update_task?
 
@@ -41,7 +41,7 @@ update_score show)
                                                       @course_subject.subject)
   end
 
-  # PATCH /admin/courses/:course_id/subjects/:id/update_score
+  # PATCH /supervisor/courses/:course_id/subjects/:id/update_score
   def update_score
     flash[:success] = t(".update_success") if handle_update_score?
 
@@ -49,7 +49,7 @@ update_score show)
                                                       @course_subject.subject)
   end
 
-  # POST /admin/courses/:course_id/subjects/:id/create_comment
+  # POST /supervisor/courses/:course_id/subjects/:id/create_comment
   def create_comment
     flash[:success] = t(".create_success") if handle_create_comment?
 
@@ -57,7 +57,7 @@ update_score show)
                                                       @course_subject.subject)
   end
 
-  # DELETE /admin/courses/:course_id/subjects/:id/destroy_comment
+  # DELETE /supervisor/courses/:course_id/subjects/:id/destroy_comment
   def destroy_comment
     flash[:success] = t(".destroy_success") if handle_destroy_comment?
 
@@ -65,7 +65,7 @@ update_score show)
                                                       @course_subject.subject)
   end
 
-  # PATCH /admin/courses/:course_id/subjects/:id/update_comment
+  # PATCH /supervisor/courses/:course_id/subjects/:id/update_comment
   def update_comment
     flash[:success] = t(".update_success") if handle_update_comment?
 
@@ -82,7 +82,7 @@ update_score show)
     return if @course_subject
 
     flash[:danger] = t(".course_subject.not_found")
-    redirect_to admin_courses_path
+    redirect_to supervisor_courses_path
   end
 
   def load_subject
@@ -90,7 +90,7 @@ update_score show)
     return if @subject
 
     flash[:danger] = t(".subject.not_found")
-    redirect_to admin_courses_path
+    redirect_to supervisor_courses_path
   end
 
   def load_subject_tasks
@@ -117,7 +117,7 @@ update_score show)
     return if @task
 
     flash[:danger] = t(".task.not_found")
-    redirect_to admin_courses_path
+    redirect_to supervisor_courses_path
   end
 
   def handle_update_score?
@@ -176,11 +176,6 @@ update_score show)
     end
 
     @user_subject = @user_subjects_query.first if @user_subject.nil?
-
-    return if @user_subject
-
-    flash[:danger] = t(".user_subject.not_found")
-    redirect_to admin_courses_path
   end
 
   def user_tasks_size
@@ -197,7 +192,7 @@ update_score show)
   end
 
   def set_css_class
-    @page_class = Settings.page_classes.admin_subjects
+    @page_class = Settings.page_classes.supervisor_subjects
   end
 
   def reset_all_user_subjects_completion
