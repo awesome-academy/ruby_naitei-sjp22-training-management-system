@@ -17,7 +17,7 @@ class Trainee::SubjectsController < Trainee::BaseController
     return if @course
 
     flash[:danger] = t(".course_not_found")
-    redirect_to trainee_course_path(course_id: params[:course_id])
+    redirect_to root_path
   end
 
   def load_subject
@@ -25,7 +25,7 @@ class Trainee::SubjectsController < Trainee::BaseController
     return if @subject
 
     flash[:danger] = t(".subject_not_found")
-    redirect_to trainee_course_path(course_id: @course.id)
+    redirect_to trainee_course_path(@course)
   end
 
   def load_tasks
@@ -72,7 +72,7 @@ class Trainee::SubjectsController < Trainee::BaseController
       "ensure_user_enrollments failed: #{e.class}: #{e.message}"
     )
     flash[:danger] = t(".cannot_initialize_subject")
-    redirect_back fallback_location: trainee_courses_path
+    redirect_back fallback_location: root_path
   end
 
   def find_or_create_user_subject!
