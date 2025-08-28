@@ -31,10 +31,12 @@ vi:
       update_user_course_status:
         update_success: "Cập nhật trạng thái khóa học của người dùng thành công."
         update_failed: "Cập nhật trạng thái khóa học của người dùng không thành công."
+        course_not_found: "Không tìm thấy khóa học."
 
       delete_user_course:
         delete_success: "Xóa khóa học của người dùng thành công."
         delete_failed: "Xóa khóa học của người dùng không thành công."
+        course_not_found: "Không tìm thấy khóa học."
 
       filter_form:
         search_label: "Tìm kiếm học viên"
@@ -98,6 +100,8 @@ vi:
         update_success: "Cập nhật thông tin học viên thành công."
         update_failed: "Cập nhật thông tin học viên thất bại."
         name: "Tên"
+        trainee:
+          not_found: "Không tìm thấy học viên."
         table:
           id: "ID"
           courses: "Khóa học"
@@ -140,3 +144,5 @@ vi:
         status_in_progress: "Đang thực hiện"
         status_finished: "Hoàn thành"
         select_gender: "Chọn giới tính"
+      flash_no_selection:
+        trainee_no_selection: "Không có học viên nào được chọn."

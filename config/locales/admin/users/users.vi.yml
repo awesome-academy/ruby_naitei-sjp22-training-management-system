@@ -1,6 +1,8 @@
 vi:
   admin:
     users:
+      promote:
+        user_not_found: "Không tìm thấy người dùng"
       index:
         title: "Quản lý Giám sát viên"
         filter_title: "Bộ lọc và Tìm kiếm"
@@ -37,6 +39,7 @@ vi:
           actions: "Hành động"
         no_courses: "Không tìm thấy khóa học"
         showing_courses: "Hiển thị %{count} khóa học"
+        user_not_found: "Không tìm thấy người dùng"
 
       update:
         update_success: "Cập nhật hồ sơ thành công"
@@ -45,8 +48,7 @@ vi:
       delete_user_course:
         delete_success: "Xóa giám sát viên khỏi khóa học thành công"
         delete_failed: "Xóa giám sát viên khỏi khóa học thất bại"
-        course:
-          not_found: "Không tìm thấy khóa học"
+        course_not_found: "Không tìm thấy khóa học"
 
       update_status:
         update_success: "Cập nhật trạng thái giám sát viên thành công"

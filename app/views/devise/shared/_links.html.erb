@@ -18,8 +18,3 @@
   <%= link_to t(".didnt_receive_unlock_instructions"), "#" %><br />
 <% end %>
 
-<%- if devise_mapping.omniauthable? %>
-  <%- resource_class.omniauth_providers.each do |provider| %>
-    <%= button_to t(".sign_in_with", provider: OmniAuth::Utils.camelize(provider)), "#", data: { turbo: false } %><br />
-  <% end %>
-<% end %>

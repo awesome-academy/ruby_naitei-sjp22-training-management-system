@@ -19,7 +19,7 @@ class ConvertUsersToDevise < ActiveRecord::Migration[7.0]
     end
 
     ## Indexes
-    add_index :users, :reset_password_token, unique: true unless index_exists?(:users, :reset_password_token)
+    # add_index :users, :reset_password_token, unique: true unless index_exists?(:users, :reset_password_token)
     add_index :users, :confirmation_token, unique: true unless index_exists?(:users, :confirmation_token)
   end
 end
