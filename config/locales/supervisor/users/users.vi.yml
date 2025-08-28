@@ -35,6 +35,8 @@ vi:
       delete_user_course:
         delete_success: "Xóa khóa học của người dùng thành công."
         delete_failed: "Xóa khóa học của người dùng không thành công."
+        course:
+          not_found: "Khóa học của người dùng không tồn tại."
 
       filter_form:
         search_label: "Tìm kiếm học viên"

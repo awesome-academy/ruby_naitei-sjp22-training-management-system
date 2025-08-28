@@ -81,10 +81,16 @@ RSpec.describe Supervisor::UserCoursesController, type: :controller do
                                 course_id: course.id).count).to eq(2)
       end
 
-      it "returns a JSON response with added count and status :ok" do
+      it "returns a JSON response" do
         expect(response.content_type).to eq("application/json; charset=utf-8")
+      end
+
+      it "returns the correct added count in JSON" do
         json_response = JSON.parse(response.body)
         expect(json_response["added"]).to eq(2)
+      end
+
+      it "returns status :ok" do
         expect(response).to have_http_status(:ok)
       end
 
@@ -111,14 +117,23 @@ RSpec.describe Supervisor::UserCoursesController, type: :controller do
         post :create, params: valid_params, format: :json
       end
 
-      it "returns a JSON response with an error message and status :unprocessable_entity" do
-        expect(response.content_type).to eq("application/json; charset=utf-8")
-        json_response = JSON.parse(response.body)
-        expect(json_response["error"]).to eq(I18n.t(
-            "supervisor.user_courses.create.failed_to_add_trainee", name: trainee1.name
-            ))
-        expect(response).to have_http_status(:unprocessable_entity)
-      end
+    it "returns a JSON response" do
+      expect(response.content_type).to eq("application/json; charset=utf-8")
+    end
+
+    it "returns the correct error message in JSON" do
+      json_response = JSON.parse(response.body)
+      expect(json_response["error"]).to eq(
+        I18n.t(
+          "supervisor.user_courses.create.failed_to_add_trainee",
+          name: trainee1.name
+        )
+      )
+    end
+
+    it "returns status :unprocessable_entity" do
+      expect(response).to have_http_status(:unprocessable_entity)
+    end
 
       it "does not create any user courses" do
         expect(UserCourse.count).to eq(0)
@@ -132,9 +147,14 @@ RSpec.describe Supervisor::UserCoursesController, type: :controller do
         post :create, params: valid_params, format: :json
       end
 
-      it "returns a JSON response with an unexpected error message" do
+      it "returns the correct unexpected error message in JSON" do
         json_response = JSON.parse(response.body)
-        expect(json_response["error"]).to eq(I18n.t("supervisor.user_courses.create.unexpected_error"))
+        expect(json_response["error"]).to eq(
+          I18n.t("supervisor.user_courses.create.unexpected_error")
+        )
+      end
+
+      it "returns status :unprocessable_entity" do
         expect(response).to have_http_status(:unprocessable_entity)
       end
     end
