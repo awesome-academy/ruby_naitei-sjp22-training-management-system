@@ -35,7 +35,7 @@ class Supervisor::UsersController < Supervisor::BaseController
   # PATCH /supervisor/users/bulk_deactivate
   def bulk_deactivate
     handle_bulk_statuses
-    redirect_to supervisor_users_path
+    redirect_to supervisor_users_path and return
   end
 
   # PATCH /supervisor/users/:id/update_user_course_status
@@ -117,7 +117,6 @@ class Supervisor::UsersController < Supervisor::BaseController
 
   def flash_no_selection
     flash[:danger] = t(".trainee_no_selection")
-    redirect_to supervisor_users_path
   end
 
   def set_css_class

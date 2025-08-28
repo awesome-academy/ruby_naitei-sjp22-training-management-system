@@ -31,6 +31,8 @@ en:
       delete_user_course:
         delete_success: "User course deleted successfully."
         delete_failed: "Failed to delete user course."
+        course:
+          not_found: "User course not found."
 
       update_user_course_status:
         update_success: "User course status updated successfully."

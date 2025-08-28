@@ -60,7 +60,8 @@ class Trainee::SubjectsController < Trainee::BaseController
   end
 
   def ensure_user_enrollments
-    @user_course = UserCourse.find_by(course_id: @course.id)
+    @user_course = UserCourse.find_by(course_id: @course.id,
+                                      user_id: current_user.id)
     return unless @user_course && @course_subject
 
     ActiveRecord::Base.transaction do
