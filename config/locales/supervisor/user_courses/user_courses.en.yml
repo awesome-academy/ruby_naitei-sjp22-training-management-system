@@ -1,0 +1,6 @@
+vi:
+  supervisor:
+    user_courses:
+      create:
+        failed_to_add_trainee: "Can not add trainee %{name}"
+        unexpected_error: "An unexpected error occurred"

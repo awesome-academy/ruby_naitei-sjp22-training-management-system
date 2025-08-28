@@ -1,8 +1,8 @@
 vi:
   trainee:
     subjects:
-      subject_not_found: "Không tìm thấy môn học."
-      course_not_found: "Không tìm thấy khóa học."
+      subject_not_found: "Không tìm thấy môn học"
+      course_not_found: "Không tìm thấy khóa học"
       subject_in_progress_failed: "Không thể chuyển môn học sang trạng thái đang tiến hành."
 
       task_details:

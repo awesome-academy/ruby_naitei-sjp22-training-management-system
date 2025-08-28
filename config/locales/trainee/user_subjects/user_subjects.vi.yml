@@ -6,4 +6,4 @@ vi:
         update_failed: "Không thể cập nhật môn học. Vui lòng thử lại."
         subject_updated: "Đã cập nhật môn học"
 
-      subject_not_found: "Không tìm thấy môn học."
+      subject_not_found: "Không tìm thấy môn học"

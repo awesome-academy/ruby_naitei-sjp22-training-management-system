@@ -1,0 +1,6 @@
+vi:
+  supervisor:
+    user_courses:
+      create:
+        failed_to_add_trainee: "Không thể thêm học viên %{name}"
+        unexpected_error: "Đã xảy ra lỗi không mong muốn"

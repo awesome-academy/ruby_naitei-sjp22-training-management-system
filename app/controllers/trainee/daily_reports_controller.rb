@@ -32,8 +32,6 @@ commit).freeze
       save_as_draft
     when Settings.daily_report.status.submitted.to_s
       submit_report
-    else
-      render :new, status: :unprocessable_entity
     end
   end
 
@@ -47,8 +45,6 @@ commit).freeze
       update_as_draft
     when Settings.daily_report.status.submitted.to_s
       update_and_submit_report
-    else
-      render :edit, status: :unprocessable_entity
     end
   end
 
@@ -124,7 +120,7 @@ commit).freeze
     if @daily_report.destroy
       flash[:success] = t(".destroy_success")
     else
-      flash[:danger] = t(".destroy_failed")
+      flash[:danger] = t("trainee.daily_reports.destroy.destroy_failed")
     end
   end
 
