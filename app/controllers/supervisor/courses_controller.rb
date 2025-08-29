@@ -36,11 +36,11 @@ class Supervisor::CoursesController < Supervisor::BaseController
   def index
     @statuses = build_statuses
 
-    @q = accessible_courses
-         .includes(:user)
-         .with_counts
-         .ordered_by_start_date
-         .ransack(params[:q])
+    @q = Course.accessible_by(current_ability)
+               .includes(:user)
+               .with_counts
+               .ordered_by_start_date
+               .ransack(params[:q])
     @pagy, @courses = pagy(@q.result(distinct: true))
   end
 
@@ -267,19 +267,6 @@ class Supervisor::CoursesController < Supervisor::BaseController
 
   def course_params
     params.require(:course).permit Course::COURSE_PARAMS
-  end
-
-  def accessible_courses
-    if current_user&.admin?
-      Course.all
-    else
-      Course.where(
-        "courses.user_id = ? OR courses.id IN (
-          SELECT course_id FROM course_supervisors WHERE user_id = ?
-        )",
-        current_user.id, current_user.id
-      )
-    end
   end
 
   def load_course

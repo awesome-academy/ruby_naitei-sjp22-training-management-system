@@ -1,7 +1,0 @@
-vi:
-  trainee:
-    subjects:
-      show:
-        course_not_found: "Không tìm thấy khóa học"
-        subject_not_found: "Không tìm thấy môn học"
-        cannot_initialize_subject: "Không thể khởi tạo dữ liệu môn học. Vui lòng thử lại."

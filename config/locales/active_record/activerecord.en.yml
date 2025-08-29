@@ -78,6 +78,8 @@ en:
             documents:
               invalid_document_type: "is not a valid document type. Allowed types: %{types}"
               document_size_exceeded: "exceeds the maximum size of %{size} MB"
+            user_id:
+              taken: "has already been taken"
       messages:
         member_to_after_member_from: "must be after member from date"
         finish_date_after_start_date: "must be after start date"

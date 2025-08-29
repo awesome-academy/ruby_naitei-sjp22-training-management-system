@@ -25,11 +25,11 @@ class Trainee::CoursesController < Trainee::BaseController
 
   # GET /trainee/courses/:id/members
   def members
-    @trainers = @course.supervisors.includes :user_courses
+    @trainers = @course.users.supervisor.includes :user_courses
     @pagy, @trainees = pagy(@course.user_courses.trainees,
                             limit: Settings.pagination.course_members_per_page)
     @trainee_count = @pagy.count
-    @trainer_count = @trainers.count
+    @trainer_count = @trainers.size
     @subject_count = @course.subjects.count
   end
 

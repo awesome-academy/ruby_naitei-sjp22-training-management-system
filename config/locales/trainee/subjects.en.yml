@@ -1,7 +1,0 @@
-en:
-  trainee:
-    subjects:
-      show:
-        course_not_found: "Course not found"
-        subject_not_found: "Subject not found"
-        cannot_initialize_subject: "Cannot initialize subject data. Please try again."

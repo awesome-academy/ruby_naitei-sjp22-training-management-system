@@ -5,6 +5,7 @@ en:
       trainee_no_selection: "No trainees selected."
       bulk_statuses_success: "%{count} trainees successfully updated."
       bulk_statuses_failed: "Failed to update trainees."
+      course_not_found: "Course not found."
 
       update_status:
         update_success: "Trainee status updated successfully."

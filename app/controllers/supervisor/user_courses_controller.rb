@@ -44,7 +44,8 @@ class Supervisor::UserCoursesController < Supervisor::BaseController
           if user_course.save
             created_count += 1
           else
-            error_message = t(".failed_to_add_trainee", name: trainee.name)
+            error_message = t("courses.user_courses.failed_to_add_trainee",
+                              name: trainee.name)
             raise ActiveRecord::Rollback
           end
         end
@@ -58,7 +59,7 @@ class Supervisor::UserCoursesController < Supervisor::BaseController
     end
   rescue StandardError => e
     Rails.logger.error("Failed to add trainees to course: #{e.message}")
-    {success: false, error_message: t(".unexpected_error")}
+    {success: false, error_message: t("courses.user_courses..unexpected_error")}
   end
 
   def load_course

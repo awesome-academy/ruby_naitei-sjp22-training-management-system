@@ -5,6 +5,7 @@ vi:
       trainee_no_selection: "Không có học viên nào được chọn."
       bulk_statuses_success: "Đã thay đổi trạng thái thành công %{count} học viên."
       bulk_statuses_failed: "Thay đổi trạng thái học viên không thành công."
+      course_not_found: "Không tìm thấy khóa học."  
 
       update_status:
         update_success: "Cập nhật trạng thái  học viên thành công."

@@ -122,9 +122,9 @@ commit).freeze
 
   def handle_report_destroy
     if @daily_report.destroy
-      flash[:success] = t(".destroy_success")
+      flash[:success] = t("trainee.daily_reports.destroy.destroy_success")
     else
-      flash[:danger] = t(".destroy_failed")
+      flash[:danger] = t("trainee.daily_reports.destroy.destroy_failed")
     end
   end
 
