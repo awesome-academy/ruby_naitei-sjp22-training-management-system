@@ -1,6 +1,8 @@
 en:
   admin:
     users:
+      promote:
+        user_not_found: "User not found"
       index:
         title: "Supervisor Management"
         filter_title: "Filter and Search"
@@ -16,6 +18,7 @@ en:
         no_supervisors_description: "No supervisors match your current filter criteria. Try adjusting your search parameters."
         add_supervisor: "Add Supervisor"
         showing_results: "Showing filtered results"
+        user_not_found: "User not found"
 
       show:
         actions: "Actions"
@@ -45,8 +48,7 @@ en:
       delete_user_course:
         delete_success: "Supervisor removed from course successfully"
         delete_failed: "Failed to remove supervisor from course"
-        course:
-          not_found: "Course not found"
+        course_not_found: "Course not found"
 
       update_status:
         update_success: "Supervisor status updated successfully"

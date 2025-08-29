@@ -1,0 +1,9 @@
+vi:
+  supervisor:
+    user_courses:
+      create:
+        unexpected_error: "Đã xảy ra lỗi không mong muốn khi thêm học viên vào khóa học."
+        failed_to_add_trainee: "Không thể thêm học viên %{name} vào khóa học."
+      destroy:
+        unexpected_error: "Đã xảy ra lỗi không mong muốn khi xóa học viên khỏi khóa học."
+        failed_to_remove_trainee: "Không thể xóa học viên %{name} khỏi khóa học."

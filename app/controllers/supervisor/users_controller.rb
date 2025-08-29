@@ -28,12 +28,6 @@ class Supervisor::UsersController < Supervisor::BaseController
     redirect_to session.delete(:forwarding_url) || supervisor_users_path
   end
 
-  # PATCH /supervisor/users/bulk_deactivate
-  def bulk_deactivate
-    handle_bulk_statuses
-    redirect_to supervisor_users_path
-  end
-
   # PATCH /supervisor/users/:id/update_user_course_status
   def update_user_course_status
     flash[:success] = t(".update_success") if update_user_course_status?
@@ -79,36 +73,19 @@ class Supervisor::UsersController < Supervisor::BaseController
   end
 
   def handle_update_status?
-    @user_trainee.update(confirmed_at: params[:confirmed_at])
-    true
-  end
+    return true if @user_trainee.update(confirmed_at: params[:confirmed_at])
 
-  def handle_bulk_statuses
-    trainee_ids = params[:trainee_ids]
-
-    return flash_no_selection if trainee_ids.blank?
-
-    trainees = User.where(id: trainee_ids)
-    updated_count = toggle_trainees_status(trainees)
-
-    flash_bulk_status_result(updated_count)
-  end
-
-  def flash_bulk_status_result updated_count
-    if updated_count.positive?
-      flash[:success] = t(".bulk_statuses_success", count: updated_count)
-    else
-      flash[:danger] = t(".bulk_statuses_failed")
-    end
+    flash[:danger] = t(".update_failed")
+    false
   end
 
   def toggle_trainees_status trainees
     updated_count = 0
     trainees.each do |trainee|
       new_status = trainee.confirmed_at? ? false : true
-      updated_count += 1 if trainee.update(confirmed_at:
-      new_status ? Time.current : nil,
-                                           remember_digest: nill)
+      if trainee.update(confirmed_at: new_status ? Time.current : nil)
+        updated_count += 1
+      end
     end
     updated_count
   end
@@ -134,7 +111,7 @@ class Supervisor::UsersController < Supervisor::BaseController
       end
     return if @user_course
 
-    flash[:danger] = t(".course.not_found")
+    flash[:danger] = t(".course_not_found")
     redirect_to supervisor_user_path(@user_trainee)
   end
 

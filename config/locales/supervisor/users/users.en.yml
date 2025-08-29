@@ -31,10 +31,12 @@ en:
       delete_user_course:
         delete_success: "User course deleted successfully."
         delete_failed: "Failed to delete user course."
-      
+        course_not_found: "Course not found."
+
       update_user_course_status:
         update_success: "User course status updated successfully."
         update_failed: "Failed to update user course status."
+        course_not_found: "Course not found."
 
       filter_form:
         search_label: "Search Trainees"
@@ -98,6 +100,8 @@ en:
         update_success: "Trainee profile updated successfully."
         update_failed: "Failed to update trainee profile."
         name: "Name"
+        trainee:
+          not_found: "Trainee not found."
         table:
           id: "ID"
           courses: "Courses"
@@ -140,3 +144,5 @@ en:
         status_in_progress: "In Progress"
         status_finished: "Finished"
         select_gender: "Select Gender"
+      flash_no_selection:
+        trainee_no_selection: "No trainees selected."

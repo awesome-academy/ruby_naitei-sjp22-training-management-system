@@ -81,7 +81,7 @@ update_score show)
     return if @course_subject
 
     flash[:danger] = t(".course_subject.not_found")
-    redirect_to admin_courses_path
+    redirect_to supervisor_courses_path
   end
 
   def load_subject
@@ -89,7 +89,7 @@ update_score show)
     return if @subject
 
     flash[:danger] = t(".subject.not_found")
-    redirect_to admin_courses_path
+    redirect_to supervisor_courses_path
   end
 
   def load_subject_tasks
@@ -116,7 +116,7 @@ update_score show)
     return if @task
 
     flash[:danger] = t(".task.not_found")
-    redirect_to admin_courses_path
+    redirect_to supervisor_courses_path
   end
 
   def handle_update_score?
@@ -176,10 +176,7 @@ update_score show)
 
     @user_subject = @user_subjects_query.first if @user_subject.nil?
 
-    return if @user_subject
-
-    flash[:danger] = t(".user_subject.not_found")
-    redirect_to admin_courses_path
+    nil if @user_subject
   end
 
   def user_tasks_size

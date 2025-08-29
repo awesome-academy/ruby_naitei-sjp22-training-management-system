@@ -51,12 +51,6 @@ class Admin::UsersController < Admin::BaseController
     redirect_to admin_user_path(@user_supervisor)
   end
 
-  # PATCH /admin/users/bulk_deactivate
-  def bulk_deactivate
-    handle_bulk_statuses
-    redirect_to admin_users_path
-  end
-
   # PATCH /admin/users/add_role_supervisor
   def add_role_supervisor
     flash[:success] = t(".add_success") if handle_add_role_supervisor?
@@ -76,7 +70,7 @@ class Admin::UsersController < Admin::BaseController
                                    .find_by(course_id: params[:course_id])
     return if @user_course
 
-    flash[:danger] = t(".course.not_found")
+    flash[:danger] = t(".course_not_found")
     redirect_to admin_user_path(@user_supervisor)
   end
 
@@ -111,25 +105,6 @@ class Admin::UsersController < Admin::BaseController
   def update_status?
     @user_supervisor.update(confirmed_at: params[:confirmed_at])
     true
-  end
-
-  def handle_bulk_statuses
-    supervisor_ids = params[:supervisor_ids]
-
-    return flash_no_selection if supervisor_ids.blank?
-
-    supervisors = User.where(id: supervisor_ids)
-    updated_count = toggle_supervisors_status(supervisors)
-
-    flash_bulk_status_result(updated_count)
-  end
-
-  def flash_bulk_status_result updated_count
-    if updated_count.positive?
-      flash[:success] = t(".bulk_statuses_success", count: updated_count)
-    else
-      flash[:danger] = t(".bulk_statuses_failed")
-    end
   end
 
   def toggle_supervisors_status supervisors

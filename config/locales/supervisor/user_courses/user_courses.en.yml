@@ -1,0 +1,9 @@
+en:
+  supervisor:
+    user_courses:
+      create:
+        success: "Successfully added trainee to course."
+        failed: "Failed to add trainee to course."
+      destroy:
+        success: "Successfully removed trainee from course."
+        failed: "Failed to remove trainee from course."

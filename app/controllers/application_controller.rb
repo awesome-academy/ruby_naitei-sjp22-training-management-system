@@ -10,6 +10,12 @@ class ApplicationController < ActionController::Base
   before_action :logged_in_user, unless: :devise_controller?
   before_action :store_user_location
 
+  rescue_from CanCan::AccessDenied do
+    flash[:danger] = t("common.access_denied")
+
+    redirect_back(fallback_location: root_path)
+  end
+
   protected
 
   attr_accessor :page_class
