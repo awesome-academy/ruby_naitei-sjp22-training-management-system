@@ -91,7 +91,7 @@ class Supervisor::UsersController < Supervisor::BaseController
 
   def handle_update_status?
     if params[:activated].present? &&
-       @user_trainee.update(activated: params[:activated])
+       @user_trainee.update(activated: params[:activated], remember_digest: nil)
       return true
     end
 
